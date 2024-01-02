@@ -19,6 +19,7 @@
 		141E8ADB2B44394500C4C3AF /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8ADA2B44394500C4C3AF /* LoginViewViewModel.swift */; };
 		141E8ADD2B443E3B00C4C3AF /* MCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8ADC2B443E3B00C4C3AF /* MCButton.swift */; };
 		141E8ADF2B443F1600C4C3AF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8ADE2B443F1600C4C3AF /* RegisterView.swift */; };
+		141E8AE12B44599400C4C3AF /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		141E8ADA2B44394500C4C3AF /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
 		141E8ADC2B443E3B00C4C3AF /* MCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCButton.swift; sourceTree = "<group>"; };
 		141E8ADE2B443F1600C4C3AF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				141E8ADA2B44394500C4C3AF /* LoginViewViewModel.swift */,
+				141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -159,9 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				141E8A892B42E13E00C4C3AF /* LoginView.swift */,
+				141E8ADE2B443F1600C4C3AF /* RegisterView.swift */,
 				141E8AD42B4434EA00C4C3AF /* HeaderView.swift */,
 				141E8ADC2B443E3B00C4C3AF /* MCButton.swift */,
-				141E8ADE2B443F1600C4C3AF /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			files = (
 				141E8ADB2B44394500C4C3AF /* LoginViewViewModel.swift in Sources */,
 				141E8ADD2B443E3B00C4C3AF /* MCButton.swift in Sources */,
+				141E8AE12B44599400C4C3AF /* RegisterViewViewModel.swift in Sources */,
 				141E8A8A2B42E13E00C4C3AF /* LoginView.swift in Sources */,
 				141E8ADF2B443F1600C4C3AF /* RegisterView.swift in Sources */,
 				141E8AD52B4434EA00C4C3AF /* HeaderView.swift in Sources */,
