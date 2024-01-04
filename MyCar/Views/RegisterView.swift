@@ -12,13 +12,13 @@ import Combine
 struct RegisterView: View {
    @StateObject var viewModel = RegisterViewViewModel()
     
+    
     var body: some View {
+      
         VStack {
             // Header
             HeaderView(title: "Register", subtitle: "Start today", background: UIImage(named: "background")!)
-                
             
-           
             HStack {
                Spacer()
                 TextField("Full Name", text: $viewModel.name)
@@ -31,6 +31,7 @@ struct RegisterView: View {
                     .cornerRadius(8)
                     .foregroundColor(.black)
                 Spacer()
+                
             }
             HStack {
                 Spacer()
@@ -64,14 +65,12 @@ struct RegisterView: View {
                 viewModel.register()
             }
             .frame(height: 80)
-            .padding()
         }
-        .offset(y: -50)
-    
+        .offset(y: -90)
     }
-      
+
 }
-    
+        
 #Preview {
     RegisterView()
 }
