@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1404C9FA2B4A025600A248D7 /* Constanst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1404C9F92B4A025600A248D7 /* Constanst.swift */; };
 		141E8A882B42E13E00C4C3AF /* MyCarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8A872B42E13E00C4C3AF /* MyCarApp.swift */; };
 		141E8A8A2B42E13E00C4C3AF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8A892B42E13E00C4C3AF /* LoginView.swift */; };
 		141E8A8E2B42E13F00C4C3AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141E8A8D2B42E13F00C4C3AF /* Assets.xcassets */; };
@@ -20,6 +21,8 @@
 		141E8ADD2B443E3B00C4C3AF /* MCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8ADC2B443E3B00C4C3AF /* MCButton.swift */; };
 		141E8ADF2B443F1600C4C3AF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8ADE2B443F1600C4C3AF /* RegisterView.swift */; };
 		141E8AE12B44599400C4C3AF /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */; };
+		14E000162B4818E700660340 /* AddNewCarCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E000152B4818E700660340 /* AddNewCarCV.swift */; };
+		14E000182B4823D400660340 /* CarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E000172B4823D300660340 /* CarListViewModel.swift */; };
 		14E0FFEB2B480EBD00660340 /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0FFEA2B480EBD00660340 /* CarModel.swift */; };
 		14E0FFEE2B480F4E00660340 /* LocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0FFED2B480F4E00660340 /* LocalService.swift */; };
 		14E0FFF02B480F6B00660340 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0FFEF2B480F6B00660340 /* NetworkService.swift */; };
@@ -45,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1404C9F92B4A025600A248D7 /* Constanst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constanst.swift; sourceTree = "<group>"; };
 		141E8A842B42E13E00C4C3AF /* MyCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		141E8A872B42E13E00C4C3AF /* MyCarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCarApp.swift; sourceTree = "<group>"; };
 		141E8A892B42E13E00C4C3AF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 		141E8ADC2B443E3B00C4C3AF /* MCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCButton.swift; sourceTree = "<group>"; };
 		141E8ADE2B443F1600C4C3AF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
+		14E000152B4818E700660340 /* AddNewCarCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCarCV.swift; sourceTree = "<group>"; };
+		14E000172B4823D300660340 /* CarListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewModel.swift; sourceTree = "<group>"; };
 		14E0FFEA2B480EBD00660340 /* CarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
 		14E0FFED2B480F4E00660340 /* LocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalService.swift; sourceTree = "<group>"; };
 		14E0FFEF2B480F6B00660340 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -116,9 +122,9 @@
 		141E8A862B42E13E00C4C3AF /* MyCar */ = {
 			isa = PBXGroup;
 			children = (
+				141E8A872B42E13E00C4C3AF /* MyCarApp.swift */,
 				14E0FFF12B480FB000660340 /* cars.json */,
 				14E0FFEC2B480F3C00660340 /* Service */,
-				141E8A872B42E13E00C4C3AF /* MyCarApp.swift */,
 				141E8AD12B44344300C4C3AF /* Models */,
 				141E8AD22B44345100C4C3AF /* ViewModels */,
 				141E8AD32B44346200C4C3AF /* Views */,
@@ -167,6 +173,7 @@
 			children = (
 				141E8ADA2B44394500C4C3AF /* LoginViewViewModel.swift */,
 				141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */,
+				14E000172B4823D300660340 /* CarListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 				141E8AD42B4434EA00C4C3AF /* HeaderView.swift */,
 				141E8ADC2B443E3B00C4C3AF /* MCButton.swift */,
 				14E0FFF72B48140D00660340 /* CarEditCV.swift */,
+				14E000152B4818E700660340 /* AddNewCarCV.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 			children = (
 				14E0FFED2B480F4E00660340 /* LocalService.swift */,
 				14E0FFEF2B480F6B00660340 /* NetworkService.swift */,
+				1404C9F92B4A025600A248D7 /* Constanst.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -330,9 +339,12 @@
 				14E0FFEE2B480F4E00660340 /* LocalService.swift in Sources */,
 				141E8A8A2B42E13E00C4C3AF /* LoginView.swift in Sources */,
 				141E8ADF2B443F1600C4C3AF /* RegisterView.swift in Sources */,
+				14E000182B4823D400660340 /* CarListViewModel.swift in Sources */,
 				14E0FFF82B48140D00660340 /* CarEditCV.swift in Sources */,
+				14E000162B4818E700660340 /* AddNewCarCV.swift in Sources */,
 				14E0FFEB2B480EBD00660340 /* CarModel.swift in Sources */,
 				141E8AD52B4434EA00C4C3AF /* HeaderView.swift in Sources */,
+				1404C9FA2B4A025600A248D7 /* Constanst.swift in Sources */,
 				141E8A882B42E13E00C4C3AF /* MyCarApp.swift in Sources */,
 				141E8AD92B44359F00C4C3AF /* User.swift in Sources */,
 			);

@@ -31,11 +31,16 @@ struct LoginView: View {
                         TextField("Email Address", text: $viewModel.email)
                             .textFieldStyle(DefaultTextFieldStyle())
                             .autocapitalization(.none)
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 10)
+                            .padding(.horizontal, 22)
+                            .padding(.vertical, 12)
                             .background(Color.white)
                             .cornerRadius(8)
                             .foregroundColor(.black)
+                            .overlay(
+                        Image(systemName: "person.circle")
+                            .foregroundColor(.gray),
+                             alignment: .leading
+                        )
                         Spacer()
                     }
                     
@@ -43,11 +48,16 @@ struct LoginView: View {
                         Spacer()
                         SecureField("Password", text: $viewModel.password)
                             .textFieldStyle(DefaultTextFieldStyle())
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 10)
+                            .padding(.horizontal, 22)
+                            .padding(.vertical, 12)
                             .background(Color.white)
                             .cornerRadius(8)
                             .foregroundColor(.black)
+                            .overlay(
+                                Image(systemName: "lock")
+                                    .foregroundColor(.gray),
+                                     alignment: .leading
+                            )
                         Spacer()
                     }
                     
@@ -66,7 +76,7 @@ struct LoginView: View {
                 VStack {
                     Text("New around here?")
                         .foregroundColor(Color.white)
-                    NavigationLink("Create An Account", destination: RegisterView())
+                    NavigationLink("Create An Account", destination: AddNewCarCV())
                 }
                 .padding(.bottom, 50)
              

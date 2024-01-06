@@ -13,8 +13,15 @@ struct CarEditCV: View {
     var body: some View {
         NavigationStack {
             List {
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                Text("Test")
             }
+            .navigationTitle("My Cars")
+            .navigationBarItems(trailing: Button(action: {
+                        
+                    }) {
+                        Image(systemName: "car.fill")
+                            .foregroundColor(.blue)
+                    })
         }
     }
 }

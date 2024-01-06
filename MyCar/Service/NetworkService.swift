@@ -8,5 +8,6 @@
 import Foundation
 
 protocol NetworkService {
-    
+    func download(_ resource: String) async throws -> [CarModel]
+    var type : String { get }
 }
