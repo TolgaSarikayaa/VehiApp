@@ -16,6 +16,7 @@ struct AddNewCarCV: View {
     @State private var isBrandPickerVisible = false
     @State private var selectedBrand: String = ""
     @State private var selectedDate = Date()
+    @State private var milage: String = ""
     
     init() {
         self.carListViewModel = CarListViewModel(service: LocalService())
@@ -55,7 +56,7 @@ struct AddNewCarCV: View {
                  }
 
                  HStack {
-                     Text("Selected Date: \(selectedDate, formatter: DateFormatter.date)")
+                     Text("Date: \(selectedDate, formatter: DateFormatter.date)")
                          .onTapGesture {
                              isDatePickerVisible.toggle()
                          }
@@ -69,6 +70,11 @@ struct AddNewCarCV: View {
                              .foregroundColor(.blue)
                      }
                  }
+            
+              HStack {
+                TextField("Enter Milage", text: $milage)
+                    .keyboardType(.numberPad)
+              }
 
                  if isDatePickerVisible {
                      DatePicker("", selection: $selectedDate, displayedComponents: .date)
@@ -78,6 +84,7 @@ struct AddNewCarCV: View {
              .task {
                  await carListViewModel.downloadCars()
              }
+        
          }
      }
 
