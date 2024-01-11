@@ -36,4 +36,8 @@ struct carViewModel {
     var brand : String {
         car.brand
     }
+    
+    var models : [String] {
+        car.models
+    }
 }
