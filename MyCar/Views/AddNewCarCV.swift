@@ -28,97 +28,103 @@ struct AddNewCarCV: View {
     var body: some View {
         NavigationStack {
             List {
-                HStack {
-                    TextField("Select Brand", text: $selectedBrand)
-                        .disabled(true)
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        isBrandPickerVisible.toggle()
-                    }) {
-                        Image(systemName: "chevron.down")
-                            .foregroundColor(.blue)
-                    }
-                }
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    isBrandPickerVisible.toggle()
-                }
                 
-                if isBrandPickerVisible {
-                    Picker(selection: $selectedBrandIndex, label: Text("")) {
-                        ForEach(carListViewModel.carList.indices, id: \.self) { index in
-                            Text(carListViewModel.carList[index].brand)
+                Section(header: Text("Select Brand and Model")) {
+                    HStack {
+                        TextField("Select Brand", text: $selectedBrand)
+                            .disabled(true)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            isBrandPickerVisible.toggle()
+                        }) {
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.blue)
                         }
                     }
-                    .pickerStyle(MenuPickerStyle())
-                    .onChange(of: selectedBrandIndex) { _ in
-                        selectedBrand = carListViewModel.carList[selectedBrandIndex].brand
+                    .contentShape(Rectangle())
+                    .onTapGesture {
                         isBrandPickerVisible.toggle()
                     }
-                }
-                
-                HStack {
-                    TextField("Select Model", text: $selectedModel)
-                        .disabled(true)
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        isModelPickerVisible.toggle()
-                    }) {
-                        Image(systemName: "chevron.down")
-                            .foregroundStyle(.blue)
-                    }
-                }
-                
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    isModelPickerVisible.toggle()
-                }
-                
-                if isModelPickerVisible {
-                    let selectedBrandModels = carListViewModel.carList[selectedBrandIndex].models
-                    
-                    Picker(selection: $selectedModelIndex, label: Text("")) {
-                        ForEach(selectedBrandModels.indices, id: \.self) { index in
-                            Text(selectedBrandModels[index])
+
+                    if isBrandPickerVisible {
+                        Picker(selection: $selectedBrandIndex, label: Text("")) {
+                            ForEach(carListViewModel.carList.indices, id: \.self) { index in
+                                Text(carListViewModel.carList[index].brand)
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
+                        .onChange(of: selectedBrandIndex) { _ in
+                            selectedBrand = carListViewModel.carList[selectedBrandIndex].brand
+                            isBrandPickerVisible.toggle()
                         }
                     }
-                    .pickerStyle(MenuPickerStyle())
-                    .onChange(of: selectedModelIndex) { _ in
-                        selectedModel = selectedBrandModels[selectedModelIndex]
+
+                    HStack {
+                        TextField("Select Model", text: $selectedModel)
+                            .disabled(true)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            isModelPickerVisible.toggle()
+                        }) {
+                            Image(systemName: "chevron.down")
+                                .foregroundStyle(.blue)
+                        }
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
                         isModelPickerVisible.toggle()
                     }
                     
+                    if isModelPickerVisible {
+                        let selectedBrandModels = carListViewModel.carList[selectedBrandIndex].models
+                        
+                        Picker(selection: $selectedModelIndex, label: Text("")) {
+                            ForEach(selectedBrandModels.indices, id: \.self) { index in
+                                Text(selectedBrandModels[index])
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
+                        .onChange(of: selectedModelIndex) { _ in
+                            selectedModel = selectedBrandModels[selectedModelIndex]
+                            isModelPickerVisible.toggle()
+                        }
+                        
+                    }
+
                 }
-                
-                HStack {
-                    Text("Date: \(selectedDate, formatter: DateFormatter.date)")
-                        .onTapGesture {
+            
+                Section(header: Text("Select release date")) {
+                    HStack {
+                        Text("Date: \(selectedDate, formatter: DateFormatter.date)")
+                            .onTapGesture {
+                                isDatePickerVisible.toggle()
+                            }
+                        
+                        Spacer()
+                        
+                        Button(action: {
                             isDatePickerVisible.toggle()
+                        }) {
+                            Image(systemName: "calendar")
+                                .foregroundColor(.blue)
                         }
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        isDatePickerVisible.toggle()
-                    }) {
-                        Image(systemName: "calendar")
-                            .foregroundColor(.blue)
+                    }
+                    if isDatePickerVisible {
+                        DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                            .datePickerStyle(.graphical)
+                    }
+                }
+                Section(header:Text("Select milage information")) {
+                    HStack {
+                        TextField("Enter Milage", text: $milage)
+                            .keyboardType(.numberPad)
                     }
                 }
                 
-                HStack {
-                    TextField("Enter Milage", text: $milage)
-                        .keyboardType(.numberPad)
-                }
-                
-                if isDatePickerVisible {
-                    DatePicker("", selection: $selectedDate, displayedComponents: .date)
-                        .datePickerStyle(.graphical)
-                }
             }
             .task {
                 await carListViewModel.downloadCars()

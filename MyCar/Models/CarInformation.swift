@@ -16,23 +16,17 @@ struct CarInformation: Codable {
         var nextMaintenanceDate: Date
         var estimatedNextMaintenanceMileage: Int
         var repairsAndReplacements: String
-        var serviceHour: String?
     }
 
     struct ExpenseInfo: Codable {
-        var fuelConsumption: Double?
-        var tireChangeDate: Date
         var tireChangeMileage: Int
         var insuranceInfo: String
         var taxInfo: String
         var kaskoInfo: String
-        var otherExpenses: String
     }
 
     struct DailyUsageInfo: Codable {
         var dailyDistance: Double
-        var dailyTimeSpent: String
-        var averageSpeed: Double
     }
 
     struct NoteAndDocumentInfo: Codable {
@@ -49,8 +43,6 @@ struct CarInformation: Codable {
     var brand: String
     var model: String
     var year: Int
-    var color: String
-    var chassisNumber: String
     var plateNumber: String
     var engineType: String
     var fuelType: String

@@ -25,11 +25,16 @@ struct RegisterView: View {
                     .textFieldStyle(DefaultTextFieldStyle())
                     .autocorrectionDisabled()
                     .autocapitalization(.none)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
+                    .padding(.horizontal, 22)
+                    .padding(.vertical, 11)
                     .background(Color.white)
                     .cornerRadius(8)
                     .foregroundColor(.black)
+                    .overlay(
+                Image(systemName: "person.circle")
+                    .foregroundColor(.gray),
+                     alignment: .leading
+                )
                 Spacer()
                 
             }
@@ -39,11 +44,16 @@ struct RegisterView: View {
                     .textFieldStyle(DefaultTextFieldStyle())
                     .autocorrectionDisabled()
                     .autocapitalization(.none)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
+                    .padding(.horizontal, 23)
+                    .padding(.vertical, 11)
                     .background(Color.white)
                     .cornerRadius(8)
                     .foregroundColor(.black)
+                    .overlay(
+                        Image(systemName: "envelope.circle")
+                            .foregroundStyle(.gray),
+                        alignment: .leading
+                    )
                 Spacer()
                 
             }
@@ -52,11 +62,16 @@ struct RegisterView: View {
                 Spacer()
                 SecureField("Password", text: $viewModel.password)
                     .textFieldStyle(DefaultTextFieldStyle())
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
+                    .padding(.horizontal, 22)
+                    .padding(.vertical, 11)
                     .background(Color.white)
                     .cornerRadius(8)
                     .foregroundColor(.black)
+                    .overlay(
+                        Image(systemName: "lock")
+                            .foregroundColor(.gray),
+                             alignment: .leading
+                    )
                 Spacer()
             }
             
