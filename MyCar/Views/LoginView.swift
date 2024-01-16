@@ -76,7 +76,7 @@ struct LoginView: View {
                 VStack {
                     Text("New around here?")
                         .foregroundColor(Color.white)
-                    NavigationLink("Create An Account", destination: AddNewCarCV())
+                    NavigationLink("Create An Account", destination: NewCarCV())
                 }
                 .padding(.bottom, 50)
              

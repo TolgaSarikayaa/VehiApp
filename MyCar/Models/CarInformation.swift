@@ -8,6 +8,7 @@
 import Foundation
 
 struct CarInformation: Codable {
+    
     struct MaintenanceInfo: Codable {
         var lastMaintenanceDate: Date
         var lastMaintenanceMileage: Int
@@ -44,10 +45,16 @@ struct CarInformation: Codable {
     var model: String
     var year: Int
     var plateNumber: String
-    var engineType: String
+    var engineType: EngineType
     var fuelType: String
     var mileage: Int
     var releaseDate: Date
+    
+    enum EngineType: String, CaseIterable , Codable {
+        case diesel = "Dizel"
+        case benzin = "Benzin"
+        case electric = "Electric"
+    }
 
     var maintenanceInfo: MaintenanceInfo
     var expenseInfo: ExpenseInfo
