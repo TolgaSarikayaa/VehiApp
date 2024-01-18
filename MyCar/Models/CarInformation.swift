@@ -7,58 +7,20 @@
 
 import Foundation
 
-struct CarInformation: Codable {
-    
-    struct MaintenanceInfo: Codable {
-        var lastMaintenanceDate: Date
-        var lastMaintenanceMileage: Int
-        var previousMaintenanceDate: Date
-        var previousMaintenanceMileage: Int
-        var nextMaintenanceDate: Date
-        var estimatedNextMaintenanceMileage: Int
-        var repairsAndReplacements: String
-    }
-
-    struct ExpenseInfo: Codable {
-        var tireChangeMileage: Int
-        var insuranceInfo: String
-        var taxInfo: String
-        var kaskoInfo: String
-    }
-
-    struct DailyUsageInfo: Codable {
-        var dailyDistance: Double
-    }
-
-    struct NoteAndDocumentInfo: Codable {
-        var importantDates: String
-        var carNotes: String
-        var documents: [String]
-    }
-
-    struct ReminderInfo: Codable {
-        var upcomingMaintenanceReminders: String
-        var insuranceRenewalReminders: String
-    }
-
+struct CarInformation: Codable , Identifiable {
+    let id = UUID()
     var brand: String
     var model: String
-    var year: Int
-    var plateNumber: String
-    var engineType: EngineType
-    var fuelType: String
+    var fuelType: EngineType
     var mileage: Int
     var releaseDate: Date
+    var nextMaintenanceDate: Date
+    var lastMaintenanceDate: Date
     
     enum EngineType: String, CaseIterable , Codable {
         case diesel = "Dizel"
         case benzin = "Benzin"
         case electric = "Electric"
     }
-
-    var maintenanceInfo: MaintenanceInfo
-    var expenseInfo: ExpenseInfo
-    var dailyUsageInfo: DailyUsageInfo
-    var noteAndDocumentInfo: NoteAndDocumentInfo
-    var reminderInfo: ReminderInfo
+    
 }

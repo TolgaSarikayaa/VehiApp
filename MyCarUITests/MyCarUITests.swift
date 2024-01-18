@@ -8,34 +8,51 @@
 import XCTest
 
 final class MyCarUITests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    
+    
+    
+    class MyCarUITests: XCTestCase {
+        
         let app = XCUIApplication()
-        app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+        
+        override func setUpWithError() throws {
+            continueAfterFailure = false
+            app.launch()
+        }
+        
+        func testAddNewCar() throws {
+            // Open "Add New Car"
+            app.navigationBars["MyCar"].buttons["Add New Car"].tap()
+            
+            // Select Brand
+            let brandPicker = app.pickers["Select Brand"]
+            brandPicker.children(matching: .pickerWheel).element(boundBy: 0).adjust(toPickerWheelValue: "Brand 1")
+            
+            // Select Model
+            let modelPicker = app.pickers["Select Model"]
+            modelPicker.children(matching: .pickerWheel).element(boundBy: 0).adjust(toPickerWheelValue: "Model 1")
+            
+            // Select Engine Type
+            let engineTypePicker = app.pickers["Select Engine type"]
+            engineTypePicker.children(matching: .pickerWheel).element(boundBy: 0).adjust(toPickerWheelValue: "Benzin")
+            
+            // Select Release Date
+            app.staticTexts["Select release date"].tap()
+            app.datePickers.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "January")
+            app.datePickers.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "1")
+            app.datePickers.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "2024")
+            
+            // Select Milage
+            let mileageTextField = app.textFields["Enter Milage"]
+            mileageTextField.tap()
+            mileageTextField.typeText("10000")
+            
+            // Checking the expected status of the screen
+            XCTAssertTrue(app.navigationBars["MyCar"].buttons["Add New Car"].exists)
+            XCTAssertTrue(app.navigationBars["Add New Car"].staticTexts["Add New Car"].exists)
+            XCTAssertTrue(app.staticTexts["Select Brand and Model"].exists)
+            XCTAssertTrue(app.staticTexts["Select your car information"].exists)
         }
     }
+    
 }
