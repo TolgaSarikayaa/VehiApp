@@ -15,17 +15,31 @@ struct CarEditCV: View {
         NavigationStack {
             List {
                 ForEach(carInformationListViewModel.carInformationList) { carInformation in
-                // Burada carInformation verilerini kullanarak liste öğelerini oluşturabilirsiniz
-                  Text("\(carInformation.brand) \(carInformation.model)")
-                    Text("Fuel Type: \(carInformation.fuelType.rawValue)")
-                                    Text("Mileage: \(carInformation.mileage)")
-                                    Text("Release Date: \(carInformation.releaseDate, formatter: DateFormatter.date)")
-                                    Text("Last Maintenance Date: \(carInformation.lastMaintenanceDate, formatter: DateFormatter.date)")
-                                    Text("Next Maintenance Date: \(carInformation.nextMaintenanceDate, formatter: DateFormatter.date)")
+                    VStack(alignment: .leading, spacing: 5) {
+                        Image("car2")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 300, height: 300)
+                            .cornerRadius(10)
+                        Text("\(carInformation.brand) \(carInformation.model)")
+                            .font(.headline)
+                            .foregroundStyle(.white)
+                        //Text("Fuel Type: \(carInformation.fuelType.rawValue)")
+                        //Text("Mileage: \(carInformation.mileage)")
+                        //Text("Release Date: \(carInformation.releaseDate, formatter: DateFormatter.date)")
+                        //Text("Last Maintenance Date: \(carInformation.lastMaintenanceDate, formatter: DateFormatter.date)")
+                        //Text("Next Maintenance Date: \(carInformation.nextMaintenanceDate, formatter: DateFormatter.date)")
+                    }
+                    .padding()
+                    .background(Color.black)
+                    .cornerRadius(10)
+                    .shadow(radius: 5)
                 }
+              
               }
                
             }
+        
             .navigationTitle("My Cars")
             .navigationBarItems(trailing: Button(action: {
                 
@@ -35,8 +49,9 @@ struct CarEditCV: View {
                     })
         
             .task {
-                        await carInformationListViewModel.downloadCars()
+                 //await carInformationListViewModel.downloadCars()
             }
+           
         }
     
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct CarInformation: Codable , Identifiable {
-    let id = UUID()
+    var id = UUID()
     var brand: String
     var model: String
     var fuelType: EngineType
