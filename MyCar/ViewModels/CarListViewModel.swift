@@ -11,17 +11,14 @@ class CarListViewModel : ObservableObject {
 
     @Published var carList = [carViewModel]()
     
-    @Published var newcarList = [CarInformation]()
+
     
     private var service : NetworkService
     init(service: NetworkService) {
         self.service = service
     }
    
-    func addCar(carInformation: CarInformation) {
-        newcarList.append(carInformation)
-        
-    }
+   
     
     func downloadCars() async {
         let resource = Constanst.Paths.baseUrl

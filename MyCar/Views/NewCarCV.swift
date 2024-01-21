@@ -10,7 +10,11 @@ import SwiftUI
 
 struct NewCarCV: View {
     
+    @ObservedObject var carInformationListViewModel: CarInformationViewModel
     @ObservedObject var carListViewModel : CarListViewModel
+    
+    @State private var selectedCarInformation: CarInformation?
+    
     @State private var selectedBrandIndex = 0
     @State private var selectedModelIndex = 0
     @State private var isPickerVisible = false
@@ -26,11 +30,18 @@ struct NewCarCV: View {
     @State private var nextMaintenanceDate = Date()
     @State private var mileage: String = ""
     @State private var selectedFuelType: CarInformation.EngineType = .benzin
+    @State private var isNavigationActive = false
 
     
     init() {
         self.carListViewModel = CarListViewModel(service: LocalService())
+        _carInformationListViewModel = ObservedObject(initialValue: CarInformationViewModel()) // Eksik olan property'yi başlatma
+           _carListViewModel = ObservedObject(initialValue: CarListViewModel(service: LocalService())) // Eksik olan property'yi başlatma
     }
+    
+   
+    
+    
     
     var body: some View {
         NavigationStack {
@@ -146,23 +157,30 @@ struct NewCarCV: View {
                 }
             }
                 
+                
             }
             .navigationTitle("Add Car")
             .navigationBarItems(trailing: Button(action: {
                 saveCar()
-                NavigationLink(destination: CarEditCV(carListViewModel: carListViewModel)) {
-                    
-                }
-             
+                isNavigationActive = true
+        
                     }) {
                         Image(systemName: "plus.app")
                             .foregroundColor(.blue)
                     })
             
+            NavigationLink(
+                         destination: CarEditCV(carInformationListViewModel: carInformationListViewModel),
+                         isActive: $isNavigationActive,
+                         label: {
+                             EmptyView()
+                         })
+            
         }
        
         .task {
             await carListViewModel.downloadCars()
+          
         }
         .navigationTitle("Add New Car")
        
@@ -171,7 +189,10 @@ struct NewCarCV: View {
     func saveCar() {
       let carInformation = CarInformation(brand: selectedBrand, model: selectedModel, fuelType: selectedFuelType, mileage: Int(mileage) ?? 0, releaseDate: selectedReleaseDate, nextMaintenanceDate: nextMaintenanceDate, lastMaintenanceDate: selectedLastMaintenanceDate)
         
-        carListViewModel.addCar(carInformation: carInformation)
+        selectedCarInformation = carInformation
+
+                // ViewModel'e bilgileri ekle
+            carInformationListViewModel.addCar(carInformation)
     }
     
 }

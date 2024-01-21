@@ -9,29 +9,21 @@ import SwiftUI
 
 struct CarEditCV: View {
     
-    @ObservedObject var carListViewModel: CarListViewModel
-    
-    init(carListViewModel: CarListViewModel) {
-            self.carListViewModel = carListViewModel
-        }
-    
+    @ObservedObject var carInformationListViewModel = CarInformationViewModel()
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(carListViewModel.newcarList) { car in
-                    VStack(alignment: .leading) {
-                        Text("\(car.brand) \(car.model)")
-                            .font(.headline)
-                        Text("Fuel Type: \(car.fuelType.rawValue)")
-                        Text("Mileage: \(car.mileage)")
-                     Text("Release Date: \(car.releaseDate, formatter: DateFormatter.date)")
-                    }
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(radius: 5)
+                ForEach(carInformationListViewModel.carInformationList) { carInformation in
+                // Burada carInformation verilerini kullanarak liste öğelerini oluşturabilirsiniz
+                  Text("\(carInformation.brand) \(carInformation.model)")
+                    Text("Fuel Type: \(carInformation.fuelType.rawValue)")
+                                    Text("Mileage: \(carInformation.mileage)")
+                                    Text("Release Date: \(carInformation.releaseDate, formatter: DateFormatter.date)")
+                                    Text("Last Maintenance Date: \(carInformation.lastMaintenanceDate, formatter: DateFormatter.date)")
+                                    Text("Next Maintenance Date: \(carInformation.nextMaintenanceDate, formatter: DateFormatter.date)")
                 }
+              }
                
             }
             .navigationTitle("My Cars")
@@ -41,11 +33,16 @@ struct CarEditCV: View {
                         Image(systemName: "car.fill")
                             .foregroundColor(.blue)
                     })
+        
+            .task {
+                        await carInformationListViewModel.downloadCars()
+            }
         }
+    
     }
-}
+
 
 #Preview {
-    CarEditCV(carListViewModel: CarListViewModel(service: LocalService()))
+    CarEditCV()
     
 }
