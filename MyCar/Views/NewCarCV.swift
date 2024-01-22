@@ -12,26 +12,11 @@ struct NewCarCV: View {
     
     @ObservedObject var carInformationListViewModel: CarInformationViewModel
     @ObservedObject var carListViewModel : CarListViewModel
+    @ObservedObject var newCarModel = NewCarModel()
     
     @State private var selectedCarInformation: CarInformation?
     
-    @State private var selectedBrandIndex = 0
-    @State private var selectedModelIndex = 0
-    @State private var isPickerVisible = false
-    @State private var isReleaseDatePickerVisible = false
-    @State private var isLastMaintenanceDatePickerVisible = false
-    @State private var isNextMaintenanceDatePickerVisible = false
-    @State private var isBrandPickerVisible = false
-    @State private var isModelPickerVisible = false
-    @State private var selectedBrand: String = ""
-    @State private var selectedModel: String = ""
-    @State private var selectedReleaseDate = Date()
-    @State private var selectedLastMaintenanceDate = Date()
-    @State private var nextMaintenanceDate = Date()
-    @State private var mileage: String = ""
-    @State private var selectedFuelType: CarInformation.EngineType = .benzin
-    @State private var isNavigationActive = false
-
+   
     
     init() {
         self.carListViewModel = CarListViewModel(service: LocalService())
@@ -48,29 +33,29 @@ struct NewCarCV: View {
             List {
                 Section(header: Text("Select Brand and Model")) {
                     HStack {
-                        Picker("Select Brand", selection: $selectedBrandIndex) {
+                        Picker("Select Brand", selection: $newCarModel.selectedBrandIndex) {
                             ForEach(carListViewModel.carList.indices, id: \.self) { index in
                                 Text(carListViewModel.carList[index].brand)
                                 
                             }
                         }
                         .pickerStyle(MenuPickerStyle())
-                        .onChange(of: selectedBrandIndex) { _ in
-                            selectedBrand = carListViewModel.carList[selectedBrandIndex].brand
+                        .onChange(of: newCarModel.selectedBrandIndex) { _ in
+                            newCarModel.selectedBrand = carListViewModel.carList[newCarModel.selectedBrandIndex].brand
                         }
                     }
                     
                     HStack {
                         if !carListViewModel.carList.isEmpty {
-                            let selectedBrandModels = carListViewModel.carList[selectedBrandIndex].models
-                            Picker("Select Model", selection: $selectedModelIndex) {
+                            let selectedBrandModels = carListViewModel.carList[newCarModel.selectedBrandIndex].models
+                            Picker("Select Model", selection: $newCarModel.selectedModelIndex) {
                                 ForEach(selectedBrandModels.indices, id: \.self) { index in
                                     Text(selectedBrandModels[index])
                                 }
                             }
                             .pickerStyle(MenuPickerStyle())
-                            .onChange(of: selectedModelIndex) { _ in
-                                selectedModel = selectedBrandModels[selectedModelIndex]
+                            .onChange(of: newCarModel.selectedModelIndex) { _ in
+                                newCarModel.selectedModel = selectedBrandModels[newCarModel.selectedModelIndex]
                             }
                         }
                     }
@@ -78,7 +63,7 @@ struct NewCarCV: View {
                 
                 Section(header: Text("Select your car information")) {
                     HStack {
-                        Picker("Fuel type", selection: $selectedFuelType) {
+                        Picker("Fuel type", selection: $newCarModel.selectedFuelType) {
                             ForEach(CarInformation.EngineType.allCases, id: \.self) { fuelType in
                                 Text(fuelType.rawValue)
                             }
@@ -87,7 +72,7 @@ struct NewCarCV: View {
                     }
                     
                     HStack {
-                        TextField("Enter Milage", text: $mileage)
+                        TextField("Enter Milage", text: $newCarModel.mileage)
                             .keyboardType(.numberPad)
                             .onTapGesture {
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -95,64 +80,64 @@ struct NewCarCV: View {
                     }
                     
                     HStack {
-                        Text("Release date: \(selectedReleaseDate, formatter: DateFormatter.date)")
+                        Text("Release date: \(newCarModel.selectedReleaseDate, formatter: DateFormatter.date)")
                             .onTapGesture {
-                                isReleaseDatePickerVisible.toggle()
+                                newCarModel.isReleaseDatePickerVisible.toggle()
                             }
                         
                         Spacer()
                         
                         Button(action: {
-                            isReleaseDatePickerVisible.toggle()
+                            newCarModel.isReleaseDatePickerVisible.toggle()
                         }) {
                             Image(systemName: "calendar")
                                 .foregroundColor(.blue)
                         }
                     }
                     
-                    if isReleaseDatePickerVisible {
-                        DatePicker("", selection: $selectedReleaseDate, displayedComponents: .date)
+                    if newCarModel.isReleaseDatePickerVisible {
+                        DatePicker("", selection: $newCarModel.selectedReleaseDate, displayedComponents: .date)
                             .datePickerStyle(.graphical)
                     }
                     
                 }
                 Section(header: Text("Maintenance information ")) {
                 HStack {
-                    Text("Last Maintenance: \(selectedLastMaintenanceDate, formatter: DateFormatter.date)")
+                    Text("Last Maintenance: \(newCarModel.selectedLastMaintenanceDate, formatter: DateFormatter.date)")
                         .onTapGesture {
-                            isLastMaintenanceDatePickerVisible.toggle()
+                            newCarModel.isLastMaintenanceDatePickerVisible.toggle()
                         }
                     Spacer()
                     
                     Button(action: {
-                        isLastMaintenanceDatePickerVisible.toggle()
+                        newCarModel.isLastMaintenanceDatePickerVisible.toggle()
                     }) {
                         Image(systemName: "calendar")
                             .foregroundColor(.blue)
                     }
                     
                 }
-                    if isLastMaintenanceDatePickerVisible {
-                        DatePicker("", selection: $selectedLastMaintenanceDate, displayedComponents: .date)
+                    if newCarModel.isLastMaintenanceDatePickerVisible {
+                        DatePicker("", selection: $newCarModel.selectedLastMaintenanceDate, displayedComponents: .date)
                             .datePickerStyle(.graphical)
                 }
                     
                     HStack {
-                        Text("Next Maintenance: \(nextMaintenanceDate, formatter: DateFormatter.date)")
+                        Text("Next Maintenance: \(newCarModel.nextMaintenanceDate, formatter: DateFormatter.date)")
                             .onTapGesture {
-                                isNextMaintenanceDatePickerVisible.toggle()
+                                newCarModel.isNextMaintenanceDatePickerVisible.toggle()
                             }
                         Spacer()
                         
                         Button(action: {
-                            isNextMaintenanceDatePickerVisible.toggle()
+                            newCarModel.isNextMaintenanceDatePickerVisible.toggle()
                         }) {
                             Image(systemName: "calendar")
                                 .foregroundColor(.blue)
                         }
                     }
-                    if isNextMaintenanceDatePickerVisible {
-                        DatePicker("", selection: $nextMaintenanceDate, displayedComponents: .date)
+                    if newCarModel.isNextMaintenanceDatePickerVisible {
+                        DatePicker("", selection: $newCarModel.nextMaintenanceDate, displayedComponents: .date)
                             .datePickerStyle(.graphical)
                 }
             }
@@ -162,16 +147,16 @@ struct NewCarCV: View {
             .navigationTitle("Add Car")
             .navigationBarItems(trailing: Button(action: {
                 saveCar()
-                isNavigationActive = true
+                newCarModel.isNavigationActive = true
         
                     }) {
                         Image(systemName: "plus.app")
                             .foregroundColor(.blue)
                     })
             
-            NavigationLink(
+                       NavigationLink(
                          destination: CarEditCV(carInformationListViewModel: carInformationListViewModel),
-                         isActive: $isNavigationActive,
+                         isActive: $newCarModel.isNavigationActive,
                          label: {
                              EmptyView()
                          })
@@ -187,7 +172,15 @@ struct NewCarCV: View {
     }
     
     func saveCar() {
-      let carInformation = CarInformation(brand: selectedBrand, model: selectedModel, fuelType: selectedFuelType, mileage: Int(mileage) ?? 0, releaseDate: selectedReleaseDate, nextMaintenanceDate: nextMaintenanceDate, lastMaintenanceDate: selectedLastMaintenanceDate)
+        let carInformation = CarInformation(
+                   brand: newCarModel.selectedBrand,
+                   model: newCarModel.selectedModel,
+                   fuelType: newCarModel.selectedFuelType,
+                   mileage: Int(newCarModel.mileage) ?? 0,
+                   releaseDate: newCarModel.selectedReleaseDate,
+                   nextMaintenanceDate: newCarModel.nextMaintenanceDate,
+                   lastMaintenanceDate: newCarModel.selectedLastMaintenanceDate
+               )
         
         selectedCarInformation = carInformation
 

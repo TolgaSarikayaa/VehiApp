@@ -11,6 +11,8 @@ struct CarEditCV: View {
     
     @ObservedObject var carInformationListViewModel = CarInformationViewModel()
     
+    @State private var isNavigationActive = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -42,11 +44,18 @@ struct CarEditCV: View {
         
             .navigationTitle("My Cars")
             .navigationBarItems(trailing: Button(action: {
-                
+                isNavigationActive.toggle()
                     }) {
                         Image(systemName: "car.fill")
                             .foregroundColor(.blue)
                     })
+        
+                    NavigationLink(
+                       destination: NewCarCV(),
+                       isActive: $isNavigationActive,
+                       label: {
+                           EmptyView()
+                       })
         
             .task {
                  //await carInformationListViewModel.downloadCars()
