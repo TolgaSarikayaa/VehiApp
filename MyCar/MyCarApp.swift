@@ -12,7 +12,7 @@ import SwiftData
 struct MyCarApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            NewCarCV()
         }
     }
 }

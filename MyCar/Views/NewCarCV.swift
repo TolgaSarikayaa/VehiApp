@@ -8,6 +8,7 @@
 import SwiftUI
 
 
+
 struct NewCarCV: View {
     
     @ObservedObject var carInformationListViewModel: CarInformationViewModel
