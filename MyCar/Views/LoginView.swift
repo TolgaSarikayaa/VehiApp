@@ -7,7 +7,6 @@
 
 import SwiftUI
 import SwiftData
-import Combine
 
 
 struct LoginView: View {
@@ -76,7 +75,7 @@ struct LoginView: View {
                 VStack {
                     Text("New around here?")
                         .foregroundColor(Color.white)
-                    NavigationLink("Create An Account", destination: NewCarCV())
+                    NavigationLink("Create An Account", destination: CarEditCV())
                 }
                 .padding(.bottom, 50)
              

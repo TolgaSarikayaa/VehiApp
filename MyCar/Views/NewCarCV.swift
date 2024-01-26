@@ -16,7 +16,7 @@ struct NewCarCV: View {
     @ObservedObject var newCarModel = NewCarModel()
     
     @State private var selectedCarInformation: CarInformation?
-    
+  
    
     
     init() {
@@ -161,6 +161,7 @@ struct NewCarCV: View {
                          label: {
                              EmptyView()
                          })
+                      
             
         }
        
@@ -172,7 +173,7 @@ struct NewCarCV: View {
        
     }
     
-    func saveCar() {
+     func saveCar() {
         let carInformation = CarInformation(
                    brand: newCarModel.selectedBrand,
                    model: newCarModel.selectedModel,
@@ -187,6 +188,8 @@ struct NewCarCV: View {
 
                 // ViewModel'e bilgileri ekle
             carInformationListViewModel.addCar(carInformation)
+       
+             
     }
     
 }
