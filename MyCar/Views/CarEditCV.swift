@@ -45,9 +45,9 @@ struct CarEditCV: View {
              Image(systemName: "car.fill")
              .foregroundColor(.blue)
            })
-              .navigationDestination(isPresented: $isNavigationActive) {
+              .sheet(isPresented: $isNavigationActive, content: {
                   NewCarCV()
-              }
+              })
             
         }
     }

@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
-struct CarInformation: Codable , Identifiable {
+@Model
+class CarInformation: Identifiable {
     var id = UUID()
     var brand: String
     var model: String
@@ -21,6 +23,17 @@ struct CarInformation: Codable , Identifiable {
         case diesel = "Dizel"
         case benzin = "Benzin"
         case electric = "Electric"
+    }
+    
+    init(id: UUID = UUID(), brand: String, model: String, fuelType: EngineType, mileage: Int, releaseDate: Date, nextMaintenanceDate: Date, lastMaintenanceDate: Date) {
+        self.id = id
+        self.brand = brand
+        self.model = model
+        self.fuelType = fuelType
+        self.mileage = mileage
+        self.releaseDate = releaseDate
+        self.nextMaintenanceDate = nextMaintenanceDate
+        self.lastMaintenanceDate = lastMaintenanceDate
     }
     
 }

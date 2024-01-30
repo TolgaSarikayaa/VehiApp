@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
-
+import SwiftData
 
 
 struct NewCarCV: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var context
     
     @ObservedObject var carInformationListViewModel: CarInformationViewModel
     @ObservedObject var carListViewModel : CarListViewModel
@@ -24,10 +27,6 @@ struct NewCarCV: View {
         _carInformationListViewModel = ObservedObject(initialValue: CarInformationViewModel()) // Eksik olan property'yi başlatma
            _carListViewModel = ObservedObject(initialValue: CarListViewModel(service: LocalService())) // Eksik olan property'yi başlatma
     }
-    
-   
-    
-    
     
     var body: some View {
         NavigationStack {
@@ -145,15 +144,23 @@ struct NewCarCV: View {
                 
                 
             }
+            
             .navigationTitle("Add Car")
             .navigationBarItems(trailing: Button(action: {
                 saveCar()
                 newCarModel.isNavigationActive = true
-        
+               dismiss()
                     }) {
                         Image(systemName: "plus.app")
                             .foregroundColor(.blue)
                     })
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Dismiss") {
+                        dismiss()
+                    }
+                }
+            }
             
                        NavigationLink(
                          destination: CarEditCV(carInformationListViewModel: carInformationListViewModel),
@@ -163,7 +170,7 @@ struct NewCarCV: View {
                          })
                       
             
-        }
+          } 
        
         .task {
             await carListViewModel.downloadCars()
@@ -184,10 +191,10 @@ struct NewCarCV: View {
                    lastMaintenanceDate: newCarModel.selectedLastMaintenanceDate
                )
         
-        selectedCarInformation = carInformation
+               context.insert(carInformation)
 
                 // ViewModel'e bilgileri ekle
-            carInformationListViewModel.addCar(carInformation)
+            //carInformationListViewModel.addCar(carInformation)
        
              
     }
