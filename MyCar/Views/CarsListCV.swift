@@ -15,7 +15,7 @@ struct CarsListCV: View {
 
 
     var body: some View {
-        CarEditCV(cars: cars)
+        CarEditView(cars: cars)
         
     }
 }

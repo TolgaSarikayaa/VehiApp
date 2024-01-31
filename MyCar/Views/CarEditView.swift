@@ -8,11 +8,9 @@
 import SwiftUI
 import SwiftData
 
-struct CarEditCV: View {
-   // @ObservedObject var carInformationListViewModel = CarInformationViewModel()
+struct CarEditView: View {
     
     @State private var isNavigationActive = false
-    
     let cars : [CarInformation]
     @Environment(\.modelContext) private var context
     
@@ -38,7 +36,18 @@ struct CarEditCV: View {
             .cornerRadius(10)
             .shadow(radius: 5)
                     
-             }
+                }.onDelete(perform: { indexSet in
+                    indexSet.forEach { index in
+                        let car = cars[index]
+                        context.delete(car)
+                        
+                        do {
+                            try context.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                })
          }
     }
              .navigationBarBackButtonHidden()
@@ -57,8 +66,8 @@ struct CarEditCV: View {
     }
 }
 
- 
+/*
 #Preview {
-    CarEditCV(cars: [CarInformation(brand: "Test", model: "", fuelType: CarInformation.EngineType.benzin, mileage: 11, releaseDate: Date(), nextMaintenanceDate: Date(), lastMaintenanceDate: Date())]).modelContainer(for: [CarInformation.self])
+    CarEditView(cars: [CarInformation(brand: "Test", model: "", fuelType: CarInformation.EngineType.benzin, mileage: 11, releaseDate: Date(), nextMaintenanceDate: Date(), lastMaintenanceDate: Date())]).modelContainer(for: [CarInformation.self])
 }
-
+*/
