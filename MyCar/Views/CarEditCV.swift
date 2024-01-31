@@ -6,26 +6,30 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CarEditCV: View {
-    @ObservedObject var carInformationListViewModel = CarInformationViewModel()
+   // @ObservedObject var carInformationListViewModel = CarInformationViewModel()
     
     @State private var isNavigationActive = false
+    
+    let cars : [CarInformation]
+    @Environment(\.modelContext) private var context
     
     var body: some View {
         NavigationStack {
         List {
-            if carInformationListViewModel.carInformationList.isEmpty {
+            if cars.isEmpty {
                 
             } else {
-                ForEach(carInformationListViewModel.carInformationList) { carInformation in
+                ForEach(cars) { car in
                 VStack(alignment: .leading, spacing: 5) {
                 Image("car2")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 300, height: 300)
                 .cornerRadius(10)
-                Text("\(carInformation.brand) \(carInformation.model)")
+                Text("\(car.brand) \(car.model)")
                 .font(.headline)
                 .foregroundStyle(.white)
           }
@@ -53,7 +57,8 @@ struct CarEditCV: View {
     }
 }
 
-           
+ 
 #Preview {
-    CarEditCV()
+    CarEditCV(cars: [CarInformation(brand: "Test", model: "", fuelType: CarInformation.EngineType.benzin, mileage: 11, releaseDate: Date(), nextMaintenanceDate: Date(), lastMaintenanceDate: Date())]).modelContainer(for: [CarInformation.self])
 }
+

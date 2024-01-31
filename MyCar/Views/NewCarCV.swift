@@ -216,5 +216,5 @@ static var date: DateFormatter {
 
 
 #Preview {
-    NewCarCV()
+    NewCarCV().modelContainer(for: [CarInformation.self])
 }

@@ -12,7 +12,7 @@ import SwiftData
 struct MyCarApp: App {
     var body: some Scene {
         WindowGroup {
-            NewCarCV()
+            CarsListCV().modelContainer(for: [CarInformation.self])
         }
     }
 }
