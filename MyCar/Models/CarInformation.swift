@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class CarInformation: Identifiable {
+final class CarInformation: Identifiable {
     var id = UUID()
     var brand: String
     var model: String

@@ -18,7 +18,7 @@ struct NewCarCV: View {
     @ObservedObject var carListViewModel : CarListViewModel
     @ObservedObject var newCarModel = NewCarModel()
     
-    @State private var selectedCarInformation: CarInformation?
+    //@State private var selectedCarInformation: CarInformation?
   
    
     
@@ -26,6 +26,10 @@ struct NewCarCV: View {
         self.carListViewModel = CarListViewModel(service: LocalService())
         _carInformationListViewModel = ObservedObject(initialValue: CarInformationViewModel()) // Eksik olan property'yi başlatma
            _carListViewModel = ObservedObject(initialValue: CarListViewModel(service: LocalService())) // Eksik olan property'yi başlatma
+    }
+    
+    private var isFormValid: Bool {
+        !newCarModel.mileage.trimmingCharacters(in: .whitespaces).isEmpty
     }
     
     var body: some View {
@@ -72,7 +76,7 @@ struct NewCarCV: View {
                     }
                     
                     HStack {
-                        TextField("Enter Milage", text: $newCarModel.mileage)
+                        TextField("Enter Mileage", text: $newCarModel.mileage)
                             .keyboardType(.numberPad)
                             .onTapGesture {
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -146,37 +150,33 @@ struct NewCarCV: View {
             }
             
             .navigationTitle("Add Car")
-            .navigationBarItems(trailing: Button(action: {
-                saveCar()
-                newCarModel.isNavigationActive = true
-               dismiss()
-                    }) {
-                        Image(systemName: "plus.app")
-                            .foregroundColor(.blue)
-                    })
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Dismiss") {
+                    Button {
                         dismiss()
+                    } label: {
+                       Text("Dismiss")
                     }
+                    
                 }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        saveCar()
+                        dismiss()
+                    } label: {
+                        Image(systemName: "plus.app")
+                    }.disabled(!isFormValid)
+
+                }
+                
             }
-            
-                       NavigationLink(
-                         destination: CarEditCV(carInformationListViewModel: carInformationListViewModel),
-                         isActive: $newCarModel.isNavigationActive,
-                         label: {
-                             EmptyView()
-                         })
-                      
-            
-          } 
+          }
        
         .task {
             await carListViewModel.downloadCars()
           
         }
-        .navigationTitle("Add New Car")
+    
        
     }
     
@@ -192,14 +192,15 @@ struct NewCarCV: View {
                )
         
                context.insert(carInformation)
-
-                // ViewModel'e bilgileri ekle
-            //carInformationListViewModel.addCar(carInformation)
-       
-             
-    }
+         
+                 do {
+                    try context.save()
+                } catch {
+                    print(error.localizedDescription)
+                }
+         }
     
-}
+   }
 
 
 
@@ -210,7 +211,7 @@ static var date: DateFormatter {
     let formatter = DateFormatter()
     formatter.dateStyle = .medium
     return formatter
-}
+   }
 }
 
 
