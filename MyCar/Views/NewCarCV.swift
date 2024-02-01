@@ -14,18 +14,12 @@ struct NewCarCV: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
     
-    @ObservedObject var carInformationListViewModel: CarInformationViewModel
+   
     @ObservedObject var carListViewModel : CarListViewModel
     @ObservedObject var newCarModel = NewCarModel()
     
-    //@State private var selectedCarInformation: CarInformation?
-  
-   
-    
     init() {
         self.carListViewModel = CarListViewModel(service: LocalService())
-        _carInformationListViewModel = ObservedObject(initialValue: CarInformationViewModel()) // Eksik olan property'yi başlatma
-           _carListViewModel = ObservedObject(initialValue: CarListViewModel(service: LocalService())) // Eksik olan property'yi başlatma
     }
     
     private var isFormValid: Bool {
@@ -173,7 +167,7 @@ struct NewCarCV: View {
           }
        
         .task {
-            await carListViewModel.downloadCars()
+           await carListViewModel.downloadCars()
           
         }
     
