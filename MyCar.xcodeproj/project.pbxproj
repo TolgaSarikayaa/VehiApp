@@ -28,6 +28,7 @@
 		141E8AE12B44599400C4C3AF /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */; };
 		145763C92B6A80B200E2D295 /* CarsListCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763C82B6A80B200E2D295 /* CarsListCV.swift */; };
 		145763CB2B6BBFC600E2D295 /* CarDetailCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763CA2B6BBFC600E2D295 /* CarDetailCV.swift */; };
+		145763CD2B6C14CA00E2D295 /* CarDetailTestCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763CC2B6C14CA00E2D295 /* CarDetailTestCV.swift */; };
 		14E000182B4823D400660340 /* CarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E000172B4823D300660340 /* CarListViewModel.swift */; };
 		14E0FFEB2B480EBD00660340 /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0FFEA2B480EBD00660340 /* CarModel.swift */; };
 		14E0FFEE2B480F4E00660340 /* LocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0FFED2B480F4E00660340 /* LocalService.swift */; };
@@ -78,6 +79,7 @@
 		141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
 		145763C82B6A80B200E2D295 /* CarsListCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListCV.swift; sourceTree = "<group>"; };
 		145763CA2B6BBFC600E2D295 /* CarDetailCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCV.swift; sourceTree = "<group>"; };
+		145763CC2B6C14CA00E2D295 /* CarDetailTestCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailTestCV.swift; sourceTree = "<group>"; };
 		14E000172B4823D300660340 /* CarListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewModel.swift; sourceTree = "<group>"; };
 		14E0FFEA2B480EBD00660340 /* CarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
 		14E0FFED2B480F4E00660340 /* LocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalService.swift; sourceTree = "<group>"; };
@@ -219,8 +221,9 @@
 				141E8ADC2B443E3B00C4C3AF /* MCButton.swift */,
 				1404CA3C2B568C7900A248D7 /* NewCarCV.swift */,
 				145763C82B6A80B200E2D295 /* CarsListCV.swift */,
-				145763CA2B6BBFC600E2D295 /* CarDetailCV.swift */,
 				14E0FFF72B48140D00660340 /* CarEditView.swift */,
+				145763CA2B6BBFC600E2D295 /* CarDetailCV.swift */,
+				145763CC2B6C14CA00E2D295 /* CarDetailTestCV.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				141E8ADD2B443E3B00C4C3AF /* MCButton.swift in Sources */,
 				1404CA3B2B51938D00A248D7 /* CarInformation.swift in Sources */,
 				1404CA432B5EFAF900A248D7 /* NewCarModel.swift in Sources */,
+				145763CD2B6C14CA00E2D295 /* CarDetailTestCV.swift in Sources */,
 				141E8AE12B44599400C4C3AF /* RegisterViewViewModel.swift in Sources */,
 				14E0FFEE2B480F4E00660340 /* LocalService.swift in Sources */,
 				1404CA3D2B568C7900A248D7 /* NewCarCV.swift in Sources */,

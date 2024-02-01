@@ -21,24 +21,27 @@ struct CarEditView: View {
                 
             } else {
                 ForEach(cars) { car in
+                    Section {
+                    
                     NavigationLink(value: car) {
                         VStack(alignment: .leading, spacing: 5) {
-                        Image("car2")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(10)
-                        Text("\(car.brand) \(car.model)")
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                  }
-                   
-            }
-            
-            .padding()
-            .background(Color.black)
-            .cornerRadius(10)
-            .shadow(radius: 5)
+                            Image("car")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 300, height: 300)
+                                .cornerRadius(10)
+                            Text("\(car.brand) \(car.model)")
+                                .font(.headline)
+                                .foregroundStyle(.black)
+                        }
+                        
+                    }
+                    
+                    .padding()
+                    //.background(Color.black)
+                    .cornerRadius(10)
+                    .shadow(radius: 5)
+                }
                     
                 }.onDelete(perform: { indexSet in
                     indexSet.forEach { index in
@@ -54,7 +57,7 @@ struct CarEditView: View {
                 })
          }
         }.navigationDestination(for: CarInformation.self) { car in
-            CarDetailCV(car: car)
+            CarDetailTestCV(car: car)
         }
              .navigationBarBackButtonHidden()
               .navigationTitle("My Cars")
