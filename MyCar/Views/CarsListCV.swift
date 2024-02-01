@@ -12,11 +12,9 @@ import SwiftData
 struct CarsListCV: View {
 
     @Query(sort: \CarInformation.brand, order: .forward) private var cars : [CarInformation]
-
-
+       
     var body: some View {
-        CarEditView(cars: cars)
-        
+        CarListView(cars: cars)
     }
 }
 

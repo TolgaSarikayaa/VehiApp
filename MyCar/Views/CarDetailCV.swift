@@ -1,5 +1,5 @@
 //
-//  CarDetailCV.swift
+//  CarDetailTestCV.swift
 //  MyCar
 //
 //  Created by Tolga Sarikaya on 01.02.24.
@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-
 struct CarDetailCV: View {
-   
+    
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
+    
+    @State private var isNavigationActive = false
     
     
     @ObservedObject var newCarModel = NewCarModel()
@@ -20,100 +21,67 @@ struct CarDetailCV: View {
     let car : CarInformation
     
     var body: some View {
-        List {
-            Section(header: Text("Car Information")) {
-                HStack {
-                    TextField("Brand", text: $newCarModel.selectedBrand)
-                }
-                
-                HStack {
-                    TextField("Model", text: $newCarModel.selectedModel)
-                }
-                
-              
-            }
-            
-            Section(header: Text("")) {
-                HStack {
-                    Text("Fuel Type : \(car.fuelType.rawValue)")
-                }
-                TextField("Mileage", text: $newCarModel.mileage)
-            }
-            HStack {
-                Text("Release date: \(newCarModel.selectedReleaseDate, formatter: DateFormatter.date)")
-                    .onTapGesture {
-                        newCarModel.isReleaseDatePickerVisible.toggle()
+        HStack {
+                    // Sol taraftaki bilgiler için VStack
+                    VStack(alignment: .leading, spacing: 10) {
+                        // Bilgileri burada göster
+                        Text(newCarModel.selectedBrand)
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Text(newCarModel.selectedModel)
+                            .font(.title)
+                            .padding(.bottom, 20) // Altta biraz boşluk bırak
+                        HStack {
+                            Image(systemName: "fuelpump.circle.fill")
+                                .font(.system(size: 36))
+                            Text("\(car.fuelType.rawValue) Fuel")
+                                .font(.system(size: 20))
+                            // VStack içinde Spacer, yazıları yukarı itecek
+                        }
+                        
+                        .padding(.bottom, 10)
+                        
+                        HStack {
+                            Image(systemName: "steeringwheel.road.lane.dashed")
+                                .font(.system(size: 33))
+                            Text("\(newCarModel.mileage) KM")
+                                .font(.system(size: 20))
+                        }
+                        Spacer()
                     }
-                Spacer()
-                
-                Button(action: {
-                    newCarModel.isReleaseDatePickerVisible.toggle()
-                }, label: {
-                    Image(systemName: "calendar")
-                    .foregroundColor(.blue)
-                })
-               
-            }
-            
-            if newCarModel.isReleaseDatePickerVisible {
-            DatePicker("", selection: $newCarModel.selectedReleaseDate, displayedComponents: .date)
-                .datePickerStyle(.graphical)
-            }
-            
-            HStack {
-                Text("Last Maintenance: \(newCarModel.selectedLastMaintenanceDate, formatter: DateFormatter.date)")
-                    .onTapGesture {
-                        newCarModel.isLastMaintenanceDatePickerVisible.toggle()
-                    }
-                Spacer()
-                
-                Button(action: {
-                    newCarModel.isLastMaintenanceDatePickerVisible.toggle()
-                }, label: {
-                    Image(systemName: "calendar")
-                    .foregroundColor(.blue)
-                })
-            }
-            
-            if newCarModel.isLastMaintenanceDatePickerVisible {
-            DatePicker("", selection: $newCarModel.selectedLastMaintenanceDate, displayedComponents: .date)
-            .datePickerStyle(.graphical)
-        }
-            HStack {
-                Text("Next Maintenance: \(newCarModel.nextMaintenanceDate, formatter: DateFormatter.date)")
-                    .onTapGesture {
-                        newCarModel.isNextMaintenanceDatePickerVisible.toggle()
-                    }
-                Spacer()
-                
-                Button(action: {
-                    newCarModel.isNextMaintenanceDatePickerVisible.toggle()
-                }, label: {
-                    Image(systemName: "calendar")
-                    .foregroundColor(.blue)
-                })
-            }
-            if newCarModel.isNextMaintenanceDatePickerVisible {
-                DatePicker("", selection: $newCarModel.nextMaintenanceDate, displayedComponents: .date)
-                    .datePickerStyle(.graphical)
-            }
-        }.onAppear(perform: {
-            newCarModel.selectedBrand = car.brand
-            newCarModel.selectedModel = car.model
-            newCarModel.selectedFuelType = car.fuelType
-            newCarModel.mileage = String(car.mileage)
-            newCarModel.selectedReleaseDate = car.releaseDate
-            newCarModel.selectedLastMaintenanceDate = car.lastMaintenanceDate
-            newCarModel.nextMaintenanceDate = car.nextMaintenanceDate
-        })
-        
-    }
-    
-    
-}
+                    .padding(.leading, 20)
 
+                    Spacer() // Sol taraftaki VStack ile sağ taraftaki Image arasında boşluk
+
+                    // Sağ tarafta araç resmi için Image
+                    Image("car3") // Resminizi projenize ekleyip burada belirtmelisiniz
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: UIScreen.main.bounds.width / 2, alignment: .trailing) // Resmi sağa yaslamak için
+                        .padding(.trailing, -55)
+                }
+              .toolbar {
+                  ToolbarItem(placement: .topBarTrailing) {
+                      Button(action: {
+                          isNavigationActive = true
+                      }, label: {
+                          Text("Edit")
+                      })
+                  }
+              }.sheet(isPresented: $isNavigationActive, content: {
+                  CarEditCV(car: car)
+              })
+                .onAppear(perform: {
+                    // Initialize data here
+                    newCarModel.selectedBrand = car.brand
+                    newCarModel.selectedModel = car.model
+                    newCarModel.selectedFuelType = car.fuelType
+                    newCarModel.mileage = String(car.mileage)
+                })
+            }
+        }
 /*
- #Preview {
- CarDetailCV()
- }
- */
+#Preview {
+    CarDetailTestCV( car: CarInformation(brand: "", model: "", fuelType: CarInformation.EngineType.benzin, mileage:1, releaseDate: , nextMaintenanceDate: Date(), lastMaintenanceDate: Date()))
+}
+*/

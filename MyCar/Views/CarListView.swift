@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct CarEditView: View {
+struct CarListView: View {
     
     @State private var isNavigationActive = false
     let cars : [CarInformation]
@@ -32,7 +32,7 @@ struct CarEditView: View {
                                 .cornerRadius(10)
                             Text("\(car.brand) \(car.model)")
                                 .font(.headline)
-                                .foregroundStyle(.black)
+                                
                         }
                         
                     }
@@ -57,7 +57,7 @@ struct CarEditView: View {
                 })
          }
         }.navigationDestination(for: CarInformation.self) { car in
-            CarDetailTestCV(car: car)
+            CarDetailCV(car: car)
         }
              .navigationBarBackButtonHidden()
               .navigationTitle("My Cars")
