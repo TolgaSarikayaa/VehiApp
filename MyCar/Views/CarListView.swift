@@ -38,7 +38,6 @@ struct CarListView: View {
                     }
                     
                     .padding()
-                    //.background(Color.black)
                     .cornerRadius(10)
                     .shadow(radius: 5)
                 }
@@ -67,6 +66,8 @@ struct CarListView: View {
              Image(systemName: "car.fill")
              .foregroundColor(.blue)
            })
+            
+            
               .sheet(isPresented: $isNavigationActive, content: {
                   NewCarCV()
               })

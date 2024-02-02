@@ -8,6 +8,7 @@
 import Foundation
 import UserNotifications
 
+/*
 class NotificationManager {
     static let shared = NotificationManager()
 
@@ -25,3 +26,4 @@ class NotificationManager {
         UNUserNotificationCenter.current().add(request)
     }
 }
+*/

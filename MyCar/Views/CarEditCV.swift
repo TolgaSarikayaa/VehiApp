@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 
 struct CarEditCV: View {
@@ -20,6 +21,7 @@ struct CarEditCV: View {
     let car : CarInformation
     
     var body: some View {
+        VStack {
         List {
             Section(header: Text("Car Information")) {
                 HStack {
@@ -30,7 +32,7 @@ struct CarEditCV: View {
                     TextField("Model", text: $newCarModel.selectedModel)
                 }
                 
-              
+                
             }
             
             Section(header: Text("")) {
@@ -50,14 +52,14 @@ struct CarEditCV: View {
                     newCarModel.isReleaseDatePickerVisible.toggle()
                 }, label: {
                     Image(systemName: "calendar")
-                    .foregroundColor(.blue)
+                        .foregroundColor(.blue)
                 })
-               
+                
             }
             
             if newCarModel.isReleaseDatePickerVisible {
-            DatePicker("", selection: $newCarModel.selectedReleaseDate, displayedComponents: .date)
-                .datePickerStyle(.graphical)
+                DatePicker("", selection: $newCarModel.selectedReleaseDate, displayedComponents: .date)
+                    .datePickerStyle(.graphical)
             }
             
             HStack {
@@ -71,14 +73,14 @@ struct CarEditCV: View {
                     newCarModel.isLastMaintenanceDatePickerVisible.toggle()
                 }, label: {
                     Image(systemName: "calendar")
-                    .foregroundColor(.blue)
+                        .foregroundColor(.blue)
                 })
             }
             
             if newCarModel.isLastMaintenanceDatePickerVisible {
-            DatePicker("", selection: $newCarModel.selectedLastMaintenanceDate, displayedComponents: .date)
-            .datePickerStyle(.graphical)
-        }
+                DatePicker("", selection: $newCarModel.selectedLastMaintenanceDate, displayedComponents: .date)
+                    .datePickerStyle(.graphical)
+            }
             HStack {
                 Text("Next Maintenance: \(newCarModel.nextMaintenanceDate, formatter: DateFormatter.date)")
                     .onTapGesture {
@@ -90,13 +92,40 @@ struct CarEditCV: View {
                     newCarModel.isNextMaintenanceDatePickerVisible.toggle()
                 }, label: {
                     Image(systemName: "calendar")
-                    .foregroundColor(.blue)
+                        .foregroundColor(.blue)
                 })
             }
             if newCarModel.isNextMaintenanceDatePickerVisible {
                 DatePicker("", selection: $newCarModel.nextMaintenanceDate, displayedComponents: .date)
                     .datePickerStyle(.graphical)
             }
+            
+            
+            MCButton(title: "Save", background: .blue) {
+                
+                if let mileageInt = Int(newCarModel.mileage) {
+                    car.mileage = mileageInt
+                } else {
+                    
+                    car.brand = newCarModel.selectedBrand
+                    car.model = newCarModel.selectedModel
+                    car.fuelType = newCarModel.selectedFuelType
+                    car.releaseDate = newCarModel.selectedReleaseDate
+                    car.lastMaintenanceDate = newCarModel.selectedLastMaintenanceDate
+                    car.nextMaintenanceDate = newCarModel.nextMaintenanceDate
+                }
+                
+                do {
+                    try context.save()
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
+                dismiss()
+                
+            }
+            
+            
         }.onAppear(perform: {
             newCarModel.selectedBrand = car.brand
             newCarModel.selectedModel = car.model
@@ -106,6 +135,10 @@ struct CarEditCV: View {
             newCarModel.selectedLastMaintenanceDate = car.lastMaintenanceDate
             newCarModel.nextMaintenanceDate = car.nextMaintenanceDate
         })
+            
+        
+    }
+        
         
     }
     

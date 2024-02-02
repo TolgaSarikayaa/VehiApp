@@ -46,6 +46,16 @@ struct CarDetailCV: View {
                                 .font(.system(size: 33))
                             Text("\(newCarModel.mileage) KM")
                                 .font(.system(size: 20))
+                           
+                        }
+                        
+                        .padding(.bottom, 15)
+                        
+                        HStack {
+                            Image(systemName: "calendar.circle.fill")
+                                .font(.system(size: 36))
+                            Text("Next Maintenance \(newCarModel.nextMaintenanceDate.onlyDateFormatted())")
+                                .font(.system(size: 20))
                         }
                         Spacer()
                     }
@@ -53,11 +63,11 @@ struct CarDetailCV: View {
 
                     Spacer() // Sol taraftaki VStack ile sağ taraftaki Image arasında boşluk
 
-                    // Sağ tarafta araç resmi için Image
-                    Image("car3") // Resminizi projenize ekleyip burada belirtmelisiniz
+                   
+                    Image("car3")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: UIScreen.main.bounds.width / 2, alignment: .trailing) // Resmi sağa yaslamak için
+                        .frame(width: UIScreen.main.bounds.width / 2, alignment: .trailing)
                         .padding(.trailing, -55)
                 }
               .toolbar {
@@ -77,11 +87,25 @@ struct CarDetailCV: View {
                     newCarModel.selectedModel = car.model
                     newCarModel.selectedFuelType = car.fuelType
                     newCarModel.mileage = String(car.mileage)
+                    newCarModel.nextMaintenanceDate = car.nextMaintenanceDate
                 })
+        
+        
             }
+    
+    
         }
+
+extension Date {
+    func onlyDateFormatted() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        return formatter.string(from: self)
+    }
+}
+
 /*
 #Preview {
-    CarDetailTestCV( car: CarInformation(brand: "", model: "", fuelType: CarInformation.EngineType.benzin, mileage:1, releaseDate: , nextMaintenanceDate: Date(), lastMaintenanceDate: Date()))
+    CarDetailCV( car: CarInformation(brand: "Test", model: "tet2", fuelType: CarInformation.EngineType.benzin, mileage:10))
 }
 */
