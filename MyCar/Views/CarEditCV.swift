@@ -31,10 +31,7 @@ struct CarEditCV: View {
                 HStack {
                     TextField("Model", text: $newCarModel.selectedModel)
                 }
-                
-                
             }
-            
             Section(header: Text("")) {
                 HStack {
                     Text("Fuel Type : \(car.fuelType.rawValue)")
@@ -54,14 +51,11 @@ struct CarEditCV: View {
                     Image(systemName: "calendar")
                         .foregroundColor(.blue)
                 })
-                
             }
-            
             if newCarModel.isReleaseDatePickerVisible {
                 DatePicker("", selection: $newCarModel.selectedReleaseDate, displayedComponents: .date)
                     .datePickerStyle(.graphical)
             }
-            
             HStack {
                 Text("Last Maintenance: \(newCarModel.selectedLastMaintenanceDate, formatter: DateFormatter.date)")
                     .onTapGesture {
@@ -99,7 +93,17 @@ struct CarEditCV: View {
                 DatePicker("", selection: $newCarModel.selectedNextMaintenanceDate, displayedComponents: .date)
                     .datePickerStyle(.graphical)
             }
+    
             
+        }.onAppear(perform: {
+            newCarModel.selectedBrand = car.brand
+            newCarModel.selectedModel = car.model
+            newCarModel.selectedFuelType = car.fuelType
+            newCarModel.mileage = String(car.mileage)
+            newCarModel.selectedReleaseDate = car.releaseDate
+            newCarModel.selectedLastMaintenanceDate = car.lastMaintenanceDate
+            newCarModel.selectedNextMaintenanceDate = car.nextMaintenanceDate
+        })
             
             MCButton(title: "Save", background: .blue) {
                 
@@ -123,20 +127,10 @@ struct CarEditCV: View {
                 
                 dismiss()
                 
-            }
+            } .frame(height: 80)
+                .padding()
             
-            
-        }.onAppear(perform: {
-            newCarModel.selectedBrand = car.brand
-            newCarModel.selectedModel = car.model
-            newCarModel.selectedFuelType = car.fuelType
-            newCarModel.mileage = String(car.mileage)
-            newCarModel.selectedReleaseDate = car.releaseDate
-            newCarModel.selectedLastMaintenanceDate = car.lastMaintenanceDate
-            newCarModel.selectedNextMaintenanceDate = car.nextMaintenanceDate
-        })
-            
-        
+            //.offset(y: -50)
     }
         
         

@@ -39,16 +39,24 @@ struct CarDetailCV: View {
                             // VStack içinde Spacer, yazıları yukarı itecek
                         }
                         
-                        .padding(.bottom, 10)
+                        .padding(.bottom, 15)
                         
                         HStack {
-                            Image(systemName: "steeringwheel.road.lane.dashed")
+                            Image(systemName: "car.rear.road.lane.dashed")
                                 .font(.system(size: 33))
                             Text("\(newCarModel.mileage) KM")
                                 .font(.system(size: 20))
-                           
+                                
                         }
                         
+                        .padding(.bottom, 15)
+                        
+                        HStack {
+                            Image(systemName: "calendar.circle.fill")
+                                .font(.system(size: 36))
+                            Text("Release date \(newCarModel.selectedReleaseDate.onlyDateFormatted())")
+                                .font(.system(size: 20))
+                        }
                         .padding(.bottom, 15)
                         
                         HStack {
