@@ -20,7 +20,7 @@ class NewCarModel : ObservableObject {
        @Published var selectedModel: String = ""
        @Published var selectedReleaseDate = Date()
        @Published var selectedLastMaintenanceDate = Date()
-       @Published var nextMaintenanceDate = Date()
+       @Published var selectedNextMaintenanceDate = Date()
        @Published var mileage: String = ""
        @Published var selectedFuelType: CarInformation.EngineType = .benzin
        @Published var isNavigationActive = false

@@ -121,7 +121,7 @@ struct NewCarCV: View {
                 }
                     
                     HStack {
-                        Text("Next Maintenance: \(newCarModel.nextMaintenanceDate, formatter: DateFormatter.date)")
+                        Text("Next Maintenance: \(newCarModel.selectedNextMaintenanceDate, formatter: DateFormatter.date)")
                             .onTapGesture {
                                 newCarModel.isNextMaintenanceDatePickerVisible.toggle()
                             }
@@ -135,7 +135,7 @@ struct NewCarCV: View {
                         }
                     }
                     if newCarModel.isNextMaintenanceDatePickerVisible {
-                        DatePicker("", selection: $newCarModel.nextMaintenanceDate, displayedComponents: .date)
+                        DatePicker("", selection: $newCarModel.selectedNextMaintenanceDate, displayedComponents: .date)
                             .datePickerStyle(.graphical)
                 }
             }
@@ -181,7 +181,7 @@ struct NewCarCV: View {
                    fuelType: newCarModel.selectedFuelType,
                    mileage: Int(newCarModel.mileage) ?? 0,
                    releaseDate: newCarModel.selectedReleaseDate,
-                   nextMaintenanceDate: newCarModel.nextMaintenanceDate,
+                   nextMaintenanceDate: newCarModel.selectedNextMaintenanceDate,
                    lastMaintenanceDate: newCarModel.selectedLastMaintenanceDate
                )
         

@@ -18,7 +18,7 @@ struct CarEditCV: View {
     @ObservedObject var newCarModel = NewCarModel()
     @State private var fuelTyp : String = ""
     
-    let car : CarInformation
+     var car : CarInformation
     
     var body: some View {
         VStack {
@@ -82,7 +82,7 @@ struct CarEditCV: View {
                     .datePickerStyle(.graphical)
             }
             HStack {
-                Text("Next Maintenance: \(newCarModel.nextMaintenanceDate, formatter: DateFormatter.date)")
+                Text("Next Maintenance: \(newCarModel.selectedNextMaintenanceDate, formatter: DateFormatter.date)")
                     .onTapGesture {
                         newCarModel.isNextMaintenanceDatePickerVisible.toggle()
                     }
@@ -96,7 +96,7 @@ struct CarEditCV: View {
                 })
             }
             if newCarModel.isNextMaintenanceDatePickerVisible {
-                DatePicker("", selection: $newCarModel.nextMaintenanceDate, displayedComponents: .date)
+                DatePicker("", selection: $newCarModel.selectedNextMaintenanceDate, displayedComponents: .date)
                     .datePickerStyle(.graphical)
             }
             
@@ -105,15 +105,15 @@ struct CarEditCV: View {
                 
                 if let mileageInt = Int(newCarModel.mileage) {
                     car.mileage = mileageInt
-                } else {
+                }
                     
                     car.brand = newCarModel.selectedBrand
                     car.model = newCarModel.selectedModel
                     car.fuelType = newCarModel.selectedFuelType
                     car.releaseDate = newCarModel.selectedReleaseDate
                     car.lastMaintenanceDate = newCarModel.selectedLastMaintenanceDate
-                    car.nextMaintenanceDate = newCarModel.nextMaintenanceDate
-                }
+                    car.nextMaintenanceDate = newCarModel.selectedNextMaintenanceDate
+                
                 
                 do {
                     try context.save()
@@ -133,7 +133,7 @@ struct CarEditCV: View {
             newCarModel.mileage = String(car.mileage)
             newCarModel.selectedReleaseDate = car.releaseDate
             newCarModel.selectedLastMaintenanceDate = car.lastMaintenanceDate
-            newCarModel.nextMaintenanceDate = car.nextMaintenanceDate
+            newCarModel.selectedNextMaintenanceDate = car.nextMaintenanceDate
         })
             
         

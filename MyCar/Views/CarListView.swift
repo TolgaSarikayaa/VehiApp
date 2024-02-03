@@ -28,7 +28,7 @@ struct CarListView: View {
                             Image("car")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 300, height: 300)
+                                .frame(width: 300, height: 200)
                                 .cornerRadius(10)
                             Text("\(car.brand) \(car.model)")
                                 .font(.headline)

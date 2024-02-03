@@ -16,8 +16,8 @@ final class CarInformation: Identifiable {
     var fuelType: EngineType
     var mileage: Int
     var releaseDate: Date
-    var nextMaintenanceDate: Date
-    var lastMaintenanceDate: Date
+    var nextMaintenanceDate = Date()
+    var lastMaintenanceDate = Date()
     
     enum EngineType: String, CaseIterable , Codable {
         case diesel = "Dizel"

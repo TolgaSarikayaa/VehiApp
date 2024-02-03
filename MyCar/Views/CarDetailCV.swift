@@ -18,7 +18,7 @@ struct CarDetailCV: View {
     @ObservedObject var newCarModel = NewCarModel()
     @State private var fuelTyp : String = ""
     
-    let car : CarInformation
+     var car : CarInformation
     
     var body: some View {
         HStack {
@@ -54,7 +54,7 @@ struct CarDetailCV: View {
                         HStack {
                             Image(systemName: "calendar.circle.fill")
                                 .font(.system(size: 36))
-                            Text("Next Maintenance \(newCarModel.nextMaintenanceDate.onlyDateFormatted())")
+                            Text("Next Maintenance \(newCarModel.selectedNextMaintenanceDate.onlyDateFormatted())")
                                 .font(.system(size: 20))
                         }
                         Spacer()
@@ -87,7 +87,7 @@ struct CarDetailCV: View {
                     newCarModel.selectedModel = car.model
                     newCarModel.selectedFuelType = car.fuelType
                     newCarModel.mileage = String(car.mileage)
-                    newCarModel.nextMaintenanceDate = car.nextMaintenanceDate
+                    newCarModel.selectedNextMaintenanceDate = car.nextMaintenanceDate
                 })
         
         
