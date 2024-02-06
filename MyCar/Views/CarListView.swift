@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct CarListView: View {
-    
+    @State private var searchText = ""
     @State private var isNavigationActive = false
     let cars : [CarInformation]
     @Environment(\.modelContext) private var context
@@ -17,12 +17,10 @@ struct CarListView: View {
     var body: some View {
         NavigationStack {
         List {
-            if cars.isEmpty {
-                
+            if searchResult.isEmpty {
             } else {
-                ForEach(cars) { car in
+                ForEach(searchResult) { car in
                     Section {
-                    
                     NavigationLink(value: car) {
                         VStack(alignment: .leading, spacing: 5) {
                             Image("car")
@@ -32,9 +30,7 @@ struct CarListView: View {
                                 .cornerRadius(10)
                             Text("\(car.brand) \(car.model)")
                                 .font(.headline)
-                                
                         }
-                        
                     }
                     
                     .padding()
@@ -66,12 +62,20 @@ struct CarListView: View {
              Image(systemName: "car.fill")
              .foregroundColor(.blue)
            })
-            
-            
               .sheet(isPresented: $isNavigationActive, content: {
                   NewCarCV()
               })
-            
+        }.searchable(text: $searchText)
+    }
+    
+    var searchResult : [CarInformation] {
+        if searchText.isEmpty {
+            return cars
+        } else {
+            return cars.filter { car in
+                car.model.lowercased().contains(searchText.lowercased()) ||
+                car.brand.lowercased().contains(searchText.lowercased())
+            }
         }
     }
 }

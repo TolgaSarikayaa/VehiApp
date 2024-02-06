@@ -94,7 +94,6 @@ struct CarEditCV: View {
                     .datePickerStyle(.graphical)
             }
     
-            
         }.onAppear(perform: {
             newCarModel.selectedBrand = car.brand
             newCarModel.selectedModel = car.model
@@ -104,20 +103,17 @@ struct CarEditCV: View {
             newCarModel.selectedLastMaintenanceDate = car.lastMaintenanceDate
             newCarModel.selectedNextMaintenanceDate = car.nextMaintenanceDate
         })
-            
             MCButton(title: "Save", background: .blue) {
                 
                 if let mileageInt = Int(newCarModel.mileage) {
                     car.mileage = mileageInt
                 }
-                    
                     car.brand = newCarModel.selectedBrand
                     car.model = newCarModel.selectedModel
                     car.fuelType = newCarModel.selectedFuelType
                     car.releaseDate = newCarModel.selectedReleaseDate
                     car.lastMaintenanceDate = newCarModel.selectedLastMaintenanceDate
                     car.nextMaintenanceDate = newCarModel.selectedNextMaintenanceDate
-                
                 
                 do {
                     try context.save()
@@ -129,14 +125,10 @@ struct CarEditCV: View {
                 
             } .frame(height: 80)
                 .padding()
-            
-            //.offset(y: -50)
+        }
+                
     }
-        
-        
-    }
-    
-    
+
 }
 
 /*
