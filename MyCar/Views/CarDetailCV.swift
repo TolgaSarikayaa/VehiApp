@@ -62,7 +62,7 @@ struct CarDetailCV: View {
                         HStack {
                             Image(systemName: "calendar.circle.fill")
                                 .font(.system(size: 36))
-                            Text("Next Maintenance \(newCarModel.selectedNextMaintenanceDate.onlyDateFormatted())")
+                            Text("Next Service \(newCarModel.selectedNextServiceDate.onlyDateFormatted())")
                                 .font(.system(size: 20))
                         }
                         Spacer()
@@ -95,7 +95,7 @@ struct CarDetailCV: View {
                     newCarModel.selectedModel = car.model
                     newCarModel.selectedFuelType = car.fuelType
                     newCarModel.mileage = String(car.mileage)
-                    newCarModel.selectedNextMaintenanceDate = car.nextMaintenanceDate
+                    newCarModel.selectedNextServiceDate = car.nextMaintenanceDate
                 })
         
         

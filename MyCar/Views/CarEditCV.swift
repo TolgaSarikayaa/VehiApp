@@ -57,40 +57,40 @@ struct CarEditCV: View {
                     .datePickerStyle(.graphical)
             }
             HStack {
-                Text("Last Maintenance: \(newCarModel.selectedLastMaintenanceDate, formatter: DateFormatter.date)")
+                Text("Last Service: \(newCarModel.selectedLastServiceDate, formatter: DateFormatter.date)")
                     .onTapGesture {
-                        newCarModel.isLastMaintenanceDatePickerVisible.toggle()
+                        newCarModel.isLastServiceDatePickerVisible.toggle()
                     }
                 Spacer()
                 
                 Button(action: {
-                    newCarModel.isLastMaintenanceDatePickerVisible.toggle()
+                    newCarModel.isLastServiceDatePickerVisible.toggle()
                 }, label: {
                     Image(systemName: "calendar")
                         .foregroundColor(.blue)
                 })
             }
             
-            if newCarModel.isLastMaintenanceDatePickerVisible {
-                DatePicker("", selection: $newCarModel.selectedLastMaintenanceDate, displayedComponents: .date)
+            if newCarModel.isLastServiceDatePickerVisible {
+                DatePicker("", selection: $newCarModel.selectedLastServiceDate, displayedComponents: .date)
                     .datePickerStyle(.graphical)
             }
             HStack {
-                Text("Next Maintenance: \(newCarModel.selectedNextMaintenanceDate, formatter: DateFormatter.date)")
+                Text("Next Service: \(newCarModel.selectedNextServiceDate, formatter: DateFormatter.date)")
                     .onTapGesture {
-                        newCarModel.isNextMaintenanceDatePickerVisible.toggle()
+                        newCarModel.isNextServiceDatePickerVisible.toggle()
                     }
                 Spacer()
                 
                 Button(action: {
-                    newCarModel.isNextMaintenanceDatePickerVisible.toggle()
+                    newCarModel.isNextServiceDatePickerVisible.toggle()
                 }, label: {
                     Image(systemName: "calendar")
                         .foregroundColor(.blue)
                 })
             }
-            if newCarModel.isNextMaintenanceDatePickerVisible {
-                DatePicker("", selection: $newCarModel.selectedNextMaintenanceDate, displayedComponents: .date)
+            if newCarModel.isNextServiceDatePickerVisible {
+                DatePicker("", selection: $newCarModel.selectedNextServiceDate, displayedComponents: .date)
                     .datePickerStyle(.graphical)
             }
     
@@ -100,8 +100,8 @@ struct CarEditCV: View {
             newCarModel.selectedFuelType = car.fuelType
             newCarModel.mileage = String(car.mileage)
             newCarModel.selectedReleaseDate = car.releaseDate
-            newCarModel.selectedLastMaintenanceDate = car.lastMaintenanceDate
-            newCarModel.selectedNextMaintenanceDate = car.nextMaintenanceDate
+            newCarModel.selectedLastServiceDate = car.lastMaintenanceDate
+            newCarModel.selectedNextServiceDate = car.nextMaintenanceDate
         })
             MCButton(title: "Save", background: .blue) {
                 
@@ -112,8 +112,8 @@ struct CarEditCV: View {
                     car.model = newCarModel.selectedModel
                     car.fuelType = newCarModel.selectedFuelType
                     car.releaseDate = newCarModel.selectedReleaseDate
-                    car.lastMaintenanceDate = newCarModel.selectedLastMaintenanceDate
-                    car.nextMaintenanceDate = newCarModel.selectedNextMaintenanceDate
+                    car.lastMaintenanceDate = newCarModel.selectedLastServiceDate
+                    car.nextMaintenanceDate = newCarModel.selectedNextServiceDate
                 
                 do {
                     try context.save()
