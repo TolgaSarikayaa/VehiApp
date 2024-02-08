@@ -208,6 +208,9 @@ struct NewCarCV: View {
          
                  do {
                     try context.save()
+                     NotificationManager.shared.scheduleNotification(for: carInformation)
+                     print("Araba bilgileri başarıyla kaydedildi ve bildirim planlandı.")
+
                 } catch {
                     print(error.localizedDescription)
                 }

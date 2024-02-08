@@ -8,7 +8,7 @@
 import Foundation
 import UserNotifications
 
-/*
+
 class NotificationManager {
     static let shared = NotificationManager()
 
@@ -26,4 +26,14 @@ class NotificationManager {
         UNUserNotificationCenter.current().add(request)
     }
 }
-*/
+
+func requestNotificationPermission() {
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+        if granted {
+            print("Notification permissions accepted.")
+        } else if let error = error {
+            print("Notification permissions denied: \(error.localizedDescription)")
+        }
+    }
+}
+

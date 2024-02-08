@@ -13,6 +13,9 @@ struct MyCarApp: App {
     var body: some Scene {
         WindowGroup {
             CarsListCV().modelContainer(for: [CarInformation.self])
+                .onAppear() {
+                    requestNotificationPermission()
+                }
         }
     }
 }
