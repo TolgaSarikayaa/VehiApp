@@ -102,6 +102,7 @@ struct CarEditCV: View {
             newCarModel.selectedReleaseDate = car.releaseDate
             newCarModel.selectedLastServiceDate = car.lastMaintenanceDate
             newCarModel.selectedNextServiceDate = car.nextMaintenanceDate
+            newCarModel.selectedInsuranceExpirationDate = car.insuranceExpirationDate
         })
             MCButton(title: "Save", background: .blue) {
                 
@@ -114,6 +115,7 @@ struct CarEditCV: View {
                     car.releaseDate = newCarModel.selectedReleaseDate
                     car.lastMaintenanceDate = newCarModel.selectedLastServiceDate
                     car.nextMaintenanceDate = newCarModel.selectedNextServiceDate
+                    car.insuranceExpirationDate = newCarModel.selectedInsuranceExpirationDate 
                 
                 do {
                     try context.save()

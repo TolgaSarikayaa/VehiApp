@@ -131,7 +131,6 @@ struct NewCarCV: View {
                             newCarModel.isNextServiceDatePickerVisible.toggle()
                         }) {
                             Image(systemName: "calendar")
-                                .foregroundColor(.blue)
                         }
                     }
                     if newCarModel.isNextServiceDatePickerVisible {
@@ -140,7 +139,26 @@ struct NewCarCV: View {
                 }
             }
                 
-                
+                Section(header: Text("Insurance information ")) {
+                    HStack {
+                        Text("insuranceExpiration : \(newCarModel.selectedInsuranceExpirationDate, formatter: DateFormatter.date)")
+                            .onTapGesture {
+                                newCarModel.isInsurancePickerVisible.toggle()
+                            }
+                        Spacer()
+                        
+                        Button {
+                            newCarModel.isInsurancePickerVisible.toggle()
+                        } label: {
+                            Image(systemName: "calendar")
+                        }
+                    }
+                    if newCarModel.isInsurancePickerVisible {
+                        DatePicker("", selection: $newCarModel.selectedInsuranceExpirationDate, displayedComponents: .date)
+                            .datePickerStyle(.graphical)
+                    }
+                }
+    
             }
             
             .navigationTitle("Add Car")
@@ -182,7 +200,8 @@ struct NewCarCV: View {
                    mileage: Int(newCarModel.mileage) ?? 0,
                    releaseDate: newCarModel.selectedReleaseDate,
                    nextMaintenanceDate: newCarModel.selectedNextServiceDate,
-                   lastMaintenanceDate: newCarModel.selectedLastServiceDate
+                   lastMaintenanceDate: newCarModel.selectedLastServiceDate,
+                   insuranceExpirationDate: newCarModel.selectedInsuranceExpirationDate
                )
         
                context.insert(carInformation)

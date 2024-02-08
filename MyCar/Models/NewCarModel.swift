@@ -21,6 +21,8 @@ class NewCarModel : ObservableObject {
        @Published var selectedReleaseDate = Date()
        @Published var selectedLastServiceDate = Date()
        @Published var selectedNextServiceDate = Date()
+       @Published var selectedInsuranceExpirationDate = Date()
+       @Published var isInsurancePickerVisible = false
        @Published var mileage: String = ""
        @Published var selectedFuelType: CarInformation.EngineType = .benzin
        @Published var isNavigationActive = false

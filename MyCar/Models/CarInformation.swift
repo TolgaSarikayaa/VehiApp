@@ -18,6 +18,7 @@ final class CarInformation: Identifiable {
     var releaseDate: Date
     var nextMaintenanceDate = Date()
     var lastMaintenanceDate = Date()
+    var insuranceExpirationDate = Date()
     
     enum EngineType: String, CaseIterable , Codable {
         case diesel = "Dizel"
@@ -25,7 +26,7 @@ final class CarInformation: Identifiable {
         case electric = "Electric"
     }
     
-    init(id: UUID = UUID(), brand: String, model: String, fuelType: EngineType, mileage: Int, releaseDate: Date, nextMaintenanceDate: Date, lastMaintenanceDate: Date) {
+    init(id: UUID = UUID(), brand: String, model: String, fuelType: EngineType, mileage: Int, releaseDate: Date, nextMaintenanceDate: Date, lastMaintenanceDate: Date,insuranceExpirationDate: Date) {
         self.id = id
         self.brand = brand
         self.model = model
@@ -34,6 +35,7 @@ final class CarInformation: Identifiable {
         self.releaseDate = releaseDate
         self.nextMaintenanceDate = nextMaintenanceDate
         self.lastMaintenanceDate = lastMaintenanceDate
+        self.insuranceExpirationDate = insuranceExpirationDate
     }
     
 }

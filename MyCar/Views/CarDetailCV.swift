@@ -21,15 +21,15 @@ struct CarDetailCV: View {
      var car : CarInformation
     
     var body: some View {
-        HStack {
+          HStack {
                     // Sol taraftaki bilgiler için VStack
-                    VStack(alignment: .leading, spacing: 10) {
+                    VStack(alignment: .leading) {
                         // Bilgileri burada göster
                         Text(newCarModel.selectedBrand)
                             .font(.title)
                             .fontWeight(.bold)
                         Text(newCarModel.selectedModel)
-                            .font(.title)
+                            .font(.title2)
                             .padding(.bottom, 20) // Altta biraz boşluk bırak
                         HStack {
                             Image(systemName: "fuelpump.circle.fill")
@@ -39,7 +39,7 @@ struct CarDetailCV: View {
                             // VStack içinde Spacer, yazıları yukarı itecek
                         }
                         
-                        .padding(.bottom, 15)
+                        .padding(.bottom, 25)
                         
                         HStack {
                             Image(systemName: "car.rear.road.lane.dashed")
@@ -49,29 +49,36 @@ struct CarDetailCV: View {
                                 
                         }
                         
-                        .padding(.bottom, 15)
+                        .padding(.bottom, 25)
                         
                         HStack {
                             Image(systemName: "calendar.circle.fill")
                                 .font(.system(size: 36))
                             Text("Release date \(newCarModel.selectedReleaseDate.onlyDateFormatted())")
-                                .font(.system(size: 20))
+                                .font(.system(size: 16))
                         }
-                        .padding(.bottom, 15)
+                        .padding(.bottom, 25)
                         
                         HStack {
                             Image(systemName: "calendar.circle.fill")
                                 .font(.system(size: 36))
                             Text("Next Service \(newCarModel.selectedNextServiceDate.onlyDateFormatted())")
-                                .font(.system(size: 20))
+                                .font(.system(size: 16))
+                        }
+                        .padding(.bottom, 25)
+                        
+                        HStack {
+                            Image(systemName: "calendar.circle.fill")
+                                .font(.system(size: 36))
+                            Text("Insurance Expiration \(newCarModel.selectedInsuranceExpirationDate.onlyDateFormatted())")
+                                .font(.system(size: 16))
                         }
                         Spacer()
                     }
                     .padding(.leading, 20)
 
-                    Spacer() // Sol taraftaki VStack ile sağ taraftaki Image arasında boşluk
-
-                   
+                    Spacer()
+            
                     Image("car3")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -96,12 +103,9 @@ struct CarDetailCV: View {
                     newCarModel.selectedFuelType = car.fuelType
                     newCarModel.mileage = String(car.mileage)
                     newCarModel.selectedNextServiceDate = car.nextMaintenanceDate
+                    newCarModel.selectedInsuranceExpirationDate = car.insuranceExpirationDate
                 })
-        
-        
             }
-    
-    
         }
 
 extension Date {
