@@ -141,7 +141,7 @@ struct NewCarCV: View {
                 
                 Section(header: Text("Insurance information ")) {
                     HStack {
-                        Text("insuranceExpiration : \(newCarModel.selectedInsuranceExpirationDate, formatter: DateFormatter.date)")
+                        Text("insurance Expiration : \(newCarModel.selectedInsuranceExpirationDate, formatter: DateFormatter.date)")
                             .onTapGesture {
                                 newCarModel.isInsurancePickerVisible.toggle()
                             }

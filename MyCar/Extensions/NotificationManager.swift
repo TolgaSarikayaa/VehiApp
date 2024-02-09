@@ -16,6 +16,7 @@ class NotificationManager {
         let content = UNMutableNotificationContent()
         content.title = "Maintenance Reminder"
         content.body = "It's time for the next maintenance of your \(carInformation.brand) \(carInformation.model)."
+        content.sound = .default
         
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: carInformation.nextMaintenanceDate)
@@ -25,7 +26,30 @@ class NotificationManager {
         
         UNUserNotificationCenter.current().add(request)
     }
+    
+    /*
+    func scheduleTestNotification(for carInformation: CarInformation) {
+        let content = UNMutableNotificationContent()
+        content.title = "Test Notification"
+        content.body = "This is a test notification \(carInformation.brand) \(carInformation.model)."
+        content.sound = .default
+
+        // Bu tetikleyici, bildirimi 5 saniye sonra tetikler
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Test bildirimi planlanırken hata oluştu: \(error.localizedDescription)")
+            } else {
+                print("Test bildirimi başarıyla planlandı.")
+            }
+        }
+    }
+     */
 }
+    
 
 func requestNotificationPermission() {
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in

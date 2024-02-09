@@ -28,7 +28,8 @@ struct CarListView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 300, height: 200)
                                 .cornerRadius(10)
-                            Text("\(car.brand) \(car.model)")
+                            Text("\(car.brand)")
+                            Text("\(car.model)")
                                 .font(.headline)
                         }
                     }
