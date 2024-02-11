@@ -93,6 +93,26 @@ struct CarEditCV: View {
                 DatePicker("", selection: $newCarModel.selectedNextServiceDate, displayedComponents: .date)
                     .datePickerStyle(.graphical)
             }
+            
+            HStack {
+                Text("Insurance Expiration: \(newCarModel.selectedInsuranceExpirationDate, formatter: DateFormatter.date)")
+                    .onTapGesture {
+                        newCarModel.isInsurancePickerVisible.toggle()
+                    }
+                Spacer()
+                
+                Button(action: {
+                    newCarModel.isInsurancePickerVisible.toggle()
+                }, label: {
+                    Image(systemName: "calendar")
+                        .foregroundColor(.blue)
+                })
+            }
+            if newCarModel.isInsurancePickerVisible {
+                DatePicker("", selection: $newCarModel.selectedInsuranceExpirationDate, displayedComponents: .date)
+                    .datePickerStyle(.graphical)
+            }
+
     
         }.onAppear(perform: {
             newCarModel.selectedBrand = car.brand

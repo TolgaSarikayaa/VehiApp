@@ -102,6 +102,7 @@ struct CarDetailCV: View {
                     newCarModel.selectedModel = car.model
                     newCarModel.selectedFuelType = car.fuelType
                     newCarModel.mileage = String(car.mileage)
+                    newCarModel.selectedReleaseDate = car.releaseDate
                     newCarModel.selectedNextServiceDate = car.nextMaintenanceDate
                     newCarModel.selectedInsuranceExpirationDate = car.insuranceExpirationDate
                 })

@@ -17,6 +17,7 @@ struct NewCarCV: View {
    
     @ObservedObject var carListViewModel : CarListViewModel
     @ObservedObject var newCarModel = NewCarModel()
+    @ObservedObject var viewModel = CarInformationViewModel()
     
     init() {
         self.carListViewModel = CarListViewModel(service: LocalService())
@@ -173,7 +174,7 @@ struct NewCarCV: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        saveCar()
+                        viewModel.addCar(context: context, newCarModel: newCarModel)
                         dismiss()
                     } label: {
                         Image(systemName: "plus.app")
@@ -182,41 +183,16 @@ struct NewCarCV: View {
                 }
                 
             }
+            
           }
        
         .task {
            await carListViewModel.downloadCars()
           
         }
-    
-       
     }
     
-     func saveCar() {
-        let carInformation = CarInformation(
-                   brand: newCarModel.selectedBrand,
-                   model: newCarModel.selectedModel,
-                   fuelType: newCarModel.selectedFuelType,
-                   mileage: Int(newCarModel.mileage) ?? 0,
-                   releaseDate: newCarModel.selectedReleaseDate,
-                   nextMaintenanceDate: newCarModel.selectedNextServiceDate,
-                   lastMaintenanceDate: newCarModel.selectedLastServiceDate,
-                   insuranceExpirationDate: newCarModel.selectedInsuranceExpirationDate
-               )
-        
-               context.insert(carInformation)
-         
-                 do {
-                    try context.save()
-                     NotificationManager.shared.scheduleNotification(for: carInformation)
-                     print("Araba bilgileri başarıyla kaydedildi ve bildirim planlandı.")
-
-                } catch {
-                    print(error.localizedDescription)
-                }
-         }
-    
-   }
+}
 
 
 
