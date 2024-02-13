@@ -115,14 +115,7 @@ struct CarEditCV: View {
 
     
         }.onAppear(perform: {
-            newCarModel.selectedBrand = car.brand
-            newCarModel.selectedModel = car.model
-            newCarModel.selectedFuelType = car.fuelType
-            newCarModel.mileage = String(car.mileage)
-            newCarModel.selectedReleaseDate = car.releaseDate
-            newCarModel.selectedLastServiceDate = car.lastMaintenanceDate
-            newCarModel.selectedNextServiceDate = car.nextMaintenanceDate
-            newCarModel.selectedInsuranceExpirationDate = car.insuranceExpirationDate
+            carEditViewModel.prepareData(newCarModel: newCarModel, car: car)
         })
             MCButton(title: "Save", background: .blue) {
                 carEditViewModel.addEditCar(context: context, newCarModel: newCarModel, car: car)
