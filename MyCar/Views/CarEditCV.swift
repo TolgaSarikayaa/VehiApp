@@ -14,7 +14,7 @@ struct CarEditCV: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
     
-    
+    @ObservedObject var carEditViewModel = CarEditViewModel()
     @ObservedObject var newCarModel = NewCarModel()
     @State private var fuelTyp : String = ""
     
@@ -125,24 +125,7 @@ struct CarEditCV: View {
             newCarModel.selectedInsuranceExpirationDate = car.insuranceExpirationDate
         })
             MCButton(title: "Save", background: .blue) {
-                
-                if let mileageInt = Int(newCarModel.mileage) {
-                    car.mileage = mileageInt
-                }
-                    car.brand = newCarModel.selectedBrand
-                    car.model = newCarModel.selectedModel
-                    car.fuelType = newCarModel.selectedFuelType
-                    car.releaseDate = newCarModel.selectedReleaseDate
-                    car.lastMaintenanceDate = newCarModel.selectedLastServiceDate
-                    car.nextMaintenanceDate = newCarModel.selectedNextServiceDate
-                    car.insuranceExpirationDate = newCarModel.selectedInsuranceExpirationDate 
-                
-                do {
-                    try context.save()
-                } catch {
-                    print(error.localizedDescription)
-                }
-                
+                carEditViewModel.addEditCar(context: context, newCarModel: newCarModel, car: car)
                 dismiss()
                 
             } .frame(height: 80)
