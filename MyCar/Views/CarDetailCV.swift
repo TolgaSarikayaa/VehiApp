@@ -14,7 +14,7 @@ struct CarDetailCV: View {
     
     @State private var isNavigationActive = false
     
-    
+    @ObservedObject var carDetailViewModel = CarDetailViewModel()
     @ObservedObject var newCarModel = NewCarModel()
     @State private var fuelTyp : String = ""
     
@@ -98,13 +98,7 @@ struct CarDetailCV: View {
               })
                 .onAppear(perform: {
                     // Initialize data here
-                    newCarModel.selectedBrand = car.brand
-                    newCarModel.selectedModel = car.model
-                    newCarModel.selectedFuelType = car.fuelType
-                    newCarModel.mileage = String(car.mileage)
-                    newCarModel.selectedReleaseDate = car.releaseDate
-                    newCarModel.selectedNextServiceDate = car.nextMaintenanceDate
-                    newCarModel.selectedInsuranceExpirationDate = car.insuranceExpirationDate
+                    carDetailViewModel.prepareData(newCarModel: newCarModel, car: car)
                 })
             }
         }

@@ -35,7 +35,6 @@ struct NewCarCV: View {
                         Picker("Select Brand", selection: $newCarModel.selectedBrandIndex) {
                             ForEach(carListViewModel.carList.indices, id: \.self) { index in
                                 Text(carListViewModel.carList[index].brand)
-                                
                             }
                         }
                         .pickerStyle(MenuPickerStyle())
@@ -43,7 +42,6 @@ struct NewCarCV: View {
                             newCarModel.selectedBrand = carListViewModel.carList[newCarModel.selectedBrandIndex].brand
                         }
                     }
-                    
                     HStack {
                         if !carListViewModel.carList.isEmpty {
                             let selectedBrandModels = carListViewModel.carList[newCarModel.selectedBrandIndex].models
@@ -59,7 +57,6 @@ struct NewCarCV: View {
                         }
                     }
                 }
-                
                 Section(header: Text("Select your car information")) {
                     HStack {
                         Picker("Fuel type", selection: $newCarModel.selectedFuelType) {
@@ -69,7 +66,6 @@ struct NewCarCV: View {
                         }
                         .pickerStyle(MenuPickerStyle())
                     }
-                    
                     HStack {
                         TextField("Enter Mileage", text: $newCarModel.mileage)
                             .keyboardType(.numberPad)
@@ -77,92 +73,41 @@ struct NewCarCV: View {
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                             }
                     }
-                    
                     HStack {
-                        Text("Release date: \(newCarModel.selectedReleaseDate, formatter: DateFormatter.date)")
-                            .onTapGesture {
-                                newCarModel.isReleaseDatePickerVisible.toggle()
-                            }
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            newCarModel.isReleaseDatePickerVisible.toggle()
-                        }) {
-                            Image(systemName: "calendar")
-                                .foregroundColor(.blue)
-                        }
+                    DatePickerView(label: "Release date",
+                                   selectedDate: $newCarModel.selectedReleaseDate,
+                                   isPickerVisible: $newCarModel.isReleaseDatePickerVisible,
+                                   formatter: .date)
                     }
-                    
+        
                     if newCarModel.isReleaseDatePickerVisible {
                         DatePicker("", selection: $newCarModel.selectedReleaseDate, displayedComponents: .date)
                             .datePickerStyle(.graphical)
                     }
-                    
                 }
                 Section(header: Text("Service information ")) {
                 HStack {
-                    Text("Last Servive: \(newCarModel.selectedLastServiceDate, formatter: DateFormatter.date)")
-                        .onTapGesture {
-                            newCarModel.isLastServiceDatePickerVisible.toggle()
-                        }
-                    Spacer()
-                    
-                    Button(action: {
-                        newCarModel.isLastServiceDatePickerVisible.toggle()
-                    }) {
-                        Image(systemName: "calendar")
-                            .foregroundColor(.blue)
-                    }
-                    
+                 DatePickerView(label: "Last Service",
+                                selectedDate: $newCarModel.selectedLastServiceDate,
+                                isPickerVisible: $newCarModel.isLastServiceDatePickerVisible,
+                                formatter: .date)
                 }
-                    if newCarModel.isLastServiceDatePickerVisible {
-                        DatePicker("", selection: $newCarModel.selectedLastServiceDate, displayedComponents: .date)
-                            .datePickerStyle(.graphical)
-                }
-                    
                     HStack {
-                        Text("Next Service: \(newCarModel.selectedNextServiceDate, formatter: DateFormatter.date)")
-                            .onTapGesture {
-                                newCarModel.isNextServiceDatePickerVisible.toggle()
-                            }
-                        Spacer()
-                        
-                        Button(action: {
-                            newCarModel.isNextServiceDatePickerVisible.toggle()
-                        }) {
-                            Image(systemName: "calendar")
-                        }
+                    DatePickerView(label: "Next Service",
+                                   selectedDate: $newCarModel.selectedNextServiceDate,
+                                   isPickerVisible: $newCarModel.isNextServiceDatePickerVisible,
+                                   formatter: .date)
                     }
-                    if newCarModel.isNextServiceDatePickerVisible {
-                        DatePicker("", selection: $newCarModel.selectedNextServiceDate, displayedComponents: .date)
-                            .datePickerStyle(.graphical)
-                }
             }
-                
                 Section(header: Text("Insurance information ")) {
                     HStack {
-                        Text("insurance Expiration : \(newCarModel.selectedInsuranceExpirationDate, formatter: DateFormatter.date)")
-                            .onTapGesture {
-                                newCarModel.isInsurancePickerVisible.toggle()
-                            }
-                        Spacer()
-                        
-                        Button {
-                            newCarModel.isInsurancePickerVisible.toggle()
-                        } label: {
-                            Image(systemName: "calendar")
-                        }
-                    }
-                    if newCarModel.isInsurancePickerVisible {
-                        DatePicker("", selection: $newCarModel.selectedInsuranceExpirationDate, displayedComponents: .date)
-                            .datePickerStyle(.graphical)
+                       DatePickerView(label: "Insurance Expiration",
+                                      selectedDate: $newCarModel.selectedInsuranceExpirationDate,
+                                      isPickerVisible: $newCarModel.isInsurancePickerVisible,
+                                      formatter: .date)
                     }
                 }
-    
-            }
-            
-            .navigationTitle("Add Car")
+            }.navigationTitle("Add Car")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
@@ -181,22 +126,15 @@ struct NewCarCV: View {
                     }.disabled(!isFormValid)
 
                 }
-                
             }
             
-          }
-       
-        .task {
+          }.task {
            await carListViewModel.downloadCars()
           
         }
     }
     
 }
-
-
-
-
 
 extension DateFormatter {
 static var date: DateFormatter {
@@ -205,7 +143,6 @@ static var date: DateFormatter {
     return formatter
    }
 }
-
 
 #Preview {
     NewCarCV().modelContainer(for: [CarInformation.self])

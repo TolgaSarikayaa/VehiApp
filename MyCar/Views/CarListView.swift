@@ -29,8 +29,9 @@ struct CarListView: View {
                                 .frame(width: 300, height: 200)
                                 .cornerRadius(10)
                             Text("\(car.brand)")
-                            Text("\(car.model)")
                                 .font(.headline)
+                            Text("\(car.model)")
+                                
                         }
                     }
                     
