@@ -18,7 +18,7 @@ struct CarEditCV: View {
     @ObservedObject var newCarModel = NewCarModel()
     @State private var fuelTyp : String = ""
     
-     var car : CarInformation
+    var car : CarInformation
     
     var body: some View {
         VStack {
@@ -39,81 +39,29 @@ struct CarEditCV: View {
                 TextField("Mileage", text: $newCarModel.mileage)
             }
             HStack {
-                Text("Release date: \(newCarModel.selectedReleaseDate, formatter: DateFormatter.date)")
-                    .onTapGesture {
-                        newCarModel.isReleaseDatePickerVisible.toggle()
-                    }
-                Spacer()
-                
-                Button(action: {
-                    newCarModel.isReleaseDatePickerVisible.toggle()
-                }, label: {
-                    Image(systemName: "calendar")
-                        .foregroundColor(.blue)
-                })
-            }
-            if newCarModel.isReleaseDatePickerVisible {
-                DatePicker("", selection: $newCarModel.selectedReleaseDate, displayedComponents: .date)
-                    .datePickerStyle(.graphical)
+             DatePickerView(label: "Release date",
+                            selectedDate: $newCarModel.selectedReleaseDate,
+                            isPickerVisible: $newCarModel.isReleaseDatePickerVisible,
+                            formatter: .date)
             }
             HStack {
-                Text("Last Service: \(newCarModel.selectedLastServiceDate, formatter: DateFormatter.date)")
-                    .onTapGesture {
-                        newCarModel.isLastServiceDatePickerVisible.toggle()
-                    }
-                Spacer()
-                
-                Button(action: {
-                    newCarModel.isLastServiceDatePickerVisible.toggle()
-                }, label: {
-                    Image(systemName: "calendar")
-                        .foregroundColor(.blue)
-                })
-            }
-            
-            if newCarModel.isLastServiceDatePickerVisible {
-                DatePicker("", selection: $newCarModel.selectedLastServiceDate, displayedComponents: .date)
-                    .datePickerStyle(.graphical)
+             DatePickerView(label: "Last Service",
+                            selectedDate: $newCarModel.selectedLastServiceDate,
+                            isPickerVisible: $newCarModel.isLastServiceDatePickerVisible,
+                            formatter: .date)
             }
             HStack {
-                Text("Next Service: \(newCarModel.selectedNextServiceDate, formatter: DateFormatter.date)")
-                    .onTapGesture {
-                        newCarModel.isNextServiceDatePickerVisible.toggle()
-                    }
-                Spacer()
-                
-                Button(action: {
-                    newCarModel.isNextServiceDatePickerVisible.toggle()
-                }, label: {
-                    Image(systemName: "calendar")
-                        .foregroundColor(.blue)
-                })
+             DatePickerView(label: "Next Service",
+                            selectedDate: $newCarModel.selectedNextServiceDate,
+                            isPickerVisible: $newCarModel.isNextServiceDatePickerVisible,
+                            formatter: .date)
             }
-            if newCarModel.isNextServiceDatePickerVisible {
-                DatePicker("", selection: $newCarModel.selectedNextServiceDate, displayedComponents: .date)
-                    .datePickerStyle(.graphical)
-            }
-            
             HStack {
-                Text("Insurance Expiration: \(newCarModel.selectedInsuranceExpirationDate, formatter: DateFormatter.date)")
-                    .onTapGesture {
-                        newCarModel.isInsurancePickerVisible.toggle()
-                    }
-                Spacer()
-                
-                Button(action: {
-                    newCarModel.isInsurancePickerVisible.toggle()
-                }, label: {
-                    Image(systemName: "calendar")
-                        .foregroundColor(.blue)
-                })
+           DatePickerView(label: "Insurance Expiration",
+                          selectedDate: $newCarModel.selectedInsuranceExpirationDate,
+                          isPickerVisible: $newCarModel.isInsurancePickerVisible,
+                          formatter: .date)
             }
-            if newCarModel.isInsurancePickerVisible {
-                DatePicker("", selection: $newCarModel.selectedInsuranceExpirationDate, displayedComponents: .date)
-                    .datePickerStyle(.graphical)
-            }
-
-    
         }.onAppear(perform: {
             carEditViewModel.prepareData(newCarModel: newCarModel, car: car)
         })
@@ -124,9 +72,7 @@ struct CarEditCV: View {
             } .frame(height: 80)
                 .padding()
         }
-                
     }
-
 }
 
 /*

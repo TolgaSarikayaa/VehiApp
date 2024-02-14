@@ -225,14 +225,14 @@
 			children = (
 				141E8A892B42E13E00C4C3AF /* LoginView.swift */,
 				141E8ADE2B443F1600C4C3AF /* RegisterView.swift */,
-				141E8AD42B4434EA00C4C3AF /* HeaderView.swift */,
-				141E8ADC2B443E3B00C4C3AF /* MCButton.swift */,
 				1404CA3C2B568C7900A248D7 /* NewCarCV.swift */,
 				145763C82B6A80B200E2D295 /* CarsListCV.swift */,
 				14E0FFF72B48140D00660340 /* CarListView.swift */,
 				145763CA2B6BBFC600E2D295 /* CarEditCV.swift */,
 				145763CC2B6C14CA00E2D295 /* CarDetailCV.swift */,
 				145763D22B7BF77800E2D295 /* DatePickerView.swift */,
+				141E8AD42B4434EA00C4C3AF /* HeaderView.swift */,
+				141E8ADC2B443E3B00C4C3AF /* MCButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

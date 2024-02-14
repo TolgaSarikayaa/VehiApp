@@ -10,15 +10,15 @@ import SwiftData
 
 @Model
 final class CarInformation: Identifiable {
-    var id = UUID()
-    var brand: String
-    var model: String
-    var fuelType: EngineType
-    var mileage: Int
-    var releaseDate: Date
-    var nextMaintenanceDate = Date()
-    var lastMaintenanceDate = Date()
-    var insuranceExpirationDate = Date()
+     var id = UUID()
+     var brand: String
+     var model: String
+     var fuelType: EngineType
+     var mileage: Int
+     var releaseDate: Date
+     var nextMaintenanceDate = Date()
+     var lastMaintenanceDate = Date()
+     var insuranceExpirationDate = Date()
     
     enum EngineType: String, CaseIterable , Codable {
         case diesel = "Dizel"
