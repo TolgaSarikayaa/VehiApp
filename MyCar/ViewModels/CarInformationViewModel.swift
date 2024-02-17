@@ -11,29 +11,29 @@ import SwiftData
 
 class CarInformationViewModel : ObservableObject {
     
-        
+    
     func addCar(context: ModelContext, newCarModel: NewCarModel) {
-            let carInformation = CarInformation(
-                       brand: newCarModel.selectedBrand,
-                       model: newCarModel.selectedModel,
-                       fuelType: newCarModel.selectedFuelType,
-                       mileage: Int(newCarModel.mileage) ?? 0,
-                       releaseDate: newCarModel.selectedReleaseDate,
-                       nextMaintenanceDate: newCarModel.selectedNextServiceDate,
-                       lastMaintenanceDate: newCarModel.selectedLastServiceDate,
-                       insuranceExpirationDate: newCarModel.selectedInsuranceExpirationDate
-                   )
+        let carInformation = CarInformation(
+            brand: newCarModel.selectedBrand,
+            model: newCarModel.selectedModel,
+            fuelType: newCarModel.selectedFuelType,
+            mileage: Int(newCarModel.mileage) ?? 0,
+            releaseDate: newCarModel.selectedReleaseDate,
+            nextMaintenanceDate: newCarModel.selectedNextServiceDate,
+            lastMaintenanceDate: newCarModel.selectedLastServiceDate,
+            insuranceExpirationDate: newCarModel.selectedInsuranceExpirationDate
+        )
+        
+        context.insert(carInformation)
+        
+        do {
+            try context.save()
+            NotificationManager.shared.scheduleNotification(for: carInformation)
+            print("Araba bilgileri başarıyla kaydedildi ve bildirim planlandı.")
             
-                       context.insert(carInformation)
-             
-                     do {
-                        try context.save()
-                         NotificationManager.shared.scheduleNotification(for: carInformation)
-                         print("Araba bilgileri başarıyla kaydedildi ve bildirim planlandı.")
-
-                    } catch {
-                        print(error.localizedDescription)
-                    }
+        } catch {
+            print(error.localizedDescription)
         }
+    }
     
 }

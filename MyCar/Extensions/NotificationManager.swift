@@ -27,27 +27,7 @@ class NotificationManager {
         UNUserNotificationCenter.current().add(request)
     }
     
-    /*
-    func scheduleTestNotification(for carInformation: CarInformation) {
-        let content = UNMutableNotificationContent()
-        content.title = "Test Notification"
-        content.body = "This is a test notification \(carInformation.brand) \(carInformation.model)."
-        content.sound = .default
-
-        // Bu tetikleyici, bildirimi 5 saniye sonra tetikler
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Test bildirimi planlanırken hata oluştu: \(error.localizedDescription)")
-            } else {
-                print("Test bildirimi başarıyla planlandı.")
-            }
-        }
-    }
-     */
+ 
 }
     
 

@@ -14,7 +14,7 @@ struct NewCarCV: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
     
-   
+    
     @ObservedObject var carListViewModel : CarListViewModel
     @ObservedObject var newCarModel = NewCarModel()
     @ObservedObject var viewModel = CarInformationViewModel()
@@ -74,74 +74,74 @@ struct NewCarCV: View {
                             }
                     }
                     HStack {
-                    DatePickerView(label: "Release date",
-                                   selectedDate: $newCarModel.selectedReleaseDate,
-                                   isPickerVisible: $newCarModel.isReleaseDatePickerVisible,
-                                   formatter: .date)
+                        DatePickerView(label: "Release date",
+                                       selectedDate: $newCarModel.selectedReleaseDate,
+                                       isPickerVisible: $newCarModel.isReleaseDatePickerVisible,
+                                       formatter: .date)
                     }
-        
+                    
                     if newCarModel.isReleaseDatePickerVisible {
                         DatePicker("", selection: $newCarModel.selectedReleaseDate, displayedComponents: .date)
                             .datePickerStyle(.graphical)
                     }
                 }
                 Section(header: Text("Service information ")) {
-                HStack {
-                 DatePickerView(label: "Last Service",
-                                selectedDate: $newCarModel.selectedLastServiceDate,
-                                isPickerVisible: $newCarModel.isLastServiceDatePickerVisible,
-                                formatter: .date)
-                }
                     HStack {
-                    DatePickerView(label: "Next Service",
-                                   selectedDate: $newCarModel.selectedNextServiceDate,
-                                   isPickerVisible: $newCarModel.isNextServiceDatePickerVisible,
-                                   formatter: .date)
+                        DatePickerView(label: "Last Service",
+                                       selectedDate: $newCarModel.selectedLastServiceDate,
+                                       isPickerVisible: $newCarModel.isLastServiceDatePickerVisible,
+                                       formatter: .date)
                     }
-            }
+                    HStack {
+                        DatePickerView(label: "Next Service",
+                                       selectedDate: $newCarModel.selectedNextServiceDate,
+                                       isPickerVisible: $newCarModel.isNextServiceDatePickerVisible,
+                                       formatter: .date)
+                    }
+                }
                 Section(header: Text("Insurance information ")) {
                     HStack {
-                       DatePickerView(label: "Insurance Expiration",
-                                      selectedDate: $newCarModel.selectedInsuranceExpirationDate,
-                                      isPickerVisible: $newCarModel.isInsurancePickerVisible,
-                                      formatter: .date)
+                        DatePickerView(label: "Insurance Expiration",
+                                       selectedDate: $newCarModel.selectedInsuranceExpirationDate,
+                                       isPickerVisible: $newCarModel.isInsurancePickerVisible,
+                                       formatter: .date)
                     }
                 }
             }.navigationTitle("Add Car")
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                       Text("Dismiss")
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("Dismiss")
+                        }
+                        
                     }
-                    
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            viewModel.addCar(context: context, newCarModel: newCarModel)
+                            dismiss()
+                        } label: {
+                            Image(systemName: "plus.app")
+                        }.disabled(!isFormValid)
+                        
+                    }
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        viewModel.addCar(context: context, newCarModel: newCarModel)
-                        dismiss()
-                    } label: {
-                        Image(systemName: "plus.app")
-                    }.disabled(!isFormValid)
-
-                }
-            }
             
-          }.task {
-           await carListViewModel.downloadCars()
-          
+        }.task {
+            await carListViewModel.downloadCars()
+            
         }
     }
     
 }
 
 extension DateFormatter {
-static var date: DateFormatter {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .medium
-    return formatter
-   }
+    static var date: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
+    }
 }
 
 #Preview {

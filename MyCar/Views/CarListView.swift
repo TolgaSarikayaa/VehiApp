@@ -16,57 +16,57 @@ struct CarListView: View {
     
     var body: some View {
         NavigationStack {
-        List {
-            if searchResult.isEmpty {
-            } else {
-                ForEach(searchResult) { car in
-                    Section {
-                    NavigationLink(value: car) {
-                        VStack(alignment: .leading, spacing: 5) {
-                            Image("car")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 300, height: 200)
-                                .cornerRadius(10)
-                            Text("\(car.brand)")
-                                .font(.headline)
-                            Text("\(car.model)")
-                                
+            List {
+                if searchResult.isEmpty {
+                } else {
+                    ForEach(searchResult) { car in
+                        Section {
+                            NavigationLink(value: car) {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Image("car")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 300, height: 200)
+                                        .cornerRadius(10)
+                                    Text("\(car.brand)")
+                                        .font(.headline)
+                                    Text("\(car.model)")
+                                    
+                                }
+                            }
+                            
+                            .padding()
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
                         }
-                    }
-                    
-                    .padding()
-                    .cornerRadius(10)
-                    .shadow(radius: 5)
-                }
-                    
-                }.onDelete(perform: { indexSet in
-                    indexSet.forEach { index in
-                        let car = cars[index]
-                        context.delete(car)
                         
-                        do {
-                            try context.save()
-                        } catch {
-                            print(error.localizedDescription)
+                    }.onDelete(perform: { indexSet in
+                        indexSet.forEach { index in
+                            let car = cars[index]
+                            context.delete(car)
+                            
+                            do {
+                                try context.save()
+                            } catch {
+                                print(error.localizedDescription)
+                            }
                         }
-                    }
-                })
-         }
-        }.navigationDestination(for: CarInformation.self) { car in
-            CarDetailCV(car: car)
-        }
-             .navigationBarBackButtonHidden()
-              .navigationTitle("My Cars")
-              .navigationBarItems(trailing: Button(action: {
-               isNavigationActive.toggle()
-             }) {
-             Image(systemName: "car.fill")
-             .foregroundColor(.blue)
-           })
-              .sheet(isPresented: $isNavigationActive, content: {
-                  NewCarCV()
-              })
+                    })
+                }
+            }.navigationDestination(for: CarInformation.self) { car in
+                CarDetailCV(car: car)
+            }
+            .navigationBarBackButtonHidden()
+            .navigationTitle("My Cars")
+            .navigationBarItems(trailing: Button(action: {
+                isNavigationActive.toggle()
+            }) {
+                Image(systemName: "car.fill")
+                    .foregroundColor(.blue)
+            })
+            .sheet(isPresented: $isNavigationActive, content: {
+                NewCarCV()
+            })
         }.searchable(text: $searchText)
     }
     

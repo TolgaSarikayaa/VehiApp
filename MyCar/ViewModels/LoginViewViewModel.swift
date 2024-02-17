@@ -11,7 +11,7 @@ class LoginViewViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var erroMessage = ""
-     
+    
     init() {}
     
     func login() {
@@ -34,6 +34,6 @@ class LoginViewViewModel: ObservableObject {
         }
         
         return true
-
+        
     }
 }
