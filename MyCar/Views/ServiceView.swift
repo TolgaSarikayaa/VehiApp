@@ -9,15 +9,48 @@ import SwiftUI
 
 struct ServiceView: View {
     
-    
-    
+    @State private var carPart = carParts
+    @State private var showingAddPartView = false
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        
-        
+        List {
+            ForEach($carPart) { $parts in
+                HStack {
+                    Image(parts.partImageName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40, height: 40)
+                    Text(parts.partName)
+                    Spacer()
+                    if let price = parts.price {
+                        Text("\(price, specifier: "%.2f") $")
+                    } else {
+                        TextField("Price", value: $parts.price, format: .number)
+                            .keyboardType(.decimalPad)
+                    }
+                    Button {
+                        parts.isSelected.toggle()
+                    } label: {
+                        Image(systemName: parts.isSelected ? "checkmark.circle.fill" : "circle")
+                    }
+                    
+                }
+            }
+        }
+        .navigationTitle("Servise Info")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    // Yeni parça ekleme ekranını göster
+                    showingAddPartView = true
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
+        }
     }
 }
+
 
 #Preview {
     ServiceView()
