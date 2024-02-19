@@ -12,23 +12,29 @@ struct ServiceDetailCV: View {
     @State private var isNavigationActive = false
     
     var body: some View {
-           
-                List {
+        NavigationStack {
+            TabView {
+                HStack {
                     
-                }.toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button(action: {
-                            isNavigationActive = true
-                        }, label: {
-                            Text("Add")
-                        })
-                    }
-                }.sheet(isPresented: $isNavigationActive, content: {
-                    ServiceView()
-                })
-            }
+                    Text("Service")
+                    
+                    
+                }  .tabItem {
+                    Label("Service", systemImage: "gear")
+                }
+                
+                
+            }      .navigationBarItems(trailing: Button(action: {
+                isNavigationActive.toggle()
+            }) {
+                Text("Edit")
+            })
         }
+    }
+        
+}
     
+
 
 #Preview {
     ServiceDetailCV()

@@ -38,16 +38,12 @@ struct ServiceView: View {
             }
         }
         .navigationTitle("Servise Info")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    // Yeni parça ekleme ekranını göster
-                    showingAddPartView = true
-                }) {
-                    Image(systemName: "plus")
-                }
-            }
-        }
+        
+        MCButton(title: "Save", background: .blue) {
+            
+        }.frame(height: 80)
+          
+      
     }
 }
 

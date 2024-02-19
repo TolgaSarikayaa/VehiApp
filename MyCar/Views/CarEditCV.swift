@@ -75,8 +75,4 @@ struct CarEditCV: View {
     }
 }
 
-/*
- #Preview {
- CarDetailCV()
- }
- */
+
