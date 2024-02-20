@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct ServiceView: View {
+struct ServiceEditCV: View {
+    
+   @Environment(\.dismiss) private var dismiss
     
     @State private var carPart = carParts
     @State private var showingAddPartView = false
@@ -37,17 +39,15 @@ struct ServiceView: View {
                 }
             }
         }
-        .navigationTitle("Servise Info")
-        
+      
         MCButton(title: "Save", background: .blue) {
-            
+        dismiss()
         }.frame(height: 80)
           
-      
     }
 }
 
 
 #Preview {
-    ServiceView()
+    ServiceEditCV()
 }

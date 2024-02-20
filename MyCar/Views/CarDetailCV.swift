@@ -21,7 +21,6 @@ struct CarDetailCV: View {
      var car : CarInformation
     
     var body: some View {
-        TabView {
                      HStack {
                          VStack(alignment: .leading) {
                              Text(newCarModel.selectedBrand)
@@ -80,6 +79,9 @@ struct CarDetailCV: View {
                              .frame(width: UIScreen.main.bounds.width / 2, alignment: .trailing)
                              .padding(.trailing, -55)
                      }
+        VStack {
+            NavigationLink("Add Service", destination: ServiceDetailCV())
+        }
                  
                      .sheet(isPresented: $isNavigationActive) {
                          CarEditCV(car: car)
@@ -87,23 +89,17 @@ struct CarDetailCV: View {
                      .onAppear {
                          carDetailViewModel.prepareData(newCarModel: newCarModel, car: car)
                      }
-                     .navigationBarItems(trailing: Button(action: {
-                     isNavigationActive.toggle()
-                 }) {
-                   Text("Edit")
-                 })
-                 .tabItem {
-                     Label("Details", systemImage: "car.fill")
-                 }
-                 
-                
-                 ServiceDetailCV()
-                     .tabItem {
-                         Label("Settings", systemImage: "gear")
+                     .toolbar {
+                         ToolbarItem(placement: .topBarTrailing) {
+                             Button(action: {
+                                 isNavigationActive.toggle()
+                             }, label: {
+                                 Text("Edit")
+                             })
+                         }
                      }
              }
          }
-     }
 
 extension Date {
     func onlyDateFormatted() -> String {

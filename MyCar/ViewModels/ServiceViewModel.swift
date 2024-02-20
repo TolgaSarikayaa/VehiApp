@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import SwiftData
 
-class ServiceViewModel {
+class ServiceViewModel: ObservableObject {
     
+    
+    func addService(context: ModelContext) {
+        
+    }
     
 }

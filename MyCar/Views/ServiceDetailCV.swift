@@ -12,30 +12,29 @@ struct ServiceDetailCV: View {
     @State private var isNavigationActive = false
     
     var body: some View {
-        NavigationStack {
-            TabView {
-                HStack {
-                    
-                    Text("Service")
-                    
-                    
-                }  .tabItem {
-                    Label("Service", systemImage: "gear")
-                }
+        List {
+            HStack {
                 
                 
-            }      .navigationBarItems(trailing: Button(action: {
+                
+            }  .tabItem {
+                Label("Service", systemImage: "gear")
+            }
+            
+            .sheet(isPresented: $isNavigationActive) {
+                ServiceEditCV()
+            }
+            .navigationBarItems(trailing: Button(action: {
                 isNavigationActive.toggle()
             }) {
-                Text("Edit")
+                Image(systemName: "plus.app")
             })
-        }
+        }.navigationTitle("Service Info")
     }
-        
 }
+        
     
-
-
+    
 #Preview {
     ServiceDetailCV()
 }
