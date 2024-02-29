@@ -25,6 +25,7 @@ struct NewCarCV: View {
     
     private var isFormValid: Bool {
         !newCarModel.mileage.trimmingCharacters(in: .whitespaces).isEmpty
+       
     }
     
     var body: some View {
@@ -73,6 +74,13 @@ struct NewCarCV: View {
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                             }
                     }
+                    
+                    HStack {
+                        TextField("Enter License Plate", text: $newCarModel.selectedLicensePlate)
+                            .onTapGesture {
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            }
+                    }
                     HStack {
                         DatePickerView(label: "Release date",
                                        selectedDate: $newCarModel.selectedReleaseDate,
@@ -80,10 +88,6 @@ struct NewCarCV: View {
                                        formatter: .date)
                     }
                     
-                    if newCarModel.isReleaseDatePickerVisible {
-                        DatePicker("", selection: $newCarModel.selectedReleaseDate, displayedComponents: .date)
-                            .datePickerStyle(.graphical)
-                    }
                 }
                 Section(header: Text("Service information ")) {
                     HStack {

@@ -36,7 +36,12 @@ struct CarEditCV: View {
                 HStack {
                     Text("Fuel Type : \(car.fuelType.rawValue)")
                 }
-                TextField("Mileage", text: $newCarModel.mileage)
+                HStack {
+                    TextField("Mileage", text: $newCarModel.mileage)
+                }
+                HStack {
+                    TextField("License", text: $newCarModel.selectedLicensePlate)
+                }
             }
             HStack {
              DatePickerView(label: "Release date",

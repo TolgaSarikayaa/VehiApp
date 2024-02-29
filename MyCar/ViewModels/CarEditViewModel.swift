@@ -21,6 +21,7 @@ class CarEditViewModel : ObservableObject {
         car.lastMaintenanceDate = newCarModel.selectedLastServiceDate
         car.nextMaintenanceDate = newCarModel.selectedNextServiceDate
         car.insuranceExpirationDate = newCarModel.selectedInsuranceExpirationDate
+        car.licensePlate = newCarModel.selectedLicensePlate
         
         do {
             try context.save()
@@ -38,5 +39,6 @@ class CarEditViewModel : ObservableObject {
         newCarModel.selectedLastServiceDate = car.lastMaintenanceDate
         newCarModel.selectedNextServiceDate = car.nextMaintenanceDate
         newCarModel.selectedInsuranceExpirationDate = car.insuranceExpirationDate
+        newCarModel.selectedLicensePlate = car.licensePlate
     }
 }

@@ -21,7 +21,8 @@ class CarInformationViewModel : ObservableObject {
             releaseDate: newCarModel.selectedReleaseDate,
             nextMaintenanceDate: newCarModel.selectedNextServiceDate,
             lastMaintenanceDate: newCarModel.selectedLastServiceDate,
-            insuranceExpirationDate: newCarModel.selectedInsuranceExpirationDate
+            insuranceExpirationDate: newCarModel.selectedInsuranceExpirationDate,
+            licensePlate: newCarModel.selectedLicensePlate
         )
         
         context.insert(carInformation)

@@ -23,17 +23,26 @@ struct CarListView: View {
                         Section {
                             NavigationLink(value: car) {
                                 VStack(alignment: .leading, spacing: 5) {
-                                    Image("car")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 300, height: 200)
-                                        .cornerRadius(10)
-                                    Text("\(car.brand)")
-                                        .font(.headline)
-                                    Text("\(car.model)")
-                                    
-                                }
-                            }
+                                       Image("car")
+                                           .resizable()
+                                           .aspectRatio(contentMode: .fit)
+                                           .frame(width: 300, height: 200)
+                                           .cornerRadius(10)
+                                       
+                                       HStack {
+                                           VStack(alignment: .leading) {
+                                               Text("\(car.brand)")
+                                                   .font(.headline)
+                                               Text("\(car.model)")
+                                           }
+                                           
+                                           Spacer() // Sol ve sağ içerik arasındaki boşluğu maksimize eder
+                                           
+                                           Text("\(car.licensePlate)")
+                                               .frame(alignment: .trailing) // Bu, metni sağa hizalar
+                                       }
+                                   }
+                               }
                             
                             .padding()
                             .cornerRadius(10)

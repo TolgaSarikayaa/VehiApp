@@ -26,5 +26,6 @@ class NewCarModel : ObservableObject {
        @Published var mileage: String = ""
        @Published var selectedFuelType: CarInformation.EngineType = .benzin
        @Published var isNavigationActive = false
+       @Published var selectedLicensePlate: String = ""
     
 }
