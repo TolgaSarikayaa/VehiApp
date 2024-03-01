@@ -75,7 +75,7 @@ struct CarEditCV: View {
                 dismiss()
                 
             } .frame(height: 80)
-                .padding()
+               
         }
     }
 }
