@@ -24,12 +24,9 @@ struct ServiceEditCV: View {
                         .frame(width: 40, height: 40)
                     Text(parts.partName)
                     Spacer()
-                    if let price = parts.price {
-                        Text("\(price, specifier: "%.2f") $")
-                    } else {
-                        TextField("Price", value: $parts.price, format: .number)
-                            .keyboardType(.decimalPad)
-                    }
+                    TextField("Price", value: $parts.price, format: .number)
+                    .keyboardType(.decimalPad)
+                   
                     Button {
                         parts.isSelected.toggle()
                     } label: {

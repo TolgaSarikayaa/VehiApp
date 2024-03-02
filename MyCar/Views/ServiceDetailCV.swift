@@ -10,27 +10,38 @@ import SwiftUI
 struct ServiceDetailCV: View {
     
     @State private var isNavigationActive = false
+    @State private var services = [String]()
     
     var body: some View {
-        List {
-            HStack {
+        HStack {
+            // Liste içeriğine göre koşullu görünüm
+            if services.isEmpty {
+                // Liste boşken gösterilecek mesaj
+                Text("Add Service Information")
+                    .foregroundColor(.gray)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity) // Merkeze almak için
+                    .background(Color(UIColor.systemBackground)) // Arka plan rengi
                 
+            } else {
+                // Liste doluysa gösterilecek liste elemanları
+                List(services, id: \.self) { service in
+                    Text(service)
+                }
                 
+               
                 
-            }  .tabItem {
-                Label("Service", systemImage: "gear")
             }
-            
-            .sheet(isPresented: $isNavigationActive) {
-                ServiceEditCV()
-            }
-            .navigationBarItems(trailing: Button(action: {
-                isNavigationActive.toggle()
-            }) {
-                Image(systemName: "plus.app")
-            })
-        }.navigationTitle("Service Info")
+        }  .navigationBarItems(trailing: Button(action: {
+            isNavigationActive.toggle()
+        }) {
+            Image(systemName: "plus.app")
+        })
+        .sheet(isPresented: $isNavigationActive) {
+            ServiceEditCV()
+        }
+        .navigationTitle("Service Info")
     }
+    
 }
         
     
