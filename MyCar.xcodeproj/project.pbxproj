@@ -26,11 +26,11 @@
 		141E8ADD2B443E3B00C4C3AF /* MCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8ADC2B443E3B00C4C3AF /* MCButton.swift */; };
 		141E8ADF2B443F1600C4C3AF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8ADE2B443F1600C4C3AF /* RegisterView.swift */; };
 		141E8AE12B44599400C4C3AF /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */; };
-		142142AE2B93BF5F00D60CF7 /* GasListCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142AD2B93BF5F00D60CF7 /* GasListCV.swift */; };
+		142142AE2B93BF5F00D60CF7 /* GasListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142AD2B93BF5F00D60CF7 /* GasListView.swift */; };
 		142142B02B93C6A300D60CF7 /* GasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142AF2B93C6A300D60CF7 /* GasModel.swift */; };
 		142142B42B947F3800D60CF7 /* GasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B32B947F3800D60CF7 /* GasViewModel.swift */; };
-		142142B62B9491F100D60CF7 /* GasListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B52B9491F100D60CF7 /* GasListTest.swift */; };
-		142142B82B94930200D60CF7 /* MainTestCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B72B94930100D60CF7 /* MainTestCV.swift */; };
+		142142B62B9491F100D60CF7 /* GasListCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B52B9491F100D60CF7 /* GasListCV.swift */; };
+		142142B82B94930200D60CF7 /* MainCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B72B94930100D60CF7 /* MainCV.swift */; };
 		145763C92B6A80B200E2D295 /* CarsListCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763C82B6A80B200E2D295 /* CarsListCV.swift */; };
 		145763CB2B6BBFC600E2D295 /* CarEditCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763CA2B6BBFC600E2D295 /* CarEditCV.swift */; };
 		145763CD2B6C14CA00E2D295 /* CarDetailCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763CC2B6C14CA00E2D295 /* CarDetailCV.swift */; };
@@ -89,11 +89,11 @@
 		141E8ADC2B443E3B00C4C3AF /* MCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCButton.swift; sourceTree = "<group>"; };
 		141E8ADE2B443F1600C4C3AF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
-		142142AD2B93BF5F00D60CF7 /* GasListCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasListCV.swift; sourceTree = "<group>"; };
+		142142AD2B93BF5F00D60CF7 /* GasListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasListView.swift; sourceTree = "<group>"; };
 		142142AF2B93C6A300D60CF7 /* GasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasModel.swift; sourceTree = "<group>"; };
 		142142B32B947F3800D60CF7 /* GasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasViewModel.swift; sourceTree = "<group>"; };
-		142142B52B9491F100D60CF7 /* GasListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasListTest.swift; sourceTree = "<group>"; };
-		142142B72B94930100D60CF7 /* MainTestCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTestCV.swift; sourceTree = "<group>"; };
+		142142B52B9491F100D60CF7 /* GasListCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasListCV.swift; sourceTree = "<group>"; };
+		142142B72B94930100D60CF7 /* MainCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCV.swift; sourceTree = "<group>"; };
 		145763C82B6A80B200E2D295 /* CarsListCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListCV.swift; sourceTree = "<group>"; };
 		145763CA2B6BBFC600E2D295 /* CarEditCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEditCV.swift; sourceTree = "<group>"; };
 		145763CC2B6C14CA00E2D295 /* CarDetailCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCV.swift; sourceTree = "<group>"; };
@@ -245,7 +245,8 @@
 		141E8AD32B44346200C4C3AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				142142AD2B93BF5F00D60CF7 /* GasListCV.swift */,
+				142142B72B94930100D60CF7 /* MainCV.swift */,
+				142142AD2B93BF5F00D60CF7 /* GasListView.swift */,
 				141E8A892B42E13E00C4C3AF /* LoginView.swift */,
 				141E8ADE2B443F1600C4C3AF /* RegisterView.swift */,
 				14A476132B8147AF0069ACB2 /* ServiceEditCV.swift */,
@@ -255,11 +256,10 @@
 				14E0FFF72B48140D00660340 /* CarListView.swift */,
 				145763CA2B6BBFC600E2D295 /* CarEditCV.swift */,
 				145763CC2B6C14CA00E2D295 /* CarDetailCV.swift */,
+				142142B52B9491F100D60CF7 /* GasListCV.swift */,
 				145763D22B7BF77800E2D295 /* DatePickerView.swift */,
 				141E8AD42B4434EA00C4C3AF /* HeaderView.swift */,
 				141E8ADC2B443E3B00C4C3AF /* MCButton.swift */,
-				142142B52B9491F100D60CF7 /* GasListTest.swift */,
-				142142B72B94930100D60CF7 /* MainTestCV.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -434,10 +434,10 @@
 				1404CA472B5F061900A248D7 /* NotificationManager.swift in Sources */,
 				1404C9FA2B4A025600A248D7 /* Constanst.swift in Sources */,
 				141E8A882B42E13E00C4C3AF /* MyCarApp.swift in Sources */,
-				142142B62B9491F100D60CF7 /* GasListTest.swift in Sources */,
+				142142B62B9491F100D60CF7 /* GasListCV.swift in Sources */,
 				141E8AD92B44359F00C4C3AF /* User.swift in Sources */,
-				142142B82B94930200D60CF7 /* MainTestCV.swift in Sources */,
-				142142AE2B93BF5F00D60CF7 /* GasListCV.swift in Sources */,
+				142142B82B94930200D60CF7 /* MainCV.swift in Sources */,
+				142142AE2B93BF5F00D60CF7 /* GasListView.swift in Sources */,
 				14A4761C2B82187A0069ACB2 /* ServiceDetailCV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

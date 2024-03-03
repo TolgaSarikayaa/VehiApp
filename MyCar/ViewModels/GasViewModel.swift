@@ -14,7 +14,10 @@ class GasViewModel : ObservableObject {
         let newGas = Gas(price: gasModel.newPrice, timestamp: Date())
         context.insert(newGas)
         
-     
+        DispatchQueue.main.async {
+            gasModel.newPrice = ""
+        }
+
         
     }
     

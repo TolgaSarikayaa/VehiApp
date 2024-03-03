@@ -8,14 +8,14 @@
 import SwiftUI
 import SwiftData
 
-struct MainTestCV: View {
+struct MainCV: View {
     var body: some View {
         TabView {
             CarsListCV().modelContainer(for: [CarInformation.self])
                 .tabItem {
-                    Label("car", systemImage: "car")
+                    Label("Cars", systemImage: "car")
                 }
-            GasListTest().modelContainer(for: Gas.self, inMemory: true)
+            GasListCV().modelContainer(for: Gas.self, inMemory: true)
                 .tabItem {
                     Label("Fuel", systemImage: "fuelpump")
                 }
@@ -24,5 +24,5 @@ struct MainTestCV: View {
 }
 
 #Preview {
-    MainTestCV()
+    MainCV()
 }
