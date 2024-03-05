@@ -30,7 +30,3 @@ class NewCarModel : ObservableObject {
     
 }
 
-class GasPriceModel : ObservableObject {
-    @Published var newPrice: String = ""
-    
-}

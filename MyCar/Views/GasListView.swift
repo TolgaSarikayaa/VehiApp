@@ -6,93 +6,77 @@
 //
 
 import SwiftUI
-import SwiftData
+import CoreData
 
 struct GasListView: View {
     
-    @Query private var prices: [Gas]
+    @Environment(\.managedObjectContext) var manageContext
+    @FetchRequest(
+            sortDescriptors: [NSSortDescriptor(keyPath: \GasEntity.date, ascending: false)],
+            animation: .default)
+    var gasList: FetchedResults<GasEntity>
     
-    @Environment(\.modelContext) private var modelContext
     @State private var showAlert = false
-    @State private var newPrice = ""
-    @ObservedObject var gasModel = GasPriceModel()
-    @ObservedObject var gasViewModel = GasViewModel()
     
+    @State private var newPrice: String = ""
+    
+    private var groupedGasList: [String: [GasEntity]] {
+          Dictionary(grouping: gasList) { gas in
+              let dateFormatter = DateFormatter()
+              dateFormatter.dateStyle = .medium
+              return dateFormatter.string(from: gas.date ?? Date())
+          }
+      }
     
     var body: some View {
         NavigationStack {
             List {
-                if prices.isEmpty {
+                ForEach(groupedGasList.keys.sorted(), id: \.self) { date in
+                           Section(header: Text(date)) {
+                               ForEach(groupedGasList[date] ?? []) { gas in
+                                   HStack {
+                                       Image(systemName: "fuelpump.fill")
+                                           .foregroundColor(.green)
+                                       Text("Bought Gasoline")
+                                       Spacer()
+                                       Text("\(gas.price ?? "")$")
+                                   }
+                               }
+                           }
+                           
+                       }
+                         .onDelete(perform: deleteGas)
                 
-                } else {
-                    let groupedPrices = prices.groupedByDate()
-                    ForEach(groupedPrices.keys.sorted(), id: \.self) { key in
-                        let values = groupedPrices[key]!
-                        Section(header: Text(key.toFormattedString())) {
-                            ForEach(values, id: \.self) { gas in
-                                HStack {
-                                    Image(systemName: "fuelpump.fill")
-                                    .foregroundColor(.green)
-                                    Text("Bought Gasoline")
-                                    Spacer()
-                                    Text("\(gas.price)$")
-                                }
-                            }
-                            
-                        }
-                        
-                        
-                    }
-                    .onDelete(perform: deleteItems)
-                    
-                    
-                }
-                   
-            }
+                   }
             .navigationTitle("Bought Gasoline")
             .navigationBarItems(trailing: Button(action: {
                 self.showAlert = true
             }, label: {
                 Image(systemName: "plus")
             }))
-            .alert("Add Gas Price ", isPresented: $showAlert) {
-                TextField("Price", text: $gasModel.newPrice)
+            .alert("Add Gasoline", isPresented: $showAlert) {
+                TextField("Price", text: $newPrice)
                     .keyboardType(.numberPad)
-                Button("Save", action: { gasViewModel.addGas(context: modelContext, gasModel: gasModel) })
+                Button("Add", action: { GasModelController().add(price: newPrice, context: manageContext)  })
                 Button("Cancel", role: .cancel) { }
             }
-        }
+
+
+             }
         
-    }
-    private func deleteItems(offsets: IndexSet) {
+        }
+    func deleteGas(at offsets: IndexSet) {
         for index in offsets {
-            modelContext.delete(prices[index])
+            let gas = gasList[index]
+            manageContext.delete(gas)
         }
-        
+
+        try? manageContext.save()
     }
-    
     
 }
 
-extension Collection where Iterator.Element == Gas {
-    func groupedByDate() -> [Date: [Gas]] {
-        let initial: [Date: [Gas]] = [:]
-        let grouped = self.reduce(into: initial) { acc, cur in
-            let components = Calendar.current.dateComponents([.year, .month, .day], from: cur.timestamp)
-            if let date = Calendar.current.date(from: components) {
-                acc[date, default: []].append(cur)
-            }
-        }
-        return grouped
-    }
-}
 
-extension Date {
-    func toFormattedString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        return formatter.string(from: self)
-    }
-}
+
+
 

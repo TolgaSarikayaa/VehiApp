@@ -64,6 +64,7 @@ struct CarListView: View {
                 }
             }.navigationDestination(for: CarInformation.self) { car in
                 CarDetailCV(car: car)
+                    .toolbar(.hidden, for: .tabBar)
             }
             .navigationBarBackButtonHidden()
             .navigationTitle("My Cars")
@@ -91,4 +92,8 @@ struct CarListView: View {
     }
 }
 
-
+public enum Visibility {
+    case automatic
+    case hidden
+    case visible
+}

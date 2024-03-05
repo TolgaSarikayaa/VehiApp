@@ -10,6 +10,7 @@ import SwiftData
 
 struct GasListCV: View {
     
+    
 
     var body: some View {
         GasListView()
@@ -17,5 +18,7 @@ struct GasListCV: View {
 }
 
 #Preview {
-    GasListCV().modelContainer(for: Gas.self, inMemory: true)
+    GasListCV()
+    
 }
+

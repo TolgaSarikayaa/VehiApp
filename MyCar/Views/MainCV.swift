@@ -15,7 +15,7 @@ struct MainCV: View {
                 .tabItem {
                     Label("Cars", systemImage: "car")
                 }
-            GasListCV().modelContainer(for: Gas.self, inMemory: true)
+            GasListView()
                 .tabItem {
                     Label("Fuel", systemImage: "fuelpump")
                 }

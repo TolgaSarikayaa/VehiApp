@@ -13,7 +13,7 @@ struct ServiceDetailCV: View {
     @State private var services = [String]()
     
     var body: some View {
-        NavigationStack {
+       
             HStack {
                 // Liste içeriğine göre koşullu görünüm
                 if services.isEmpty {
@@ -45,7 +45,7 @@ struct ServiceDetailCV: View {
         
     }
     
-}
+
     
 #Preview {
     ServiceDetailCV()
