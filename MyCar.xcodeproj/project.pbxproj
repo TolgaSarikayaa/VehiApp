@@ -26,8 +26,8 @@
 		141E8ADD2B443E3B00C4C3AF /* MCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8ADC2B443E3B00C4C3AF /* MCButton.swift */; };
 		141E8ADF2B443F1600C4C3AF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8ADE2B443F1600C4C3AF /* RegisterView.swift */; };
 		141E8AE12B44599400C4C3AF /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */; };
-		142142AE2B93BF5F00D60CF7 /* GasListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142AD2B93BF5F00D60CF7 /* GasListView.swift */; };
-		142142B62B9491F100D60CF7 /* GasListCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B52B9491F100D60CF7 /* GasListCV.swift */; };
+		142142AE2B93BF5F00D60CF7 /* FuelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142AD2B93BF5F00D60CF7 /* FuelListView.swift */; };
+		142142B62B9491F100D60CF7 /* FuelListCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B52B9491F100D60CF7 /* FuelListCV.swift */; };
 		142142B82B94930200D60CF7 /* MainCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B72B94930100D60CF7 /* MainCV.swift */; };
 		145763C92B6A80B200E2D295 /* CarsListCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763C82B6A80B200E2D295 /* CarsListCV.swift */; };
 		145763CB2B6BBFC600E2D295 /* CarEditCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763CA2B6BBFC600E2D295 /* CarEditCV.swift */; };
@@ -39,8 +39,8 @@
 		14A476162B8147F80069ACB2 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A476152B8147F80069ACB2 /* ServiceModel.swift */; };
 		14A476182B8148270069ACB2 /* ServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A476172B8148270069ACB2 /* ServiceViewModel.swift */; };
 		14A4761C2B82187A0069ACB2 /* ServiceDetailCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4761B2B82187A0069ACB2 /* ServiceDetailCV.swift */; };
-		14AA406A2B9760EC00647793 /* GasModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14AA40682B9760EC00647793 /* GasModel.xcdatamodeld */; };
-		14AA406C2B9761BC00647793 /* GasModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA406B2B9761BC00647793 /* GasModelController.swift */; };
+		14AA406C2B9761BC00647793 /* FuelModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA406B2B9761BC00647793 /* FuelModelController.swift */; };
+		14D7D47F2B9B5567007F2483 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D47D2B9B5567007F2483 /* DataModel.xcdatamodeld */; };
 		14E000182B4823D400660340 /* CarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E000172B4823D300660340 /* CarListViewModel.swift */; };
 		14E0FFEB2B480EBD00660340 /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0FFEA2B480EBD00660340 /* CarModel.swift */; };
 		14E0FFEE2B480F4E00660340 /* LocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0FFED2B480F4E00660340 /* LocalService.swift */; };
@@ -89,8 +89,8 @@
 		141E8ADC2B443E3B00C4C3AF /* MCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCButton.swift; sourceTree = "<group>"; };
 		141E8ADE2B443F1600C4C3AF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		141E8AE02B44599400C4C3AF /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
-		142142AD2B93BF5F00D60CF7 /* GasListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasListView.swift; sourceTree = "<group>"; };
-		142142B52B9491F100D60CF7 /* GasListCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasListCV.swift; sourceTree = "<group>"; };
+		142142AD2B93BF5F00D60CF7 /* FuelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelListView.swift; sourceTree = "<group>"; };
+		142142B52B9491F100D60CF7 /* FuelListCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelListCV.swift; sourceTree = "<group>"; };
 		142142B72B94930100D60CF7 /* MainCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCV.swift; sourceTree = "<group>"; };
 		145763C82B6A80B200E2D295 /* CarsListCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListCV.swift; sourceTree = "<group>"; };
 		145763CA2B6BBFC600E2D295 /* CarEditCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEditCV.swift; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 		14A476152B8147F80069ACB2 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		14A476172B8148270069ACB2 /* ServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
 		14A4761B2B82187A0069ACB2 /* ServiceDetailCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailCV.swift; sourceTree = "<group>"; };
-		14AA40692B9760EC00647793 /* GasModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GasModel.xcdatamodel; sourceTree = "<group>"; };
-		14AA406B2B9761BC00647793 /* GasModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasModelController.swift; sourceTree = "<group>"; };
+		14AA406B2B9761BC00647793 /* FuelModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelModelController.swift; sourceTree = "<group>"; };
+		14D7D47E2B9B5567007F2483 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		14E000172B4823D300660340 /* CarListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewModel.swift; sourceTree = "<group>"; };
 		14E0FFEA2B480EBD00660340 /* CarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
 		14E0FFED2B480F4E00660340 /* LocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalService.swift; sourceTree = "<group>"; };
@@ -185,7 +185,6 @@
 				141E8AD32B44346200C4C3AF /* Views */,
 				141E8A8D2B42E13F00C4C3AF /* Assets.xcassets */,
 				141E8A8F2B42E13F00C4C3AF /* Preview Content */,
-				14AA40682B9760EC00647793 /* GasModel.xcdatamodeld */,
 			);
 			path = MyCar;
 			sourceTree = "<group>";
@@ -193,6 +192,7 @@
 		141E8A8F2B42E13F00C4C3AF /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				14D7D47D2B9B5567007F2483 /* DataModel.xcdatamodeld */,
 				141E8A902B42E13F00C4C3AF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -223,7 +223,7 @@
 				1404CA3A2B51938D00A248D7 /* CarInformation.swift */,
 				1404CA422B5EFAF900A248D7 /* NewCarModel.swift */,
 				14A476152B8147F80069ACB2 /* ServiceModel.swift */,
-				14AA406B2B9761BC00647793 /* GasModelController.swift */,
+				14AA406B2B9761BC00647793 /* FuelModelController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,8 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				142142B72B94930100D60CF7 /* MainCV.swift */,
-				142142AD2B93BF5F00D60CF7 /* GasListView.swift */,
-				142142B52B9491F100D60CF7 /* GasListCV.swift */,
+				142142AD2B93BF5F00D60CF7 /* FuelListView.swift */,
+				142142B52B9491F100D60CF7 /* FuelListCV.swift */,
 				141E8A892B42E13E00C4C3AF /* LoginView.swift */,
 				141E8ADE2B443F1600C4C3AF /* RegisterView.swift */,
 				14A476132B8147AF0069ACB2 /* ServiceEditCV.swift */,
@@ -419,25 +419,25 @@
 				145763D12B7BF40800E2D295 /* CarDetailViewModel.swift in Sources */,
 				141E8AE12B44599400C4C3AF /* RegisterViewViewModel.swift in Sources */,
 				14E0FFEE2B480F4E00660340 /* LocalService.swift in Sources */,
-				14AA406C2B9761BC00647793 /* GasModelController.swift in Sources */,
+				14AA406C2B9761BC00647793 /* FuelModelController.swift in Sources */,
 				1404CA3D2B568C7900A248D7 /* NewCarCV.swift in Sources */,
 				145763C92B6A80B200E2D295 /* CarsListCV.swift in Sources */,
 				141E8A8A2B42E13E00C4C3AF /* LoginView.swift in Sources */,
 				141E8ADF2B443F1600C4C3AF /* RegisterView.swift in Sources */,
 				14A476182B8148270069ACB2 /* ServiceViewModel.swift in Sources */,
 				14E000182B4823D400660340 /* CarListViewModel.swift in Sources */,
+				14D7D47F2B9B5567007F2483 /* DataModel.xcdatamodeld in Sources */,
 				14E0FFF82B48140D00660340 /* CarListView.swift in Sources */,
 				14E0FFEB2B480EBD00660340 /* CarModel.swift in Sources */,
 				145763CB2B6BBFC600E2D295 /* CarEditCV.swift in Sources */,
-				14AA406A2B9760EC00647793 /* GasModel.xcdatamodeld in Sources */,
 				141E8AD52B4434EA00C4C3AF /* HeaderView.swift in Sources */,
 				1404CA472B5F061900A248D7 /* NotificationManager.swift in Sources */,
 				1404C9FA2B4A025600A248D7 /* Constanst.swift in Sources */,
 				141E8A882B42E13E00C4C3AF /* MyCarApp.swift in Sources */,
-				142142B62B9491F100D60CF7 /* GasListCV.swift in Sources */,
+				142142B62B9491F100D60CF7 /* FuelListCV.swift in Sources */,
 				141E8AD92B44359F00C4C3AF /* User.swift in Sources */,
 				142142B82B94930200D60CF7 /* MainCV.swift in Sources */,
-				142142AE2B93BF5F00D60CF7 /* GasListView.swift in Sources */,
+				142142AE2B93BF5F00D60CF7 /* FuelListView.swift in Sources */,
 				14A4761C2B82187A0069ACB2 /* ServiceDetailCV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,13 +770,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		14AA40682B9760EC00647793 /* GasModel.xcdatamodeld */ = {
+		14D7D47D2B9B5567007F2483 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				14AA40692B9760EC00647793 /* GasModel.xcdatamodel */,
+				14D7D47E2B9B5567007F2483 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 14AA40692B9760EC00647793 /* GasModel.xcdatamodel */;
-			path = GasModel.xcdatamodeld;
+			currentVersion = 14D7D47E2B9B5567007F2483 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

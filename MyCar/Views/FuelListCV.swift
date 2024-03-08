@@ -8,17 +8,17 @@
 import SwiftUI
 import SwiftData
 
-struct GasListCV: View {
+struct FuelListCV: View {
     
     
 
     var body: some View {
-        GasListView()
+        FuelListView()
     }
 }
 
 #Preview {
-    GasListCV()
+    FuelListCV()
     
 }
 

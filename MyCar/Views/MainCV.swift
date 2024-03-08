@@ -15,7 +15,7 @@ struct MainCV: View {
                 .tabItem {
                     Label("Cars", systemImage: "car")
                 }
-            GasListView()
+            FuelListView()
                 .tabItem {
                     Label("Fuel", systemImage: "fuelpump")
                 }

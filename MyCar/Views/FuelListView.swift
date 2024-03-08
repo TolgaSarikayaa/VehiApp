@@ -8,19 +8,20 @@
 import SwiftUI
 import CoreData
 
-struct GasListView: View {
+struct FuelListView: View {
     
     @Environment(\.managedObjectContext) var manageContext
     @FetchRequest(
-            sortDescriptors: [NSSortDescriptor(keyPath: \GasEntity.date, ascending: false)],
+            sortDescriptors: [NSSortDescriptor(keyPath: \FuelEntity.date, ascending: false)],
             animation: .default)
-    var gasList: FetchedResults<GasEntity>
+    var gasList: FetchedResults<FuelEntity>
+    @StateObject var modelController = FuelModelController()
     
     @State private var showAlert = false
     
     @State private var newPrice: String = ""
     
-    private var groupedGasList: [String: [GasEntity]] {
+    private var groupedGasList: [String: [FuelEntity]] {
           Dictionary(grouping: gasList) { gas in
               let dateFormatter = DateFormatter()
               dateFormatter.dateStyle = .medium
@@ -37,7 +38,7 @@ struct GasListView: View {
                                    HStack {
                                        Image(systemName: "fuelpump.fill")
                                            .foregroundColor(.green)
-                                       Text("Bought Gasoline")
+                                       Text("Fuel Purchased")
                                        Spacer()
                                        Text("\(gas.price ?? "")$")
                                    }
@@ -45,19 +46,20 @@ struct GasListView: View {
                            }
                            
                        }
-                         .onDelete(perform: deleteGas)
+                         .onDelete(perform: deleteFuel)
                 
                    }
-            .navigationTitle("Bought Gasoline")
+            .navigationTitle("Fuels Purchased")
             .navigationBarItems(trailing: Button(action: {
                 self.showAlert = true
             }, label: {
                 Image(systemName: "plus")
             }))
-            .alert("Add Gasoline", isPresented: $showAlert) {
+            .alert("Add Fuel", isPresented: $showAlert) {
                 TextField("Price", text: $newPrice)
                     .keyboardType(.numberPad)
-                Button("Add", action: { GasModelController().add(price: newPrice, context: manageContext)  })
+                Button("Add", action: { modelController.add(price: newPrice, context: manageContext) 
+                 newPrice = ""  })
                 Button("Cancel", role: .cancel) { }
             }
 
@@ -65,7 +67,7 @@ struct GasListView: View {
              }
         
         }
-    func deleteGas(at offsets: IndexSet) {
+    func deleteFuel(at offsets: IndexSet) {
         for index in offsets {
             let gas = gasList[index]
             manageContext.delete(gas)

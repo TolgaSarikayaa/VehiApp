@@ -10,7 +10,7 @@ import SwiftData
 
 @main
 struct MyCarApp: App {
-    @StateObject private var dataController = GasModelController()
+    @StateObject private var dataController = FuelModelController()
     var body: some Scene {
         WindowGroup {
             MainCV()

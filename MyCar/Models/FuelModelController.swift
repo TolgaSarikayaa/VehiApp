@@ -8,8 +8,8 @@
 import Foundation
 import CoreData
 
-class GasModelController: ObservableObject {
-    let container = NSPersistentContainer(name: "GasModel")
+class FuelModelController: ObservableObject {
+    let container = NSPersistentContainer(name: "DataModel")
     
     init() {
         container.loadPersistentStores { description, error in
@@ -29,10 +29,11 @@ class GasModelController: ObservableObject {
     
     
     func add(price: String, context: NSManagedObjectContext) {
-        let task = GasEntity(context: context)
+      let task = FuelEntity(context: context)
         task.id = UUID()
         task.price = price
         task.date = Date()
+        
         
         
         save(context: context)
