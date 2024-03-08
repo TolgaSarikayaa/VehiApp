@@ -6,18 +6,21 @@
 //
 
 import SwiftUI
-import SwiftData
+import CoreData
 
 
 struct NewCarCV: View {
     
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.modelContext) private var context
+ 
+    @Environment(\.managedObjectContext) var managedObjectContext
     
+    @StateObject var carModelController = NewCarModelController()
     
     @ObservedObject var carListViewModel : CarListViewModel
-    @ObservedObject var newCarModel = NewCarModel()
-    @ObservedObject var viewModel = CarInformationViewModel()
+    @ObservedObject var viewModel = NewCarViewModel()
+    @ObservedObject var newCarModel = SelectCarModel()
+   
     
     init() {
         self.carListViewModel = CarListViewModel(service: LocalService())
@@ -61,7 +64,7 @@ struct NewCarCV: View {
                 Section(header: Text("Select your car information")) {
                     HStack {
                         Picker("Fuel type", selection: $newCarModel.selectedFuelType) {
-                            ForEach(CarInformation.EngineType.allCases, id: \.self) { fuelType in
+                            ForEach(EngineType.allCases, id: \.self) { fuelType in
                                 Text(fuelType.rawValue)
                             }
                         }
@@ -123,7 +126,7 @@ struct NewCarCV: View {
                     }
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            viewModel.addCar(context: context, newCarModel: newCarModel)
+                            viewModel.saveCar(context: managedObjectContext, carModel: newCarModel)
                             dismiss()
                         } label: {
                             Image(systemName: "plus.app")
@@ -149,5 +152,5 @@ extension DateFormatter {
 }
 
 #Preview {
-    NewCarCV().modelContainer(for: [CarInformation.self])
+    NewCarCV()
 }

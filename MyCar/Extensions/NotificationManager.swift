@@ -12,7 +12,7 @@ import UserNotifications
 class NotificationManager {
     static let shared = NotificationManager()
 
-    func scheduleNotification(for carInformation: CarInformation) {
+    func scheduleNotification(for carInformation: NewCarModel) {
         let content = UNMutableNotificationContent()
         content.title = "Maintenance Reminder"
         content.body = "It's time for the next maintenance of your \(carInformation.brand) \(carInformation.model)."
@@ -40,4 +40,7 @@ func requestNotificationPermission() {
         }
     }
 }
+
+
+
 

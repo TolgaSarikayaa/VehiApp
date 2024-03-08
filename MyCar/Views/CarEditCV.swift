@@ -15,10 +15,10 @@ struct CarEditCV: View {
     @Environment(\.modelContext) private var context
     
     @ObservedObject var carEditViewModel = CarEditViewModel()
-    @ObservedObject var newCarModel = NewCarModel()
+    @ObservedObject var newCarModel = SelectCarModel()
     @State private var fuelTyp : String = ""
     
-    var car : CarInformation
+    var car : NewCarModel
     
     var body: some View {
         VStack {
@@ -68,10 +68,10 @@ struct CarEditCV: View {
                           formatter: .date)
             }
         }.onAppear(perform: {
-            carEditViewModel.prepareData(newCarModel: newCarModel, car: car)
+            //carEditViewModel.prepareData(newCarModel: newCarModel, car: car)
         })
             MCButton(title: "Save", background: .blue) {
-                carEditViewModel.addEditCar(context: context, newCarModel: newCarModel, car: car)
+                //carEditViewModel.addEditCar(context: context, newCarModel: newCarModel, car: car)
                 dismiss()
                 
             } .frame(height: 80)

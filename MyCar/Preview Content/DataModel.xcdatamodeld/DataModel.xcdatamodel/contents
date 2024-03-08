@@ -5,4 +5,16 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="price" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="NewCarEntity" representedClassName="NewCarEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="brand" optional="YES" attributeType="String"/>
+        <attribute name="fuelType" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="insuranceExpirationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastMaintenanceDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="licensePlate" optional="YES" attributeType="String"/>
+        <attribute name="mileage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="model" optional="YES" attributeType="String"/>
+        <attribute name="nextMaintenanceDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="releaseDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
 </model>

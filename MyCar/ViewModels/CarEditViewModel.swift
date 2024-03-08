@@ -10,7 +10,7 @@ import SwiftData
 
 class CarEditViewModel : ObservableObject {
     
-    func addEditCar(context: ModelContext, newCarModel: NewCarModel, car: CarInformation) {
+    func addEditCar(context: ModelContext, newCarModel: SelectCarModel, car: NewCarModel) {
         if let mileageInt = Int(newCarModel.mileage) {
             car.mileage = mileageInt
         }
@@ -30,7 +30,7 @@ class CarEditViewModel : ObservableObject {
         }
     }
     
-    func prepareData(newCarModel: NewCarModel, car: CarInformation) {
+    func prepareData(newCarModel: SelectCarModel, car: NewCarModel) {
         newCarModel.selectedBrand = car.brand
         newCarModel.selectedModel = car.model
         newCarModel.selectedFuelType = car.fuelType

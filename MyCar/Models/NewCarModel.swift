@@ -2,31 +2,44 @@
 //  NewCarModel.swift
 //  MyCar
 //
-//  Created by Tolga Sarikaya on 22.01.24.
+//  Created by Tolga Sarikaya on 08.03.24.
 //
 
 import Foundation
+import CoreData
 
-class NewCarModel : ObservableObject {
-       @Published var selectedBrandIndex = 0
-       @Published var selectedModelIndex = 0
-       @Published var isPickerVisible = false
-       @Published var isReleaseDatePickerVisible = false
-       @Published var isLastServiceDatePickerVisible = false
-       @Published var isNextServiceDatePickerVisible = false
-       @Published var isBrandPickerVisible = false
-       @Published var isModelPickerVisible = false
-       @Published var selectedBrand: String = ""
-       @Published var selectedModel: String = ""
-       @Published var selectedReleaseDate = Date()
-       @Published var selectedLastServiceDate = Date()
-       @Published var selectedNextServiceDate = Date()
-       @Published var selectedInsuranceExpirationDate = Date()
-       @Published var isInsurancePickerVisible = false
-       @Published var mileage: String = ""
-       @Published var selectedFuelType: CarInformation.EngineType = .benzin
-       @Published var isNavigationActive = false
-       @Published var selectedLicensePlate: String = ""
+class NewCarModel : Identifiable {
+    var id = UUID()
+    var brand: String
+    var model: String
+    var fuelType: EngineType
+    var mileage: Int
+    var releaseDate: Date
+    var nextMaintenanceDate = Date()
+    var lastMaintenanceDate = Date()
+    var insuranceExpirationDate = Date()
+    var licensePlate: String
+   
+
+   
+   init(id: UUID = UUID(), brand: String, model: String, fuelType: EngineType, mileage: Int, releaseDate: Date, nextMaintenanceDate: Date, lastMaintenanceDate: Date,insuranceExpirationDate: Date, licensePlate: String) {
+       self.id = id
+       self.brand = brand
+       self.model = model
+       self.fuelType = fuelType
+       self.mileage = mileage
+       self.releaseDate = releaseDate
+       self.nextMaintenanceDate = nextMaintenanceDate
+       self.lastMaintenanceDate = lastMaintenanceDate
+       self.insuranceExpirationDate = insuranceExpirationDate
+       self.licensePlate = licensePlate
+   }
     
+ 
 }
 
+enum EngineType: String, CaseIterable , Codable {
+    case diesel = "Dizel"
+    case benzin = "Benzin"
+    case electric = "Electric"
+}

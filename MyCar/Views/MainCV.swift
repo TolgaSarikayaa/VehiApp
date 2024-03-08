@@ -11,7 +11,7 @@ import SwiftData
 struct MainCV: View {
     var body: some View {
         TabView {
-            CarsListCV().modelContainer(for: [CarInformation.self])
+            CarsListCV()
                 .tabItem {
                     Label("Cars", systemImage: "car")
                 }

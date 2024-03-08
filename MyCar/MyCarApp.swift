@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-import SwiftData
+import CoreData
 
 @main
 struct MyCarApp: App {
-    @StateObject private var dataController = FuelModelController()
+    @StateObject private var dataController = DataModelController.shared
     var body: some Scene {
         WindowGroup {
             MainCV()

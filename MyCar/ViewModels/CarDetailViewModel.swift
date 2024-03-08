@@ -9,7 +9,9 @@ import Foundation
 
 class CarDetailViewModel : ObservableObject {
     
-    func prepareData(newCarModel: NewCarModel, car: CarInformation) {
+   @Published var newCarModel = SelectCarModel()
+
+    func prepareData(car: NewCarModel) {
         newCarModel.selectedBrand = car.brand
         newCarModel.selectedModel = car.model
         newCarModel.selectedFuelType = car.fuelType
@@ -18,4 +20,5 @@ class CarDetailViewModel : ObservableObject {
         newCarModel.selectedNextServiceDate = car.nextMaintenanceDate
         newCarModel.selectedInsuranceExpirationDate = car.insuranceExpirationDate
     }
+
 }

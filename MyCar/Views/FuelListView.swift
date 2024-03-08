@@ -11,7 +11,7 @@ import CoreData
 struct FuelListView: View {
     
     @Environment(\.managedObjectContext) var manageContext
-    @FetchRequest(
+    @FetchRequest( entity: FuelEntity.entity(), 
             sortDescriptors: [NSSortDescriptor(keyPath: \FuelEntity.date, ascending: false)],
             animation: .default)
     var gasList: FetchedResults<FuelEntity>

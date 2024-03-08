@@ -15,10 +15,10 @@ struct CarDetailCV: View {
     @State private var isNavigationActive = false
     
     @ObservedObject var carDetailViewModel = CarDetailViewModel()
-    @ObservedObject var newCarModel = NewCarModel()
+    @ObservedObject var newCarModel = SelectCarModel()
     @State private var fuelTyp : String = ""
     
-     var car : CarInformation
+     var car : NewCarModel
     
     var body: some View {
                      HStack {
@@ -96,7 +96,7 @@ struct CarDetailCV: View {
                          CarEditCV(car: car)
                      }
                      .onAppear {
-                         carDetailViewModel.prepareData(newCarModel: newCarModel, car: car)
+                         carDetailViewModel.prepareData(car: car)
                      }
                      .toolbar {
                          ToolbarItem(placement: .topBarTrailing) {

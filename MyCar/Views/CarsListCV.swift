@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import SwiftData
+import CoreData
 
 
 struct CarsListCV: View {
 
-    @Query(sort: \CarInformation.brand, order: .forward) private var cars : [CarInformation]
     
        
     var body: some View {
@@ -24,6 +23,5 @@ struct CarsListCV: View {
 
 
 #Preview {
-    CarsListCV().modelContainer(for: [CarInformation.self])
-    
+    CarsListCV()
 }

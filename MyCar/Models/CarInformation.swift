@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 
+/*
 @Model
 final class CarInformation: Identifiable {
      var id = UUID()
@@ -41,3 +42,4 @@ final class CarInformation: Identifiable {
     }
     
 }
+*/

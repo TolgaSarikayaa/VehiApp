@@ -9,10 +9,11 @@
 import Foundation
 import SwiftData
 
+/*
 class CarInformationViewModel : ObservableObject {
     
     
-    func addCar(context: ModelContext, newCarModel: NewCarModel) {
+    func addCar(context: ModelContext, newCarModel: SelectCarModel) {
         let carInformation = CarInformation(
             brand: newCarModel.selectedBrand,
             model: newCarModel.selectedModel,
@@ -38,3 +39,4 @@ class CarInformationViewModel : ObservableObject {
     }
     
 }
+*/

@@ -6,88 +6,94 @@
 //
 
 import SwiftUI
-import SwiftData
+import CoreData
 
 struct CarListView: View {
     @State private var searchText = ""
     @State private var isNavigationActive = false
-    @Query private var cars : [CarInformation]
-    @Environment(\.modelContext) private var context
+   
     
+    @FetchRequest( entity: NewCarEntity.entity(), 
+        sortDescriptors: [NSSortDescriptor(keyPath: \NewCarEntity.brand, ascending: true)],
+        animation: .default)
+    
+      private var carList: FetchedResults<NewCarEntity>
+
+    @Environment(\.managedObjectContext) var managedObjectContext
+
     var body: some View {
         NavigationStack {
             List {
-                if searchResult.isEmpty {
-                } else {
-                    ForEach(searchResult) { car in
-                        Section {
-                            NavigationLink(value: car) {
-                                VStack(alignment: .leading, spacing: 5) {
-                                       Image("car")
-                                           .resizable()
-                                           .aspectRatio(contentMode: .fit)
-                                           .frame(width: 300, height: 200)
-                                           .cornerRadius(10)
-                                       
-                                       HStack {
-                                           VStack(alignment: .leading) {
-                                               Text("\(car.brand)")
-                                                   .font(.headline)
-                                               Text("\(car.model)")
-                                           }
-                                           
-                                           Spacer() // Sol ve sağ içerik arasındaki boşluğu maksimize eder
-                                           
-                                           Text("\(car.licensePlate)")
-                                               .frame(alignment: .trailing) // Bu, metni sağa hizalar
-                                       }
-                                   }
-                               }
-                            
-                            .padding()
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
-                        }
-                        
-                    }.onDelete(perform: { indexSet in
-                        indexSet.forEach { index in
-                            let car = cars[index]
-                            context.delete(car)
-                            
-                            do {
-                                try context.save()
-                            } catch {
-                                print(error.localizedDescription)
+                ForEach(searchResult, id: \.self) { car in
+                    Section {
+                        NavigationLink {
+                         //  CarDetailCV(car: car)
+                        } label: {
+                            VStack(alignment: .leading, spacing: 5) {
+                                Image("car")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 300, height: 200)
+                                    .cornerRadius(10)
+                                
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(car.brand ?? "")
+                                            .font(.headline)
+                                        Text(car.model ?? "")
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    Text(car.licensePlate ?? "")
+                                        .frame(alignment: .trailing)
+                                }
                             }
                         }
-                    })
-                }
-            }.navigationDestination(for: CarInformation.self) { car in
-                CarDetailCV(car: car)
-                    .toolbar(.hidden, for: .tabBar)
+                        .padding()
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
+                    }
+                }.onDelete(perform: deleteCar)
             }
-            .navigationBarBackButtonHidden()
             .navigationTitle("My Cars")
-            .navigationBarItems(trailing: Button(action: {
-                isNavigationActive.toggle()
-            }) {
-                Image(systemName: "car.fill")
-                    .foregroundColor(.blue)
-            })
-            .sheet(isPresented: $isNavigationActive, content: {
-                NewCarCV()
-            })
-        }.searchable(text: $searchText)
-    }
-    
-    var searchResult : [CarInformation] {
-        if searchText.isEmpty {
-            return cars
-        } else {
-            return cars.filter { car in
-                car.model.lowercased().contains(searchText.lowercased()) ||
-                car.brand.lowercased().contains(searchText.lowercased())
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isNavigationActive = true
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                }
             }
+            .sheet(isPresented: $isNavigationActive) {
+                NewCarCV()
+            }
+        }
+        .searchable(text: $searchText)
+    }
+
+    var searchResult: [NewCarEntity] {
+        if searchText.isEmpty {
+            return Array(carList)
+        } else {
+            return carList.filter { car in
+                car.model?.lowercased().contains(searchText.lowercased()) ?? false ||
+                car.brand?.lowercased().contains(searchText.lowercased()) ?? false
+            }
+        }
+    }
+
+    private func deleteCar(at offsets: IndexSet) {
+        for index in offsets {
+            let car = carList[index]
+            managedObjectContext.delete(car)
+        }
+
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
