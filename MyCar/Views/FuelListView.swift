@@ -10,11 +10,16 @@ import CoreData
 
 struct FuelListView: View {
     
-    @Environment(\.managedObjectContext) var manageContext
-    @FetchRequest( entity: FuelEntity.entity(), 
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest( entity: FuelEntity.entity(),
             sortDescriptors: [NSSortDescriptor(keyPath: \FuelEntity.date, ascending: false)],
             animation: .default)
     var gasList: FetchedResults<FuelEntity>
+    
+   
+  
+    
+    
     @StateObject var modelController = FuelModelController()
     
     @State private var showAlert = false
@@ -34,13 +39,13 @@ struct FuelListView: View {
             List {
                 ForEach(groupedGasList.keys.sorted(), id: \.self) { date in
                            Section(header: Text(date)) {
-                               ForEach(groupedGasList[date] ?? []) { gas in
+                               ForEach(groupedGasList[date] ?? []) { fuel in
                                    HStack {
                                        Image(systemName: "fuelpump.fill")
                                            .foregroundColor(.green)
-                                       Text("Fuel Purchased")
+                                       Text("Fuel Purchased: \((fuel.carBrand) ?? "")")
                                        Spacer()
-                                       Text("\(gas.price ?? "")$")
+                                       Text("\((fuel.price) ?? "")$")
                                    }
                                }
                            }
@@ -55,13 +60,10 @@ struct FuelListView: View {
             }, label: {
                 Image(systemName: "plus")
             }))
-            .alert("Add Fuel", isPresented: $showAlert) {
-                TextField("Price", text: $newPrice)
-                    .keyboardType(.numberPad)
-                Button("Add", action: { modelController.add(price: newPrice, context: manageContext) 
-                 newPrice = ""  })
-                Button("Cancel", role: .cancel) { }
-            }
+            .sheet(isPresented: $showAlert) {
+                         
+                AddFuelView().environment(\.managedObjectContext, managedObjectContext)
+                }
 
 
              }
@@ -69,11 +71,11 @@ struct FuelListView: View {
         }
     func deleteFuel(at offsets: IndexSet) {
         for index in offsets {
-            let gas = gasList[index]
-            manageContext.delete(gas)
+            let fuel = gasList[index]
+            managedObjectContext.delete(fuel)
         }
 
-        try? manageContext.save()
+        try? managedObjectContext.save()
     }
     
 }

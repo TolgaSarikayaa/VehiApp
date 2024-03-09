@@ -28,17 +28,8 @@ class FuelModelController: ObservableObject {
     }
     
     
-    func add(price: String, context: NSManagedObjectContext) {
-      let task = FuelEntity(context: context)
-        task.id = UUID()
-        task.price = price
-        task.date = Date()
-        
-        
-        
-        save(context: context)
-        
-    }
-   
+  
     
 }
+
+

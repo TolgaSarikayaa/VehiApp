@@ -10,7 +10,7 @@ import SwiftUI
 struct CarDetailCV: View {
     
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.modelContext) private var context
+   
     
     @State private var isNavigationActive = false
     
@@ -23,10 +23,10 @@ struct CarDetailCV: View {
     var body: some View {
                      HStack {
                          VStack(alignment: .leading) {
-                             Text(newCarModel.selectedBrand)
+                             Text(car.brand)
                                  .font(.title)
                                  .fontWeight(.bold)
-                             Text(newCarModel.selectedModel)
+                             Text(car.model)
                                  .font(.title2)
                                  .padding(.bottom, 20)
                              HStack {
@@ -40,7 +40,7 @@ struct CarDetailCV: View {
                              HStack {
                                  Image(systemName: "car.rear.road.lane.dashed")
                                      .font(.system(size: 33))
-                                 Text("\(newCarModel.mileage) KM")
+                                 Text("\(car.mileage) KM")
                                      .font(.system(size: 20))
                              }
                              .padding(.bottom, 25)
@@ -48,7 +48,7 @@ struct CarDetailCV: View {
                              HStack {
                                  Image(systemName: "calendar.circle.fill")
                                      .font(.system(size: 36))
-                                 Text("Release date \(newCarModel.selectedReleaseDate.onlyDateFormatted())")
+                                 Text("Release date \(car.releaseDate.onlyDateFormatted())")
                                      .font(.system(size: 16))
                              }
                              .padding(.bottom, 25)
@@ -56,7 +56,7 @@ struct CarDetailCV: View {
                              HStack {
                                  Image(systemName: "calendar.circle.fill")
                                      .font(.system(size: 36))
-                                 Text("Next Service \(newCarModel.selectedNextServiceDate.onlyDateFormatted())")
+                                 Text("Next Service \(car.nextMaintenanceDate.onlyDateFormatted())")
                                      .font(.system(size: 16))
                              }
                              .padding(.bottom, 25)
@@ -64,7 +64,7 @@ struct CarDetailCV: View {
                              HStack {
                                  Image(systemName: "calendar.circle.fill")
                                      .font(.system(size: 36))
-                                 Text("Insurance Expiration \(newCarModel.selectedInsuranceExpirationDate.onlyDateFormatted())")
+                                 Text("Insurance Expiration \(car.insuranceExpirationDate.onlyDateFormatted())")
                                      .font(.system(size: 16))
                              }
                              Spacer()
@@ -95,9 +95,7 @@ struct CarDetailCV: View {
                      .sheet(isPresented: $isNavigationActive) {
                          CarEditCV(car: car)
                      }
-                     .onAppear {
-                         carDetailViewModel.prepareData(car: car)
-                     }
+                     
                      .toolbar {
                          ToolbarItem(placement: .topBarTrailing) {
                              Button(action: {
@@ -107,7 +105,9 @@ struct CarDetailCV: View {
                              })
                          }
                      }
+                     .toolbar(.hidden, for: .tabBar)
              }
+       
          }
 
 extension Date {
@@ -116,6 +116,11 @@ extension Date {
         formatter.dateFormat = "dd.MM.yyyy"
         return formatter.string(from: self)
     }
+}
+public enum Visibility {
+    case automatic
+    case hidden
+    case visible
 }
 
 

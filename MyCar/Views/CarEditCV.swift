@@ -6,78 +6,55 @@
 //
 
 import SwiftUI
-import SwiftData
+import CoreData
 
 
 struct CarEditCV: View {
    
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.modelContext) private var context
+    @Environment(\.managedObjectContext) var context
     
-    @ObservedObject var carEditViewModel = CarEditViewModel()
+    @ObservedObject var carEditViewModel : CarEditViewModel
     @ObservedObject var newCarModel = SelectCarModel()
     @State private var fuelTyp : String = ""
+    
+    init(car: NewCarModel) {
+           self.car = car
+           _carEditViewModel = ObservedObject(wrappedValue: CarEditViewModel(car: car))
+       }
     
     var car : NewCarModel
     
     var body: some View {
         VStack {
-        List {
-            Section(header: Text("Car Information")) {
-                HStack {
-                    TextField("Brand", text: $newCarModel.selectedBrand)
-                }
-                
-                HStack {
-                    TextField("Model", text: $newCarModel.selectedModel)
-                }
+            List {
+                Section(header: Text("Car Information")) {
+                TextField("Brand", text: $carEditViewModel.newCarModel.selectedBrand)
+                TextField("Model", text: $carEditViewModel.newCarModel.selectedModel)
+                TextField("License", text: $carEditViewModel.newCarModel.selectedLicensePlate)
             }
-            Section(header: Text("")) {
-                HStack {
-                    Text("Fuel Type : \(car.fuelType.rawValue)")
-                }
-                HStack {
-                    TextField("Mileage", text: $newCarModel.mileage)
-                }
-                HStack {
-                    TextField("License", text: $newCarModel.selectedLicensePlate)
-                }
-            }
-            HStack {
-             DatePickerView(label: "Release date",
-                            selectedDate: $newCarModel.selectedReleaseDate,
-                            isPickerVisible: $newCarModel.isReleaseDatePickerVisible,
-                            formatter: .date)
-            }
-            HStack {
-             DatePickerView(label: "Last Service",
-                            selectedDate: $newCarModel.selectedLastServiceDate,
-                            isPickerVisible: $newCarModel.isLastServiceDatePickerVisible,
-                            formatter: .date)
-            }
-            HStack {
-             DatePickerView(label: "Next Service",
-                            selectedDate: $newCarModel.selectedNextServiceDate,
-                            isPickerVisible: $newCarModel.isNextServiceDatePickerVisible,
-                            formatter: .date)
-            }
-            HStack {
-           DatePickerView(label: "Insurance Expiration",
-                          selectedDate: $newCarModel.selectedInsuranceExpirationDate,
-                          isPickerVisible: $newCarModel.isInsurancePickerVisible,
-                          formatter: .date)
-            }
-        }.onAppear(perform: {
-            //carEditViewModel.prepareData(newCarModel: newCarModel, car: car)
-        })
-            MCButton(title: "Save", background: .blue) {
-                //carEditViewModel.addEditCar(context: context, newCarModel: newCarModel, car: car)
+                Section(header: Text("Details")) {
+                Text("Fuel Type: \(car.fuelType.rawValue)")
+                TextField("Mileage", text: $carEditViewModel.newCarModel.mileage)
+                DatePicker("Release date", selection: $carEditViewModel.newCarModel.selectedReleaseDate, displayedComponents: .date)
+                DatePicker("Last Service", selection: $carEditViewModel.newCarModel.selectedLastServiceDate, displayedComponents: .date)
+                DatePicker("Next Service", selection: $carEditViewModel.newCarModel.selectedNextServiceDate, displayedComponents: .date)
+                DatePicker("Insurance Expiration", selection: $carEditViewModel.newCarModel.selectedInsuranceExpirationDate, displayedComponents: .date)
+                           }
+                       }
+                   .onAppear {
+                       carEditViewModel.prepareData(car: car)
+                   }
+                   
+            MCButton(title: "Save", background: .blue, action: {
+                carEditViewModel.addEditCar(context: context, car: car)
                 dismiss()
-                
-            } .frame(height: 80)
-               
-        }
-    }
-}
+            })
+            .frame(height: 80)
+               }
+           }
+       }
+
+   
 
 

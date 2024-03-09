@@ -9,13 +9,26 @@ import Foundation
 import CoreData
 
 class NewCarModelController: ObservableObject {
-    let container = NSPersistentContainer(name: "DataModel")
+   
+    var context: NSPersistentContainer
+    
+    @Published var newCarEntity: [NewCarEntity] = []
     
     init() {
-        container.loadPersistentStores { description, error in
+        context = NSPersistentContainer(name: "DataModel")
+        context.loadPersistentStores { description, error in
             if let error = error {
                 print(error.localizedDescription)
             }
+        }
+    }
+    
+    func fetchData() {
+        let request = NSFetchRequest<NewCarEntity>(entityName: "NewCarEntity")
+        do {
+            newCarEntity = try context.viewContext.fetch(request)
+        } catch(let error) {
+            print(error)
         }
     }
     

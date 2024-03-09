@@ -12,14 +12,14 @@ import UserNotifications
 class NotificationManager {
     static let shared = NotificationManager()
 
-    func scheduleNotification(for carInformation: NewCarModel) {
+    func scheduleNotification(for newCar: NewCarModel) {
         let content = UNMutableNotificationContent()
         content.title = "Maintenance Reminder"
-        content.body = "It's time for the next maintenance of your \(carInformation.brand) \(carInformation.model)."
+        content.body = "It's time for the next maintenance of your \(newCar.brand) \(newCar.model)."
         content.sound = .default
         
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.year, .month, .day], from: carInformation.nextMaintenanceDate)
+        let components = calendar.dateComponents([.year, .month, .day], from: newCar.nextMaintenanceDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
@@ -40,6 +40,7 @@ func requestNotificationPermission() {
         }
     }
 }
+
 
 
 

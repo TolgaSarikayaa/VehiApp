@@ -22,6 +22,7 @@ struct NewCarCV: View {
     @ObservedObject var newCarModel = SelectCarModel()
    
     
+    
     init() {
         self.carListViewModel = CarListViewModel(service: LocalService())
     }
@@ -126,7 +127,9 @@ struct NewCarCV: View {
                     }
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            viewModel.saveCar(context: managedObjectContext, carModel: newCarModel)
+                          let newCar =  viewModel.saveCar(context: managedObjectContext, carModel: newCarModel)
+                            NotificationManager.shared.scheduleNotification(for: newCar)
+                    
                             dismiss()
                         } label: {
                             Image(systemName: "plus.app")
