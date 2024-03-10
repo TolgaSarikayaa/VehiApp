@@ -254,21 +254,13 @@
 			isa = PBXGroup;
 			children = (
 				142142B72B94930100D60CF7 /* MainCV.swift */,
-				142142B52B9491F100D60CF7 /* FuelListCV.swift */,
-				142142AD2B93BF5F00D60CF7 /* FuelListView.swift */,
-				14AEFD0B2B9CDFE00026B854 /* AddFuelView.swift */,
-				141E8A892B42E13E00C4C3AF /* LoginView.swift */,
-				141E8ADE2B443F1600C4C3AF /* RegisterView.swift */,
-				14A476132B8147AF0069ACB2 /* ServiceEditCV.swift */,
-				14A4761B2B82187A0069ACB2 /* ServiceDetailCV.swift */,
-				1404CA3C2B568C7900A248D7 /* NewCarCV.swift */,
-				145763C82B6A80B200E2D295 /* CarsListCV.swift */,
-				14E0FFF72B48140D00660340 /* CarListView.swift */,
-				145763CA2B6BBFC600E2D295 /* CarEditCV.swift */,
-				145763CC2B6C14CA00E2D295 /* CarDetailCV.swift */,
-				145763D22B7BF77800E2D295 /* DatePickerView.swift */,
-				141E8AD42B4434EA00C4C3AF /* HeaderView.swift */,
-				141E8ADC2B443E3B00C4C3AF /* MCButton.swift */,
+				14EDC3072B9DB5C40058FB98 /* CarDetailView */,
+				14EDC3062B9DB5AC0058FB98 /* CarListView */,
+				14EDC3052B9DB5960058FB98 /* NewCarView */,
+				14EDC3042B9DB57F0058FB98 /* ServiceView */,
+				14EDC3032B9DB55A0058FB98 /* LoginView */,
+				14EDC3022B9DB53C0058FB98 /* FuelView */,
+				14EDC3082B9DB5F20058FB98 /* OnBoardingView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,6 +273,70 @@
 				1404C9F92B4A025600A248D7 /* Constanst.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		14EDC3022B9DB53C0058FB98 /* FuelView */ = {
+			isa = PBXGroup;
+			children = (
+				142142B52B9491F100D60CF7 /* FuelListCV.swift */,
+				142142AD2B93BF5F00D60CF7 /* FuelListView.swift */,
+				14AEFD0B2B9CDFE00026B854 /* AddFuelView.swift */,
+			);
+			path = FuelView;
+			sourceTree = "<group>";
+		};
+		14EDC3032B9DB55A0058FB98 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				141E8A892B42E13E00C4C3AF /* LoginView.swift */,
+				141E8AD42B4434EA00C4C3AF /* HeaderView.swift */,
+				141E8ADE2B443F1600C4C3AF /* RegisterView.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		14EDC3042B9DB57F0058FB98 /* ServiceView */ = {
+			isa = PBXGroup;
+			children = (
+				14A476132B8147AF0069ACB2 /* ServiceEditCV.swift */,
+				14A4761B2B82187A0069ACB2 /* ServiceDetailCV.swift */,
+			);
+			path = ServiceView;
+			sourceTree = "<group>";
+		};
+		14EDC3052B9DB5960058FB98 /* NewCarView */ = {
+			isa = PBXGroup;
+			children = (
+				1404CA3C2B568C7900A248D7 /* NewCarCV.swift */,
+			);
+			path = NewCarView;
+			sourceTree = "<group>";
+		};
+		14EDC3062B9DB5AC0058FB98 /* CarListView */ = {
+			isa = PBXGroup;
+			children = (
+				145763C82B6A80B200E2D295 /* CarsListCV.swift */,
+				14E0FFF72B48140D00660340 /* CarListView.swift */,
+			);
+			path = CarListView;
+			sourceTree = "<group>";
+		};
+		14EDC3072B9DB5C40058FB98 /* CarDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				145763CA2B6BBFC600E2D295 /* CarEditCV.swift */,
+				145763CC2B6C14CA00E2D295 /* CarDetailCV.swift */,
+			);
+			path = CarDetailView;
+			sourceTree = "<group>";
+		};
+		14EDC3082B9DB5F20058FB98 /* OnBoardingView */ = {
+			isa = PBXGroup;
+			children = (
+				145763D22B7BF77800E2D295 /* DatePickerView.swift */,
+				141E8ADC2B443E3B00C4C3AF /* MCButton.swift */,
+			);
+			path = OnBoardingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -620,8 +676,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -649,8 +705,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

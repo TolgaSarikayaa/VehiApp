@@ -15,8 +15,7 @@ class CarEditViewModel : ObservableObject {
     init(car: NewCarModel) {
         prepareData(car: car)
     }
-    
-    
+
     func prepareData(car: NewCarModel) {
             newCarModel.selectedBrand = car.brand
             newCarModel.selectedModel = car.model
@@ -42,8 +41,7 @@ class CarEditViewModel : ObservableObject {
                 carEntity = NewCarEntity(context: context)
                 carEntity.id = car.id
             }
-
-            // Verileri `newCarModel`'den `NewCarEntity`'ye aktarın
+            
             carEntity.brand = newCarModel.selectedBrand
             carEntity.model = newCarModel.selectedModel
             carEntity.licensePlate = newCarModel.selectedLicensePlate
@@ -54,10 +52,8 @@ class CarEditViewModel : ObservableObject {
             carEntity.nextMaintenanceDate = newCarModel.selectedNextServiceDate
             carEntity.insuranceExpirationDate = newCarModel.selectedInsuranceExpirationDate
 
-            // Context üzerindeki değişiklikleri kaydedin
             try context.save()
         } catch {
-            // Hata yönetimi
             print("Failed to save or find car: \(error)")
         }
     }

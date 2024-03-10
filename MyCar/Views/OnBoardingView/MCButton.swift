@@ -14,17 +14,14 @@ struct MCButton: View {
     
     var body: some View {
         Button {
-            // Action
             action()
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(background)
-                
                 Text(title)
                     .foregroundColor(Color.white)
                     .bold()
-                
             }
         }
         .padding()

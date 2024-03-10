@@ -17,7 +17,7 @@ struct CarListView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \NewCarEntity.brand, ascending: true)],
         animation: .default)
     
-      private var carList: FetchedResults<NewCarEntity>
+    private var carList: FetchedResults<NewCarEntity>
 
     @Environment(\.managedObjectContext) var managedObjectContext
 

@@ -12,16 +12,9 @@ struct AddFuelView: View {
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) var managedObjectContext
-    
-    
-    
     @State private var cars: [NewCarEntity] = []
-    
-    
     @State private var fuelPrice: String = ""
     @State private var selectedCarIndex: Int?
-    @State private var selectedBrand : String = ""
-    
     
     var body: some View {
         NavigationView {
@@ -38,15 +31,11 @@ struct AddFuelView: View {
                             selectedCarIndex = nil
                         }
                     }
-                  
                 }
-                
                 Section(header: Text("Add Price")) {
                     TextField("Fuel Quantity", text: $fuelPrice)
                         .keyboardType(.decimalPad)
                 }
-                
-                
             }
             .navigationTitle("Add Fuel")
             .onAppear {
@@ -65,18 +54,15 @@ struct AddFuelView: View {
                 let car = cars[index]
                 addFuel(carBrand: car.brand ?? "", price: fuelPrice)
             }
-            
             dismiss()
         }).frame(height: 80)
     }
-    
     private func addFuel(carBrand: String, price: String) {
         let fuel = FuelEntity(context: managedObjectContext)
         fuel.id = UUID()
         fuel.price = price
         fuel.date = Date()
         fuel.carBrand = carBrand
-        
         
         do {
             try managedObjectContext.save()

@@ -20,6 +20,4 @@ class LocalService : NetworkService {
         return try JSONDecoder().decode([CarModel].self, from: data)
     }
     
-    
-    
 }

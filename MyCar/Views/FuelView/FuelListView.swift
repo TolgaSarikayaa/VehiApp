@@ -14,12 +14,9 @@ struct FuelListView: View {
     @FetchRequest( entity: FuelEntity.entity(),
             sortDescriptors: [NSSortDescriptor(keyPath: \FuelEntity.date, ascending: false)],
             animation: .default)
+    
     var gasList: FetchedResults<FuelEntity>
-    
-   
-  
-    
-    
+        
     @StateObject var modelController = FuelModelController()
     
     @State private var showAlert = false
@@ -64,20 +61,15 @@ struct FuelListView: View {
                          
                 AddFuelView().environment(\.managedObjectContext, managedObjectContext)
                 }
-
-
              }
-        
         }
     func deleteFuel(at offsets: IndexSet) {
         for index in offsets {
             let fuel = gasList[index]
             managedObjectContext.delete(fuel)
         }
-
         try? managedObjectContext.save()
     }
-    
 }
 
 

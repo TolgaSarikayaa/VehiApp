@@ -21,8 +21,6 @@ struct NewCarCV: View {
     @ObservedObject var viewModel = NewCarViewModel()
     @ObservedObject var newCarModel = SelectCarModel()
    
-    
-    
     init() {
         self.carListViewModel = CarListViewModel(service: LocalService())
     }

@@ -10,15 +10,13 @@ import SwiftUI
 struct CarDetailCV: View {
     
     @Environment(\.dismiss) private var dismiss
-   
-    
     @State private var isNavigationActive = false
     
     @ObservedObject var carDetailViewModel = CarDetailViewModel()
     @ObservedObject var newCarModel = SelectCarModel()
     @State private var fuelTyp : String = ""
     
-     var car : NewCarModel
+    var car : NewCarModel
     
     var body: some View {
                      HStack {

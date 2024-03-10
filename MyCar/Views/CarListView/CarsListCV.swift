@@ -6,13 +6,11 @@
 //
 
 import SwiftUI
-import CoreData
+
 
 
 struct CarsListCV: View {
 
-    
-       
     var body: some View {
        
             CarListView()

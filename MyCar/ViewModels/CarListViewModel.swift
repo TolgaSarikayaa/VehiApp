@@ -11,15 +11,11 @@ class CarListViewModel : ObservableObject {
 
     @Published var carList = [carViewModel]()
     
-
-    
     private var service : NetworkService
     init(service: NetworkService) {
         self.service = service
     }
    
-   
-    
     func downloadCars() async {
         let resource = Constanst.Paths.baseUrl
         
@@ -33,8 +29,6 @@ class CarListViewModel : ObservableObject {
         }
     }
 }
-
-
 struct carViewModel {
    
     let car : CarModel
@@ -46,5 +40,4 @@ struct carViewModel {
     var models : [String] {
         car.models
     }
-    
 }

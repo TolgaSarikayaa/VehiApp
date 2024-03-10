@@ -20,5 +20,4 @@ class NewCarViewModel : ObservableObject {
         return newCar
     }
     
-    
 }
