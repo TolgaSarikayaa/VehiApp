@@ -50,6 +50,8 @@
 		14E0FFF02B480F6B00660340 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0FFEF2B480F6B00660340 /* NetworkService.swift */; };
 		14E0FFF22B480FB000660340 /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 14E0FFF12B480FB000660340 /* cars.json */; };
 		14E0FFF82B48140D00660340 /* CarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0FFF72B48140D00660340 /* CarListView.swift */; };
+		14EDC30A2BA1FDEB0058FB98 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDC3092BA1FDEB0058FB98 /* OnboardingData.swift */; };
+		14EDC30C2BA1FFDB0058FB98 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDC30B2BA1FFDB0058FB98 /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		14E0FFEF2B480F6B00660340 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		14E0FFF12B480FB000660340 /* cars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
 		14E0FFF72B48140D00660340 /* CarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListView.swift; sourceTree = "<group>"; };
+		14EDC3092BA1FDEB0058FB98 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
+		14EDC30B2BA1FFDB0058FB98 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,8 @@
 				141E8AD12B44344300C4C3AF /* Models */,
 				141E8AD22B44345100C4C3AF /* ViewModels */,
 				141E8AD32B44346200C4C3AF /* Views */,
+				145763D22B7BF77800E2D295 /* DatePickerView.swift */,
+				141E8ADC2B443E3B00C4C3AF /* MCButton.swift */,
 				141E8A8D2B42E13F00C4C3AF /* Assets.xcassets */,
 				141E8A8F2B42E13F00C4C3AF /* Preview Content */,
 			);
@@ -333,8 +339,8 @@
 		14EDC3082B9DB5F20058FB98 /* OnBoardingView */ = {
 			isa = PBXGroup;
 			children = (
-				145763D22B7BF77800E2D295 /* DatePickerView.swift */,
-				141E8ADC2B443E3B00C4C3AF /* MCButton.swift */,
+				14EDC3092BA1FDEB0058FB98 /* OnboardingData.swift */,
+				14EDC30B2BA1FFDB0058FB98 /* OnboardingView.swift */,
 			);
 			path = OnBoardingView;
 			sourceTree = "<group>";
@@ -472,6 +478,7 @@
 			files = (
 				14A476142B8147AF0069ACB2 /* ServiceEditCV.swift in Sources */,
 				14E0FFF02B480F6B00660340 /* NetworkService.swift in Sources */,
+				14EDC30A2BA1FDEB0058FB98 /* OnboardingData.swift in Sources */,
 				145763D32B7BF77800E2D295 /* DatePickerView.swift in Sources */,
 				141E8ADB2B44394500C4C3AF /* LoginViewViewModel.swift in Sources */,
 				14D7D4892B9B6C28007F2483 /* DataModelController.swift in Sources */,
@@ -493,6 +500,7 @@
 				141E8ADF2B443F1600C4C3AF /* RegisterView.swift in Sources */,
 				14A476182B8148270069ACB2 /* ServiceViewModel.swift in Sources */,
 				14E000182B4823D400660340 /* CarListViewModel.swift in Sources */,
+				14EDC30C2BA1FFDB0058FB98 /* OnboardingView.swift in Sources */,
 				14D7D4872B9B602F007F2483 /* NewCarViewModel.swift in Sources */,
 				14D7D47F2B9B5567007F2483 /* DataModel.xcdatamodeld in Sources */,
 				14E0FFF82B48140D00660340 /* CarListView.swift in Sources */,
