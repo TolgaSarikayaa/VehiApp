@@ -11,13 +11,18 @@ import CoreData
 @main
 struct MyCarApp: App {
     @StateObject private var dataController = DataModelController.shared
+    @AppStorage("isFirstLaunch") var isFirstLaunch: Bool = true
     var body: some Scene {
         WindowGroup {
-            MainCV()
-                .environment(\.managedObjectContext, dataController.container.viewContext)
-                .onAppear() {
-                    requestNotificationPermission()
-                }
+            if isFirstLaunch {
+                ContentView()
+            } else {
+                MainCV()
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
+                    .onAppear() {
+                        requestNotificationPermission()
+                    }
+            }
         }
     }
 }
