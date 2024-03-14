@@ -24,6 +24,8 @@ struct ContentView: View {
             })
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            .background(Color.white)
+            .preferredColorScheme(.light)
         }
     }
 }

@@ -15,8 +15,7 @@ struct OnboardingView: View {
   
     
     var body: some View {
-       
-            GeometryReader { geometry in
+       GeometryReader { geometry in
                 VStack(spacing: 20) {
                     ZStack {
                         Image(data.backgroundImage)
@@ -57,8 +56,10 @@ struct OnboardingView: View {
                 }
                 
             }
-            
-               
-           }
-       }
+    }
+}
+
+#Preview {
+    OnboardingView(data: OnboardingData.list.first!)
+}
 
