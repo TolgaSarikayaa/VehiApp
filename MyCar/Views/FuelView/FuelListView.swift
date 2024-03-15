@@ -15,7 +15,7 @@ struct FuelListView: View {
             sortDescriptors: [NSSortDescriptor(keyPath: \FuelEntity.date, ascending: false)],
             animation: .default)
     
-    var gasList: FetchedResults<FuelEntity>
+    var fuelList: FetchedResults<FuelEntity>
         
     @StateObject var modelController = FuelModelController()
     
@@ -23,8 +23,8 @@ struct FuelListView: View {
     
     @State private var newPrice: String = ""
     
-    private var groupedGasList: [String: [FuelEntity]] {
-          Dictionary(grouping: gasList) { gas in
+    private var groupedFuelList: [String: [FuelEntity]] {
+          Dictionary(grouping: fuelList) { gas in
               let dateFormatter = DateFormatter()
               dateFormatter.dateStyle = .medium
               return dateFormatter.string(from: gas.date ?? Date())
@@ -34,23 +34,26 @@ struct FuelListView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(groupedGasList.keys.sorted(), id: \.self) { date in
-                           Section(header: Text(date)) {
-                               ForEach(groupedGasList[date] ?? []) { fuel in
-                                   HStack {
-                                       Image(systemName: "fuelpump.fill")
-                                           .foregroundColor(.green)
-                                       Text("Fuel Purchased: \((fuel.carBrand) ?? "")")
-                                       Spacer()
-                                       Text("\((fuel.price) ?? "")$")
-                                   }
-                               }
-                           }
-                           
-                       }
-                         .onDelete(perform: deleteFuel)
+                ForEach(groupedFuelList.keys.sorted(), id: \.self) { date in
+                    Section(header: Text(date)) {
+                        ForEach(groupedFuelList[date] ?? []) { fuel in
+                            HStack {
+                                Image(systemName: "fuelpump.fill")
+                                    .foregroundColor(.green)
+                                Text("Fuel Purchased: \((fuel.carBrand) ?? "")")
+                                Spacer()
+                                Text("\((fuel.price) ?? "")$")
+                            }
+                        }
+                        .onDelete { offsets in
+                            deleteFuel(at: offsets, for: date)
+                        }
+                        
+                    }
+                    
+                }
                 
-                   }
+            }
             .navigationTitle("Fuels Purchased")
             .navigationBarItems(trailing: Button(action: {
                 self.showAlert = true
@@ -58,15 +61,16 @@ struct FuelListView: View {
                 Image(systemName: "plus")
             }))
             .sheet(isPresented: $showAlert) {
-                         
+                
                 AddFuelView().environment(\.managedObjectContext, managedObjectContext)
-                }
-             }
+            }
         }
-    func deleteFuel(at offsets: IndexSet) {
-        for index in offsets {
-            let fuel = gasList[index]
-            managedObjectContext.delete(fuel)
+    }
+    func deleteFuel(at offsets: IndexSet, for date: String) {
+        guard let dateGroup = groupedFuelList[date] else { return }
+        offsets.forEach { index in
+            let fuelEntity = dateGroup[index]
+            managedObjectContext.delete(fuelEntity)
         }
         try? managedObjectContext.save()
     }
