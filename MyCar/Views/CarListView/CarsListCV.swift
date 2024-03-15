@@ -12,14 +12,10 @@ import SwiftUI
 struct CarsListCV: View {
 
     var body: some View {
-       
             CarListView()
         }
-
     }
     
-
-
 #Preview {
     CarsListCV()
 }

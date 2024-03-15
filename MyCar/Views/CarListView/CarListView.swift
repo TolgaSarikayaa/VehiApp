@@ -23,82 +23,88 @@ struct CarListView: View {
 
     var body: some View {
         NavigationStack {
-                   List {
-                       ForEach(searchResult, id: \.self) { car in
-                           Section {
-                               NavigationLink(destination: CarDetailCV(car: car.toNewCarModel())) {
-                                 
-                                   VStack(alignment: .leading, spacing: 5) {
-                                       Image("car")  
-                                           .resizable()
-                                           .aspectRatio(contentMode: .fit)
-                                           .frame(width: 300, height: 200)
-                                           .cornerRadius(10)
-                                       
-                                       HStack {
-                                           VStack(alignment: .leading) {
-                                               Text(car.brand ?? "")
-                                                   .font(.headline)
-                                               Text(car.model ?? "")
-                                           }
-                                           
-                                           Spacer()
-                                           
-                                           Text(car.licensePlate ?? "")
-                                               .frame(alignment: .trailing)
-                                       }
-                                   }
-                               }
-                               .padding()
+            HStack {
+                if carList.isEmpty {
+                    Text("Add your car")
+                        .foregroundColor(.gray)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color(UIColor.systemBackground))
+                } else {
+                    List {
+                        ForEach(searchResult, id: \.self) { car in
+                            Section {
+                                NavigationLink(destination: CarDetailCV(car: car.toNewCarModel())) {
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        Image("car")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 300, height: 200)
+                                            .cornerRadius(10)
+                                        
+                                        HStack {
+                                            VStack(alignment: .leading) {
+                                                Text(car.brand ?? "")
+                                                    .font(.headline)
+                                                Text(car.model ?? "")
+                                            }
+                                            
+                                            Spacer()
+                                            
+                                            Text(car.licensePlate ?? "")
+                                                .frame(alignment: .trailing)
+                                        }
+                                    }
+                                }
+                                .padding()
                                 .cornerRadius(10)
                                 .shadow(radius: 5)
-                                
-                           }
-                       }
-                       .onDelete(perform: deleteCar)
-                   }
-                   .navigationTitle("My Cars")
-                   .toolbar {
-                       ToolbarItem(placement: .navigationBarTrailing) {
-                           Button(action: {
-                               isNavigationActive = true
-                           }) {
-                               Image(systemName: "car.fill")
-                           }
-                       }
-                   }
-                   .sheet(isPresented: $isNavigationActive) {
-                       NewCarCV()
-                   }
-               }
-               .searchable(text: $searchText)
-           }
-
-           var searchResult: [NewCarEntity] {
-               if searchText.isEmpty {
-                   return Array(carList)
-               } else {
-                   return carList.filter { car in
-                       car.model?.lowercased().contains(searchText.lowercased()) ?? false ||
-                       car.brand?.lowercased().contains(searchText.lowercased()) ?? false
-                   }
-               }
-           }
-
-           private func deleteCar(at offsets: IndexSet) {
-               for index in offsets {
-                   let car = carList[index]
-                   managedObjectContext.delete(car)
-               }
-
-               do {
-                   try managedObjectContext.save()
-               } catch {
-                   print(error.localizedDescription)
-               }
-           }
-   }
-
+                            }
+                        }
+                        .onDelete(perform: deleteCar)
+                    }
+                }
+            }
+            .navigationTitle("My Cars")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isNavigationActive = true
+                    }) {
+                        Image(systemName: "car.fill")
+                    }
+                }
+            }
+            .sheet(isPresented: $isNavigationActive) {
+                NewCarCV()
+            }
+        }
+        .searchable(text: $searchText)
+    }
+    
+    var searchResult: [NewCarEntity] {
+        if searchText.isEmpty {
+            return Array(carList)
+        } else {
+            return carList.filter { car in
+                car.model?.lowercased().contains(searchText.lowercased()) ?? false ||
+                car.brand?.lowercased().contains(searchText.lowercased()) ?? false
+            }
+        }
+    }
+    
+    private func deleteCar(at offsets: IndexSet) {
+        for index in offsets {
+            let car = carList[index]
+            managedObjectContext.delete(car)
+        }
+        
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
 extension NewCarEntity {
     func toNewCarModel() -> NewCarModel {
         // EngineType değeri için rawValue kullanılarak dönüşüm yapılır.
