@@ -33,26 +33,32 @@ struct FuelListView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(groupedFuelList.keys.sorted(), id: \.self) { date in
-                    Section(header: Text(date)) {
-                        ForEach(groupedFuelList[date] ?? []) { fuel in
-                            HStack {
-                                Image(systemName: "fuelpump.fill")
-                                    .foregroundColor(.green)
-                                Text("Fuel Purchased: \((fuel.carBrand) ?? "")")
-                                Spacer()
-                                Text("\((fuel.price) ?? "")$")
+            HStack {
+                if groupedFuelList.isEmpty {
+                    Text("Add Fuel")
+                        .foregroundColor(.gray)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color(UIColor.systemBackground))
+                } else {
+                    List {
+                        ForEach(groupedFuelList.keys.sorted(), id: \.self) { date in
+                            Section(header: Text(date)) {
+                                ForEach(groupedFuelList[date] ?? []) { fuel in
+                                    HStack {
+                                        Image(systemName: "fuelpump.fill")
+                                            .foregroundColor(.green)
+                                        Text("Fuel Purchased: \((fuel.carBrand) ?? "")")
+                                        Spacer()
+                                        Text("\((fuel.price) ?? "")$")
+                                    }
+                                }
+                                .onDelete { offsets in
+                                    deleteFuel(at: offsets, for: date)
+                                }
                             }
                         }
-                        .onDelete { offsets in
-                            deleteFuel(at: offsets, for: date)
-                        }
-                        
                     }
-                    
                 }
-                
             }
             .navigationTitle("Fuels Purchased")
             .navigationBarItems(trailing: Button(action: {

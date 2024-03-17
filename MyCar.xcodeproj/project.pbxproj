@@ -53,6 +53,7 @@
 		14EDC30A2BA1FDEB0058FB98 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDC3092BA1FDEB0058FB98 /* OnboardingData.swift */; };
 		14EDC30C2BA1FFDB0058FB98 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDC30B2BA1FFDB0058FB98 /* OnboardingView.swift */; };
 		14EDC30E2BA34CE70058FB98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDC30D2BA34CE70058FB98 /* ContentView.swift */; };
+		14EDC3102BA5B3BD0058FB98 /* NewServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDC30F2BA5B3BD0058FB98 /* NewServiceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		14EDC3092BA1FDEB0058FB98 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
 		14EDC30B2BA1FFDB0058FB98 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		14EDC30D2BA34CE70058FB98 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		14EDC30F2BA5B3BD0058FB98 /* NewServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServiceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 			children = (
 				141E8AD82B44359F00C4C3AF /* User.swift */,
 				14E0FFEA2B480EBD00660340 /* CarModel.swift */,
+				14EDC30F2BA5B3BD0058FB98 /* NewServiceModel.swift */,
 				1404CA422B5EFAF900A248D7 /* SelectCarModel.swift */,
 				14D7D4842B9B5B05007F2483 /* NewCarModel.swift */,
 				14A476152B8147F80069ACB2 /* ServiceModel.swift */,
@@ -497,6 +500,7 @@
 				141E8AE12B44599400C4C3AF /* RegisterViewViewModel.swift in Sources */,
 				14E0FFEE2B480F4E00660340 /* LocalService.swift in Sources */,
 				14AA406C2B9761BC00647793 /* FuelModelController.swift in Sources */,
+				14EDC3102BA5B3BD0058FB98 /* NewServiceModel.swift in Sources */,
 				1404CA3D2B568C7900A248D7 /* NewCarCV.swift in Sources */,
 				145763C92B6A80B200E2D295 /* CarsListCV.swift in Sources */,
 				141E8A8A2B42E13E00C4C3AF /* LoginView.swift in Sources */,

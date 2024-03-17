@@ -22,9 +22,16 @@ class NotificationManager {
         let components = calendar.dateComponents([.year, .month, .day], from: newCar.nextMaintenanceDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
         
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let identifier = "car \(newCar.id.uuidString)"
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
+    }
+    
+    func cancelNotification(for newCar: NewCarModel) {
+        let identifier = "car \(newCar.id.uuidString)"
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+        print("Notification for \(newCar.brand) \(newCar.model) with ID \(identifier) has been cancelled.")
     }
 }
     
