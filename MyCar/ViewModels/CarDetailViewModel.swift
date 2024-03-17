@@ -10,6 +10,10 @@ import Foundation
 class CarDetailViewModel : ObservableObject {
     
    @Published var newCarModel = SelectCarModel()
+    
+    init(car: NewCarModel) {
+          prepareData(car: car)
+      }
 
     func prepareData(car: NewCarModel) {
         newCarModel.selectedBrand = car.brand

@@ -20,8 +20,10 @@ struct FuelListView: View {
     @StateObject var modelController = FuelModelController()
     
     @State private var showAlert = false
+    @State private var showDetay = false
     
     @State private var newPrice: String = ""
+    @State private var fuelStats: [FuelStats] = []
     
     private var groupedFuelList: [String: [FuelEntity]] {
           Dictionary(grouping: fuelList) { gas in
@@ -49,7 +51,7 @@ struct FuelListView: View {
                                             .foregroundColor(.green)
                                         Text("Fuel Purchased: \((fuel.carBrand) ?? "")")
                                         Spacer()
-                                        Text("\((fuel.price) ?? "")$")
+                                        Text("\(fuel.price, specifier: "%.2f")$")
                                     }
                                 }
                                 .onDelete { offsets in
@@ -66,9 +68,17 @@ struct FuelListView: View {
             }, label: {
                 Image(systemName: "plus")
             }))
+            .navigationBarItems(trailing: Button(action: {
+                self.showDetay = true
+            }, label: {
+                Image(systemName: "chart.pie.fill")
+            }))
             .sheet(isPresented: $showAlert) {
                 
                 AddFuelView().environment(\.managedObjectContext, managedObjectContext)
+            }
+            .sheet(isPresented: $showDetay) {
+             FuelDetailView()
             }
         }
     }
@@ -80,6 +90,8 @@ struct FuelListView: View {
         }
         try? managedObjectContext.save()
     }
+    
+  
 }
 
 

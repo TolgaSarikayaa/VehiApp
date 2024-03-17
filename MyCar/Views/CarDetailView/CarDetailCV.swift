@@ -12,10 +12,9 @@ struct CarDetailCV: View {
     @Environment(\.dismiss) private var dismiss
     @State private var isNavigationActive = false
     
-    @ObservedObject var carDetailViewModel = CarDetailViewModel()
     @ObservedObject var newCarModel = SelectCarModel()
     @State private var fuelTyp : String = ""
-    
+
     var car : NewCarModel
     
     var body: some View {
@@ -86,7 +85,6 @@ struct CarDetailCV: View {
                     .background(Color.blue)
                     .cornerRadius(10)
             }
-           
         }
         .padding(.bottom,20)
                  
@@ -105,9 +103,7 @@ struct CarDetailCV: View {
                      }
                      .toolbar(.hidden, for: .tabBar)
              }
-       
          }
-
 extension Date {
     func onlyDateFormatted() -> String {
         let formatter = DateFormatter()

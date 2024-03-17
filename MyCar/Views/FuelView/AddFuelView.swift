@@ -17,7 +17,7 @@ struct AddFuelView: View {
     @State private var selectedCarIndex: Int?
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Section(header: Text("Select Car")) {
                     Picker("Select Car", selection: $selectedCarIndex) {
@@ -50,14 +50,14 @@ struct AddFuelView: View {
             }
         }   
         MCButton(title: "Save", background: .blue, action: {
-            if let index = selectedCarIndex, cars.indices.contains(index) {
+            if let index = selectedCarIndex, cars.indices.contains(index), let price = Double(fuelPrice) {
                 let car = cars[index]
-                addFuel(carBrand: car.brand ?? "", price: fuelPrice)
+                addFuel(carBrand: car.brand ?? "", price: price)
             }
             dismiss()
         }).frame(height: 80)
     }
-    private func addFuel(carBrand: String, price: String) {
+    private func addFuel(carBrand: String, price: Double) {
         let fuel = FuelEntity(context: managedObjectContext)
         fuel.id = UUID()
         fuel.price = price
