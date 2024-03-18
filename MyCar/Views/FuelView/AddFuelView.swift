@@ -76,7 +76,7 @@ struct AddFuelView: View {
         do {
             cars = try managedObjectContext.fetch(request)
             if !cars.isEmpty {
-                    selectedCarIndex = 0 // Varsayılan olarak ilk aracı seç
+                    selectedCarIndex = 0
                  }
         } catch(let error) {
             print("Error fetching cars: \(error)")

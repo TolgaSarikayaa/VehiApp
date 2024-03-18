@@ -13,6 +13,7 @@ class NotificationManager {
     static let shared = NotificationManager()
 
     func scheduleNotification(for newCar: NewCarModel) {
+        cancelNotification(for: newCar)
         let content = UNMutableNotificationContent()
         content.title = "Maintenance Reminder"
         content.body = "It's time for the next maintenance of your \(newCar.brand) \(newCar.model)."
@@ -33,6 +34,11 @@ class NotificationManager {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
         print("Notification for \(newCar.brand) \(newCar.model) with ID \(identifier) has been cancelled.")
     }
+    
+    func updateNotification(for newCar: NewCarModel) {
+           // Güncellenmiş tarih için yeni bir bildirim planla
+           scheduleNotification(for: newCar)
+       }
 }
     
 func requestNotificationPermission() {

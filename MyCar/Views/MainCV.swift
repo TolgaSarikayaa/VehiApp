@@ -20,6 +20,10 @@ struct MainCV: View {
                 .tabItem {
                     Label("Fuel", systemImage: "fuelpump")
                 }
+            ServiceDetailCV()
+                .tabItem {
+                    Label("Service", systemImage: "gear")
+                }
         }
     }
 }

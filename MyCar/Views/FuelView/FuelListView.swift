@@ -26,10 +26,10 @@ struct FuelListView: View {
     @State private var fuelStats: [FuelStats] = []
     
     private var groupedFuelList: [String: [FuelEntity]] {
-          Dictionary(grouping: fuelList) { gas in
+          Dictionary(grouping: fuelList) { fuel in
               let dateFormatter = DateFormatter()
               dateFormatter.dateStyle = .medium
-              return dateFormatter.string(from: gas.date ?? Date())
+              return dateFormatter.string(from: fuel.date ?? Date())
           }
       }
     

@@ -48,6 +48,7 @@ struct CarEditCV: View {
                    
             MCButton(title: "Save", background: .blue, action: {
                 carEditViewModel.addEditCar(context: context, car: car)
+                NotificationManager.shared.updateNotification(for: car)
                 dismiss()
             })
             .frame(height: 80)

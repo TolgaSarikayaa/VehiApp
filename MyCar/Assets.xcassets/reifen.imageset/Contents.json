@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "bremse.png",
+      "filename" : "reifen.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "bremse@2x.png",
+      "filename" : "reifen@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "bremse@3x.png",
+      "filename" : "reifen@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

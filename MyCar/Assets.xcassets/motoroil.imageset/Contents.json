@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "bremse.png",
+      "filename" : "motoroil.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "bremse@2x.png",
+      "filename" : "motoroil@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "bremse@3x.png",
+      "filename" : "motoroil@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
