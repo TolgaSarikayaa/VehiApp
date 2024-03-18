@@ -76,17 +76,6 @@ struct CarDetailCV: View {
                              .frame(width: UIScreen.main.bounds.width / 2, alignment: .trailing)
                              .padding(.trailing, -55)
                      }
-        VStack {
-            NavigationLink(destination: ServiceDetailCV()) {
-                Text("Add Service")
-                    .foregroundStyle(.white)
-                    .font(.headline)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
-        }
-        .padding(.bottom,20)
                  
                      .sheet(isPresented: $isNavigationActive) {
                          CarEditCV(car: car)

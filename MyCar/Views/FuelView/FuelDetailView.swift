@@ -67,29 +67,50 @@ struct FuelDetailView: View {
 
        var body: some View {
            GeometryReader { geometry in
-                 let width = geometry.size.width
-                 let height = geometry.size.height
-                 let radius = min(width, height) / 2
-                 let center = CGPoint(x: width / 2, y: height / 2)
-                 let totalFuel = fuelStats.reduce(0) { $0 + $1.totalFuel }
+                      let width = geometry.size.width
+                      let height = geometry.size.height
+                      let radius = min(width, height) / 2
+                      let center = CGPoint(x: width / 2, y: height / 2)
+                      let totalFuel = fuelStats.reduce(0) { $0 + $1.totalFuel }
 
-                 ZStack {
-                     ForEach(fuelStats, id: \.brand) { stat in
-                         let index = fuelStats.firstIndex(where: { $0.brand == stat.brand }) ?? 0
-                         let startAngle = fuelStats[..<index].reduce(0) {
-                             $0 + ($1.totalFuel / totalFuel) * 360
-                         }
-                         let endAngle = startAngle + (stat.totalFuel / totalFuel) * 360
-                         Path { path in
-                             path.move(to: center)
-                             path.addArc(center: center, radius: radius, startAngle: .degrees(startAngle), endAngle: .degrees(endAngle), clockwise: false)
-                         }
-                         .fill(colorMap[stat.brand] ?? .black)
-                     }
-                 }
-             }
-         }
-     }
+                      ZStack {
+                          Color.clear
+
+                          ForEach(fuelStats, id: \.brand) { stat in
+                              let index = fuelStats.firstIndex(where: { $0.brand == stat.brand }) ?? 0
+                              let startAngle = fuelStats[..<index].reduce(0) {
+                                  $0 + ($1.totalFuel / totalFuel) * 360
+                              }
+                              let endAngle = startAngle + (stat.totalFuel / totalFuel) * 360
+                              let percentage = (stat.totalFuel / totalFuel) * 100
+                              let midAngle = Angle(degrees: (startAngle + endAngle) / 2)
+
+                             
+                              let labelPosition = CGPoint(
+                                  x: center.x + (radius * 0.8) * CGFloat(cos(midAngle.radians)),
+                                  y: center.y + (radius * 0.8) * CGFloat(sin(midAngle.radians))
+                              )
+
+                              Path { path in
+                                  path.move(to: center)
+                                  path.addArc(center: center, radius: radius, startAngle: .degrees(startAngle), endAngle: .degrees(endAngle), clockwise: false)
+                              }
+                              .fill(colorMap[stat.brand] ?? .black)
+
+                            
+                              Text("\(String(format: "%.1f", percentage))%")
+                                  .position(labelPosition)
+                                  .font(.caption)
+                          }
+                      }
+                      .overlay(
+                          Circle()
+                              .fill(Color.white)
+                              .frame(width: radius * 1.2, height: radius * 1.2)
+                      )
+                  }
+              }
+          }
 
 
 
