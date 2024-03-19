@@ -21,7 +21,7 @@ struct ServiceEditCV: View {
     @State private var showingAddPartView = false
     
     var body: some View {
-        
+        NavigationStack {
         List {
             Section(header: Text("Select Car")) {
                 Picker("Select Car", selection: $selectedCarIndex) {
@@ -45,8 +45,8 @@ struct ServiceEditCV: View {
                     Text(parts.partName)
                     Spacer()
                     TextField("Price", value: $parts.price, format: .number)
-                    .keyboardType(.decimalPad)
-                   
+                        .keyboardType(.decimalPad)
+                    
                     Button {
                         parts.isSelected.toggle()
                     } label: {
@@ -55,13 +55,15 @@ struct ServiceEditCV: View {
                     
                 }
             }
-        } .onAppear {
+        }.navigationTitle("Add Service Info")
+        .onAppear {
             fetchData()
         }
+    }
+       
       
         MCButton(title: "Save", background: .blue) {
             if let selectedCarIndex = selectedCarIndex, cars.indices.contains(selectedCarIndex) {
-                    let selectedCar = cars[selectedCarIndex]
                     saveParts(carPart.filter { $0.isSelected }, context: managedObjectContext)
                 }
         dismiss()
@@ -85,6 +87,7 @@ struct ServiceEditCV: View {
             newPart.price = part.price ?? 0.00
             newPart.isSelected = part.isSelected
             newPart.carBrand = selectedCar.brand
+            newPart.date = Date()
 
             do {
                 try context.save()

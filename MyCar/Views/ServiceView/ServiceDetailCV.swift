@@ -46,7 +46,10 @@ struct ServiceDetailCV: View {
                                             .scaledToFit()
                                             .frame(width: 40, height: 40)
                                         Text(parts.partName ?? "Unknown")
+                                            .font(.subheadline)
                                         Text("Car: \((parts.carBrand) ?? "")")
+                                            .font(.subheadline)
+                                            .lineLimit(nil)
                                         Spacer()
                                         Text("\(parts.price, specifier: "%.2f")$")
                                     }
