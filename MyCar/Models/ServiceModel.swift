@@ -16,10 +16,10 @@ struct ServiceModel : Identifiable {
 }
 
 let carParts = [
-    ServiceModel(partImageName: "bremse", partName: "Bremse"),
-    ServiceModel(partImageName: "airfilter", partName: "Luft Filter"),
-    ServiceModel(partImageName: "reifen", partName: "Reifen"),
-    ServiceModel(partImageName: "akku", partName: "Akku"),
-    ServiceModel(partImageName: "motoroil", partName: "Motoroil"),
+    ServiceModel(partImageName: "bremse", partName: "Brake"),
+    ServiceModel(partImageName: "airfilter", partName: "Air Filter"),
+    ServiceModel(partImageName: "reifen", partName: "Wheel"),
+    ServiceModel(partImageName: "akku", partName: "Battery"),
+    ServiceModel(partImageName: "motoroil", partName: "Motor oil"),
     ServiceModel(partImageName: "oilFilter", partName: "Oil Filter")
 ]
