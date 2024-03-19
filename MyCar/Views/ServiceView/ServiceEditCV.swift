@@ -60,15 +60,12 @@ struct ServiceEditCV: View {
             fetchData()
         }
     }
-       
-      
         MCButton(title: "Save", background: .blue) {
             if let selectedCarIndex = selectedCarIndex, cars.indices.contains(selectedCarIndex) {
                     saveParts(carPart.filter { $0.isSelected }, context: managedObjectContext)
                 }
         dismiss()
         }.frame(height: 80)
-          
     }
     
     func saveParts(_ parts: [ServiceModel], context: NSManagedObjectContext) {
@@ -76,7 +73,6 @@ struct ServiceEditCV: View {
             print("No car selected")
             return
         }
-
         let selectedCar = cars[selectedCarIndex]
 
         for part in parts where part.isSelected {
@@ -92,7 +88,6 @@ struct ServiceEditCV: View {
             do {
                 try context.save()
             } catch let error as NSError {
-                // Hata yönetimi
                 print("Kaydetme hatası: \(error), \(error.userInfo)")
             }
         }

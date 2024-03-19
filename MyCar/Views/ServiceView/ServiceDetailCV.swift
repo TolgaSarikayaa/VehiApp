@@ -25,8 +25,6 @@ struct ServiceDetailCV: View {
             return dateFormatter.string(from: parts.date ?? Date())
         }
     }
-     
-    
     var body: some View {
         NavigationStack {
             VStack {

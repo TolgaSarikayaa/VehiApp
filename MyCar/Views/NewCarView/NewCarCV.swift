@@ -37,29 +37,29 @@ struct NewCarCV: View {
                     HStack {
                         Picker("Select Brand", selection: $newCarModel.selectedBrandIndex) {
                             ForEach(carListViewModel.carList.indices, id: \.self) { index in
-                                Text(carListViewModel.carList[index].brand)
-                            }
-                        }
-                        .pickerStyle(MenuPickerStyle())
-                        .onChange(of: newCarModel.selectedBrandIndex) { _ in
-                            newCarModel.selectedBrand = carListViewModel.carList[newCarModel.selectedBrandIndex].brand
+                            Text(carListViewModel.carList[index].brand)
                         }
                     }
+                        .pickerStyle(MenuPickerStyle())
+                        .onChange(of: newCarModel.selectedBrandIndex) {
+                            newCarModel.selectedBrand = carListViewModel.carList[newCarModel.selectedBrandIndex].brand
+                        }
+                     }
                     HStack {
                         if !carListViewModel.carList.isEmpty {
                             let selectedBrandModels = carListViewModel.carList[newCarModel.selectedBrandIndex].models
                             Picker("Select Model", selection: $newCarModel.selectedModelIndex) {
                                 ForEach(selectedBrandModels.indices, id: \.self) { index in
-                                    Text(selectedBrandModels[index])
-                                }
-                            }
-                            .pickerStyle(MenuPickerStyle())
-                            .onChange(of: newCarModel.selectedModelIndex) { _ in
-                                newCarModel.selectedModel = selectedBrandModels[newCarModel.selectedModelIndex]
-                            }
+                                Text(selectedBrandModels[index])
+                        }
+                    }
+                        .pickerStyle(MenuPickerStyle())
+                        .onChange(of: newCarModel.selectedModelIndex) { 
+                        newCarModel.selectedModel = selectedBrandModels[newCarModel.selectedModelIndex]
                         }
                     }
                 }
+            }
                 Section(header: Text("Select your car information")) {
                     HStack {
                         Picker("Fuel type", selection: $newCarModel.selectedFuelType) {

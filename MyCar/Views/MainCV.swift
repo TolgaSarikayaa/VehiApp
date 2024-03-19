@@ -10,7 +10,6 @@ import SwiftData
 
 struct MainCV: View {
     var body: some View {
-        
         TabView {
             CarsListCV()
                 .tabItem {
@@ -23,7 +22,7 @@ struct MainCV: View {
             ServiceDetailCV()
                 .tabItem {
                     Label("Service", systemImage: "gear")
-                }
+            }
         }
     }
 }
