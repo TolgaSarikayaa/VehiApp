@@ -71,7 +71,7 @@ struct ServiceEditCV: View {
     
     func saveParts(_ parts: [ServiceModel], context: NSManagedObjectContext) {
         guard let selectedCarIndex = selectedCarIndex, cars.indices.contains(selectedCarIndex) else {
-            print("No car selected")
+            //print("No car selected")
             return
         }
         let selectedCar = cars[selectedCarIndex]

@@ -30,6 +30,6 @@ struct MCButton: View {
 
 #Preview {
     MCButton(title: "Value", background: .pink) {
-        // Action
+       
     }
 }

@@ -9,9 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct FuelListCV: View {
-    
-    
-
     var body: some View {
         FuelListView()
     }

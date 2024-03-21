@@ -105,7 +105,7 @@ struct FuelDetailView: View {
                       }
                       .overlay(
                           Circle()
-                              .fill(Color.white)
+                            .fill(Color(UIColor.systemBackground))
                               .frame(width: radius * 1.2, height: radius * 1.2)
                       )
                   }

@@ -90,8 +90,6 @@ struct FuelListView: View {
         }
         try? managedObjectContext.save()
     }
-    
-  
 }
 
 

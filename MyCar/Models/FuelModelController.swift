@@ -26,10 +26,6 @@ class FuelModelController: ObservableObject {
             print(error.localizedDescription)
         }
     }
-    
-    
-  
-    
 }
 
 

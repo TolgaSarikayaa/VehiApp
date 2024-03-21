@@ -44,8 +44,6 @@ class NotificationManager {
         let identifier = "insurance \(newCar.id.uuidString)"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
-        print("Scheduling insurance notification for \(newCar.brand) \(newCar.model) on \(newCar.insuranceExpirationDate)")
-        
     }
     
     func cancelNotification(for newCar: NewCarModel, type: NotificationType) {
@@ -56,7 +54,6 @@ class NotificationManager {
         case .insurance:
             identifier = "insurance \(newCar.id.uuidString)"
         }
-        print("Canceling notification with identifier: \(identifier)")
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     }
     
@@ -66,21 +63,19 @@ class NotificationManager {
     
     
     func updateNotification(for newCar: NewCarModel) {
-       
         cancelNotification(for: newCar, type: .maintenance)
         maintenanceDateNotification(for: newCar)
         cancelNotification(for: newCar, type: .insurance)
         insuranceNotification(for: newCar)
-        print("Updating notification for car: \(newCar.brand) \(newCar.model)")
     }
 }
     
 func requestNotificationPermission() {
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
         if granted {
-            print("Notification permissions accepted.")
+           // print("Notification permissions accepted.")
         } else if let error = error {
-            print("Notification permissions denied: \(error.localizedDescription)")
+            //print("Notification permissions denied: \(error.localizedDescription)")
         }
     }
 }

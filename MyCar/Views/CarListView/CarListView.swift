@@ -25,7 +25,7 @@ struct CarListView: View {
         NavigationStack {
             HStack {
                 if carList.isEmpty {
-                    Text("Add your car")
+                    Text("Register Your Vehicle")
                         .foregroundColor(.gray)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color(UIColor.systemBackground))
@@ -109,10 +109,7 @@ struct CarListView: View {
 }
 extension NewCarEntity {
     func toNewCarModel() -> NewCarModel {
-        // EngineType değeri için rawValue kullanılarak dönüşüm yapılır.
-        // NewCarEntity içerisinde fuelType alanının doğru bir şekilde saklandığını varsayıyoruz.
-        // Eğer `fuelType` alanı `EngineType` enum'ına doğrudan karşılık geliyorsa, bu dönüşüm işe yarayacaktır.
-        let engineType = EngineType(rawValue: self.fuelType ?? "") ?? .benzin  // Varsayılan değer olarak 'benzin' kullandım.
+        let engineType = EngineType(rawValue: self.fuelType ?? "") ?? .benzin
 
         return NewCarModel(
             id: self.id ?? UUID(),
