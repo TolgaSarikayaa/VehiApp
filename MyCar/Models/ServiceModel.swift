@@ -13,6 +13,7 @@ struct ServiceModel : Identifiable {
     var partName: String
     var price: Double?
     var isSelected: Bool = false
+    var date = Date()
 }
 
 let carParts = [

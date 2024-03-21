@@ -78,7 +78,7 @@ struct ServiceEditCV: View {
 
         for part in parts where part.isSelected {
             let newPart = ServiceEntity(context: context)
-            newPart.id = part.id
+            newPart.id = UUID()
             newPart.partImageName = part.partImageName
             newPart.partName = part.partName
             newPart.price = part.price ?? 0.00
