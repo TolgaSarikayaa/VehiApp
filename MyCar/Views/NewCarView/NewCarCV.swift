@@ -149,6 +149,7 @@ extension DateFormatter {
     static var date: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter
     }
 }

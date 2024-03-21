@@ -11,7 +11,7 @@ import UserNotifications
 
 class NotificationManager {
     static let shared = NotificationManager()
-
+    
     func maintenanceDateNotification(for newCar: NewCarModel) {
         
         let content = UNMutableNotificationContent()
@@ -20,13 +20,14 @@ class NotificationManager {
         content.sound = .default
         
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.year, .month, .day], from: newCar.nextMaintenanceDate)
+        let components = calendar.dateComponents([.year,.month,.day], from: newCar.nextMaintenanceDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
         
-        let identifier = "car \(newCar.id.uuidString)"
+        let identifier = "maintenance \(newCar.id.uuidString)"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
+        print("Scheduling maintenance notification for \(newCar.brand) \(newCar.model) on \(newCar.nextMaintenanceDate)")
         
     }
     
@@ -40,23 +41,38 @@ class NotificationManager {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year,.month,.day], from: newCar.insuranceExpirationDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
-        let identifier = "car \(newCar.id.uuidString)"
+        let identifier = "insurance \(newCar.id.uuidString)"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
+        print("Scheduling insurance notification for \(newCar.brand) \(newCar.model) on \(newCar.insuranceExpirationDate)")
         
     }
     
-    func cancelNotification(for newCar: NewCarModel) {
-        let identifier = "car \(newCar.id.uuidString)"
+    func cancelNotification(for newCar: NewCarModel, type: NotificationType) {
+        let identifier: String
+        switch type {
+        case .maintenance:
+            identifier = "maintenance \(newCar.id.uuidString)"
+        case .insurance:
+            identifier = "insurance \(newCar.id.uuidString)"
+        }
+        print("Canceling notification with identifier: \(identifier)")
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     }
     
-  
+    enum NotificationType {
+        case maintenance, insurance
+    }
+    
+    
     func updateNotification(for newCar: NewCarModel) {
-           cancelNotification(for: newCar)
-           maintenanceDateNotification(for: newCar)
-           insuranceNotification(for: newCar)
-       }
+       
+        cancelNotification(for: newCar, type: .maintenance)
+        maintenanceDateNotification(for: newCar)
+        cancelNotification(for: newCar, type: .insurance)
+        insuranceNotification(for: newCar)
+        print("Updating notification for car: \(newCar.brand) \(newCar.model)")
+    }
 }
     
 func requestNotificationPermission() {

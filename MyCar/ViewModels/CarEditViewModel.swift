@@ -53,6 +53,19 @@ class CarEditViewModel : ObservableObject {
             carEntity.insuranceExpirationDate = newCarModel.selectedInsuranceExpirationDate
 
             try context.save()
+            
+            let updatedCar = NewCarModel(id: car.id,
+                                        brand: newCarModel.selectedBrand,
+                                        model: newCarModel.selectedModel,
+                                        fuelType: newCarModel.selectedFuelType,
+                                        mileage: Int(newCarModel.mileage) ?? 0,
+                                        releaseDate: car.releaseDate,
+                                        nextMaintenanceDate: newCarModel.selectedNextServiceDate,
+                                        lastMaintenanceDate: newCarModel.selectedLastServiceDate,
+                                        insuranceExpirationDate: newCarModel.selectedInsuranceExpirationDate,
+                                        licensePlate: newCarModel.selectedLicensePlate)
+            
+            NotificationManager.shared.updateNotification(for: updatedCar)
         } catch {
             print("Failed to save or find car: \(error)")
         }

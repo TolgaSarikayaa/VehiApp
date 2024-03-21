@@ -35,7 +35,7 @@
 		14A4761C2B82187A0069ACB2 /* ServiceDetailCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4761B2B82187A0069ACB2 /* ServiceDetailCV.swift */; };
 		14AA406C2B9761BC00647793 /* FuelModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA406B2B9761BC00647793 /* FuelModelController.swift */; };
 		14AEFD0C2B9CDFE00026B854 /* AddFuelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEFD0B2B9CDFE00026B854 /* AddFuelView.swift */; };
-		14D7D47F2B9B5567007F2483 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D47D2B9B5567007F2483 /* DataModel.xcdatamodeld */; };
+		14BB52192BA9FEFE000CCCEA /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14BB52172BA9FEFE000CCCEA /* DataModel.xcdatamodeld */; };
 		14D7D4832B9B59FB007F2483 /* NewCarModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D4822B9B59FB007F2483 /* NewCarModelController.swift */; };
 		14D7D4852B9B5B05007F2483 /* NewCarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D4842B9B5B05007F2483 /* NewCarModel.swift */; };
 		14D7D4872B9B602F007F2483 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D4862B9B602F007F2483 /* NewCarViewModel.swift */; };
@@ -117,7 +117,7 @@
 		14A4761B2B82187A0069ACB2 /* ServiceDetailCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailCV.swift; sourceTree = "<group>"; };
 		14AA406B2B9761BC00647793 /* FuelModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelModelController.swift; sourceTree = "<group>"; };
 		14AEFD0B2B9CDFE00026B854 /* AddFuelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelView.swift; sourceTree = "<group>"; };
-		14D7D47E2B9B5567007F2483 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		14BB52182BA9FEFE000CCCEA /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		14D7D4822B9B59FB007F2483 /* NewCarModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarModelController.swift; sourceTree = "<group>"; };
 		14D7D4842B9B5B05007F2483 /* NewCarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarModel.swift; sourceTree = "<group>"; };
 		14D7D4862B9B602F007F2483 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
@@ -219,11 +219,12 @@
 			);
 			path = MyCar;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		141E8A8F2B42E13F00C4C3AF /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				14D7D47D2B9B5567007F2483 /* DataModel.xcdatamodeld */,
+				14BB52172BA9FEFE000CCCEA /* DataModel.xcdatamodeld */,
 				141E8A902B42E13F00C4C3AF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -496,6 +497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A476142B8147AF0069ACB2 /* ServiceEditCV.swift in Sources */,
+				14BB52192BA9FEFE000CCCEA /* DataModel.xcdatamodeld in Sources */,
 				14E0FFF02B480F6B00660340 /* NetworkService.swift in Sources */,
 				14EDC30A2BA1FDEB0058FB98 /* OnboardingData.swift in Sources */,
 				145763D32B7BF77800E2D295 /* DatePickerView.swift in Sources */,
@@ -522,7 +524,6 @@
 				14EDC3142BA702F70058FB98 /* FuelDetailView.swift in Sources */,
 				14D7D4872B9B602F007F2483 /* NewCarViewModel.swift in Sources */,
 				14EDC30E2BA34CE70058FB98 /* ContentView.swift in Sources */,
-				14D7D47F2B9B5567007F2483 /* DataModel.xcdatamodeld in Sources */,
 				14E0FFF82B48140D00660340 /* CarListView.swift in Sources */,
 				14E0FFEB2B480EBD00660340 /* CarModel.swift in Sources */,
 				145763CB2B6BBFC600E2D295 /* CarEditCV.swift in Sources */,
@@ -870,13 +871,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		14D7D47D2B9B5567007F2483 /* DataModel.xcdatamodeld */ = {
+		14BB52172BA9FEFE000CCCEA /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				14D7D47E2B9B5567007F2483 /* DataModel.xcdatamodel */,
+				14BB52182BA9FEFE000CCCEA /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 14D7D47E2B9B5567007F2483 /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
+			currentVersion = 14BB52182BA9FEFE000CCCEA /* DataModel.xcdatamodel */;
+			name = DataModel.xcdatamodeld;
+			path = ../DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

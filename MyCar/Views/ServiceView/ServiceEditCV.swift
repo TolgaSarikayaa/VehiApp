@@ -64,6 +64,7 @@ struct ServiceEditCV: View {
             if let selectedCarIndex = selectedCarIndex, cars.indices.contains(selectedCarIndex) {
                     saveParts(carPart.filter { $0.isSelected }, context: managedObjectContext)
                 }
+           
         dismiss()
         }.frame(height: 80)
     }
