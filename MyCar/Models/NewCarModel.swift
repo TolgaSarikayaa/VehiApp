@@ -39,7 +39,19 @@ class NewCarModel : Identifiable {
 }
 
 enum EngineType: String, CaseIterable , Codable {
-    case diesel = "Dizel"
-    case benzin = "Benzin"
+    case diesel = "Diesel"
+    case benzin = "Petrol"
     case electric = "Electric"
-}
+    
+    var localized: String {
+            switch self {
+            case .diesel:
+                return NSLocalizedString("Diesel", comment: "Fuel type")
+            case .benzin:
+                return NSLocalizedString("Petrol", comment: "Fuel type")
+            case .electric:
+                return NSLocalizedString("Electric", comment: "Fuel type")
+            }
+        }
+    }
+

@@ -33,6 +33,7 @@
 		14A4761C2B82187A0069ACB2 /* ServiceDetailCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4761B2B82187A0069ACB2 /* ServiceDetailCV.swift */; };
 		14AA406C2B9761BC00647793 /* FuelModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA406B2B9761BC00647793 /* FuelModelController.swift */; };
 		14AEFD0C2B9CDFE00026B854 /* AddFuelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEFD0B2B9CDFE00026B854 /* AddFuelView.swift */; };
+		14B375762BAE2B01008EEFBE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 14B375752BAE2B01008EEFBE /* Localizable.xcstrings */; };
 		14BB52192BA9FEFE000CCCEA /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14BB52172BA9FEFE000CCCEA /* DataModel.xcdatamodeld */; };
 		14D7D4832B9B59FB007F2483 /* NewCarModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D4822B9B59FB007F2483 /* NewCarModelController.swift */; };
 		14D7D4852B9B5B05007F2483 /* NewCarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D4842B9B5B05007F2483 /* NewCarModel.swift */; };
@@ -112,6 +113,7 @@
 		14A4761B2B82187A0069ACB2 /* ServiceDetailCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailCV.swift; sourceTree = "<group>"; };
 		14AA406B2B9761BC00647793 /* FuelModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelModelController.swift; sourceTree = "<group>"; };
 		14AEFD0B2B9CDFE00026B854 /* AddFuelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelView.swift; sourceTree = "<group>"; };
+		14B375752BAE2B01008EEFBE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		14BB52182BA9FEFE000CCCEA /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		14D7D4822B9B59FB007F2483 /* NewCarModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarModelController.swift; sourceTree = "<group>"; };
 		14D7D4842B9B5B05007F2483 /* NewCarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarModel.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		1404CA442B5F057C00A248D7 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
+				14B375752BAE2B01008EEFBE /* Localizable.xcstrings */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -441,7 +444,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				tr,
 				Base,
+				de,
 			);
 			mainGroup = 141E8A7B2B42E13E00C4C3AF;
 			productRefGroup = 141E8A852B42E13E00C4C3AF /* Products */;
@@ -462,6 +467,7 @@
 			files = (
 				141E8A912B42E13F00C4C3AF /* Preview Assets.xcassets in Resources */,
 				14E0FFF22B480FB000660340 /* cars.json in Resources */,
+				14B375762BAE2B01008EEFBE /* Localizable.xcstrings in Resources */,
 				141E8A8E2B42E13F00C4C3AF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

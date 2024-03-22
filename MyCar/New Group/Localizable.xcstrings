@@ -1,0 +1,620 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%.2f$" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.2f₺"
+          }
+        }
+      }
+    },
+    "%@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "%@ Fuel" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "%@: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$@"
+          }
+        }
+      }
+    },
+    "%@%%" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@%%"
+          }
+        }
+      }
+    },
+    "%lld KM" : {
+
+    },
+    "Add Car" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aracınızı ekleyin"
+          }
+        }
+      }
+    },
+    "Add Fuel" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt Ekleyin"
+          }
+        }
+      }
+    },
+    "Add Price" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fiyat Ekleyin"
+          }
+        }
+      }
+    },
+    "Add Service" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servis bilgisi ekleyin"
+          }
+        }
+      }
+    },
+    "Add Service Info" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servis bilgisi ekleyin"
+          }
+        }
+      }
+    },
+    "Air Filter" : {
+      "comment" : "Part name for Air Filter",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hava Filtresi"
+          }
+        }
+      }
+    },
+    "Battery" : {
+      "comment" : "Part name for Battery",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akü"
+          }
+        }
+      }
+    },
+    "Brake" : {
+      "comment" : "Part name for Brake",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fren"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+
+    },
+    "Car Information" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Araç Bilgisi"
+          }
+        }
+      }
+    },
+    "Car: %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Araba: %@"
+          }
+        }
+      }
+    },
+    "Cars" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arabalar"
+          }
+        }
+      }
+    },
+    "Details" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detaylar"
+          }
+        }
+      }
+    },
+    "Diesel" : {
+      "comment" : "Fuel type",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dizel"
+          }
+        }
+      }
+    },
+    "Dismiss" : {
+
+    },
+    "Edit" : {
+
+    },
+    "Electric" : {
+      "comment" : "Fuel type",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elektrik"
+          }
+        }
+      }
+    },
+    "Enter License Plate" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plakayı girin"
+          }
+        }
+      }
+    },
+    "Enter Mileage" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilometreyi girin"
+          }
+        }
+      }
+    },
+    "Fuel" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt "
+          }
+        }
+      }
+    },
+    "Fuel Price" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt fiyati"
+          }
+        }
+      }
+    },
+    "Fuel type" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt tipi"
+          }
+        }
+      }
+    },
+    "Fuel Type: %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt tipi:  %@"
+          }
+        }
+      }
+    },
+    "Fuels Purchased" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alınan yakıtlar"
+          }
+        }
+      }
+    },
+    "Get Started" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şimdi başla"
+          }
+        }
+      }
+    },
+    "Insurance Expiration" : {
+      "comment" : "Label for insurance expiration date picker",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muayene tarihi"
+          }
+        }
+      }
+    },
+    "Insurance Expiration %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muayene tarihi %@"
+          }
+        }
+      }
+    },
+    "Insurance information" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muayene tarihi"
+          }
+        }
+      }
+    },
+    "Insurance information " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insurance information"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muayene tarihi"
+          }
+        }
+      }
+    },
+    "Last Service" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Son servis"
+          }
+        }
+      }
+    },
+    "Last Servis" : {
+      "comment" : "Label for last servise date picker",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Son servis"
+          }
+        }
+      }
+    },
+    "License" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plaka"
+          }
+        }
+      }
+    },
+    "Mileage" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilometre"
+          }
+        }
+      }
+    },
+    "Motor oil" : {
+      "comment" : "Part name for Motor oil",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motor Yağı"
+          }
+        }
+      }
+    },
+    "My Cars" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arabalarım"
+          }
+        }
+      }
+    },
+    "Next Service" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonraki servis"
+          }
+        }
+      }
+    },
+    "Next Service %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonraki servis %@"
+          }
+        }
+      }
+    },
+    "Next Servis" : {
+      "comment" : "Label for next servise date picker",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonraki servis"
+          }
+        }
+      }
+    },
+    "Oil Filter" : {
+      "comment" : "Part name for Oil Filter",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yağ Filtresi"
+          }
+        }
+      }
+    },
+    "Petrol" : {
+      "comment" : "Fuel type",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benzin"
+          }
+        }
+      }
+    },
+    "Price" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fiyat"
+          }
+        }
+      }
+    },
+    "Register Your Vehicle" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aracınızı kaydedin"
+          }
+        }
+      }
+    },
+    "Release date" : {
+      "comment" : "Label for release date picker",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çıkış tarihi"
+          }
+        }
+      }
+    },
+    "Release date %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çıkış tarihi %@"
+          }
+        }
+      }
+    },
+    "Select Brand" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marka seçin"
+          }
+        }
+      }
+    },
+    "Select Brand and Model" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marka ve model seçin"
+          }
+        }
+      }
+    },
+    "Select Car" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aracınızı seçin"
+          }
+        }
+      }
+    },
+    "Select Model" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Model seçin"
+          }
+        }
+      }
+    },
+    "Select your car information" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Araç bilgilerinizi seçin"
+          }
+        }
+      }
+    },
+    "Service" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servis"
+          }
+        }
+      }
+    },
+    "Service Info" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servis bilgisi"
+          }
+        }
+      }
+    },
+    "Service information" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servis bilgisi"
+          }
+        }
+      }
+    },
+    "Service information " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service information"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servis bilgisi"
+          }
+        }
+      }
+    },
+    "Total Fuel Purchased" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toplam alınan yakıtlar "
+          }
+        }
+      }
+    },
+    "Wheel" : {
+      "comment" : "Part name for Wheel",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lastik"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

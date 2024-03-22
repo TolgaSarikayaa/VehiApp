@@ -18,13 +18,6 @@ struct ServiceDetailCV: View {
     ) var serviceParts: FetchedResults<ServiceEntity>
     
     
-    private var groupedServiceList : [String: [ServiceEntity]] {
-        Dictionary(grouping: serviceParts) { parts in
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .medium
-            return dateFormatter.string(from: parts.date ?? Date())
-        }
-    }
     var body: some View {
         NavigationStack {
                  VStack {

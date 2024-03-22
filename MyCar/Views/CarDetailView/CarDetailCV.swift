@@ -29,7 +29,7 @@ struct CarDetailCV: View {
                              HStack {
                                  Image(systemName: "fuelpump.circle.fill")
                                      .font(.system(size: 36))
-                                 Text("\(car.fuelType.rawValue) Fuel")
+                                 Text("\(car.fuelType.localized)")
                                      .font(.system(size: 20))
                              }
                              .padding(.bottom, 25)
@@ -45,8 +45,11 @@ struct CarDetailCV: View {
                              HStack {
                                  Image(systemName: "calendar.circle.fill")
                                      .font(.system(size: 36))
-                                 Text("Release date \(car.releaseDate.onlyDateFormatted())")
-                                     .font(.system(size: 16))
+                                 VStack {
+                                     Text("Release date")
+                                     Text("\(car.releaseDate.onlyDateFormatted())")
+                                         .font(.system(size: 16))
+                                 }
                              }
                              .padding(.bottom, 25)
                              
