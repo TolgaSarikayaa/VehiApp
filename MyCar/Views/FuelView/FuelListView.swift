@@ -49,7 +49,7 @@ struct FuelListView: View {
                                     HStack {
                                         Image(systemName: "fuelpump.fill")
                                             .foregroundColor(.green)
-                                        Text("Fuel Purchased: \((fuel.carBrand) ?? "")")
+                                        Text("\((fuel.carBrand) ?? "")")
                                         Spacer()
                                         Text("\(fuel.price, specifier: "%.2f")$")
                                     }

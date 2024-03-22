@@ -19,6 +19,7 @@ struct ServiceEditCV: View {
     
     @State private var carPart = carParts
     @State private var showingAddPartView = false
+ 
     
     var body: some View {
         NavigationStack {
@@ -36,29 +37,38 @@ struct ServiceEditCV: View {
                     }
                 }
             }
-            ForEach($carPart) { $parts in
+            ForEach($carPart.indices, id: \.self) { index in
                 HStack {
-                    Image(parts.partImageName)
+                    Image(carPart[index].partImageName)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 40, height: 40)
-                    Text(parts.partName)
+                    Text(carPart[index].partName)
                     Spacer()
-                    TextField("Price", value: $parts.price, format: .number)
+                    TextField("Price", value: $carPart[index].price, format: .number)
                         .keyboardType(.decimalPad)
-                    
+                        .onChange(of: carPart[index].price) { newValue, oldWalue in
+                            if newValue ?? 0 <= 0 {
+                                carPart[index].isSelected = false
+                            }
+                        }
+
                     Button {
-                        parts.isSelected.toggle()
+                        if carPart[index].price != nil && carPart[index].price! > 0 {
+                            carPart[index].isSelected.toggle()
+                        }
                     } label: {
-                        Image(systemName: parts.isSelected ? "checkmark.circle.fill" : "circle")
+                        Image(systemName: carPart[index].isSelected ? "checkmark.circle.fill" : "circle")
                     }
-                    
+                    .disabled(carPart[index].price == nil || carPart[index].price! > 10_0000)
                 }
+                
             }
         }.navigationTitle("Add Service Info")
         .onAppear {
             fetchData()
         }
+       
     }
         MCButton(title: "Save", background: .blue) {
             if let selectedCarIndex = selectedCarIndex, cars.indices.contains(selectedCarIndex) {
@@ -71,7 +81,6 @@ struct ServiceEditCV: View {
     
     func saveParts(_ parts: [ServiceModel], context: NSManagedObjectContext) {
         guard let selectedCarIndex = selectedCarIndex, cars.indices.contains(selectedCarIndex) else {
-            //print("No car selected")
             return
         }
         let selectedCar = cars[selectedCarIndex]

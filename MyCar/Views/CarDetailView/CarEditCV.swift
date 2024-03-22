@@ -29,8 +29,8 @@ struct CarEditCV: View {
         VStack {
             List {
                 Section(header: Text("Car Information")) {
-                TextField("Brand", text: $carEditViewModel.newCarModel.selectedBrand)
-                TextField("Model", text: $carEditViewModel.newCarModel.selectedModel)
+                    Text("\(carEditViewModel.newCarModel.selectedBrand)")
+                    Text("\(carEditViewModel.newCarModel.selectedModel)")
                 TextField("License", text: $carEditViewModel.newCarModel.selectedLicensePlate)
             }
                 Section(header: Text("Details")) {

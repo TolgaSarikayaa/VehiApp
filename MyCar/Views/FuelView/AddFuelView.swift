@@ -16,6 +16,10 @@ struct AddFuelView: View {
     @State private var fuelPrice: String = ""
     @State private var selectedCarIndex: Int?
     
+    var isInputValid: Bool {
+           Double(fuelPrice) != nil && fuelPrice.count <= 7 && !fuelPrice.isEmpty
+       }
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -33,7 +37,7 @@ struct AddFuelView: View {
                     }
                 }
                 Section(header: Text("Add Price")) {
-                    TextField("Fuel Quantity", text: $fuelPrice)
+                    TextField("Fuel Price", text: $fuelPrice)
                         .keyboardType(.decimalPad)
                 }
             }
@@ -56,7 +60,11 @@ struct AddFuelView: View {
             }
             dismiss()
         }).frame(height: 80)
+         
+         .disabled(!isInputValid)
     }
+    
+    
     private func addFuel(carBrand: String, price: Double) {
         let fuel = FuelEntity(context: managedObjectContext)
         fuel.id = UUID()

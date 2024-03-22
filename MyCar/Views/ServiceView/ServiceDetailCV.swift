@@ -11,7 +11,7 @@ import CoreData
 struct ServiceDetailCV: View {
     
     @State private var isNavigationActive = false
-    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @FetchRequest(
         entity: ServiceEntity.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \ServiceEntity.partName, ascending: true)]
@@ -27,60 +27,96 @@ struct ServiceDetailCV: View {
     }
     var body: some View {
         NavigationStack {
-            VStack {
-                if groupedServiceList.isEmpty {
-                    Text("Add Service")
-                        .foregroundColor(.gray)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color(UIColor.systemBackground))
-                } else {
-                    List {
-                        ForEach(groupedServiceList.keys.sorted(), id: \.self) { date in
-                            Section(header: Text(date)) {
-                                ForEach(groupedServiceList[date] ?? [] ) { parts in
-                                    HStack {
-                                        Image(parts.partImageName ?? "")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 40, height: 40)
-                                        Text(parts.partName ?? "Unknown")
-                                            .font(.subheadline)
-                                        Text("Car: \((parts.carBrand) ?? "")")
-                                            .font(.subheadline)
-                                            .lineLimit(nil)
-                                        Spacer()
-                                        Text("\(parts.price, specifier: "%.2f")$")
-                                    }
+                 VStack {
+                     if serviceParts.isEmpty {
+                         EmptyStateView()
+                     } else {
+                         ServiceListView(serviceParts: serviceParts)
+                         
+                     }
+                 }
+                 .navigationBarItems(trailing: addButton)
+                 .sheet(isPresented: $isNavigationActive) {
+                     ServiceEditCV()
+                 }
+                 .navigationTitle("Service Info")
+             }
+         }
+
+         private var addButton: some View {
+             Button(action: {
+                 isNavigationActive.toggle()
+             }) {
+                 Image(systemName: "plus.app")
+             }
+         }
+}
+
+struct EmptyStateView: View {
+    var body: some View {
+        Text("Add Service")
+            .foregroundColor(.gray)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(UIColor.systemBackground))
+    }
+}
+
+struct ServiceListView: View {
+    var serviceParts: FetchedResults<ServiceEntity>
+    @Environment(\.managedObjectContext) var managedObjectContext
+
+    private var groupedServiceList: [String: [String: [ServiceEntity]]] {
+        let groupedByDate = Dictionary(grouping: serviceParts) { part in
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            return dateFormatter.string(from: part.date ?? Date())
+        }
+
+        var groupedByDateAndBrand: [String: [String: [ServiceEntity]]] = [:]
+        for (date, parts) in groupedByDate {
+            let groupedByBrand = Dictionary(grouping: parts) { $0.carBrand ?? "Unknown" }
+            groupedByDateAndBrand[date] = groupedByBrand
+        }
+        
+        return groupedByDateAndBrand
+    }
+
+    var body: some View {
+        List {
+            ForEach(groupedServiceList.keys.sorted(), id: \.self) { date in
+                Section(header: Text(date)) {
+                    ForEach(groupedServiceList[date]!.keys.sorted(), id: \.self) { brand in
+                        Section(header: Text("Car: \(brand)")) {
+                            ForEach(groupedServiceList[date]![brand]!, id: \.self) { part in
+                                HStack {
+                                    Image(part.partImageName ?? "placeholder")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 40, height: 40)
+                                    Text(part.partName ?? "Unknown")
+                                    Spacer()
+                                    Text("\(part.price, specifier: "%.2f")$")
                                 }
-                                .onDelete { offsets in
-                                    deleteService(at: offsets, for: date)
-                                }
+                            }
+                            .onDelete { offsets in
+                                deleteService(at: offsets, for: date, and: brand)
                             }
                         }
                     }
                 }
             }
-            .navigationBarItems(trailing: Button(action: {
-                isNavigationActive.toggle()
-            }) {
-                Image(systemName: "plus.app")
-            })
-            .sheet(isPresented: $isNavigationActive) {
-                ServiceEditCV()
-            }
-            .navigationTitle("Service Info")
         }
     }
-    func deleteService(at offsets: IndexSet, for date: String) {
-        guard let dateGroup = groupedServiceList[date] else { return }
+
+    func deleteService(at offsets: IndexSet, for date: String, and brand: String) {
+        guard let brandGroup = groupedServiceList[date]?[brand] else { return }
         offsets.forEach { index in
-            let serviceEntity = dateGroup[index]
-            managedObjectContext.delete(serviceEntity)
+            let part = brandGroup[index]
+            managedObjectContext.delete(part)
         }
         try? managedObjectContext.save()
     }
 }
-
 #Preview {
     ServiceDetailCV()
 }

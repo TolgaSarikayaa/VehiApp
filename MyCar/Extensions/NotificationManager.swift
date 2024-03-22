@@ -75,7 +75,7 @@ func requestNotificationPermission() {
         if granted {
            // print("Notification permissions accepted.")
         } else if let error = error {
-            //print("Notification permissions denied: \(error.localizedDescription)")
+            print("Notification permissions denied: \(error.localizedDescription)")
         }
     }
 }
