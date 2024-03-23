@@ -34,7 +34,7 @@ struct CarEditCV: View {
                 TextField("License", text: $carEditViewModel.newCarModel.selectedLicensePlate)
             }
                 Section(header: Text("Details")) {
-                Text("Fuel Type: \(car.fuelType.rawValue)")
+                    Text("Fuel Type: \(car.fuelType.localized)")
                 TextField("Mileage", text: $carEditViewModel.newCarModel.mileage)
                 DatePicker("Release date", selection: $carEditViewModel.newCarModel.selectedReleaseDate, displayedComponents: .date)
                 DatePicker("Last Service", selection: $carEditViewModel.newCarModel.selectedLastServiceDate, displayedComponents: .date)

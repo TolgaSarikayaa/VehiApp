@@ -45,7 +45,7 @@ struct CarDetailCV: View {
                              HStack {
                                  Image(systemName: "calendar.circle.fill")
                                      .font(.system(size: 36))
-                                 VStack {
+                                 VStack(alignment: .leading) {
                                      Text("Release date")
                                      Text("\(car.releaseDate.onlyDateFormatted())")
                                          .font(.system(size: 16))
@@ -56,20 +56,27 @@ struct CarDetailCV: View {
                              HStack {
                                  Image(systemName: "calendar.circle.fill")
                                      .font(.system(size: 36))
-                                 Text("Next Service \(car.nextMaintenanceDate.onlyDateFormatted())")
-                                     .font(.system(size: 16))
+                                 VStack(alignment: .leading) {
+                                     Text("Next Service")
+                                     Text("\(car.nextMaintenanceDate.onlyDateFormatted())")
+                                         .font(.system(size: 16))
+                                 }
                              }
                              .padding(.bottom, 25)
                              
                              HStack {
                                  Image(systemName: "calendar.circle.fill")
                                      .font(.system(size: 36))
-                                 Text("Insurance Expiration \(car.insuranceExpirationDate.onlyDateFormatted())")
-                                     .font(.system(size: 16))
+                                 VStack(alignment: .leading) {
+                                     Text("Inspection date")
+                                     Text("\(car.insuranceExpirationDate.onlyDateFormatted())")
+                                         .font(.system(size: 16))
+                                 }
                              }
+                             
                              Spacer()
                          }
-                         .padding(.leading, 20)
+                         .padding(.leading, 18)
                          
                          Spacer()
                          

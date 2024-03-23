@@ -93,21 +93,21 @@ struct NewCarCV: View {
                 }
                 Section(header: Text("Service information ")) {
                     HStack {
-                        DatePickerView(label: NSLocalizedString("Last Servis", comment: "Label for last servise date picker"),
+                        DatePickerView(label: NSLocalizedString("Last Service", comment: "Label for last servise date picker"),
                                        selectedDate: $newCarModel.selectedLastServiceDate,
                                        isPickerVisible: $newCarModel.isLastServiceDatePickerVisible,
                                        formatter: .date)
                     }
                     HStack {
-                        DatePickerView(label: NSLocalizedString("Next Servis", comment: "Label for next servise date picker"),
+                        DatePickerView(label: NSLocalizedString("Next Service", comment: "Label for next servise date picker"),
                                        selectedDate: $newCarModel.selectedNextServiceDate,
                                        isPickerVisible: $newCarModel.isNextServiceDatePickerVisible,
                                        formatter: .date)
                     }
                 }
-                Section(header: Text("Insurance information ")) {
+                Section(header: Text("Inspection information ")) {
                     HStack {
-                        DatePickerView(label: NSLocalizedString("Insurance Expiration", comment: "Label for insurance expiration date picker"),
+                        DatePickerView(label: NSLocalizedString("Inspection date", comment: "Label for Inspection date  picker"),
                                        selectedDate: $newCarModel.selectedInsuranceExpirationDate,
                                        isPickerVisible: $newCarModel.isInsurancePickerVisible,
                                        formatter: .date)

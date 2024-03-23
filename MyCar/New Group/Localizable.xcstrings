@@ -6,6 +6,12 @@
     },
     "%.2f$" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.2f€"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16,6 +22,12 @@
     },
     "%@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27,6 +39,12 @@
     "%@ Fuel" : {
       "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -47,6 +65,12 @@
     },
     "%@%%" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@%%"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -60,6 +84,12 @@
     },
     "Add Car" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fügen sie ihre Fahrzeug"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -70,6 +100,12 @@
     },
     "Add Fuel" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tanken"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -80,6 +116,12 @@
     },
     "Add Price" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preis hinzufügen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -90,6 +132,12 @@
     },
     "Add Service" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service hinzufügen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -100,6 +148,12 @@
     },
     "Add Service Info" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serviceinformationen hinzufügen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -111,6 +165,12 @@
     "Air Filter" : {
       "comment" : "Part name for Air Filter",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Luft filter"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -122,6 +182,12 @@
     "Battery" : {
       "comment" : "Part name for Battery",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akku"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -133,6 +199,12 @@
     "Brake" : {
       "comment" : "Part name for Brake",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bremse"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -146,6 +218,12 @@
     },
     "Car Information" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrzeuginformationen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -156,6 +234,12 @@
     },
     "Car: %@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto: %@"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -166,6 +250,12 @@
     },
     "Cars" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autos"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -176,6 +266,12 @@
     },
     "Details" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -187,6 +283,12 @@
     "Diesel" : {
       "comment" : "Fuel type",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diesel"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -204,6 +306,12 @@
     "Electric" : {
       "comment" : "Fuel type",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elektrisch"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -214,6 +322,12 @@
     },
     "Enter License Plate" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kfz-Kennzeichen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -224,6 +338,12 @@
     },
     "Enter Mileage" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilometerstand"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -234,6 +354,12 @@
     },
     "Fuel" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoff"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -244,6 +370,12 @@
     },
     "Fuel Price" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoffpreis"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -254,6 +386,12 @@
     },
     "Fuel type" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoffart"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -264,6 +402,12 @@
     },
     "Fuel Type: %@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoffart: %@"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -274,6 +418,12 @@
     },
     "Fuels Purchased" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoffkauf"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -284,6 +434,12 @@
     },
     "Get Started" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get Started"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -292,9 +448,65 @@
         }
       }
     },
+    "Inspection date" : {
+      "comment" : "Label for Inspection date  picker",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspektionsdatum"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muayene tarihi"
+          }
+        }
+      }
+    },
+    "Inspection date %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspektionsdatum %@"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muayene tarihi %@"
+          }
+        }
+      }
+    },
+    "Inspection information " : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspektionsinformation"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muayene bilgisi"
+          }
+        }
+      }
+    },
     "Insurance Expiration" : {
       "comment" : "Label for insurance expiration date picker",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspektionsdatum"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -304,7 +516,14 @@
       }
     },
     "Insurance Expiration %@" : {
+      "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspektionsdatum %@"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -316,6 +535,12 @@
     "Insurance information" : {
       "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspektionsdatum"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -325,7 +550,14 @@
       }
     },
     "Insurance information " : {
+      "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspektionsdatum"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -341,7 +573,14 @@
       }
     },
     "Last Service" : {
+      "comment" : "Label for last servise date picker",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "letzte Wartung"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -352,7 +591,14 @@
     },
     "Last Servis" : {
       "comment" : "Label for last servise date picker",
+      "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "letzte Wartung"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -363,6 +609,12 @@
     },
     "License" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kfz-Kennzeichen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -373,6 +625,12 @@
     },
     "Mileage" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilometerstand"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -384,6 +642,12 @@
     "Motor oil" : {
       "comment" : "Part name for Motor oil",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motoröl"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -394,6 +658,12 @@
     },
     "My Cars" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meine Autos"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -403,7 +673,14 @@
       }
     },
     "Next Service" : {
+      "comment" : "Label for next servise date picker",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nächste Wartung"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -413,7 +690,14 @@
       }
     },
     "Next Service %@" : {
+      "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nächste Wartung %@"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -424,7 +708,14 @@
     },
     "Next Servis" : {
       "comment" : "Label for next servise date picker",
+      "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nächste Wartung"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -436,6 +727,12 @@
     "Oil Filter" : {
       "comment" : "Part name for Oil Filter",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ölfilter"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -447,6 +744,12 @@
     "Petrol" : {
       "comment" : "Fuel type",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benzin"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -457,6 +760,12 @@
     },
     "Price" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preis"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -467,6 +776,12 @@
     },
     "Register Your Vehicle" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrieren Sie Ihr Fahrzeug"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -478,6 +793,12 @@
     "Release date" : {
       "comment" : "Label for release date picker",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baujahr"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -489,16 +810,28 @@
     "Release date %@" : {
       "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baujahr %@"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Çıkış tarihi %@"
+            "value" : "Çıkış tarihi%@"
           }
         }
       }
     },
     "Select Brand" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marke auswählen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -509,6 +842,12 @@
     },
     "Select Brand and Model" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marke und Modell auswählen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -519,6 +858,12 @@
     },
     "Select Car" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto auswählen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -529,6 +874,12 @@
     },
     "Select Model" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modell auswählen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -539,6 +890,12 @@
     },
     "Select your car information" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrzeuginformationen auswählen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -549,6 +906,12 @@
     },
     "Service" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -559,6 +922,12 @@
     },
     "Service Info" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service information"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -570,6 +939,12 @@
     "Service information" : {
       "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service information"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -580,6 +955,12 @@
     },
     "Service information " : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service information"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -596,6 +977,12 @@
     },
     "Total Fuel Purchased" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamter Treibstoff"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -607,6 +994,12 @@
     "Wheel" : {
       "comment" : "Part name for Wheel",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reifen"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
