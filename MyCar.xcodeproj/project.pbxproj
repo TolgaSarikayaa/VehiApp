@@ -17,7 +17,6 @@
 		141E8A9B2B42E13F00C4C3AF /* MyCarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8A9A2B42E13F00C4C3AF /* MyCarTests.swift */; };
 		141E8AA52B42E13F00C4C3AF /* MyCarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8AA42B42E13F00C4C3AF /* MyCarUITests.swift */; };
 		141E8AA72B42E13F00C4C3AF /* MyCarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8AA62B42E13F00C4C3AF /* MyCarUITestsLaunchTests.swift */; };
-		141E8AD92B44359F00C4C3AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8AD82B44359F00C4C3AF /* User.swift */; };
 		141E8ADD2B443E3B00C4C3AF /* MCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E8ADC2B443E3B00C4C3AF /* MCButton.swift */; };
 		142142AE2B93BF5F00D60CF7 /* FuelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142AD2B93BF5F00D60CF7 /* FuelListView.swift */; };
 		142142B62B9491F100D60CF7 /* FuelListCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B52B9491F100D60CF7 /* FuelListCV.swift */; };
@@ -97,7 +96,6 @@
 		141E8AA02B42E13F00C4C3AF /* MyCarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		141E8AA42B42E13F00C4C3AF /* MyCarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCarUITests.swift; sourceTree = "<group>"; };
 		141E8AA62B42E13F00C4C3AF /* MyCarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCarUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		141E8AD82B44359F00C4C3AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		141E8ADC2B443E3B00C4C3AF /* MCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCButton.swift; sourceTree = "<group>"; };
 		142142AD2B93BF5F00D60CF7 /* FuelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelListView.swift; sourceTree = "<group>"; };
 		142142B52B9491F100D60CF7 /* FuelListCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelListCV.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 		141E8AD12B44344300C4C3AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				141E8AD82B44359F00C4C3AF /* User.swift */,
 				14E0FFEA2B480EBD00660340 /* CarModel.swift */,
 				1404CA422B5EFAF900A248D7 /* SelectCarModel.swift */,
 				14D7D4842B9B5B05007F2483 /* NewCarModel.swift */,
@@ -526,7 +523,6 @@
 				1404C9FA2B4A025600A248D7 /* Constanst.swift in Sources */,
 				141E8A882B42E13E00C4C3AF /* MyCarApp.swift in Sources */,
 				142142B62B9491F100D60CF7 /* FuelListCV.swift in Sources */,
-				141E8AD92B44359F00C4C3AF /* User.swift in Sources */,
 				142142B82B94930200D60CF7 /* MainCV.swift in Sources */,
 				142142AE2B93BF5F00D60CF7 /* FuelListView.swift in Sources */,
 				14A4761C2B82187A0069ACB2 /* ServiceDetailCV.swift in Sources */,
