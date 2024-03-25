@@ -80,7 +80,14 @@
       }
     },
     "%lld KM" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%11d Mile"
+          }
+        }
+      }
     },
     "Add Car" : {
       "localizations" : {
@@ -549,6 +556,23 @@
         }
       }
     },
+    "Inspection Reminder" : {
+      "comment" : "Title for insurance reminder notification",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspektionserinnerung"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muayene Hatırlatıcısı"
+          }
+        }
+      }
+    },
     "Insurance Expiration" : {
       "comment" : "Label for insurance expiration date picker",
       "localizations" : {
@@ -623,6 +647,52 @@
         }
       }
     },
+    "It's time for the next inspection of your %@ %@." : {
+      "comment" : "Body for inspection reminder notification",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es ist Zeit für die nächste Inspektion Ihres %1$@ %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "It's time for the next inspection of your %1$@ %2$@."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir sonraki muayenenizin zamanı geldi %1$@ %2$@"
+          }
+        }
+      }
+    },
+    "It's time for the next maintenance of your %@ %@." : {
+      "comment" : "Body for maintenance reminder notification",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeit für die Neuwartung Ihres Fahrzeugs %1$@ %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "It's time for the next maintenance of your %1$@ %2$@."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "bir sonraki bakım zamanı geldi %1$@ %2$@"
+          }
+        }
+      }
+    },
     "Last Service" : {
       "comment" : "Label for last servise date picker",
       "localizations" : {
@@ -687,6 +757,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bakım Yönetimi"
+          }
+        }
+      }
+    },
+    "Maintenance Reminder" : {
+      "comment" : "Title for maintenance reminder notification",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wartungserinnerung"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bakım Hatırlatıcısı"
           }
         }
       }
@@ -815,7 +902,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ölfilter"
+            "value" : "Öl filter"
           }
         },
         "tr" : {

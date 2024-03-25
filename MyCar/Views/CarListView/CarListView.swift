@@ -96,7 +96,7 @@ struct CarListView: View {
         for index in offsets {
             let car = carList[index]
             NotificationManager.shared.cancelNotification(for: car.toNewCarModel(), type: .maintenance)
-            NotificationManager.shared.cancelNotification(for: car.toNewCarModel(), type: .insurance)
+            NotificationManager.shared.cancelNotification(for: car.toNewCarModel(), type: .inspection)
             managedObjectContext.delete(car)
         }
         

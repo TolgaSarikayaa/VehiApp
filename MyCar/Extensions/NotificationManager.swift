@@ -15,8 +15,9 @@ class NotificationManager {
     func maintenanceDateNotification(for newCar: NewCarModel) {
         
         let content = UNMutableNotificationContent()
-        content.title = "Maintenance Reminder"
-        content.body = "It's time for the next maintenance of your \(newCar.brand) \(newCar.model)."
+        content.title = NSLocalizedString("Maintenance Reminder", comment: "Title for maintenance reminder notification")
+        content.body = String(format: NSLocalizedString("It's time for the next maintenance of your %@ %@.", comment: "Body for maintenance reminder notification"), newCar.brand, newCar.model)
+        content.sound = .default
         content.sound = .default
         
         let calendar = Calendar.current
@@ -27,21 +28,20 @@ class NotificationManager {
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
-        print("Scheduling maintenance notification for \(newCar.brand) \(newCar.model) on \(newCar.nextMaintenanceDate)")
         
     }
     
     func insuranceNotification(for newCar: NewCarModel) {
         
         let content = UNMutableNotificationContent()
-        content.title = "Insurance Reminder"
-        content.body = "It's time for the next insurance of your \(newCar.brand) \(newCar.model)."
+        content.title =  NSLocalizedString("Inspection Reminder", comment: "Title for insurance reminder notification")
+        content.body = String(format: NSLocalizedString("It's time for the next inspection of your %@ %@.", comment: "Body for inspection reminder notification"), newCar.brand, newCar.model)
         content.sound = .default
         
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year,.month,.day], from: newCar.insuranceExpirationDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
-        let identifier = "insurance \(newCar.id.uuidString)"
+        let identifier = "inspection \(newCar.id.uuidString)"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
@@ -51,21 +51,21 @@ class NotificationManager {
         switch type {
         case .maintenance:
             identifier = "maintenance \(newCar.id.uuidString)"
-        case .insurance:
-            identifier = "insurance \(newCar.id.uuidString)"
+        case .inspection:
+            identifier = "inspection \(newCar.id.uuidString)"
         }
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     }
     
     enum NotificationType {
-        case maintenance, insurance
+        case maintenance, inspection
     }
     
     
     func updateNotification(for newCar: NewCarModel) {
         cancelNotification(for: newCar, type: .maintenance)
         maintenanceDateNotification(for: newCar)
-        cancelNotification(for: newCar, type: .insurance)
+        cancelNotification(for: newCar, type: .inspection)
         insuranceNotification(for: newCar)
     }
 }

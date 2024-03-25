@@ -17,18 +17,18 @@ struct NewCarCV: View {
     
     @StateObject var carModelController = NewCarModelController()
     
-    @ObservedObject var carListViewModel : CarListViewModel
+    //@ObservedObject var carListViewModel : CarListViewModel
     @ObservedObject var viewModel = NewCarViewModel()
     @ObservedObject var newCarModel = SelectCarModel()
+    @StateObject var carListViewModel: CarListViewModel = CarListViewModel(service: LocalService())
    
-    init() {
-        self.carListViewModel = CarListViewModel(service: LocalService())
-    }
+ 
     
     private var isFormValid: Bool {
         !newCarModel.mileage.trimmingCharacters(in: .whitespaces).isEmpty
        
     }
+ 
     
     var body: some View {
         NavigationStack {
@@ -137,13 +137,27 @@ struct NewCarCV: View {
                     }
                 }
             
-        }.task {
-            await carListViewModel.downloadCars()
-            
+        }.onAppear {
+            Task {
+                await carListViewModel.downloadCars()
+                await setupInitialCarSelection()
+            }
+        }
+    }
+    private func setupInitialCarSelection() async {
+        if let firstBrand = carListViewModel.carList.first {
+            newCarModel.selectedBrandIndex = 0
+            newCarModel.selectedBrand = firstBrand.brand
+
+            if let firstModel = firstBrand.models.first {
+                newCarModel.selectedModelIndex = 0
+                newCarModel.selectedModel = firstModel
+            }
         }
     }
     
 }
+
 
 extension DateFormatter {
     static var date: DateFormatter {

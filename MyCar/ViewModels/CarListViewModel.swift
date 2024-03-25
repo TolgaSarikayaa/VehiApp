@@ -28,6 +28,12 @@ class CarListViewModel : ObservableObject {
             print(error)
         }
     }
+    
+    func downloadCarsIfNeeded() async {
+        if carList.isEmpty {
+            await downloadCars()
+        }
+    }
 }
 struct carViewModel {
    
