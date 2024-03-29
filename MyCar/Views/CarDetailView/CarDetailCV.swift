@@ -37,7 +37,7 @@ struct CarDetailCV: View {
                              HStack {
                                  Image(systemName: "car.rear.road.lane.dashed")
                                      .font(.system(size: 33))
-                                 Text("\(car.mileage) KM")
+                                 Text("\(car.mileage) \(NSLocalizedString("Mile", comment: "Distance unit"))")
                                      .font(.system(size: 20))
                              }
                              .padding(.bottom, 25)

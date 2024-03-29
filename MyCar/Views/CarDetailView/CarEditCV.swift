@@ -25,6 +25,10 @@ struct CarEditCV: View {
     
     var car : NewCarModel
     
+    var isMileageValid: Bool {
+        return carEditViewModel.newCarModel.mileage.count <= 6
+    }
+    
     var body: some View {
         VStack {
             List {
@@ -36,6 +40,7 @@ struct CarEditCV: View {
                 Section(header: Text("Details")) {
                     Text("Fuel Type: \(car.fuelType.localized)")
                 TextField("Mileage", text: $carEditViewModel.newCarModel.mileage)
+                        .keyboardType(.decimalPad)
                 DatePicker("Release date", selection: $carEditViewModel.newCarModel.selectedReleaseDate, displayedComponents: .date)
                 DatePicker("Last Service", selection: $carEditViewModel.newCarModel.selectedLastServiceDate, displayedComponents: .date)
                 DatePicker("Next Service", selection: $carEditViewModel.newCarModel.selectedNextServiceDate, displayedComponents: .date)
@@ -51,6 +56,7 @@ struct CarEditCV: View {
                 dismiss()
             })
             .frame(height: 80)
+            .disabled(!isMileageValid)
         }
     }
 }

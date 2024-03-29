@@ -17,7 +17,8 @@ struct AddFuelView: View {
     @State private var selectedCarIndex: Int?
     
     var isInputValid: Bool {
-           Double(fuelPrice) != nil && fuelPrice.count <= 7 && !fuelPrice.isEmpty
+        let normalizedFuelPrice = fuelPrice.replacingOccurrences(of: ",", with: ".")
+            return Double(normalizedFuelPrice) != nil && normalizedFuelPrice.count <= 7 && !normalizedFuelPrice.isEmpty
        }
     
     var body: some View {
@@ -26,7 +27,8 @@ struct AddFuelView: View {
                 Section(header: Text("Select Car")) {
                     Picker("Select Car", selection: $selectedCarIndex) {
                         ForEach(cars.indices, id: \.self) { index in
-                            Text(cars[index].brand ?? "Unknown Brand").tag(index as Int?)
+                            Text("\(cars[index].brand ?? "Unknown Brand") \(cars[index].model ?? "Unknown Model")").tag(index as Int?)
+            
                         }
                     }
                     .pickerStyle(MenuPickerStyle())
@@ -54,9 +56,10 @@ struct AddFuelView: View {
             }
         }   
         MCButton(title: "Save", background: .blue, action: {
-            if let index = selectedCarIndex, cars.indices.contains(index), let price = Double(fuelPrice) {
+            let normalizedFuelPrice = fuelPrice.replacingOccurrences(of: ",", with: ".")
+            if let index = selectedCarIndex, cars.indices.contains(index), let price = Double(normalizedFuelPrice) {
                 let car = cars[index]
-                addFuel(carBrand: car.brand ?? "", price: price)
+                addFuel(carBrand: car.brand ?? "", carModel: car.model ?? "", price: price)
             }
             dismiss()
         }).frame(height: 80)
@@ -65,12 +68,13 @@ struct AddFuelView: View {
     }
     
     
-    private func addFuel(carBrand: String, price: Double) {
+    private func addFuel(carBrand: String, carModel: String,price: Double) {
         let fuel = FuelEntity(context: managedObjectContext)
         fuel.id = UUID()
         fuel.price = price
         fuel.date = Date()
         fuel.carBrand = carBrand
+        fuel.carModel = carModel
         
         do {
             try managedObjectContext.save()

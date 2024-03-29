@@ -50,6 +50,7 @@ struct FuelListView: View {
                                         Image(systemName: "fuelpump.fill")
                                             .foregroundColor(.green)
                                         Text("\((fuel.carBrand) ?? "")")
+                                        Text("\((fuel.carModel) ?? "")")
                                         Spacer()
                                         Text("\(fuel.price, specifier: "%.2f")$")
                                     }
@@ -66,7 +67,7 @@ struct FuelListView: View {
             .navigationBarItems(trailing: Button(action: {
                 self.showAlert = true
             }, label: {
-                Image(systemName: "plus")
+                Image(systemName: "plus.app")
             }))
             .navigationBarItems(trailing: Button(action: {
                 self.showDetay = true

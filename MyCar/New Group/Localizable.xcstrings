@@ -36,6 +36,16 @@
         }
       }
     },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
     "%@ Fuel" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -79,12 +89,23 @@
         }
       }
     },
-    "%lld KM" : {
+    "%lld %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld %2$@"
+          }
+        }
+      }
+    },
+    "%lld Mile" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
             "state" : "translated",
-            "value" : "%11d Mile"
+            "value" : "%11d KM"
           }
         }
       }
@@ -774,6 +795,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bakım Hatırlatıcısı"
+          }
+        }
+      }
+    },
+    "Mile" : {
+      "comment" : "Distance unit",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "KM"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "KM"
           }
         }
       }
