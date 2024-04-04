@@ -27,7 +27,7 @@ struct AddFuelView: View {
                 Section(header: Text("Select Car")) {
                     Picker("Select Car", selection: $selectedCarIndex) {
                         ForEach(cars.indices, id: \.self) { index in
-                            Text("\(cars[index].brand ?? "Unknown Brand") \(cars[index].model ?? "Unknown Model")").tag(index as Int?)
+                            Text("\(cars[index].brand ?? "Unknown Brand") \(cars[index].model ?? "")").tag(index as Int?)
             
                         }
                     }

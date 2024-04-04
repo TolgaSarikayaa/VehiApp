@@ -383,6 +383,7 @@
       }
     },
     "Enter License Plate" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -398,6 +399,22 @@
         }
       }
     },
+    "Enter License Plate Number" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kfz-Kennzeichen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plakanızı giriniz"
+          }
+        }
+      }
+    },
     "Enter Mileage" : {
       "localizations" : {
         "de" : {
@@ -409,7 +426,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kilometreyi girin"
+            "value" : "Kilometreyi giriniz"
           }
         }
       }
@@ -750,6 +767,23 @@
       }
     },
     "License" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kfz-Kennzeichen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plaka"
+          }
+        }
+      }
+    },
+    "License Number" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1013,7 +1047,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Çıkış tarihi"
+            "value" : "Tescil tarihi"
           }
         }
       }
@@ -1030,7 +1064,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Çıkış tarihi%@"
+            "value" : "Tescil tarihi%@"
           }
         }
       }
@@ -1098,6 +1132,9 @@
           }
         }
       }
+    },
+    "Select your car image" : {
+
     },
     "Select your car information" : {
       "localizations" : {

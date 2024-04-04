@@ -65,39 +65,39 @@ struct ServiceListView: View {
             return dateFormatter.string(from: part.date ?? Date())
         }
 
-        var groupedByDateAndBrand: [String: [String: [ServiceEntity]]] = [:]
+        var groupedByDateAndBrandModel: [String: [String: [ServiceEntity]]] = [:]
         for (date, parts) in groupedByDate {
-            let groupedByBrand = Dictionary(grouping: parts) { $0.carBrand ?? "Unknown" }
-            groupedByDateAndBrand[date] = groupedByBrand
+            let groupedByBrandModel = Dictionary(grouping: parts) { "\($0.carBrand ?? "Unknown") \($0.carModel ?? "")" }
+            groupedByDateAndBrandModel[date] = groupedByBrandModel
         }
         
-        return groupedByDateAndBrand
+        return groupedByDateAndBrandModel
     }
 
     var body: some View {
         List {
             ForEach(groupedServiceList.keys.sorted(), id: \.self) { date in
-                Section(header: Text(date)) {
-                    ForEach(groupedServiceList[date]!.keys.sorted(), id: \.self) { brand in
-                        Section(header: Text("Car: \(brand)")) {
-                            ForEach(groupedServiceList[date]![brand]!, id: \.self) { part in
-                                HStack {
-                                    Image(part.partImageName ?? "placeholder")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 40, height: 40)
-                                    Text(part.partName ?? "Unknown")
-                                    Spacer()
-                                    Text("\(part.price, specifier: "%.2f")$")
-                                }
-                            }
-                            .onDelete { offsets in
-                                deleteService(at: offsets, for: date, and: brand)
-                            }
-                        }
-                    }
-                }
-            }
+                   Section(header: Text(date)) {
+                       ForEach(groupedServiceList[date]!.keys.sorted(), id: \.self) { brandModel in
+                           Section(header: Text("Car: \(brandModel)")) {
+                               ForEach(groupedServiceList[date]![brandModel]!, id: \.self) { part in
+                                   HStack {
+                                       Image(part.partImageName ?? "placeholder")
+                                           .resizable()
+                                           .scaledToFit()
+                                           .frame(width: 40, height: 40)
+                                       Text(part.partName ?? "Unknown")
+                                       Spacer()
+                                       Text("\(part.price, specifier: "%.2f")$")
+                                   }
+                               }
+                               .onDelete { offsets in
+                                   deleteService(at: offsets, for: date, and: brandModel)
+                               }
+                           }
+                       }
+                   }
+               }
         }
     }
 

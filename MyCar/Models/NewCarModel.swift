@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 class NewCarModel : Identifiable {
     var id = UUID()
@@ -19,6 +20,7 @@ class NewCarModel : Identifiable {
     var lastMaintenanceDate = Date()
     var insuranceExpirationDate = Date()
     var licensePlate: String
+    var image: UIImage?
    
 
    

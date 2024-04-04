@@ -16,6 +16,8 @@ struct NewCarCV: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @StateObject var carModelController = NewCarModelController()
+    @State private var showingImagePicker = false
+    @State private var selectedImage: UIImage?
     
     @ObservedObject var viewModel = NewCarViewModel()
     @ObservedObject var newCarModel = SelectCarModel()
@@ -28,6 +30,20 @@ struct NewCarCV: View {
     var body: some View {
         NavigationStack {
             List {
+                HStack {
+                    Button("Select your car image") {
+                        showingImagePicker.toggle()
+                        
+                    }
+                }
+                
+                HStack {
+                    if let selectedImage = selectedImage {
+                        Image(uiImage: selectedImage)
+                            .resizable()
+                            .scaledToFit()
+                    }
+                }
                 Section(header: Text("Select Brand and Model")) {
                     HStack {
                         Picker("Select Brand", selection: $newCarModel.selectedBrandIndex) {
@@ -73,7 +89,7 @@ struct NewCarCV: View {
                     }
                     
                     HStack {
-                        TextField("Enter License Plate", text: $newCarModel.selectedLicensePlate)
+                        TextField("Enter License Plate Number", text: $newCarModel.selectedLicensePlate)
                             .onTapGesture {
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                             }
@@ -131,6 +147,10 @@ struct NewCarCV: View {
                         
                     }
                 }
+            
+                .sheet(isPresented: $showingImagePicker) {
+                           ImagePicker(selectedImage: $selectedImage)
+                       }
             
         }.onAppear {
             Task {

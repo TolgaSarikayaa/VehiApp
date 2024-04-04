@@ -35,7 +35,7 @@ struct CarEditCV: View {
                 Section(header: Text("Car Information")) {
                     Text("\(carEditViewModel.newCarModel.selectedBrand)")
                     Text("\(carEditViewModel.newCarModel.selectedModel)")
-                TextField("License", text: $carEditViewModel.newCarModel.selectedLicensePlate)
+                TextField("License Number", text: $carEditViewModel.newCarModel.selectedLicensePlate)
             }
                 Section(header: Text("Details")) {
                     Text("Fuel Type: \(car.fuelType.localized)")

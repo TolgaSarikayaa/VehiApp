@@ -27,7 +27,7 @@ struct ServiceEditCV: View {
             Section(header: Text("Select Car")) {
                 Picker("Select Car", selection: $selectedCarIndex) {
                     ForEach(cars.indices, id: \.self) { index in
-                        Text(cars[index].brand ?? "Unknown Brand").tag(index as Int?)
+                        Text("\(cars[index].brand ?? "Unknown Brand") \(cars[index].model ?? "Unknown Model")").tag(index as Int?)
                     }
                 }
                 .pickerStyle(MenuPickerStyle())
@@ -60,7 +60,7 @@ struct ServiceEditCV: View {
                     } label: {
                         Image(systemName: carPart[index].isSelected ? "checkmark.circle.fill" : "circle")
                     }
-                    .disabled(carPart[index].price == nil || carPart[index].price! > 10_0000)
+                    .disabled(carPart[index].price == nil || carPart[index].price! > 10_00000)
                 }
                 
             }
@@ -93,6 +93,7 @@ struct ServiceEditCV: View {
             newPart.price = part.price ?? 0.00
             newPart.isSelected = part.isSelected
             newPart.carBrand = selectedCar.brand
+            newPart.carModel = selectedCar.model
             newPart.date = Date()
 
             do {

@@ -19,11 +19,13 @@ struct FuelDetailView: View {
         let request: NSFetchRequest<FuelEntity> = FuelEntity.fetchRequest()
         do {
             let fuels = try managedObjectContext.fetch(request)
-            let groupedFuels = Dictionary(grouping: fuels, by: { $0.carBrand ?? "" })
-            fuelStats = groupedFuels.map { (brand, fuels) in
+            let groupedFuels = Dictionary(grouping: fuels) { fuel in
+                "\(fuel.carBrand ?? "Unknown Brand") \(fuel.carModel ?? "")"
+            }
+            fuelStats = groupedFuels.map { (key, fuels) in
                 let totalFuel = fuels.reduce(0) { $0 + ($1.price) }
-                colorManager.setColor(for: brand)
-                return FuelStats(brand: brand, totalFuel: totalFuel)
+                colorManager.setColor(for: key)
+                return FuelStats(brand: key, totalFuel: totalFuel)
             }
         } catch {
             print("Error fetching fuels: \(error)")
