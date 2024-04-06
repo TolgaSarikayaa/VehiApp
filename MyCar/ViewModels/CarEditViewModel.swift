@@ -26,6 +26,7 @@ class CarEditViewModel : ObservableObject {
             newCarModel.selectedNextServiceDate = car.nextMaintenanceDate
             newCarModel.selectedInsuranceExpirationDate = car.insuranceExpirationDate
             newCarModel.selectedLicensePlate = car.licensePlate
+            newCarModel.selectedImage = car.image
         }
     
     func addEditCar(context: NSManagedObjectContext, car: NewCarModel) {
@@ -52,6 +53,10 @@ class CarEditViewModel : ObservableObject {
             carEntity.lastMaintenanceDate = newCarModel.selectedLastServiceDate
             carEntity.nextMaintenanceDate = newCarModel.selectedNextServiceDate
             carEntity.insuranceExpirationDate = newCarModel.selectedInsuranceExpirationDate
+           
+            if let selectedImage = newCarModel.selectedImage {
+                carEntity.image = selectedImage.jpegData(compressionQuality: 1.0)
+            }
 
             try context.save()
             

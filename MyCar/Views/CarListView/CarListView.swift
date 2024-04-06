@@ -42,14 +42,12 @@ struct CarListView: View {
                                              .frame(width: 300, height: 200)
                                              .cornerRadius(10)
                                         } else {
-                                            
                                             Image("car")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(width: 300, height: 200)
                                                 .cornerRadius(10)
                                         }
-                                        
                                         HStack {
                                             VStack(alignment: .leading) {
                                                 Text(car.brand ?? "")

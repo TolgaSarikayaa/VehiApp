@@ -17,6 +17,7 @@ struct CarEditCV: View {
     @ObservedObject var carEditViewModel : CarEditViewModel
     @ObservedObject var newCarModel = SelectCarModel()
     @State private var fuelTyp : String = ""
+    @State private var showingImagePicker = false
     
     init(car: NewCarModel) {
            self.car = car
@@ -32,6 +33,11 @@ struct CarEditCV: View {
     var body: some View {
         VStack {
             List {
+                Section(header: Text("Change your car image")) {
+                    Button("Select image") {
+                        showingImagePicker.toggle()
+                    }
+                }
                 Section(header: Text("Car Information")) {
                     Text("\(carEditViewModel.newCarModel.selectedBrand)")
                     Text("\(carEditViewModel.newCarModel.selectedModel)")
@@ -55,6 +61,11 @@ struct CarEditCV: View {
                 carEditViewModel.addEditCar(context: context, car: car)
                 dismiss()
             })
+            
+            .sheet(isPresented: $showingImagePicker, content: {
+                ImagePicker(selectedImage: $carEditViewModel.newCarModel.selectedImage)
+            })
+            
             .frame(height: 80)
             .disabled(!isMileageValid)
         }

@@ -292,6 +292,22 @@
         }
       }
     },
+    "Change your car image" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ändern Sie Ihr Auto foto"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arabanızın fotoğrafını değiştirin"
+          }
+        }
+      }
+    },
     "Details" : {
       "localizations" : {
         "de" : {
@@ -1117,6 +1133,22 @@
         }
       }
     },
+    "Select image" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foto auswählen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fotoğraf seçiniz"
+          }
+        }
+      }
+    },
     "Select Model" : {
       "localizations" : {
         "de" : {
@@ -1134,7 +1166,20 @@
       }
     },
     "Select your car image" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie Ihr Auto foto aus"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arabanızın fotoğrafını seçiniz"
+          }
+        }
+      }
     },
     "Select your car information" : {
       "localizations" : {
