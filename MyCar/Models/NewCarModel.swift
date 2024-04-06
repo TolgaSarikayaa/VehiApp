@@ -24,7 +24,7 @@ class NewCarModel : Identifiable {
    
 
    
-   init(id: UUID = UUID(), brand: String, model: String, fuelType: EngineType, mileage: Int, releaseDate: Date, nextMaintenanceDate: Date, lastMaintenanceDate: Date,insuranceExpirationDate: Date, licensePlate: String) {
+    init(id: UUID = UUID(), brand: String, model: String, fuelType: EngineType, mileage: Int, releaseDate: Date, nextMaintenanceDate: Date, lastMaintenanceDate: Date,insuranceExpirationDate: Date, licensePlate: String, image: UIImage?) {
        self.id = id
        self.brand = brand
        self.model = model
@@ -35,6 +35,7 @@ class NewCarModel : Identifiable {
        self.lastMaintenanceDate = lastMaintenanceDate
        self.insuranceExpirationDate = insuranceExpirationDate
        self.licensePlate = licensePlate
+       self.image = image
    }
     
  

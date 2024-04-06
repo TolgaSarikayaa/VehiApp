@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SelectCarModel : ObservableObject {
        @Published var selectedBrandIndex = 0
@@ -27,6 +28,7 @@ class SelectCarModel : ObservableObject {
        @Published var selectedFuelType: EngineType = .benzin
        @Published var isNavigationActive = false
        @Published var selectedLicensePlate: String = ""
+       @Published  var selectedImage: UIImage?
     
 }
 

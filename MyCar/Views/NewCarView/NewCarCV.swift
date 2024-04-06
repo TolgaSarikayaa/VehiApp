@@ -17,7 +17,6 @@ struct NewCarCV: View {
     
     @StateObject var carModelController = NewCarModelController()
     @State private var showingImagePicker = false
-    @State private var selectedImage: UIImage?
     
     @ObservedObject var viewModel = NewCarViewModel()
     @ObservedObject var newCarModel = SelectCarModel()
@@ -33,12 +32,11 @@ struct NewCarCV: View {
                 HStack {
                     Button("Select your car image") {
                         showingImagePicker.toggle()
-                        
                     }
                 }
                 
+                if let selectedImage = newCarModel.selectedImage {
                 HStack {
-                    if let selectedImage = selectedImage {
                         Image(uiImage: selectedImage)
                             .resizable()
                             .scaledToFit()
@@ -149,7 +147,7 @@ struct NewCarCV: View {
                 }
             
                 .sheet(isPresented: $showingImagePicker) {
-                           ImagePicker(selectedImage: $selectedImage)
+                    ImagePicker(selectedImage: $newCarModel.selectedImage)
                        }
             
         }.onAppear {

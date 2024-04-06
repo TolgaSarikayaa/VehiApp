@@ -40,19 +40,23 @@ class NewCarModelController: ObservableObject {
         }
     }
     
-    func addCar(car: NewCarModel,context: NSManagedObjectContext) {
-       let newCar = NewCarEntity(context: context)
-        newCar.id = car.id
-        newCar.brand = car.brand
-        newCar.model = car.model
-        newCar.fuelType = car.fuelType.rawValue
-        newCar.mileage = Int32(car.mileage)
-        newCar.releaseDate = car.releaseDate
-        newCar.nextMaintenanceDate = car.nextMaintenanceDate
-        newCar.lastMaintenanceDate = car.lastMaintenanceDate
-        newCar.insuranceExpirationDate = car.insuranceExpirationDate
-        newCar.licensePlate = car.licensePlate
-        
+    func addCar(car: NewCarModel, context: NSManagedObjectContext) {
+        let newCarEntity = NewCarEntity(context: context)
+        newCarEntity.id = car.id
+        newCarEntity.brand = car.brand
+        newCarEntity.model = car.model
+        newCarEntity.fuelType = car.fuelType.rawValue
+        newCarEntity.mileage = Int32(car.mileage)
+        newCarEntity.releaseDate = car.releaseDate
+        newCarEntity.nextMaintenanceDate = car.nextMaintenanceDate
+        newCarEntity.lastMaintenanceDate = car.lastMaintenanceDate
+        newCarEntity.insuranceExpirationDate = car.insuranceExpirationDate
+        newCarEntity.licensePlate = car.licensePlate
+
+        if let image = car.image {
+            newCarEntity.image = image.jpegData(compressionQuality: 1.0)
+        }
+
         save(context: context)
     }
     

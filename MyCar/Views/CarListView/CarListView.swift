@@ -35,11 +35,20 @@ struct CarListView: View {
                             Section {
                                 NavigationLink(destination: CarDetailCV(car: car.toNewCarModel())) {
                                     VStack(alignment: .leading, spacing: 5) {
-                                        Image("car")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 300, height: 200)
-                                            .cornerRadius(10)
+                                        if let image = car.image, let uiImage = UIImage(data: image) {
+                                            Image(uiImage: uiImage)
+                                             .resizable()
+                                             .aspectRatio(contentMode: .fit)
+                                             .frame(width: 300, height: 200)
+                                             .cornerRadius(10)
+                                        } else {
+                                            
+                                            Image("car")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 300, height: 200)
+                                                .cornerRadius(10)
+                                        }
                                         
                                         HStack {
                                             VStack(alignment: .leading) {
@@ -110,6 +119,7 @@ struct CarListView: View {
 extension NewCarEntity {
     func toNewCarModel() -> NewCarModel {
         let engineType = EngineType(rawValue: self.fuelType ?? "") ?? .benzin
+        let image = self.image != nil ? UIImage(data: self.image!) : nil
 
         return NewCarModel(
             id: self.id ?? UUID(),
@@ -121,7 +131,7 @@ extension NewCarEntity {
             nextMaintenanceDate: self.nextMaintenanceDate ?? Date(),
             lastMaintenanceDate: self.lastMaintenanceDate ?? Date(),
             insuranceExpirationDate: self.insuranceExpirationDate ?? Date(),
-            licensePlate: self.licensePlate ?? ""
+            licensePlate: self.licensePlate ?? "", image: image
         )
     }
 }

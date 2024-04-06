@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class CarEditViewModel : ObservableObject {
     
@@ -63,7 +64,7 @@ class CarEditViewModel : ObservableObject {
                                         nextMaintenanceDate: newCarModel.selectedNextServiceDate,
                                         lastMaintenanceDate: newCarModel.selectedLastServiceDate,
                                         insuranceExpirationDate: newCarModel.selectedInsuranceExpirationDate,
-                                        licensePlate: newCarModel.selectedLicensePlate)
+                                         licensePlate: newCarModel.selectedLicensePlate, image: newCarModel.selectedImage)
             
             NotificationManager.shared.updateNotification(for: updatedCar)
         } catch {
