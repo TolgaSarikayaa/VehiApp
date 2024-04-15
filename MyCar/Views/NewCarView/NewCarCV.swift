@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import TipKit
 
 
 struct NewCarCV: View {
@@ -17,6 +18,10 @@ struct NewCarCV: View {
     
     @StateObject var carModelController = NewCarModelController()
     @State private var showingImagePicker = false
+    @State private var showingActionSheet = false
+    @State private var imageSource: UIImagePickerController.SourceType = .photoLibrary
+    
+
     
     @ObservedObject var viewModel = NewCarViewModel()
     @ObservedObject var newCarModel = SelectCarModel()
@@ -31,7 +36,25 @@ struct NewCarCV: View {
             List {
                 HStack {
                     Button("Select your car image") {
-                        showingImagePicker.toggle()
+                        showingActionSheet.toggle()
+                    }
+                    
+                    .actionSheet(isPresented: $showingActionSheet) {
+                        ActionSheet(
+                            title: Text("Add a picture"),
+                            message: Text("Choose a picture"),
+                            buttons: [
+                                .default(Text("Camera")) {
+                                    self.imageSource = .camera
+                                    self.showingImagePicker = true
+                                },
+                                .default(Text("Photo Library")) {
+                                    self.imageSource = .photoLibrary
+                                    self.showingImagePicker = true
+                                },
+                                .cancel()
+                            ]
+                        )
                     }
                 }
                 
@@ -147,7 +170,7 @@ struct NewCarCV: View {
                 }
             
                 .sheet(isPresented: $showingImagePicker) {
-                    ImagePicker(selectedImage: $newCarModel.selectedImage)
+                    ImagePicker(selectedImage: $newCarModel.selectedImage, sourceType: self.imageSource)
                        }
             
         }.onAppear {

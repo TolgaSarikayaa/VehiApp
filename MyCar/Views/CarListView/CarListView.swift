@@ -7,10 +7,12 @@
 
 import SwiftUI
 import CoreData
+import TipKit
 
 struct CarListView: View {
     @State private var searchText = ""
     @State private var isNavigationActive = false
+    var carTipView = carTip()
    
     
     @FetchRequest(entity: NewCarEntity.entity(), 
@@ -79,8 +81,12 @@ struct CarListView: View {
                     }) {
                         Image(systemName: "car.fill")
                     }
+                    .popoverTip(carTipView)
                 }
+                
             }
+            
+            
             .sheet(isPresented: $isNavigationActive) {
                 NewCarCV()
             }

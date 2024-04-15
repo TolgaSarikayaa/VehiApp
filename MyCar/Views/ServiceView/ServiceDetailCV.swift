@@ -11,6 +11,7 @@ import CoreData
 struct ServiceDetailCV: View {
     
     @State private var isNavigationActive = false
+    var serviceTipview = serviceTip()
     
     @FetchRequest(
         entity: ServiceEntity.entity(),
@@ -32,6 +33,7 @@ struct ServiceDetailCV: View {
                  .sheet(isPresented: $isNavigationActive) {
                      ServiceEditCV()
                  }
+                 
                  .navigationTitle("Service Info")
              }
          }
@@ -42,7 +44,9 @@ struct ServiceDetailCV: View {
              }) {
                  Image(systemName: "plus.app")
              }
+             .popoverTip(serviceTipview)
          }
+    
 }
 
 struct EmptyStateView: View {

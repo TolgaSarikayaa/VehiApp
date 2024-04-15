@@ -21,6 +21,7 @@
 		142142AE2B93BF5F00D60CF7 /* FuelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142AD2B93BF5F00D60CF7 /* FuelListView.swift */; };
 		142142B62B9491F100D60CF7 /* FuelListCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B52B9491F100D60CF7 /* FuelListCV.swift */; };
 		142142B82B94930200D60CF7 /* MainCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B72B94930100D60CF7 /* MainCV.swift */; };
+		14336EB22BCD52CC00FA118B /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14336EB12BCD52CC00FA118B /* Tip.swift */; };
 		145763C92B6A80B200E2D295 /* CarsListCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763C82B6A80B200E2D295 /* CarsListCV.swift */; };
 		145763CB2B6BBFC600E2D295 /* CarEditCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763CA2B6BBFC600E2D295 /* CarEditCV.swift */; };
 		145763CD2B6C14CA00E2D295 /* CarDetailCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763CC2B6C14CA00E2D295 /* CarDetailCV.swift */; };
@@ -101,6 +102,7 @@
 		142142AD2B93BF5F00D60CF7 /* FuelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelListView.swift; sourceTree = "<group>"; };
 		142142B52B9491F100D60CF7 /* FuelListCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelListCV.swift; sourceTree = "<group>"; };
 		142142B72B94930100D60CF7 /* MainCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCV.swift; sourceTree = "<group>"; };
+		14336EB12BCD52CC00FA118B /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		145763C82B6A80B200E2D295 /* CarsListCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListCV.swift; sourceTree = "<group>"; };
 		145763CA2B6BBFC600E2D295 /* CarEditCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEditCV.swift; sourceTree = "<group>"; };
 		145763CC2B6C14CA00E2D295 /* CarDetailCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCV.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				1404CA462B5F061900A248D7 /* NotificationManager.swift */,
 				14EDC3152BA70D1D0058FB98 /* ColorManager.swift */,
 				146C22C82BBF5A670049E2DE /* ImagePicker.swift */,
+				14336EB12BCD52CC00FA118B /* Tip.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				146C22C92BBF5A670049E2DE /* ImagePicker.swift in Sources */,
 				141E8ADD2B443E3B00C4C3AF /* MCButton.swift in Sources */,
 				14D7D4832B9B59FB007F2483 /* NewCarModelController.swift in Sources */,
+				14336EB22BCD52CC00FA118B /* Tip.swift in Sources */,
 				14AEFD0C2B9CDFE00026B854 /* AddFuelView.swift in Sources */,
 				1404CA432B5EFAF900A248D7 /* SelectCarModel.swift in Sources */,
 				145763CD2B6C14CA00E2D295 /* CarDetailCV.swift in Sources */,
@@ -698,6 +702,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Vehi;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app uses the Photo Library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -731,6 +737,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Vehi;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app uses the Photo Library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

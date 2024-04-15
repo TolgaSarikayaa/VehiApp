@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import TipKit
 
 @main
 struct MyCarApp: App {
@@ -23,6 +24,12 @@ struct MyCarApp: App {
                     .environment(\.managedObjectContext, dataController.container.viewContext)
                     .onAppear() {
                         requestNotificationPermission()
+                    }
+                    .task {
+                        try? Tips.configure([
+                            .displayFrequency(.immediate),
+                            .datastoreLocation(.applicationDefault)
+                        ])
                     }
             }
         }

@@ -24,6 +24,7 @@ struct FuelListView: View {
     
     @State private var newPrice: String = ""
     @State private var fuelStats: [FuelStats] = []
+    var fuelTipView = fuelTip()
     
     private var groupedFuelList: [String: [FuelEntity]] {
           Dictionary(grouping: fuelList) { fuel in
@@ -68,12 +69,15 @@ struct FuelListView: View {
                 self.showAlert = true
             }, label: {
                 Image(systemName: "plus.app")
+                .popoverTip(fuelTipView)
             }))
+            
             .navigationBarItems(trailing: Button(action: {
                 self.showDetay = true
             }, label: {
                 Image(systemName: "chart.pie.fill")
             }))
+            
             .sheet(isPresented: $showAlert) {
                 
                 AddFuelView().environment(\.managedObjectContext, managedObjectContext)

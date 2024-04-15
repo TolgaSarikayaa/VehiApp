@@ -21,7 +21,7 @@ struct MainCV: View {
                 }
             ServiceDetailCV()
                 .tabItem {
-                    Label("Service", systemImage: "gear")
+                    Label("Service", systemImage: "wrench.and.screwdriver")
             }
         }
     }

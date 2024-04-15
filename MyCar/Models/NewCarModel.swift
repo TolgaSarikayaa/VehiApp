@@ -45,6 +45,7 @@ enum EngineType: String, CaseIterable , Codable {
     case diesel = "Diesel"
     case benzin = "Petrol"
     case electric = "Electric"
+    case hybrid = "Hybrid"
     
     var localized: String {
             switch self {
@@ -54,6 +55,8 @@ enum EngineType: String, CaseIterable , Codable {
                 return NSLocalizedString("Petrol", comment: "Fuel type")
             case .electric:
                 return NSLocalizedString("Electric", comment: "Fuel type")
+            case .hybrid:
+                return NSLocalizedString("Hybrid", comment: "Fuel type")
             }
         }
     }

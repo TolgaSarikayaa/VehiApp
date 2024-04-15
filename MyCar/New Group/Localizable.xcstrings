@@ -110,18 +110,50 @@
         }
       }
     },
-    "Add Car" : {
+    "Add a picture" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fügen sie ihre Fahrzeug"
+            "value" : "Foto hinzufügen"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aracınızı ekleyin"
+            "value" : "Fotoğraf ekleyin"
+          }
+        }
+      }
+    },
+    "Add Car" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fügen sie ihre Fahrzeug hinzu"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aracınızı buradan ekleyin"
+          }
+        }
+      }
+    },
+    "Add fuel" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fügen Sie Ihre Treibstoff einkäufe hinzu"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıtınızı buradan ekleyin"
           }
         }
       }
@@ -190,6 +222,38 @@
         }
       }
     },
+    "Add your car" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fügen sie ihre Fahrzeug hinzu"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arabanızı buradan ekleyiniz"
+          }
+        }
+      }
+    },
+    "Add your maintenance" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fügen sie ihre Wartung hinzu"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servis bilgisini buradan ekleyiniz"
+          }
+        }
+      }
+    },
     "Air Filter" : {
       "comment" : "Part name for Air Filter",
       "localizations" : {
@@ -241,8 +305,40 @@
         }
       }
     },
+    "Camera" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamera"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamera"
+          }
+        }
+      }
+    },
     "Cancel" : {
 
+    },
+    "Car" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Araba"
+          }
+        }
+      }
     },
     "Car Information" : {
       "localizations" : {
@@ -304,6 +400,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Arabanızın fotoğrafını değiştirin"
+          }
+        }
+      }
+    },
+    "Choose a picture" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle ein Foto"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fotoğraf seçiniz"
+          }
+        }
+      }
+    },
+    "Coolant" : {
+      "comment" : "Part name for coolant",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kühlflüssigkeit"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Antifriz"
           }
         }
       }
@@ -556,6 +685,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Şimdi başla"
+          }
+        }
+      }
+    },
+    "Hybrid" : {
+      "comment" : "Fuel type",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hybrid"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hybrid"
           }
         }
       }
@@ -1007,13 +1153,29 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Benzin"
+            "value" : "Super"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benzin"
+          }
+        }
+      }
+    },
+    "Photo Library" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fotobibliothek"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fotoğraf kütüphanesi"
           }
         }
       }
@@ -1297,6 +1459,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lastik"
+          }
+        }
+      }
+    },
+    "Wipers" : {
+      "comment" : "Part name for wipers",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scheibenwischer"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silecekler"
           }
         }
       }
