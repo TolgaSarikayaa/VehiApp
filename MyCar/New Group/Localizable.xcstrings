@@ -222,6 +222,22 @@
         }
       }
     },
+    "Add the car parts" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fügen Sie die Autoteile hinzu"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Araç parçaları"
+          }
+        }
+      }
+    },
     "Add your car" : {
       "localizations" : {
         "de" : {
@@ -1426,6 +1442,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Servis bilgisi"
+          }
+        }
+      }
+    },
+    "To save the vehicle part, first enter the price, then click on the circle and press the save button to save it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um das Fahrzeugteil zu speichern, geben Sie zunächst den Preis ein, klicken Sie dann auf den Kreis und drücken Sie den Save Button, um es zu speichern."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Araç parçalarını kaydetmek için önce fiyatını girin, ardından daireye tıklayıp kaydet butonuna basarak kaydedin."
           }
         }
       }

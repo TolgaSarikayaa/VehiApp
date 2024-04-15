@@ -19,6 +19,7 @@ struct ServiceEditCV: View {
     
     @State private var carPart = carParts
     @State private var showingAddPartView = false
+    var carPartTip = addCarParts()
  
     
     var body: some View {
@@ -52,6 +53,8 @@ struct ServiceEditCV: View {
                                 carPart[index].isSelected = false
                             }
                         }
+                    
+                        .popoverTip(carPartTip)
 
                     Button {
                         if carPart[index].price != nil && carPart[index].price! > 0 {

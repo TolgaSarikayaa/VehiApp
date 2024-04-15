@@ -50,3 +50,13 @@ struct serviceTip: Tip {
        Image(systemName: "wrench.and.screwdriver")
     }
 }
+
+struct addCarParts: Tip {
+    var title: Text {
+        Text("Add the car parts")
+    }
+    
+    var message: Text? {
+    Text("To save the vehicle part, first enter the price, then click on the circle and press the save button to save it.")
+    }
+}
