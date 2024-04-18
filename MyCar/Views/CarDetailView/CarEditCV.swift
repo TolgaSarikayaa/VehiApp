@@ -38,6 +38,14 @@ struct CarEditCV: View {
                         showingImagePicker.toggle()
                     }
                 }
+                
+                if let selectedImage = carEditViewModel.newCarModel.selectedImage {
+                HStack {
+                        Image(uiImage: selectedImage)
+                            .resizable()
+                            .scaledToFit()
+                    }
+                }
                 Section(header: Text("Car Information")) {
                     Text("\(carEditViewModel.newCarModel.selectedBrand)")
                     Text("\(carEditViewModel.newCarModel.selectedModel)")

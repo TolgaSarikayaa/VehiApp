@@ -26,7 +26,6 @@ struct MyCarApp: App {
                         requestNotificationPermission()
                     }
                     .task {
-                        try? Tips.resetDatastore()
                         try? Tips.configure([
                             .displayFrequency(.immediate),
                             .datastoreLocation(.applicationDefault)

@@ -111,6 +111,7 @@
       }
     },
     "Add a picture" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -173,6 +174,9 @@
           }
         }
       }
+    },
+    "Add image" : {
+
     },
     "Add Price" : {
       "localizations" : {
@@ -421,6 +425,7 @@
       }
     },
     "Choose a picture" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -435,6 +440,9 @@
           }
         }
       }
+    },
+    "Choose image" : {
+
     },
     "Coolant" : {
       "comment" : "Part name for coolant",

@@ -41,8 +41,8 @@ struct NewCarCV: View {
                     
                     .actionSheet(isPresented: $showingActionSheet) {
                         ActionSheet(
-                            title: Text("Add a picture"),
-                            message: Text("Choose a picture"),
+                            title: Text("Add image"),
+                            message: Text("Choose image"),
                             buttons: [
                                 .default(Text("Camera")) {
                                     self.imageSource = .camera
