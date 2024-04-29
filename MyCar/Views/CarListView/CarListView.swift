@@ -39,11 +39,12 @@ struct CarListView: View {
                                     VStack(alignment: .leading, spacing: 5) {
                                         if let image = car.image, let uiImage = UIImage(data: image) {
                                             Image(uiImage: uiImage)
-                                             .resizable()
-                                             .aspectRatio(contentMode: .fit)
-                                             .frame(width: 300, height: 200)
-                                             .cornerRadius(10)
-                                        } else {
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 300, height: 300)
+                                                .clipped()
+                                                .cornerRadius(10)
+                                        }else {
                                             Image("car")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)

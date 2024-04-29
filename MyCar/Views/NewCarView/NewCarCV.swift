@@ -61,8 +61,10 @@ struct NewCarCV: View {
                 if let selectedImage = newCarModel.selectedImage {
                 HStack {
                         Image(uiImage: selectedImage)
-                            .resizable()
-                            .scaledToFit()
+                        .resizable()
+                        .aspectRatio(contentMode: .fit) 
+                        .frame(width: 250, height: 300)
+                        .clipped()
                     }
                 }
                 Section(header: Text("Select Brand and Model")) {

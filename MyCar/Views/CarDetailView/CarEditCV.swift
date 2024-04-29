@@ -42,8 +42,10 @@ struct CarEditCV: View {
                 if let selectedImage = carEditViewModel.newCarModel.selectedImage {
                 HStack {
                         Image(uiImage: selectedImage)
-                            .resizable()
-                            .scaledToFit()
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300, height: 300)
+                        .clipped()
                     }
                 }
                 Section(header: Text("Car Information")) {
