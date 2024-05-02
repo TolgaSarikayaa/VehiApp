@@ -102,7 +102,7 @@ struct ServiceEditCV: View {
             do {
                 try context.save()
             } catch let error as NSError {
-                print("Kaydetme hatası: \(error), \(error.userInfo)")
+                print("Error: \(error), \(error.userInfo)")
             }
         }
     }
