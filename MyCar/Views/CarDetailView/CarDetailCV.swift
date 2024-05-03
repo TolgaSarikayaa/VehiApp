@@ -54,7 +54,7 @@ struct CarDetailCV: View {
                              .padding(.bottom, 25)
                              
                              HStack {
-                                 Image(systemName: "calendar.circle.fill")
+                                 Image(systemName: "gear.circle.fill")
                                      .font(.system(size: 36))
                                  VStack(alignment: .leading) {
                                      Text("Next Service")
@@ -65,7 +65,7 @@ struct CarDetailCV: View {
                              .padding(.bottom, 25)
                              
                              HStack {
-                                 Image(systemName: "calendar.circle.fill")
+                                 Image(systemName: "magnifyingglass.circle.fill")
                                      .font(.system(size: 36))
                                  VStack(alignment: .leading) {
                                      Text("Inspection date")
