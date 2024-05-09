@@ -122,17 +122,37 @@ struct CarRow: View {
                     Text(car.model ?? "")
                 }
                 
+              
+                
                 Spacer()
                 
                 Text(car.licensePlate ?? "")
                     .frame(alignment: .trailing)
             }
+            
+            
             if let nextServiceDate = car.nextMaintenanceDate {
-                let daysRemaining = Calendar.current.dateComponents([.day], from: Date(), to: nextServiceDate).day ?? 0
-                ProgressView(value: Double(max(daysRemaining, 0)), total: 90)
+                let today = Date()
+                let daysRemaining = Calendar.current.dateComponents([.day], from: today, to: nextServiceDate).day ?? 0
+                let clampedDaysRemaining = max(0, daysRemaining)
+
+                let totalDays = max(90, clampedDaysRemaining)
+
+                ProgressView(value: Double(clampedDaysRemaining), total: Double(totalDays))
                     .progressViewStyle(LinearProgressViewStyle())
-                    .tint(progressColor(for: daysRemaining))
+                    .tint(progressColor(for: clampedDaysRemaining))
                     .frame(height: 4)
+                VStack {
+                    Text("Next Service")
+                        .frame(alignment: .trailing)
+                        .font(.system(size: 14))
+                    if clampedDaysRemaining > 0 {
+                        Text("\(clampedDaysRemaining) days remaining")
+                            .font(.system(size: 12))
+                            .frame(alignment: .trailing)
+                            .foregroundColor(.secondary)
+                    }
+                }
             }
         }
     }

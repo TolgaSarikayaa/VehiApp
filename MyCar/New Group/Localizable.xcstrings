@@ -99,6 +99,9 @@
         }
       }
     },
+    "%lld days remaining" : {
+
+    },
     "%lld Mile" : {
       "extractionState" : "stale",
       "localizations" : {
