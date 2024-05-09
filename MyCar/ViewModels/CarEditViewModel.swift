@@ -60,6 +60,7 @@ class CarEditViewModel : ObservableObject {
 
             try context.save()
             
+            
             let updatedCar = NewCarModel(id: car.id,
                                         brand: newCarModel.selectedBrand,
                                         model: newCarModel.selectedModel,
