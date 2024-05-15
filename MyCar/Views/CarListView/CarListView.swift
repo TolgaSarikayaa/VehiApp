@@ -37,7 +37,7 @@ struct CarListView: View {
                                Section {
                                    NavigationLink(destination: CarDetailCV(car: car.toNewCarModel())) {
                                        VStack(alignment: .leading, spacing: 5) {
-                                           CarRow(car: car)
+                                           CarRow(car: car.toNewCarModel())
                                     
                                        }
                                    }
@@ -97,11 +97,11 @@ struct CarListView: View {
    }
 
 struct CarRow: View {
-    var car: NewCarEntity
+    var car: NewCarModel
 
     var body: some View {
         VStack(alignment: .leading) {
-            if let image = car.image, let uiImage = UIImage(data: image) {
+            if let uiImage = car.image {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -117,46 +117,42 @@ struct CarRow: View {
             }
             HStack {
                 VStack(alignment: .leading) {
-                    Text(car.brand ?? "")
+                    Text(car.brand)
                         .font(.headline)
-                    Text(car.model ?? "")
+                    Text(car.model)
                 }
-                
-              
                 
                 Spacer()
                 
-                Text(car.licensePlate ?? "")
+                Text(car.licensePlate)
                     .frame(alignment: .trailing)
             }
             
-            
-            if let nextServiceDate = car.nextMaintenanceDate {
-                let today = Date()
-                let daysRemaining = Calendar.current.dateComponents([.day], from: today, to: nextServiceDate).day ?? 0
-                let clampedDaysRemaining = max(0, daysRemaining)
+                        let today = Date()
+                        let daysRemaining = Calendar.current.dateComponents([.day], from: today, to: car.nextMaintenanceDate).day ?? 0
+                        let clampedDaysRemaining = max(0, daysRemaining)
 
-                let totalDays = max(90, clampedDaysRemaining)
+                        let totalDays = max(90, clampedDaysRemaining)
 
-                ProgressView(value: Double(clampedDaysRemaining), total: Double(totalDays))
-                    .progressViewStyle(LinearProgressViewStyle())
-                    .tint(progressColor(for: clampedDaysRemaining))
-                    .frame(height: 4)
-                VStack {
-                    Text("Next Service")
-                        .frame(alignment: .trailing)
-                        .font(.system(size: 14))
-                    if clampedDaysRemaining > 0 {
-                        Text("\(clampedDaysRemaining) days remaining")
-                            .font(.system(size: 12))
-                            .frame(alignment: .trailing)
-                            .foregroundColor(.secondary)
+                        ProgressView(value: Double(clampedDaysRemaining), total: Double(totalDays))
+                            .progressViewStyle(LinearProgressViewStyle())
+                            .tint(progressColor(for: clampedDaysRemaining))
+                            .frame(height: 4)
+                        VStack {
+                            Text("Next Service")
+                                .frame(alignment: .trailing)
+                                .font(.system(size: 14))
+                            if clampedDaysRemaining > 0 {
+                                Text("\(clampedDaysRemaining) days remaining")
+                                    .font(.system(size: 12))
+                                    .frame(alignment: .trailing)
+                                    .foregroundColor(.secondary)
                     }
                 }
             }
         }
     }
-}
+
 
 extension View {
     func progressColor(for daysRemaining: Int) -> Color {

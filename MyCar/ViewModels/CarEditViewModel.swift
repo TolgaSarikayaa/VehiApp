@@ -73,6 +73,8 @@ class CarEditViewModel : ObservableObject {
                                          licensePlate: newCarModel.selectedLicensePlate, image: newCarModel.selectedImage)
             
             NotificationManager.shared.updateNotification(for: updatedCar)
+            
+            NotificationCenter.default.post(name: NSNotification.Name("CarDataUpdated"), object: nil)
         } catch {
             print("Failed to save or find car: \(error)")
         }

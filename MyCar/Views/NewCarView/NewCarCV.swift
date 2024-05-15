@@ -25,7 +25,7 @@ struct NewCarCV: View {
     
     @ObservedObject var viewModel = NewCarViewModel()
     @ObservedObject var newCarModel = SelectCarModel()
-    @StateObject var carListViewModel: CarListViewModel = CarListViewModel(service: LocalService())
+    @StateObject var carListViewModel: CarViewModel = CarViewModel(service: LocalService())
    
     private var isFormValid: Bool {
         !newCarModel.mileage.trimmingCharacters(in: .whitespaces).isEmpty && newCarModel.mileage.count <= 6
