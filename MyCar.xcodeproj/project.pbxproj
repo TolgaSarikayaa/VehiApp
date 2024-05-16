@@ -28,7 +28,6 @@
 		145763CF2B7BE86A00E2D295 /* CarEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763CE2B7BE86A00E2D295 /* CarEditViewModel.swift */; };
 		145763D32B7BF77800E2D295 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763D22B7BF77800E2D295 /* DatePickerView.swift */; };
 		146C22C92BBF5A670049E2DE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C22C82BBF5A670049E2DE /* ImagePicker.swift */; };
-		14A0B2432BF2ABFE00BCD26D /* CarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A0B2422BF2ABFE00BCD26D /* CarListViewModel.swift */; };
 		14A476142B8147AF0069ACB2 /* ServiceEditCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A476132B8147AF0069ACB2 /* ServiceEditCV.swift */; };
 		14A476162B8147F80069ACB2 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A476152B8147F80069ACB2 /* ServiceModel.swift */; };
 		14A4761C2B82187A0069ACB2 /* ServiceDetailCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4761B2B82187A0069ACB2 /* ServiceDetailCV.swift */; };
@@ -109,7 +108,6 @@
 		145763CE2B7BE86A00E2D295 /* CarEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEditViewModel.swift; sourceTree = "<group>"; };
 		145763D22B7BF77800E2D295 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		146C22C82BBF5A670049E2DE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		14A0B2422BF2ABFE00BCD26D /* CarListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewModel.swift; sourceTree = "<group>"; };
 		14A476132B8147AF0069ACB2 /* ServiceEditCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEditCV.swift; sourceTree = "<group>"; };
 		14A476152B8147F80069ACB2 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		14A4761B2B82187A0069ACB2 /* ServiceDetailCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailCV.swift; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 				14E000172B4823D300660340 /* CarViewModel.swift */,
 				145763CE2B7BE86A00E2D295 /* CarEditViewModel.swift */,
 				14D7D4862B9B602F007F2483 /* NewCarViewModel.swift */,
-				14A0B2422BF2ABFE00BCD26D /* CarListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -523,7 +520,6 @@
 				14EDC3142BA702F70058FB98 /* FuelDetailView.swift in Sources */,
 				14D7D4872B9B602F007F2483 /* NewCarViewModel.swift in Sources */,
 				14EDC30E2BA34CE70058FB98 /* ContentView.swift in Sources */,
-				14A0B2432BF2ABFE00BCD26D /* CarListViewModel.swift in Sources */,
 				14E0FFF82B48140D00660340 /* CarListView.swift in Sources */,
 				14E0FFEB2B480EBD00660340 /* CarModel.swift in Sources */,
 				145763CB2B6BBFC600E2D295 /* CarEditCV.swift in Sources */,
@@ -713,7 +709,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = tolga.MyCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -748,7 +744,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = tolga.MyCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

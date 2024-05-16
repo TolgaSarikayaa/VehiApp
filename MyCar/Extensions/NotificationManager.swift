@@ -46,6 +46,24 @@ class NotificationManager {
         UNUserNotificationCenter.current().add(request)
     }
     
+    func carWashReminderNotification(for newCar: NewCarModel) {
+        let content = UNMutableNotificationContent()
+        content.title = NSLocalizedString("Car Wash Reminder", comment: "Title for car wash reminder notification")
+        content.body = String(format: NSLocalizedString("It's time to wash your %@ %@.", comment: "Body for car wash reminder notification"), newCar.brand, newCar.model)
+        content.sound = .default
+        
+   
+        var dateComponents = DateComponents()
+        dateComponents.day = 16
+        dateComponents.hour = 12
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let identifier = "carWash \(newCar.id.uuidString)"
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
+    }
+    
     func cancelNotification(for newCar: NewCarModel, type: NotificationType) {
         let identifier: String
         switch type {
@@ -53,6 +71,7 @@ class NotificationManager {
             identifier = "maintenance \(newCar.id.uuidString)"
         case .inspection:
             identifier = "inspection \(newCar.id.uuidString)"
+        
         }
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     }
@@ -67,6 +86,7 @@ class NotificationManager {
         maintenanceDateNotification(for: newCar)
         cancelNotification(for: newCar, type: .inspection)
         insuranceNotification(for: newCar)
+        carWashReminderNotification(for: newCar)
     }
 }
     

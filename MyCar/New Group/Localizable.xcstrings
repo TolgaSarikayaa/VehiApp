@@ -89,6 +89,9 @@
         }
       }
     },
+    "%lld" : {
+
+    },
     "%lld %@" : {
       "localizations" : {
         "en" : {
@@ -100,7 +103,21 @@
       }
     },
     "%lld days remaining" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : " %11d verbleibende Tage"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%lld gün kaldı"
+          }
+        }
+      }
     },
     "%lld Mile" : {
       "extractionState" : "stale",
@@ -109,6 +126,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%11d KM"
+          }
+        }
+      }
+    },
+    "%llddays remaining" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : " %11d verbleibende Tage"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%lld gün kaldı"
           }
         }
       }
@@ -179,7 +213,20 @@
       }
     },
     "Add image" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foto hinzufügen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fotoğraf ekleyin"
+          }
+        }
+      }
     },
     "Add Price" : {
       "localizations" : {
@@ -379,6 +426,23 @@
         }
       }
     },
+    "Car Wash Reminder" : {
+      "comment" : "Title for car wash reminder notification",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autowaschen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beni yıka :)"
+          }
+        }
+      }
+    },
     "Car: %@" : {
       "localizations" : {
         "de" : {
@@ -445,7 +509,20 @@
       }
     },
     "Choose image" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle ein Foto"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fotoğraf seçiniz"
+          }
+        }
+      }
     },
     "Coolant" : {
       "comment" : "Part name for coolant",
@@ -460,6 +537,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Antifriz"
+          }
+        }
+      }
+    },
+    "days remaining" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "verbleibende Tage"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "gün kaldı"
           }
         }
       }
@@ -916,6 +1009,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "bir sonraki bakım zamanı geldi %1$@ %2$@"
+          }
+        }
+      }
+    },
+    "It's time to wash your %@ %@." : {
+      "comment" : "Body for car wash reminder notification",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es ist Zeit, Ihr %1$@ %2$@ zu waschen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "It's time to wash your %1$@ %2$@."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@ arabanızı yıkamak icin güzel bir gün olabilir."
           }
         }
       }

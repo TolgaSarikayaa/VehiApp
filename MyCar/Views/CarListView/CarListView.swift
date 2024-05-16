@@ -138,21 +138,25 @@ struct CarRow: View {
                             .progressViewStyle(LinearProgressViewStyle())
                             .tint(progressColor(for: clampedDaysRemaining))
                             .frame(height: 4)
-                        VStack {
-                            Text("Next Service")
-                                .frame(alignment: .trailing)
-                                .font(.system(size: 14))
-                            if clampedDaysRemaining > 0 {
-                                Text("\(clampedDaysRemaining) days remaining")
-                                    .font(.system(size: 12))
-                                    .frame(alignment: .trailing)
-                                    .foregroundColor(.secondary)
-                    }
+            
+            VStack(alignment: .leading) {
+                        Text("Next Service")
+                        .font(.system(size: 14))
+                if clampedDaysRemaining > 0 {
+                    HStack {
+                        Text("\(clampedDaysRemaining)")
+                            .font(.system(size: 12))
+                            .foregroundColor(.secondary)
+                        Text("days remaining")
+                            .font(.system(size: 12))
+                            .foregroundColor(.secondary)
+                        Spacer()
+                      }
+                   }
                 }
             }
         }
     }
-
 
 extension View {
     func progressColor(for daysRemaining: Int) -> Color {
@@ -168,7 +172,6 @@ extension View {
         }
     }
 }
-
 
 extension NewCarEntity {
     func toNewCarModel() -> NewCarModel {
