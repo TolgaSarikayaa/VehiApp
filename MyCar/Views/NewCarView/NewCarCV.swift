@@ -162,6 +162,7 @@ struct NewCarCV: View {
                           let newCar =  viewModel.saveCar(context: managedObjectContext, carModel: newCarModel)
                             NotificationManager.shared.maintenanceDateNotification(for: newCar)
                             NotificationManager.shared.insuranceNotification(for: newCar)
+                            NotificationManager.shared.carWashReminderNotification(for: newCar)
                     
                             dismiss()
                         } label: {
@@ -195,7 +196,6 @@ struct NewCarCV: View {
     }
     
 }
-
 
 extension DateFormatter {
     static var date: DateFormatter {

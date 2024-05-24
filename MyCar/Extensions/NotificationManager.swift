@@ -54,7 +54,7 @@ class NotificationManager {
         
    
         var dateComponents = DateComponents()
-        dateComponents.day = 16
+        dateComponents.day = 4
         dateComponents.hour = 12
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
@@ -71,13 +71,15 @@ class NotificationManager {
             identifier = "maintenance \(newCar.id.uuidString)"
         case .inspection:
             identifier = "inspection \(newCar.id.uuidString)"
+        case .carWash:
+            identifier = "carWash \(newCar.id.uuidString)"
         
         }
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     }
     
     enum NotificationType {
-        case maintenance, inspection
+        case maintenance, inspection, carWash
     }
     
     
