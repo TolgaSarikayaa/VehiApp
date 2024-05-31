@@ -8,7 +8,7 @@
 import Foundation
 
 class LocalService : NetworkService {
-    var type: String = "Localservice"
+   var type: String = "Localservice"
     
     func download(_ resource: String) async throws -> [CarModel] {
         guard let path = Bundle.main.path(forResource: resource, ofType: "json") else {

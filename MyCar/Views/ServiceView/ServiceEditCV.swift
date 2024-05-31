@@ -16,6 +16,8 @@ struct ServiceEditCV: View {
     @State private var cars: [NewCarEntity] = []
     
     @State private var selectedCarIndex: Int?
+    @State private var otherPart: String = ""
+    @State private var otherPartPrice: String = ""
     
     @State private var carPart = carParts
     @State private var showingAddPartView = false
@@ -45,6 +47,7 @@ struct ServiceEditCV: View {
                         .scaledToFit()
                         .frame(width: 40, height: 40)
                     Text(carPart[index].partName)
+                    
                     Spacer()
                     TextField("Price", value: $carPart[index].price, format: .number)
                         .keyboardType(.decimalPad)
@@ -63,9 +66,17 @@ struct ServiceEditCV: View {
                     } label: {
                         Image(systemName: carPart[index].isSelected ? "checkmark.circle.fill" : "circle")
                     }
+                    
+                    
                     .disabled(carPart[index].price == nil || carPart[index].price! > 10_00000)
+                    
                 }
-                
+            
+            }
+            
+            HStack {
+                TextField("Enter other part", text: $otherPart)
+                TextField("Price", text: $otherPartPrice)
             }
         }.navigationTitle("Add Service Info")
         .onAppear {
