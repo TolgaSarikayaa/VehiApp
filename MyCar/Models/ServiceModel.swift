@@ -24,5 +24,6 @@ let carParts = [
     ServiceModel(partImageName: "motoroil", partName: NSLocalizedString("Motor oil", comment: "Part name for Motor oil")),
     ServiceModel(partImageName: "oilFilter", partName: NSLocalizedString("Oil Filter", comment: "Part name for Oil Filter")),
     ServiceModel(partImageName: "Kühlflüssigkeit", partName: NSLocalizedString("Coolant",comment: "Part name for coolant")),
-    ServiceModel(partImageName: "carWipers", partName: NSLocalizedString("Wipers",comment: "Part name for wipers"))
+    ServiceModel(partImageName: "carWipers", partName: NSLocalizedString("Wipers",comment: "Part name for wipers")),
+    ServiceModel(partImageName: "wrench", partName: NSLocalizedString("Other part", comment: "Part name for other"))
 ]

@@ -696,9 +696,6 @@
         }
       }
     },
-    "Enter other part" : {
-
-    },
     "Fuel" : {
       "localizations" : {
         "de" : {
@@ -1292,6 +1289,9 @@
           }
         }
       }
+    },
+    "Other part" : {
+      "comment" : "Part name for other"
     },
     "Petrol" : {
       "comment" : "Fuel type",

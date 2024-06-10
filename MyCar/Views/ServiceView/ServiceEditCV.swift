@@ -16,8 +16,7 @@ struct ServiceEditCV: View {
     @State private var cars: [NewCarEntity] = []
     
     @State private var selectedCarIndex: Int?
-    @State private var otherPart: String = ""
-    @State private var otherPartPrice: String = ""
+   
     
     @State private var carPart = carParts
     @State private var showingAddPartView = false
@@ -74,10 +73,6 @@ struct ServiceEditCV: View {
             
             }
             
-            HStack {
-                TextField("Enter other part", text: $otherPart)
-                TextField("Price", text: $otherPartPrice)
-            }
         }.navigationTitle("Add Service Info")
         .onAppear {
             fetchData()
@@ -109,6 +104,7 @@ struct ServiceEditCV: View {
             newPart.carBrand = selectedCar.brand
             newPart.carModel = selectedCar.model
             newPart.date = Date()
+            
 
             do {
                 try context.save()
