@@ -1291,7 +1291,21 @@
       }
     },
     "Other part" : {
-      "comment" : "Part name for other"
+      "comment" : "Part name for other",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "andere Teile"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "diğer parçalar"
+          }
+        }
+      }
     },
     "Petrol" : {
       "comment" : "Fuel type",
