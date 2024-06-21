@@ -1104,6 +1104,9 @@
         }
       }
     },
+    "Maintenance day has passed" : {
+
+    },
     "Maintenance Management" : {
       "comment" : "Onboarding primary text for maintenance management",
       "localizations" : {
