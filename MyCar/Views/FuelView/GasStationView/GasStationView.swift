@@ -10,10 +10,18 @@ import MapKit
 import CoreLocation
 
 struct GasStationView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+    @StateObject private var viewModel = GasStationViewModel()
+        
+        var body: some View {
+            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: viewModel.places) { place in
+                MapMarker(coordinate: place.coordinate, tint: .red)
+            }
+            .onAppear {
+                viewModel.checkIfLocationServicesIsEnabled()
+            }
+        }
     }
-}
 
 #Preview {
     GasStationView()

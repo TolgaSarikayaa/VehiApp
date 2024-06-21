@@ -23,6 +23,11 @@ struct MainCV: View {
                 .tabItem {
                     Label("Service", systemImage: "wrench.and.screwdriver")
             }
+            
+            GasStationView()
+                .tabItem {
+                    Label("Gas", systemImage: "mappin.circle.fill")
+                }
         }
     }
 }
