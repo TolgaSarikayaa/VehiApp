@@ -15,16 +15,9 @@ struct BeantownButtons: View {
     var body: some View {
         HStack {
             Button {
-                search(for: "playground")
+                search(for: "gas station")
             } label: {
-                Label("Playgrounds", systemImage: "figure.and.child.holdinghands")
-            }
-            .buttonStyle(.borderedProminent)
-            
-            Button {
-                search(for: "beach")
-            } label: {
-                Label("Beaches", systemImage: "beach.umbrella")
+                Label("Gas Stations", systemImage: "fuelpump")
             }
             .buttonStyle(.borderedProminent)
         }

@@ -46,6 +46,7 @@ struct GasStationView: View {
                             Spacer()
                             BeantownButtons(searchResults: $searchResluts)
                                 .padding(.top)
+                                .padding(.bottom, 20)
                             Spacer()
                         }
                         .background(.thinMaterial)
