@@ -36,6 +36,7 @@
 		14AA406C2B9761BC00647793 /* FuelModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA406B2B9761BC00647793 /* FuelModelController.swift */; };
 		14AEFD0C2B9CDFE00026B854 /* AddFuelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEFD0B2B9CDFE00026B854 /* AddFuelView.swift */; };
 		14B375762BAE2B01008EEFBE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 14B375752BAE2B01008EEFBE /* Localizable.xcstrings */; };
+		14BAB0FB2C29655E003A9648 /* BeantownButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BAB0FA2C29655E003A9648 /* BeantownButtons.swift */; };
 		14BB52192BA9FEFE000CCCEA /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14BB52172BA9FEFE000CCCEA /* DataModel.xcdatamodeld */; };
 		14D7D4832B9B59FB007F2483 /* NewCarModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D4822B9B59FB007F2483 /* NewCarModelController.swift */; };
 		14D7D4852B9B5B05007F2483 /* NewCarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D4842B9B5B05007F2483 /* NewCarModel.swift */; };
@@ -118,6 +119,7 @@
 		14AA406B2B9761BC00647793 /* FuelModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelModelController.swift; sourceTree = "<group>"; };
 		14AEFD0B2B9CDFE00026B854 /* AddFuelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelView.swift; sourceTree = "<group>"; };
 		14B375752BAE2B01008EEFBE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		14BAB0FA2C29655E003A9648 /* BeantownButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeantownButtons.swift; sourceTree = "<group>"; };
 		14BB52182BA9FEFE000CCCEA /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		14D7D4822B9B59FB007F2483 /* NewCarModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarModelController.swift; sourceTree = "<group>"; };
 		14D7D4842B9B5B05007F2483 /* NewCarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarModel.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				147167832C259CAE00D9A4D1 /* GasStationView.swift */,
+				14BAB0FA2C29655E003A9648 /* BeantownButtons.swift */,
 			);
 			path = GasStationView;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				14EDC3142BA702F70058FB98 /* FuelDetailView.swift in Sources */,
 				14D7D4872B9B602F007F2483 /* NewCarViewModel.swift in Sources */,
 				14EDC30E2BA34CE70058FB98 /* ContentView.swift in Sources */,
+				14BAB0FB2C29655E003A9648 /* BeantownButtons.swift in Sources */,
 				14E0FFF82B48140D00660340 /* CarListView.swift in Sources */,
 				14E0FFEB2B480EBD00660340 /* CarModel.swift in Sources */,
 				145763CB2B6BBFC600E2D295 /* CarEditCV.swift in Sources */,
@@ -716,6 +720,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Vehi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture photos.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "this app use the location for show gas station";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to show gas station";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app uses the Photo Library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -752,6 +757,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Vehi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture photos.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "this app use the location for show gas station";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to show gas station";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app uses the Photo Library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

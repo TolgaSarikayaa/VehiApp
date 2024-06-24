@@ -10,30 +10,27 @@ import MapKit
 import CoreLocation
 
 class GasStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
                                                    span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
         @Published var places: [Place] = []
+        @Published var isLocationAuthorized = false
+    
+    
 
         private var locationManager: CLLocationManager?
-        
+
         override init() {
             super.init()
-            checkIfLocationServicesIsEnabled()
+            locationManager = CLLocationManager()
+            locationManager?.delegate = self
+            locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         }
-        
-        func checkIfLocationServicesIsEnabled() {
-            if CLLocationManager.locationServicesEnabled() {
-                locationManager = CLLocationManager()
-                locationManager?.delegate = self
-                locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-                checkLocationAuthorization()
-            } else {
-                print("Konum servisleri etkin değil.")
-            }
+
+        func requestLocationPermission() {
+            locationManager?.requestWhenInUseAuthorization()
         }
-        
-        private func checkLocationAuthorization() {
+
+         func checkLocationAuthorization() {
             guard let locationManager = locationManager else { return }
             
             switch locationManager.authorizationStatus {
@@ -41,31 +38,36 @@ class GasStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate
                 locationManager.requestWhenInUseAuthorization()
             case .restricted, .denied:
                 print("Konum izni kısıtlı veya reddedildi.")
+                isLocationAuthorized = false
             case .authorizedAlways, .authorizedWhenInUse:
                 locationManager.startUpdatingLocation()
+                isLocationAuthorized = true
             @unknown default:
                 break
             }
         }
-        
+
         func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
             checkLocationAuthorization()
         }
-        
+
         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             guard let location = locations.last else { return }
             
-            DispatchQueue.main.async {
-                self.region = MKCoordinateRegion(center: location.coordinate,
-                                                 span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-                self.findGasStations(location: location)
+            DispatchQueue.global().async {
+                let newRegion = MKCoordinateRegion(center: location.coordinate,
+                                                   span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+                DispatchQueue.main.async {
+                    self.region = newRegion
+                    self.findGasStations(location: location)
+                }
             }
         }
-        
+
         func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
             print("Konum hatası: \(error.localizedDescription)")
         }
-        
+
         func findGasStations(location: CLLocation) {
             let request = MKLocalSearch.Request()
             request.naturalLanguageQuery = "gas station"
@@ -83,10 +85,13 @@ class GasStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate
                 }
             }
         }
+    
+ 
+    
     }
 
-struct Place: Identifiable {
-    let id = UUID()
-    let name: String
-    let coordinate: CLLocationCoordinate2D
-}
+    struct Place: Identifiable {
+        let id = UUID()
+        let name: String
+        let coordinate: CLLocationCoordinate2D
+    }

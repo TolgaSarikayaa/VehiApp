@@ -358,6 +358,9 @@
         }
       }
     },
+    "Beaches" : {
+
+    },
     "Brake" : {
       "comment" : "Part name for Brake",
       "localizations" : {
@@ -1345,6 +1348,9 @@
           }
         }
       }
+    },
+    "Playgrounds" : {
+
     },
     "Price" : {
       "localizations" : {
