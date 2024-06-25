@@ -358,9 +358,6 @@
         }
       }
     },
-    "Beaches" : {
-
-    },
     "Brake" : {
       "comment" : "Part name for Brake",
       "localizations" : {
@@ -796,7 +793,10 @@
         }
       }
     },
-    "Gas" : {
+    "Gas Station" : {
+
+    },
+    "Gas Stations" : {
 
     },
     "Get Started" : {
@@ -1349,9 +1349,6 @@
         }
       }
     },
-    "Playgrounds" : {
-
-    },
     "Price" : {
       "localizations" : {
         "de" : {
@@ -1418,6 +1415,9 @@
           }
         }
       }
+    },
+    "Restaurants" : {
+
     },
     "Select Brand" : {
       "localizations" : {

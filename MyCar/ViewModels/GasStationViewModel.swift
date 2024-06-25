@@ -10,88 +10,73 @@ import MapKit
 import CoreLocation
 
 class GasStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
-                                                   span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-        @Published var places: [Place] = []
-        @Published var isLocationAuthorized = false
+       @Published var isLocationAuthorized = false
+       @Published var userLocation: CLLocationCoordinate2D?
     
-    
-
-        private var locationManager: CLLocationManager?
-
-        override init() {
-            super.init()
-            locationManager = CLLocationManager()
-            locationManager?.delegate = self
-            locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-        }
-
-        func requestLocationPermission() {
-            locationManager?.requestWhenInUseAuthorization()
-        }
-
-         func checkLocationAuthorization() {
-            guard let locationManager = locationManager else { return }
-            
+    @Published var region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
+            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        )
+       
+       private let locationManager = CLLocationManager()
+       
+       override init() {
+           super.init()
+           locationManager.delegate = self
+       }
+       
+    func checkLocationAuthorization() {
             switch locationManager.authorizationStatus {
             case .notDetermined:
                 locationManager.requestWhenInUseAuthorization()
             case .restricted, .denied:
-                print("Konum izni kısıtlı veya reddedildi.")
-                isLocationAuthorized = false
+                DispatchQueue.main.async {
+                    self.isLocationAuthorized = false
+                }
             case .authorizedAlways, .authorizedWhenInUse:
+                DispatchQueue.main.async {
+                    self.isLocationAuthorized = true
+                }
                 locationManager.startUpdatingLocation()
-                isLocationAuthorized = true
             @unknown default:
                 break
             }
         }
-
-        func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-            checkLocationAuthorization()
-        }
-
-        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+       
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             guard let location = locations.last else { return }
-            
-            DispatchQueue.global().async {
-                let newRegion = MKCoordinateRegion(center: location.coordinate,
-                                                   span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-                DispatchQueue.main.async {
-                    self.region = newRegion
-                    self.findGasStations(location: location)
-                }
+            DispatchQueue.main.async {
+                self.userLocation = location.coordinate
+                self.updateRegion(coordinate: location.coordinate)
             }
         }
 
-        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-            print("Konum hatası: \(error.localizedDescription)")
-        }
-
-        func findGasStations(location: CLLocation) {
-            let request = MKLocalSearch.Request()
-            request.naturalLanguageQuery = "gas station"
-            request.region = MKCoordinateRegion(center: location.coordinate,
-                                                span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-            
-            let search = MKLocalSearch(request: request)
-            search.start { response, error in
-                guard let response = response else { return }
-                
-                DispatchQueue.main.async {
-                    self.places = response.mapItems.map { item in
-                        Place(name: item.name ?? "Unknown", coordinate: item.placemark.coordinate)
-                    }
-                }
-            }
-        }
+       
+       func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+           checkLocationAuthorization()
+       }
     
- 
-    
-    }
+    private func updateRegion(coordinate: CLLocationCoordinate2D) {
+          region = MKCoordinateRegion(
+              center: coordinate,
+              span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+          )
+      }
+   }
 
-    struct Place: Identifiable {
-        let id = UUID()
-        let name: String
-        let coordinate: CLLocationCoordinate2D
+
+extension MKMapItem: Identifiable {
+    public var id: UUID {
+        return UUID()
     }
+}
+
+extension CLLocationCoordinate2D: Equatable {
+    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+}
+
+
+
+

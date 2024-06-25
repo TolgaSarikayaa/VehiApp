@@ -9,56 +9,50 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-extension CLLocationCoordinate2D {
-    static let parking = CLLocationCoordinate2D(latitude: 42.354528, longitude: -71.068369)
-}
 
 struct GasStationView: View {
     
-    
     @StateObject private var viewModel = GasStationViewModel()
-    
-    @State private var searchResluts: [MKMapItem] = []
+    @State private var searchResults: [MKMapItem] = []
+   
 
         var body: some View {
             Map {
-                if viewModel.isLocationAuthorized {
-                    Annotation("Parking", coordinate: .parking) {
+                if viewModel.isLocationAuthorized, let userLocation = viewModel.userLocation {
+                    Annotation("User Location", coordinate: userLocation) {
                         ZStack {
+                         RoundedRectangle(cornerRadius: 5)
+                            .fill(Color.blue)
                             RoundedRectangle(cornerRadius: 5)
-                                .fill(.background)
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.secondary, lineWidth: 5)
-                            Image(systemName: "car")
+                            .stroke(Color.white, lineWidth: 2)
+                             Image(systemName: "location.fill")
+                                .foregroundColor(.white)
                                 .padding(5)
-                        }
-                    }
-                    .annotationTitles(.hidden)
-                    
-                    ForEach(searchResluts, id: \.self) { result in
-                        Marker(item: result)
-                    }
-                }
-            }
-                    .mapStyle(.standard(elevation: .realistic))
-                    .safeAreaInset(edge: .bottom) {
-                        HStack {
-                            Spacer()
-                            BeantownButtons(searchResults: $searchResluts)
-                                .padding(.top)
-                                .padding(.bottom, 20)
-                            Spacer()
-                        }
-                        .background(.thinMaterial)
-                    }
-            
-            .onAppear {
-                viewModel.checkLocationAuthorization()
-            }
-        }
-    
-        
-    }
+                               }
+                           }
+                           .annotationTitles(.hidden)
+
+                           ForEach(searchResults, id: \.self) { result in
+                               Marker(item: result)
+                           }
+                       }
+                   }
+                   .mapStyle(.standard(elevation: .realistic))
+                   .safeAreaInset(edge: .bottom) {
+                       HStack {
+                           Spacer()
+                           BeantownButtons(searchResults: $searchResults, userLocation: viewModel.userLocation)
+                               .padding(.top)
+                               .padding(.bottom, 20)
+                           Spacer()
+                       }
+                       .background(.thinMaterial)
+                   }
+                   .onAppear {
+                       viewModel.checkLocationAuthorization()
+                   }
+               }
+           }
 
 #Preview {
     GasStationView()
