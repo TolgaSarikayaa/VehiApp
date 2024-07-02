@@ -799,6 +799,9 @@
     "Gas Stations" : {
 
     },
+    "Get Directions" : {
+
+    },
     "Get Started" : {
       "localizations" : {
         "de" : {
@@ -1282,6 +1285,9 @@
         }
       }
     },
+    "No preview available" : {
+
+    },
     "Oil Filter" : {
       "comment" : "Part name for Oil Filter",
       "localizations" : {
@@ -1298,6 +1304,9 @@
           }
         }
       }
+    },
+    "Open in Maps" : {
+
     },
     "Other part" : {
       "comment" : "Part name for other",
