@@ -24,7 +24,7 @@ struct MainCV: View {
                     Label("Service", systemImage: "wrench.and.screwdriver")
             }
             
-            GasStationView()
+            MapView()
                 .tabItem {
                     Label("Gas Station", systemImage: "mappin.circle.fill")
                 }
