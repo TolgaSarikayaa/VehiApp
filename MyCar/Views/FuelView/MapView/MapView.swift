@@ -20,6 +20,8 @@ struct MapView: View {
         @State private var route: MKRoute?
         @State private var routeDestination: MKMapItem?
         @State private var shouldFollowUser = true
+       @State private var searchResults: MKMapItem?
+       @State private var viewModel = GasStationViewModel()
 
         
         var body: some View {
@@ -36,8 +38,12 @@ struct MapView: View {
                             Circle()
                                 .frame(width: 12, height: 12)
                                 .foregroundStyle(.blue)
+                            
+                            
                         }
+                     
                     }
+                   
                 }
                 
                 ForEach(results, id: \.self) { item in
@@ -52,11 +58,29 @@ struct MapView: View {
                     }
                 }
                 
+                ForEach(viewModel.searchResults, id: \.self) { result in
+                      Marker(item: result)
+                    }
+                
                 if let route {
                     MapPolyline(route.polyline)
                         .stroke(.blue,lineWidth: 6)
                 }
             }
+            .safeAreaInset(edge: .bottom) {
+                HStack {
+                    Spacer()
+                    BeantownButtons(searchResults: $viewModel.searchResults, userLocation: locationManager.userLocation)
+                        .padding(.top)
+                        .padding(.bottom, 20)
+                        Spacer()
+                    
+                }
+                .background(.thinMaterial)
+            }
+            
+            
+            /*
             .overlay(alignment: .top) {
                 TextField("Search for a location...", text: $searchText)
                     .font(.subheadline)
@@ -66,9 +90,8 @@ struct MapView: View {
                     .shadow(radius: 10)
                     
             }
-            .onSubmit(of: .text) {
-                Task { await searchPlaces() }
-            }
+             */
+           
             .onChange(of: getDirections, { oldValue, newValue in
                 if newValue {
                     fetchRoute()
@@ -102,6 +125,7 @@ struct MapView: View {
         
     }
 extension MapView {
+    /*
     func searchPlaces() async {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchText
@@ -110,6 +134,7 @@ extension MapView {
         let results = try? await MKLocalSearch(request: request).start()
         self.results = results?.mapItems ?? []
     }
+     */
     
     func fetchRoute() {
         if let mapSelection {

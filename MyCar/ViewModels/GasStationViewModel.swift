@@ -59,7 +59,7 @@ class GasStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate
     private func updateRegion(coordinate: CLLocationCoordinate2D) {
         region = MKCoordinateRegion(
             center: coordinate,
-            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
         )
     }
     
@@ -103,7 +103,6 @@ extension CLLocationCoordinate2D: Equatable {
 extension CLLocationCoordinate2D {
     static let locationUser = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
 }
-
 
 
 
