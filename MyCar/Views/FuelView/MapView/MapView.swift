@@ -9,86 +9,95 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
-    @State private var searchText = ""
-    @State private var results = [MKMapItem]()
-    @State private var mapSelection: MKMapItem?
-    @State private var showDetails = false
-    @State private var getDirections = false
-    @State private var routeDisplaying = false
-    @State private var route: MKRoute?
-    @State private var routeDestination: MKMapItem?
-    
-    var body: some View {
-        Map(position: $cameraPosition, selection: $mapSelection) {
-           
-            Annotation("My Location", coordinate: .userLocation) {
-                ZStack {
-                    Circle()
-                        .frame(width: 32, height: 32)
-                        .foregroundStyle(.blue.opacity(0.25))
-                    Circle()
-                        .frame(width: 20, height: 20)
-                        .foregroundStyle(.white)
-                    Circle()
-                        .frame(width: 12, height: 12)
-                        .foregroundStyle(.blue)
+    @StateObject private var locationManager = LocationManager()
+        @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
+        @State private var searchText = ""
+        @State private var results = [MKMapItem]()
+        @State private var mapSelection: MKMapItem?
+        @State private var showDetails = false
+        @State private var getDirections = false
+        @State private var routeDisplaying = false
+        @State private var route: MKRoute?
+        @State private var routeDestination: MKMapItem?
+        @State private var shouldFollowUser = true
+
+        
+        var body: some View {
+            Map(position: $cameraPosition, selection: $mapSelection) {
+                if let userLocation = locationManager.userLocation {
+                    Annotation("My Location", coordinate: userLocation) {
+                        ZStack {
+                            Circle()
+                                .frame(width: 32, height: 32)
+                                .foregroundStyle(.blue.opacity(0.25))
+                            Circle()
+                                .frame(width: 20, height: 20)
+                                .foregroundStyle(.white)
+                            Circle()
+                                .frame(width: 12, height: 12)
+                                .foregroundStyle(.blue)
+                        }
+                    }
                 }
-            }
-            
-            ForEach(results, id: \.self) { item in
-                if routeDisplaying {
-                    if item == routeDestination {
+                
+                ForEach(results, id: \.self) { item in
+                    if routeDisplaying {
+                        if item == routeDestination {
+                            let placemark = item.placemark
+                            Marker(placemark.name ?? "", coordinate: placemark.coordinate)
+                        }
+                    } else {
                         let placemark = item.placemark
                         Marker(placemark.name ?? "", coordinate: placemark.coordinate)
                     }
-                } else {
-                    let placemark = item.placemark
-                    Marker(placemark.name ?? "", coordinate: placemark.coordinate)
+                }
+                
+                if let route {
+                    MapPolyline(route.polyline)
+                        .stroke(.blue,lineWidth: 6)
                 }
             }
+            .overlay(alignment: .top) {
+                TextField("Search for a location...", text: $searchText)
+                    .font(.subheadline)
+                    .padding(12)
+                    .background(.white)
+                    .padding()
+                    .shadow(radius: 10)
+                    
+            }
+            .onSubmit(of: .text) {
+                Task { await searchPlaces() }
+            }
+            .onChange(of: getDirections, { oldValue, newValue in
+                if newValue {
+                    fetchRoute()
+                }
+            })
             
-            if let route {
-                MapPolyline(route.polyline)
-                    .stroke(.blue,lineWidth: 6)
+            .onChange(of: mapSelection, { oldValue, newValue in
+                showDetails = newValue != nil
+            })
+            .onChange(of: locationManager.userLocation) { newLocation in
+                if let newLocation, shouldFollowUser {
+                    cameraPosition = .region(MKCoordinateRegion(center: newLocation, latitudinalMeters: 10000, longitudinalMeters: 10000))
+                }
             }
-        }
-        .overlay(alignment: .top) {
-            TextField("Search for a location...", text: $searchText)
-                .font(.subheadline)
-                .padding(12)
-                .background(.white)
-                .padding()
-                .shadow(radius: 10)
-                
-        }
-        .onSubmit(of: .text) {
-            Task { await searchPlaces() }
-        }
-        .onChange(of: getDirections, { oldValue, newValue in
-            if newValue {
-                fetchRoute()
-            }
-        })
-        
-        .onChange(of: mapSelection, { oldValue, newValue in
-            showDetails = newValue != nil
-        })
-        .sheet(isPresented: $showDetails, content: {
-            LocationDetailsView(mapSelection: $mapSelection, show: $showDetails, getDirections: $getDirections)
-                .presentationDetents([.height(340)])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
-                .presentationCornerRadius(12)
-        })
-        .mapControls {
-            MapUserLocationButton()
-            MapCompass()
-        }
-    }
-    
-    
-}
 
+            .sheet(isPresented: $showDetails, content: {
+                LocationDetailsView(mapSelection: $mapSelection, show: $showDetails, getDirections: $getDirections)
+                    .presentationDetents([.height(340)])
+                    .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
+                    .presentationCornerRadius(12)
+            })
+            .mapControls {
+                MapUserLocationButton()
+                MapCompass()
+            }
+        }
+        
+        
+    }
 extension MapView {
     func searchPlaces() async {
         let request = MKLocalSearch.Request()
