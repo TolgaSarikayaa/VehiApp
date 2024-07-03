@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @StateObject private var locationManager = LocationManager()
+        @StateObject private var locationManager = LocationManager()
         @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
         @State private var searchText = ""
         @State private var results = [MKMapItem]()
@@ -94,6 +94,9 @@ struct MapView: View {
                 MapUserLocationButton()
                 MapCompass()
             }
+            .gesture(DragGesture().onChanged({ _ in
+                       shouldFollowUser = false
+                   }))
         }
         
         
@@ -143,10 +146,6 @@ extension MKCoordinateRegion {
         return .init(center: .userLocation, latitudinalMeters: 10000, longitudinalMeters: 10000)
     }
 }
-    
-
-
-
 #Preview {
     MapView()
 }
