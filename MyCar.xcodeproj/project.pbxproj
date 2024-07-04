@@ -295,6 +295,7 @@
 				14EDC3062B9DB5AC0058FB98 /* CarListView */,
 				14EDC3052B9DB5960058FB98 /* NewCarView */,
 				14EDC3042B9DB57F0058FB98 /* ServiceView */,
+				147167822C259C6F00D9A4D1 /* MapView */,
 				14EDC3022B9DB53C0058FB98 /* FuelView */,
 				14EDC3082B9DB5F20058FB98 /* OnBoardingView */,
 			);
@@ -329,7 +330,6 @@
 				142142AD2B93BF5F00D60CF7 /* FuelListView.swift */,
 				14AEFD0B2B9CDFE00026B854 /* AddFuelView.swift */,
 				14EDC3132BA702F70058FB98 /* FuelDetailView.swift */,
-				147167822C259C6F00D9A4D1 /* MapView */,
 			);
 			path = FuelView;
 			sourceTree = "<group>";
