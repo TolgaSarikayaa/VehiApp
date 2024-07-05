@@ -20,11 +20,14 @@ struct LocationDetailsView: View {
                     Text(mapSelection?.placemark.name ?? "")
                         .font(.title2)
                         .fontWeight(.semibold)
+                        .padding(.top, 8)
+                        .padding(.leading, 8)
                     Text(mapSelection?.placemark.title ?? "")
                         .font(.footnote)
                         .foregroundStyle(.gray)
                         .lineLimit(12)
                         .padding(.trailing)
+                        .padding(.leading, 8)
                 }
                 Spacer()
                 Button {
