@@ -9,8 +9,8 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @StateObject private var locationManager = LocationManager()
-        @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
+        @StateObject private var locationManager = LocationManager()
+    @State private var cameraPosition: MapCameraPosition = .region(.defaultRegion)
         @State private var searchText = ""
         @State private var results = [MKMapItem]()
         @State private var mapSelection: MKMapItem?
@@ -98,6 +98,12 @@ struct MapView: View {
             .gesture(DragGesture().onChanged({ _ in
                 shouldFollowUser = false
             }))
+            
+            .onAppear {
+                if let userLocation = locationManager.userLocation {
+                cameraPosition = .region(MKCoordinateRegion(center: userLocation, latitudinalMeters: 10000, longitudinalMeters: 10000))
+                }
+           }
         }
         
         func fetchRoute() {
@@ -124,17 +130,11 @@ struct MapView: View {
         }
     }
 
-    extension CLLocationCoordinate2D {
-        static var userLocation: CLLocationCoordinate2D {
-            return .init(latitude: 48.783333, longitude: 9.183333)
-        }
+extension MKCoordinateRegion {
+    static var defaultRegion: MKCoordinateRegion {
+        return .init(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), latitudinalMeters: 10000, longitudinalMeters: 10000)
     }
-
-    extension MKCoordinateRegion {
-        static var userRegion: MKCoordinateRegion {
-            return .init(center: .userLocation, latitudinalMeters: 10000, longitudinalMeters: 10000)
-        }
-    }
+}
 
 #Preview {
     MapView()

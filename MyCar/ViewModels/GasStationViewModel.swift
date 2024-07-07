@@ -9,6 +9,7 @@ import Foundation
 import MapKit
 import CoreLocation
 
+
 class GasStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var isLocationAuthorized = false
     @Published var userLocation: CLLocationCoordinate2D?

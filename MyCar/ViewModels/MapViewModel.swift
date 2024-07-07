@@ -10,6 +10,7 @@ import MapKit
 import CoreLocation
 import SwiftUI
 
+/*
 struct MapViewModel: UIViewRepresentable {
     @Binding var region: MKCoordinateRegion
     @Binding var pointsOfInterest: [MKPointOfInterestCategory]
@@ -56,3 +57,4 @@ struct MapViewModel: UIViewRepresentable {
         }
     }
 }
+*/
