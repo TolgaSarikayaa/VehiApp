@@ -18,15 +18,17 @@ class GasStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate
         span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
     )
     @Published var searchResults: [MKMapItem] = []
-    
+
     private let locationManager = CLLocationManager()
-    
+
     override init() {
         super.init()
         locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         checkLocationAuthorization()
     }
-    
+
     func checkLocationAuthorization() {
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -44,7 +46,7 @@ class GasStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate
             break
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         DispatchQueue.main.async {
@@ -52,18 +54,18 @@ class GasStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate
             self.updateRegion(coordinate: location.coordinate)
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuthorization()
     }
-    
+
     private func updateRegion(coordinate: CLLocationCoordinate2D) {
         region = MKCoordinateRegion(
             center: coordinate,
             span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
         )
     }
-    
+
     func search(for query: String) {
         guard let userLocation = userLocation else {
             print("Kullanıcı konumu henüz belirlenmedi.")
@@ -74,21 +76,20 @@ class GasStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate
         request.naturalLanguageQuery = query
         request.resultTypes = .pointOfInterest
         request.region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0))
-        
+
         let search = MKLocalSearch(request: request)
         search.start { response, error in
             guard let response = response else {
                 print("Arama sonuçları alınamadı: \(error?.localizedDescription ?? "Bilinmeyen hata")")
                 return
             }
-            
+
             DispatchQueue.main.async {
                 self.searchResults = response.mapItems
             }
         }
     }
 }
-
 extension MKMapItem: Identifiable {
     public var id: UUID {
         return UUID()
