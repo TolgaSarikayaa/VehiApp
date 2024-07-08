@@ -67,9 +67,22 @@ struct MapView: View {
                 BeantownButtons(searchResults: $viewModel.searchResults, userLocation: viewModel.userLocation)
                     .padding(.top)
                     .padding(.bottom, 20)
-                Spacer()
+                     Spacer()
             }
             .background(.thinMaterial)
+            
+            HStack {
+                Button {
+                    clearRoute()
+                } label: {
+                    Label("Clear Route", systemImage: "xmark.square")
+                }
+                .padding(.top)
+                .padding(.bottom, 20)
+                .padding(.leading, 300)
+                .buttonStyle(.borderedProminent)
+                .labelStyle(.iconOnly)
+            }
         }
         .onChange(of: getDirections, { oldValue, newValue in
             if newValue {
@@ -128,6 +141,17 @@ struct MapView: View {
             } catch {
                 print("Yol hesaplama hatası: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    func clearRoute() {
+        route = nil
+        routeDestination = nil
+        routeDisplaying = false
+        mapSelection = nil
+        
+        if let userLocation = viewModel.userLocation {
+            cameraPosition = .region(MKCoordinateRegion(center: userLocation, latitudinalMeters: 10000, longitudinalMeters: 10000))
         }
     }
 }

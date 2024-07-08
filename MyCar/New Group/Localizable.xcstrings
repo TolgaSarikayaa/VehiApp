@@ -524,6 +524,9 @@
         }
       }
     },
+    "Clear Route" : {
+
+    },
     "Coolant" : {
       "comment" : "Part name for coolant",
       "localizations" : {
