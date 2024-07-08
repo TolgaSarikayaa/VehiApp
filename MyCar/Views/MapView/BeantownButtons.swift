@@ -40,11 +40,16 @@ struct BeantownButtons: View {
         request.region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
         
         Task {
-            let search = MKLocalSearch(request: request)
-            let response = try? await search.start()
-            searchResults = response?.mapItems ?? []
+            do {
+                let search = MKLocalSearch(request: request)
+                let response = try await search.start()
+                DispatchQueue.main.async {
+                    searchResults = response.mapItems
+                }
+            } catch {
+                print("Arama hatası: \(error.localizedDescription)")
+            }
         }
-        
     }
 }
 

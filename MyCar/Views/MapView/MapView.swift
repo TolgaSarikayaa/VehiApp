@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @StateObject private var viewModel = GasStationViewModel()
+    @ObservedObject private var viewModel = MapViewViewModel()
     @State private var cameraPosition: MapCameraPosition = .region(.defaultRegion)
     @State private var searchText = ""
     @State private var results = [MKMapItem]()
@@ -112,17 +112,21 @@ struct MapView: View {
         request.destination = mapSelection
         
         Task {
-            let result = try? await MKDirections(request: request).calculate()
-            route = result?.routes.first
-            routeDestination = mapSelection
-            
-            withAnimation(.snappy) {
-                routeDisplaying = true
-                showDetails = false
+            do {
+                let result = try await MKDirections(request: request).calculate()
+                route = result.routes.first
+                routeDestination = mapSelection
                 
-                if let rect = route?.polyline.boundingMapRect, routeDisplaying {
-                    cameraPosition = .rect(rect)
+                withAnimation(.snappy) {
+                    routeDisplaying = true
+                    showDetails = false
+                    
+                    if let rect = route?.polyline.boundingMapRect, routeDisplaying {
+                        cameraPosition = .rect(rect)
+                    }
                 }
+            } catch {
+                print("Yol hesaplama hatası: \(error.localizedDescription)")
             }
         }
     }

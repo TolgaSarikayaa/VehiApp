@@ -1,25 +1,26 @@
 //
-//  LocationManager.swift
+//  GasStationViewModel.swift
 //  MyCar
 //
-//  Created by Tolga Sarikaya on 02.07.24.
+//  Created by Tolga Sarikaya on 21.06.24.
 //
 
 import Foundation
-import CoreLocation
 import MapKit
+import CoreLocation
 
-/*
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private var locationManager = CLLocationManager()
-    @Published var userLocation: CLLocationCoordinate2D?
-    @Published var searchResults: [MKMapItem] = []
+
+class MapViewViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var isLocationAuthorized = false
+    @Published var userLocation: CLLocationCoordinate2D?
     @Published var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
         span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
     )
-    
+    @Published var searchResults: [MKMapItem] = []
+
+    private let locationManager = CLLocationManager()
+
     override init() {
         super.init()
         locationManager.delegate = self
@@ -27,50 +28,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         checkLocationAuthorization()
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        DispatchQueue.main.async {
-            self.userLocation = location.coordinate
-            self.updateRegion(coordinate: location.coordinate)
-        }
-    }
-    
-    private func updateRegion(coordinate: CLLocationCoordinate2D) {
-        region = MKCoordinateRegion(
-            center: coordinate,
-            span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
-        )
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        checkLocationAuthorization()
-    }
-    
-    func search(for query: String) {
-        guard let userLocation = userLocation else {
-            print("Kullanıcı konumu henüz belirlenmedi.")
-            return
-        }
 
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = query
-        request.resultTypes = .pointOfInterest
-        request.region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0))
-        
-        let search = MKLocalSearch(request: request)
-        search.start { response, error in
-            guard let response = response else {
-                print("Arama sonuçları alınamadı: \(error?.localizedDescription ?? "Bilinmeyen hata")")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.searchResults = response.mapItems
-            }
-        }
-    }
-    
     func checkLocationAuthorization() {
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -88,5 +46,68 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             break
         }
     }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        DispatchQueue.main.async {
+            self.userLocation = location.coordinate
+            self.updateRegion(coordinate: location.coordinate)
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkLocationAuthorization()
+    }
+
+    private func updateRegion(coordinate: CLLocationCoordinate2D) {
+        DispatchQueue.main.async {
+            self.region = MKCoordinateRegion(
+                center: coordinate,
+                span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
+            )
+        }
+       
+    }
+
+    func search(for query: String) {
+        guard let userLocation = userLocation else {
+            print("Kullanıcı konumu henüz belirlenmedi.")
+            return
+        }
+
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = query
+        request.resultTypes = .pointOfInterest
+        request.region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0))
+
+        let search = MKLocalSearch(request: request)
+        search.start { response, error in
+            guard let response = response else {
+                print("Arama sonuçları alınamadı: \(error?.localizedDescription ?? "Bilinmeyen hata")")
+                return
+            }
+
+            DispatchQueue.main.async {
+                self.searchResults = response.mapItems
+            }
+        }
+    }
 }
-*/
+extension MKMapItem: Identifiable {
+    public var id: String {
+        return placemark.coordinate.latitude.description + placemark.coordinate.longitude.description
+    }
+}
+
+extension CLLocationCoordinate2D: Equatable {
+    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+}
+
+extension CLLocationCoordinate2D {
+    static let locationUser = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+}
+
+
+
