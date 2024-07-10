@@ -26,8 +26,8 @@ struct MainCV: View {
             
             MapView()
                 .tabItem {
-                    Label("Gas Station", systemImage: "mappin.circle.fill")
-                }
+                    Label("Places", systemImage: "map.circle")
+            }
         }
     }
 }

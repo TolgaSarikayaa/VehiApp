@@ -491,6 +491,9 @@
         }
       }
     },
+    "Charging station" : {
+
+    },
     "Choose a picture" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -525,7 +528,20 @@
       }
     },
     "Clear Route" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Route löschen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rotayı temizle"
+          }
+        }
+      }
     },
     "Coolant" : {
       "comment" : "Part name for coolant",
@@ -555,7 +571,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "gün kaldı"
+            "value" : "Gün kaldı"
           }
         }
       }
@@ -796,14 +812,24 @@
         }
       }
     },
-    "Gas Station" : {
-
-    },
     "Gas Stations" : {
 
     },
     "Get Directions" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wegbeschreibung "
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yol tarifi al"
+          }
+        }
+      }
     },
     "Get Started" : {
       "localizations" : {
@@ -1117,7 +1143,20 @@
       }
     },
     "Maintenance day has passed" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Wartungstag ist vorbei"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bakım günü geçti"
+          }
+        }
+      }
     },
     "Maintenance Management" : {
       "comment" : "Onboarding primary text for maintenance management",
@@ -1289,7 +1328,20 @@
       }
     },
     "No preview available" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Vorschau vorhanden"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önizleme Yok"
+          }
+        }
+      }
     },
     "Oil Filter" : {
       "comment" : "Part name for Oil Filter",
@@ -1309,7 +1361,20 @@
       }
     },
     "Open in Maps" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "in Maps öffnen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haritalarda aç"
+          }
+        }
+      }
     },
     "Other part" : {
       "comment" : "Part name for other",
@@ -1357,6 +1422,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fotoğraf kütüphanesi"
+          }
+        }
+      }
+    },
+    "Places" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orte"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yerler"
           }
         }
       }

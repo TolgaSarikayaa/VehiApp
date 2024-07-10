@@ -72,18 +72,22 @@ struct MapView: View {
             .background(.thinMaterial)
             
             HStack {
-                Button {
-                    clearRoute()
-                } label: {
-                    Label("Clear Route", systemImage: "xmark.square")
-                }
-                .padding(.top)
-                .padding(.bottom, 20)
-                .padding(.leading, 300)
-                .buttonStyle(.borderedProminent)
-                .labelStyle(.iconOnly)
-            }
-        }
+                VStack {
+                    Button {
+                        clearRoute()
+                    } label: {
+                        Image(systemName: "xmark.square")
+                    }
+                    .buttonStyle(.borderedProminent)
+                          Text("Clear Route")
+                              .font(.caption)
+                              .foregroundColor(.blue)
+                      }
+                      .padding(.top)
+                      .padding(.bottom, 3)
+                      .padding(.leading, 260)
+                  }
+              }
         .onChange(of: getDirections, { oldValue, newValue in
             if newValue {
                 fetchRoute()
@@ -155,6 +159,8 @@ struct MapView: View {
         }
     }
 }
+
+
 
 extension MKCoordinateRegion {
     static var defaultRegion: MKCoordinateRegion {

@@ -22,6 +22,12 @@ struct BeantownButtons: View {
             }
             .buttonStyle(.borderedProminent)
             Button {
+                search(for: "charging station")
+            } label: {
+                Label("Charging station", systemImage: "ev.charger")
+            }
+            .buttonStyle(.borderedProminent)
+            Button {
                 search(for: "restaurant")
             } label: {
                 Label("Restaurants", systemImage: "fork.knife")
