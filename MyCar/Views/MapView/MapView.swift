@@ -153,14 +153,13 @@ struct MapView: View {
         routeDestination = nil
         routeDisplaying = false
         mapSelection = nil
+        viewModel.searchResults = []
         
         if let userLocation = viewModel.userLocation {
             cameraPosition = .region(MKCoordinateRegion(center: userLocation, latitudinalMeters: 10000, longitudinalMeters: 10000))
         }
     }
 }
-
-
 
 extension MKCoordinateRegion {
     static var defaultRegion: MKCoordinateRegion {
