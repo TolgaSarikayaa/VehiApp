@@ -12,27 +12,46 @@ struct BeantownButtons: View {
     
     @Binding var searchResults: [MKMapItem]
     var userLocation: CLLocationCoordinate2D?
+    @State private var isPressed = false
+    @State private var isGasStationTapped = false
+    @State private var isChargingStationTapped = false
+    @State private var isRestaurantTapped = false
+    @State private var selectedButton: String? = nil
     
     var body: some View {
         HStack {
             Button {
                 search(for: "gas station")
+                selectedButton = "gas station"
             } label: {
                 Label("Gas Stations", systemImage: "fuelpump")
+                    .padding()
+                    .background(selectedButton == "gas station" ? Color.red : Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
             }
-            .buttonStyle(.borderedProminent)
+            
             Button {
                 search(for: "charging station")
+                selectedButton = "charging station"
             } label: {
                 Label("Charging station", systemImage: "ev.charger")
+                    .padding()
+                    .background(selectedButton == "charging station" ? Color.red : Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
             }
-            .buttonStyle(.borderedProminent)
+            
             Button {
                 search(for: "restaurant")
+                selectedButton = "restaurant"
             } label: {
                 Label("Restaurants", systemImage: "fork.knife")
+                    .padding()
+                    .background(selectedButton == "restaurant" ? Color.red : Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
             }
-            .buttonStyle(.borderedProminent)
         }
         .labelStyle(.iconOnly)
     }

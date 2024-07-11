@@ -21,6 +21,8 @@ struct MapView: View {
     @State private var routeDestination: MKMapItem?
     @State private var shouldFollowUser = true
     @State private var searchResults: MKMapItem?
+    @State private var didTap:Bool = false
+    
     
     var body: some View {
         Map(position: $cameraPosition, selection: $mapSelection) {
@@ -77,7 +79,9 @@ struct MapView: View {
                         clearRoute()
                     } label: {
                         Image(systemName: "xmark.square")
+                            .padding(4)
                     }
+                    
                     .buttonStyle(.borderedProminent)
                           Text("Clear Route")
                               .font(.caption)
@@ -85,7 +89,7 @@ struct MapView: View {
                       }
                       .padding(.top)
                       .padding(.bottom, 3)
-                      .padding(.leading, 260)
+                      .padding(.leading, 275)
                   }
               }
         .onChange(of: getDirections, { oldValue, newValue in
