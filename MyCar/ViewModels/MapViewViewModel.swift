@@ -92,6 +92,7 @@ class MapViewViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             }
         }
     }
+    
 }
 extension MKMapItem: Identifiable {
     public var id: String {

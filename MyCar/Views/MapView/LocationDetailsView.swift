@@ -12,7 +12,7 @@ struct LocationDetailsView: View {
     @Binding var mapSelection: MKMapItem?
     @Binding var show: Bool
     @State private var lookAroundScene: MKLookAroundScene?
-    @Binding var getDirections: Bool
+    //@Binding var getDirections: Bool
     var body: some View {
         VStack {
             HStack {
@@ -57,11 +57,12 @@ struct LocationDetailsView: View {
                     Text("Open in Maps")
                         .font(.headline)
                         .foregroundStyle(.white)
-                        .frame(width: 170 , height: 48)
+                        .frame(width: 220 , height: 48)
                         .background(.green)
                         .cornerRadius(12)
                 }
                 
+                /*
                 Button {
                     getDirections = true
                     show = false
@@ -73,6 +74,7 @@ struct LocationDetailsView: View {
                         .background(.blue)
                         .cornerRadius(12)
                 }
+                 */
             }
                 .padding(.horizontal)
         }
@@ -103,5 +105,5 @@ extension LocationDetailsView {
 }
 
 #Preview {
-    LocationDetailsView(mapSelection: .constant(nil), show: .constant(false), getDirections: .constant(false))
+    LocationDetailsView(mapSelection: .constant(nil), show: .constant(false))
 }

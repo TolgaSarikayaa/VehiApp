@@ -528,6 +528,7 @@
       }
     },
     "Clear Route" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -816,6 +817,7 @@
 
     },
     "Get Directions" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

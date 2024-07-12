@@ -15,13 +15,13 @@ struct MapView: View {
     @State private var results = [MKMapItem]()
     @State private var mapSelection: MKMapItem?
     @State private var showDetails = false
-    @State private var getDirections = false
+    //@State private var getDirections = false
     @State private var routeDisplaying = false
     @State private var route: MKRoute?
     @State private var routeDestination: MKMapItem?
     @State private var shouldFollowUser = true
     @State private var searchResults: MKMapItem?
-    @State private var didTap:Bool = false
+    
     
     
     var body: some View {
@@ -73,6 +73,7 @@ struct MapView: View {
             }
             .background(.thinMaterial)
             
+            /*
             HStack {
                 VStack {
                     Button {
@@ -91,12 +92,15 @@ struct MapView: View {
                       .padding(.bottom, 3)
                       .padding(.leading, 275)
                   }
-              }
+            */
+            }
+        /*
         .onChange(of: getDirections, { oldValue, newValue in
             if newValue {
                 fetchRoute()
             }
         })
+         */
         .onChange(of: mapSelection, { oldValue, newValue in
             showDetails = newValue != nil
         })
@@ -106,7 +110,7 @@ struct MapView: View {
             }
         }
         .sheet(isPresented: $showDetails, content: {
-            LocationDetailsView(mapSelection: $mapSelection, show: $showDetails, getDirections: $getDirections)
+            LocationDetailsView(mapSelection: $mapSelection, show: $showDetails)
                 .presentationDetents([.height(340)])
                 .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
                 .presentationCornerRadius(12)
@@ -125,6 +129,7 @@ struct MapView: View {
         }
     }
     
+    /*
     func fetchRoute() {
         guard let mapSelection, let userLocation = viewModel.userLocation else { return }
         
@@ -147,23 +152,28 @@ struct MapView: View {
                     }
                 }
             } catch {
-                print("Yol hesaplama hatası: \(error.localizedDescription)")
+                print("Route error: \(error.localizedDescription)")
             }
         }
     }
+     */
     
+    /*
     func clearRoute() {
         route = nil
         routeDestination = nil
         routeDisplaying = false
         mapSelection = nil
+        results = []
         viewModel.searchResults = []
         
         if let userLocation = viewModel.userLocation {
             cameraPosition = .region(MKCoordinateRegion(center: userLocation, latitudinalMeters: 10000, longitudinalMeters: 10000))
         }
     }
+    */
 }
+
 
 extension MKCoordinateRegion {
     static var defaultRegion: MKCoordinateRegion {

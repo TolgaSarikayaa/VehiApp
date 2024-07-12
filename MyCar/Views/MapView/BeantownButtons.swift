@@ -12,17 +12,18 @@ struct BeantownButtons: View {
     
     @Binding var searchResults: [MKMapItem]
     var userLocation: CLLocationCoordinate2D?
-    @State private var isPressed = false
-    @State private var isGasStationTapped = false
-    @State private var isChargingStationTapped = false
-    @State private var isRestaurantTapped = false
     @State private var selectedButton: String? = nil
     
     var body: some View {
         HStack {
             Button {
-                search(for: "gas station")
-                selectedButton = "gas station"
+                if selectedButton == "gas station" {
+                    selectedButton = nil
+                    searchResults = []
+                } else {
+                    selectedButton = "gas station"
+                    search(for: "gas station")
+                }
             } label: {
                 Label("Gas Stations", systemImage: "fuelpump")
                     .padding()
@@ -30,10 +31,14 @@ struct BeantownButtons: View {
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
-            
             Button {
-                search(for: "charging station")
-                selectedButton = "charging station"
+                if selectedButton == "charging station" {
+                    selectedButton = nil
+                    searchResults = []
+                } else {
+                    search(for: "charging station")
+                    selectedButton = "charging station"
+                }
             } label: {
                 Label("Charging station", systemImage: "ev.charger")
                     .padding()
@@ -43,8 +48,13 @@ struct BeantownButtons: View {
             }
             
             Button {
-                search(for: "restaurant")
-                selectedButton = "restaurant"
+                if selectedButton == "restaurant" {
+                    selectedButton = nil
+                    searchResults = []
+                } else {
+                    search(for: "restaurant")
+                    selectedButton = "restaurant"
+                }
             } label: {
                 Label("Restaurants", systemImage: "fork.knife")
                     .padding()
@@ -72,7 +82,7 @@ struct BeantownButtons: View {
                     searchResults = response.mapItems
                 }
             } catch {
-                print("Arama hatası: \(error.localizedDescription)")
+                print("search error: \(error.localizedDescription)")
             }
         }
     }
