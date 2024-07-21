@@ -39,6 +39,7 @@
 		14BAB0FD2C33F63D003A9648 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BAB0FC2C33F63D003A9648 /* MapView.swift */; };
 		14BAB1032C340984003A9648 /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BAB1022C340984003A9648 /* LocationDetailsView.swift */; };
 		14BB52192BA9FEFE000CCCEA /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14BB52172BA9FEFE000CCCEA /* DataModel.xcdatamodeld */; };
+		14C848E52C4D1595005637C9 /* FuelCostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C848E42C4D1595005637C9 /* FuelCostView.swift */; };
 		14D7D4832B9B59FB007F2483 /* NewCarModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D4822B9B59FB007F2483 /* NewCarModelController.swift */; };
 		14D7D4852B9B5B05007F2483 /* NewCarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D4842B9B5B05007F2483 /* NewCarModel.swift */; };
 		14D7D4872B9B602F007F2483 /* NewCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D4862B9B602F007F2483 /* NewCarViewModel.swift */; };
@@ -123,6 +124,7 @@
 		14BAB0FC2C33F63D003A9648 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		14BAB1022C340984003A9648 /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		14BB52182BA9FEFE000CCCEA /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		14C848E42C4D1595005637C9 /* FuelCostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelCostView.swift; sourceTree = "<group>"; };
 		14D7D4822B9B59FB007F2483 /* NewCarModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarModelController.swift; sourceTree = "<group>"; };
 		14D7D4842B9B5B05007F2483 /* NewCarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarModel.swift; sourceTree = "<group>"; };
 		14D7D4862B9B602F007F2483 /* NewCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewModel.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				142142AD2B93BF5F00D60CF7 /* FuelListView.swift */,
 				14AEFD0B2B9CDFE00026B854 /* AddFuelView.swift */,
 				14EDC3132BA702F70058FB98 /* FuelDetailView.swift */,
+				14C848E42C4D1595005637C9 /* FuelCostView.swift */,
 			);
 			path = FuelView;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				145763CD2B6C14CA00E2D295 /* CarDetailCV.swift in Sources */,
 				14A476162B8147F80069ACB2 /* ServiceModel.swift in Sources */,
 				14BAB0FD2C33F63D003A9648 /* MapView.swift in Sources */,
+				14C848E52C4D1595005637C9 /* FuelCostView.swift in Sources */,
 				14EDC3162BA70D1D0058FB98 /* ColorManager.swift in Sources */,
 				14E0FFEE2B480F4E00660340 /* LocalService.swift in Sources */,
 				14AA406C2B9761BC00647793 /* FuelModelController.swift in Sources */,
@@ -735,7 +739,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = tolga.MyCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -772,7 +776,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = tolga.MyCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

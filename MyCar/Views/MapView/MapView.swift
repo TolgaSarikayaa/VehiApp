@@ -72,7 +72,6 @@ struct MapView: View {
                      Spacer()
             }
             .background(.thinMaterial)
-            
             /*
             HStack {
                 VStack {
@@ -173,7 +172,6 @@ struct MapView: View {
     }
     */
 }
-
 
 extension MKCoordinateRegion {
     static var defaultRegion: MKCoordinateRegion {

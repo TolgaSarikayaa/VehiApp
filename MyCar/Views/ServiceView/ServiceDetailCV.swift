@@ -46,7 +46,6 @@ struct ServiceDetailCV: View {
              }
              .popoverTip(serviceTipview)
          }
-    
 }
 
 struct EmptyStateView: View {

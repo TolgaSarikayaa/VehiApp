@@ -71,7 +71,7 @@ class MapViewViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     func search(for query: String) {
         guard let userLocation = userLocation else {
-            print("Kullanıcı konumu henüz belirlenmedi.")
+            print("User location not yet determined.")
             return
         }
 
@@ -83,7 +83,7 @@ class MapViewViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         let search = MKLocalSearch(request: request)
         search.start { response, error in
             guard let response = response else {
-                print("Arama sonuçları alınamadı: \(error?.localizedDescription ?? "Bilinmeyen hata")")
+                print("Search results not received: \(error?.localizedDescription ?? "unknown error")")
                 return
             }
 
