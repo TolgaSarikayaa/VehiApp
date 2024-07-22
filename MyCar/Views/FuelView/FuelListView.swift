@@ -21,6 +21,7 @@ struct FuelListView: View {
     
     @State private var showAlert = false
     @State private var showDetay = false
+    @State private var showCalculate = false
     
     @State private var newPrice: String = ""
     @State private var fuelStats: [FuelStats] = []
@@ -78,13 +79,22 @@ struct FuelListView: View {
                 Image(systemName: "chart.pie.fill")
             }))
             
+            /*
             .sheet(isPresented: $showAlert) {
                 
                 AddFuelView().environment(\.managedObjectContext, managedObjectContext)
             }
+             */
             .sheet(isPresented: $showDetay) {
              FuelDetailView()
             }
+            
+            .sheet(isPresented: $showAlert, content: {
+                FuelCostView(show: $showAlert)
+                .presentationDetents([.height(340)])
+                .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
+                .presentationCornerRadius(12)
+            })
         }
     }
     func deleteFuel(at offsets: IndexSet, for date: String) {

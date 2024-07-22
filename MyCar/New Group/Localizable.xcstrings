@@ -732,6 +732,9 @@
         }
       }
     },
+    "Fuel consumption: %.2f L/100km" : {
+
+    },
     "Fuel Expenditure Tracking" : {
       "comment" : "Onboarding primary text for fuel tracking",
       "localizations" : {
@@ -748,6 +751,9 @@
           }
         }
       }
+    },
+    "Fuel price" : {
+
     },
     "Fuel Price" : {
       "localizations" : {
@@ -1394,6 +1400,9 @@
           }
         }
       }
+    },
+    "Overed Track (Km)" : {
+
     },
     "Petrol" : {
       "comment" : "Fuel type",
