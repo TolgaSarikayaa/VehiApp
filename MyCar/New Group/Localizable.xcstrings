@@ -341,6 +341,9 @@
         }
       }
     },
+    "average fuel consumption" : {
+
+    },
     "Battery" : {
       "comment" : "Part name for Battery",
       "localizations" : {
@@ -732,6 +735,12 @@
         }
       }
     },
+    "Fuel Consumption" : {
+
+    },
+    "Fuel consumption: %.2f $" : {
+
+    },
     "Fuel consumption: %.2f L/100km" : {
 
     },
@@ -751,6 +760,9 @@
           }
         }
       }
+    },
+    "fuel liter price" : {
+
     },
     "Fuel price" : {
 
@@ -1555,6 +1567,9 @@
         }
       }
     },
+    "Select Calculation" : {
+
+    },
     "Select Car" : {
       "localizations" : {
         "de" : {
@@ -1721,6 +1736,12 @@
           }
         }
       }
+    },
+    "Total Cost" : {
+
+    },
+    "total distance to travel" : {
+
     },
     "Total Fuel Purchased" : {
       "localizations" : {
