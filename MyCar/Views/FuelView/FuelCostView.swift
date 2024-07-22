@@ -16,30 +16,29 @@ struct FuelCostView: View {
 
     var body: some View {
         VStack(alignment: .trailing) {
-                Button {
-                    show.toggle()
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .frame(width: 24, height: 24)
-                        .foregroundStyle(.gray, Color(.systemGray6))
-                }
-                
-            
-            VStack(alignment: .leading){
-                TextField("Fuel price", text: $fuelPrice)
-                    .padding()
-                    .keyboardType(.decimalPad)
-                TextField("Overed Track (Km)", text: $overedTrack)
-                    .padding()
-                    .keyboardType(.decimalPad)
-        }
-
-            if let consumption = fuelConsumption {
-                    Text("Fuel consumption: \(consumption, specifier: "%.2f") L/100km")
-                    .padding()
+            Button {
+                show.toggle()
+            } label: {
+                Image(systemName: "xmark.circle.fill")
+                    .resizable()
+                    .frame(width: 24, height: 24)
+                    .foregroundStyle(.gray, Color(.systemGray6))
             }
             
+            TextField("Fuel price", text: $fuelPrice)
+                .padding()
+                .keyboardType(.decimalPad)
+            TextField("Overed Track (Km)", text: $overedTrack)
+                .padding()
+                .keyboardType(.decimalPad)
+                
+        }
+        
+        VStack(alignment: .trailing) {
+            if let consumption = fuelConsumption {
+                Text("Fuel consumption: \(consumption, specifier: "%.2f") L/100km")
+                
+            }
         }
         
         HStack(spacing: 24){

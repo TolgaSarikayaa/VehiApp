@@ -91,8 +91,8 @@ struct FuelListView: View {
             
             .sheet(isPresented: $showAlert, content: {
                 FuelCostView(show: $showAlert)
-                .presentationDetents([.height(340)])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
+                .presentationDetents([.height(270)])
+                .presentationBackgroundInteraction(.enabled(upThrough: .height(270)))
                 .presentationCornerRadius(12)
             })
         }
