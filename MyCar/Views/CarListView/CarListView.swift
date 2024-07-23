@@ -38,19 +38,17 @@ struct CarListView: View {
                                    NavigationLink(destination: CarDetailCV(car: car.toNewCarModel())) {
                                        VStack(alignment: .leading, spacing: 5) {
                                            CarRow(car: car.toNewCarModel())
-                                    
                                        }
                                    }
                                    .padding()
                                    .cornerRadius(10)
-                                   .shadow(radius: 5)
                                }
                            }
                            .onDelete(perform: deleteCar)
-
                        }
                    }
                }
+
                .navigationTitle("My Cars")
                .toolbar {
                    ToolbarItem(placement: .navigationBarTrailing) {
@@ -66,6 +64,7 @@ struct CarListView: View {
                    NewCarCV()
                }
            }
+        
            .searchable(text: $searchText)
        }
 

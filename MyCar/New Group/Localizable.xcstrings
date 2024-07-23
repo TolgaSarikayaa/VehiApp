@@ -342,7 +342,20 @@
       }
     },
     "Average fuel consumption (L/100km)" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ø Verbrauch (L/100km)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ortalama yakıt tüketimi (L/100)"
+          }
+        }
+      }
     },
     "Average fuel consumption (MPG)" : {
 
@@ -377,6 +390,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fren"
+          }
+        }
+      }
+    },
+    "Calculate" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berechnung"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesapla"
+          }
+        }
+      }
+    },
+    "Calculate fuel cost" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoffkosten berechnen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt maliyetini hesapla"
           }
         }
       }
@@ -739,20 +784,58 @@
       }
     },
     "Fuel Consumption" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoffverbrauch"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt tüketimi"
+          }
+        }
+      }
     },
     "Fuel consumption: %.2f %@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoffverbrauch: %1$.2f %2$@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Fuel consumption: %1$.2f %2$@"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt tüketimi: %1$.2f %2$@"
+          }
         }
       }
     },
     "Fuel consumption: %.2f $" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoffverbrauch: %.2f €"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt tüketimi: %.2f ₺"
+          }
+        }
+      }
     },
     "Fuel Expenditure Tracking" : {
       "comment" : "Onboarding primary text for fuel tracking",
@@ -772,7 +855,20 @@
       }
     },
     "Fuel price" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoffpreis"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Satın alınan yakıt tutarı (₺)"
+          }
+        }
+      }
     },
     "Fuel Price" : {
       "localizations" : {
@@ -794,10 +890,30 @@
 
     },
     "Fuel price per gallon" : {
-
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt litre fiyati (₺)"
+          }
+        }
+      }
     },
     "Fuel price per liter" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoff Liter Preis"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt litre fiyati (₺)"
+          }
+        }
+      }
     },
     "Fuel type" : {
       "localizations" : {
@@ -1111,7 +1227,20 @@
       }
     },
     "Kilometers driven" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurückgelegte Strecke"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Katedilen Mesafe (Km)"
+          }
+        }
+      }
     },
     "Last Service" : {
       "comment" : "Label for last servise date picker",
@@ -1757,10 +1886,36 @@
       }
     },
     "Total Cost" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamtausgaben"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toplam Masraf"
+          }
+        }
+      }
     },
     "Total distance to travel (km)" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamtstrecke (Km)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gideceğiniz toplam mesafe (Km)"
+          }
+        }
+      }
     },
     "Total distance to travel (miles)" : {
 

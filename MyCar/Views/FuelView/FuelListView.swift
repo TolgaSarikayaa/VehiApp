@@ -68,10 +68,10 @@ struct FuelListView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        MCButton(title: "Calculate fuel cost", background: Color.orange) {
+                        MCButton(title: NSLocalizedString("Calculate fuel cost", comment: ""), background: Color.orange) {
                             showCalculate = true
                         }
-                        .frame(width: 200,height: 75)
+                        .frame(width: 200,height: 80)
                         .padding(.trailing, 2)
                         .padding(.bottom, 10)
                     }
