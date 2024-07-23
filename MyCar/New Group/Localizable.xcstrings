@@ -341,7 +341,10 @@
         }
       }
     },
-    "average fuel consumption" : {
+    "Average fuel consumption (L/100km)" : {
+
+    },
+    "Average fuel consumption (MPG)" : {
 
     },
     "Battery" : {
@@ -738,10 +741,17 @@
     "Fuel Consumption" : {
 
     },
-    "Fuel consumption: %.2f $" : {
-
+    "Fuel consumption: %.2f %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Fuel consumption: %1$.2f %2$@"
+          }
+        }
+      }
     },
-    "Fuel consumption: %.2f L/100km" : {
+    "Fuel consumption: %.2f $" : {
 
     },
     "Fuel Expenditure Tracking" : {
@@ -761,9 +771,6 @@
         }
       }
     },
-    "fuel liter price" : {
-
-    },
     "Fuel price" : {
 
     },
@@ -782,6 +789,15 @@
           }
         }
       }
+    },
+    "Fuel price (gallons)" : {
+
+    },
+    "Fuel price per gallon" : {
+
+    },
+    "Fuel price per liter" : {
+
     },
     "Fuel type" : {
       "localizations" : {
@@ -1094,6 +1110,9 @@
         }
       }
     },
+    "Kilometers driven" : {
+
+    },
     "Last Service" : {
       "comment" : "Label for last servise date picker",
       "localizations" : {
@@ -1244,6 +1263,9 @@
           }
         }
       }
+    },
+    "Miles driven" : {
+
     },
     "Monitor and analyze your fuel spending to optimize your driving and save money." : {
       "comment" : "Onboarding secondary text for fuel tracking",
@@ -1412,9 +1434,6 @@
           }
         }
       }
-    },
-    "Overed Track (Km)" : {
-
     },
     "Petrol" : {
       "comment" : "Fuel type",
@@ -1740,7 +1759,10 @@
     "Total Cost" : {
 
     },
-    "total distance to travel" : {
+    "Total distance to travel (km)" : {
+
+    },
+    "Total distance to travel (miles)" : {
 
     },
     "Total Fuel Purchased" : {

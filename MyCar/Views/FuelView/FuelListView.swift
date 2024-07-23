@@ -37,7 +37,7 @@ struct FuelListView: View {
     
     var body: some View {
         NavigationStack {
-            HStack {
+            ZStack(alignment: .bottomTrailing) {
                 if groupedFuelList.isEmpty {
                     Text("Add Fuel")
                         .foregroundColor(.gray)
@@ -64,7 +64,20 @@ struct FuelListView: View {
                         }
                     }
                 }
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        MCButton(title: "Calculate fuel cost", background: Color.orange) {
+                            showCalculate = true
+                        }
+                        .frame(width: 200,height: 75)
+                        .padding(.trailing, 2)
+                        .padding(.bottom, 10)
+                    }
+               }
             }
+            
             .navigationTitle("Fuels Purchased")
             .navigationBarItems(trailing: Button(action: {
                 self.showAlert = true
@@ -79,20 +92,20 @@ struct FuelListView: View {
                 Image(systemName: "chart.pie.fill")
             }))
             
-            /*
+            
             .sheet(isPresented: $showAlert) {
                 
                 AddFuelView().environment(\.managedObjectContext, managedObjectContext)
             }
-             */
+            
             .sheet(isPresented: $showDetay) {
              FuelDetailView()
             }
             
-            .sheet(isPresented: $showAlert, content: {
-                FuelCostView(show: $showAlert)
-                .presentationDetents([.height(270)])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(270)))
+            .sheet(isPresented: $showCalculate, content: {
+                FuelCostView(show: $showCalculate)
+                .presentationDetents([.height(370)])
+                .presentationBackgroundInteraction(.enabled(upThrough: .height(370)))
                 .presentationCornerRadius(12)
             })
         }
