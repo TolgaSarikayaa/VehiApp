@@ -26,16 +26,6 @@ struct FuelCostView: View {
 
     var body: some View {
         VStack(alignment: .trailing) {
-            /*
-            Button {
-                show.toggle()
-            } label: {
-                Image(systemName: "xmark.circle.fill")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                    .foregroundStyle(.gray, Color(.systemGray6))
-            }
-            */
             Picker("Select Calculation", selection: $selectedSegment) {
                 Text("Fuel Consumption").tag(0)
                 Text("Total Cost").tag(1)

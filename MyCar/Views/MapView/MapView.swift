@@ -15,7 +15,6 @@ struct MapView: View {
     @State private var results = [MKMapItem]()
     @State private var mapSelection: MKMapItem?
     @State private var showDetails = false
-    //@State private var getDirections = false
     @State private var routeDisplaying = false
     @State private var route: MKRoute?
     @State private var routeDestination: MKMapItem?
@@ -72,34 +71,8 @@ struct MapView: View {
                      Spacer()
             }
             .background(.thinMaterial)
-            /*
-            HStack {
-                VStack {
-                    Button {
-                        clearRoute()
-                    } label: {
-                        Image(systemName: "xmark.square")
-                            .padding(4)
-                    }
-                    
-                    .buttonStyle(.borderedProminent)
-                          Text("Clear Route")
-                              .font(.caption)
-                              .foregroundColor(.blue)
-                      }
-                      .padding(.top)
-                      .padding(.bottom, 3)
-                      .padding(.leading, 275)
-                  }
-            */
             }
-        /*
-        .onChange(of: getDirections, { oldValue, newValue in
-            if newValue {
-                fetchRoute()
-            }
-        })
-         */
+       
         .onChange(of: mapSelection, { oldValue, newValue in
             showDetails = newValue != nil
         })
@@ -127,50 +100,6 @@ struct MapView: View {
             }
         }
     }
-    
-    /*
-    func fetchRoute() {
-        guard let mapSelection, let userLocation = viewModel.userLocation else { return }
-        
-        let request = MKDirections.Request()
-        request.source = MKMapItem(placemark: .init(coordinate: userLocation))
-        request.destination = mapSelection
-        
-        Task {
-            do {
-                let result = try await MKDirections(request: request).calculate()
-                route = result.routes.first
-                routeDestination = mapSelection
-                
-                withAnimation(.snappy) {
-                    routeDisplaying = true
-                    showDetails = false
-                    
-                    if let rect = route?.polyline.boundingMapRect, routeDisplaying {
-                        cameraPosition = .rect(rect)
-                    }
-                }
-            } catch {
-                print("Route error: \(error.localizedDescription)")
-            }
-        }
-    }
-     */
-    
-    /*
-    func clearRoute() {
-        route = nil
-        routeDestination = nil
-        routeDisplaying = false
-        mapSelection = nil
-        results = []
-        viewModel.searchResults = []
-        
-        if let userLocation = viewModel.userLocation {
-            cameraPosition = .region(MKCoordinateRegion(center: userLocation, latitudinalMeters: 10000, longitudinalMeters: 10000))
-        }
-    }
-    */
 }
 
 extension MKCoordinateRegion {
