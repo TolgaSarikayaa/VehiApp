@@ -28,7 +28,9 @@ class SelectCarModel : ObservableObject {
        @Published var selectedFuelType: EngineType = .benzin
        @Published var isNavigationActive = false
        @Published var selectedLicensePlate: String = ""
-       @Published  var selectedImage: UIImage?
+       @Published var selectedImage: UIImage?
+       @Published var selectedUser: String = ""
+       @Published var selectedUserImage: UIImage?
     
 }
 

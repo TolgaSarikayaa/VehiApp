@@ -73,6 +73,25 @@ struct CarDetailCV: View {
                                  }
                              }
                              
+                             .padding(.bottom, 25)
+                             
+                             HStack {
+                                 if let userImage = car.userImage {
+                                     Image(uiImage: userImage)
+                                         .resizable()
+                                         .aspectRatio(contentMode: .fit)
+                                         .frame(width: 36, height: 36)
+                                         .clipShape(Circle())
+                                         .font(.system(size: 36))
+                                 } else {
+                                     Image(systemName: "person.circle.fill")
+                                         .font(.system(size: 36))
+                                 }
+                                 Text("Driver: \(car.user)")
+                                     .font(.system(size: 16))
+                              
+                             }
+                             
                              Spacer()
                          }
                          .padding(.leading, 18)

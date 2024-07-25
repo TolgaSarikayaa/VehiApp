@@ -19,6 +19,7 @@ struct NewCarCV: View {
     @StateObject var carModelController = NewCarModelController()
     @State private var showingImagePicker = false
     @State private var showingActionSheet = false
+    @State private var isUserPickerPresented = false
     @State private var imageSource: UIImagePickerController.SourceType = .photoLibrary
     
 
@@ -147,6 +148,34 @@ struct NewCarCV: View {
                                        formatter: .date)
                     }
                 }
+                
+                Section(header: Text("You can add Driver")) {
+                    Button {
+                        isUserPickerPresented = true
+                    } label: {
+                        HStack {
+                            Text(newCarModel.selectedUser.isEmpty ? "Add Driver" : newCarModel.selectedUser)
+                            Spacer()
+                            if let userImage = newCarModel.selectedUserImage {
+                                Image(uiImage: userImage)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 40, height: 40)
+                                    .clipShape(Circle())
+                            }
+                            if !newCarModel.selectedUser.isEmpty {
+                                Button {
+                                    clearUser()
+                                } label: {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .foregroundStyle(.red)
+                                }
+                            }
+                        }
+                    }
+                   
+                }
+                
             }.navigationTitle("Add Car")
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
@@ -175,6 +204,9 @@ struct NewCarCV: View {
                 .sheet(isPresented: $showingImagePicker) {
                     ImagePicker(selectedImage: $newCarModel.selectedImage, sourceType: self.imageSource)
                        }
+                .sheet(isPresented: $isUserPickerPresented) {
+                    AddUserView(user: $newCarModel.selectedUser, userImage: $newCarModel.selectedUserImage)
+                }
             
         }.onAppear {
             Task {
@@ -183,6 +215,11 @@ struct NewCarCV: View {
             }
         }
     }
+    
+    private func clearUser() {
+        newCarModel.selectedUser = ""
+        newCarModel.selectedUserImage = nil
+        }
     private func setupInitialCarSelection() async {
         if let firstBrand = carListViewModel.carList.first {
             newCarModel.selectedBrandIndex = 0

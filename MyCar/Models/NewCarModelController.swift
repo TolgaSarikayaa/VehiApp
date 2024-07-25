@@ -52,10 +52,18 @@ class NewCarModelController: ObservableObject {
         newCarEntity.lastMaintenanceDate = car.lastMaintenanceDate
         newCarEntity.insuranceExpirationDate = car.insuranceExpirationDate
         newCarEntity.licensePlate = car.licensePlate
+       
 
-        if let image = car.image {
-            newCarEntity.image = image.jpegData(compressionQuality: 1.0)
+        if let carImage = car.carImage {
+            newCarEntity.carImage = carImage.jpegData(compressionQuality: 1.0)
         }
+        
+        
+        if let userImage = car.userImage {
+            newCarEntity.userImage = userImage.jpegData(compressionQuality: 1.0)
+        }
+        
+        newCarEntity.user = car.user
 
         save(context: context)
     }

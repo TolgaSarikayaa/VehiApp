@@ -26,7 +26,9 @@ class CarEditViewModel : ObservableObject {
             newCarModel.selectedNextServiceDate = car.nextMaintenanceDate
             newCarModel.selectedInsuranceExpirationDate = car.insuranceExpirationDate
             newCarModel.selectedLicensePlate = car.licensePlate
-            newCarModel.selectedImage = car.image
+            newCarModel.selectedImage = car.carImage
+            newCarModel.selectedUser = car.user
+            newCarModel.selectedUserImage = car.userImage
         }
     
     func addEditCar(context: NSManagedObjectContext, car: NewCarModel) {
@@ -55,8 +57,14 @@ class CarEditViewModel : ObservableObject {
             carEntity.insuranceExpirationDate = newCarModel.selectedInsuranceExpirationDate
            
             if let selectedImage = newCarModel.selectedImage {
-                carEntity.image = selectedImage.jpegData(compressionQuality: 1.0)
+                carEntity.carImage = selectedImage.jpegData(compressionQuality: 1.0)
             }
+            
+            if let selectedUserImage = newCarModel.selectedUserImage {
+                carEntity.userImage = selectedUserImage.jpegData(compressionQuality: 1.0)
+            }
+            
+            carEntity.user = newCarModel.selectedUser
 
             try context.save()
             
@@ -70,7 +78,7 @@ class CarEditViewModel : ObservableObject {
                                         nextMaintenanceDate: newCarModel.selectedNextServiceDate,
                                         lastMaintenanceDate: newCarModel.selectedLastServiceDate,
                                         insuranceExpirationDate: newCarModel.selectedInsuranceExpirationDate,
-                                         licensePlate: newCarModel.selectedLicensePlate, image: newCarModel.selectedImage)
+                                         licensePlate: newCarModel.selectedLicensePlate, carImage: newCarModel.selectedImage, user: newCarModel.selectedUser, userImage: newCarModel.selectedUserImage)
             
             NotificationManager.shared.updateNotification(for: updatedCar)
             

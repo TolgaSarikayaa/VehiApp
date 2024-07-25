@@ -61,11 +61,11 @@ struct CarEditCV: View {
                 DatePicker("Last Service", selection: $carEditViewModel.newCarModel.selectedLastServiceDate, displayedComponents: .date)
                 DatePicker("Next Service", selection: $carEditViewModel.newCarModel.selectedNextServiceDate, displayedComponents: .date)
                 DatePicker("Insurance Expiration", selection: $carEditViewModel.newCarModel.selectedInsuranceExpirationDate, displayedComponents: .date)
-                           }
-                       }
-                   .onAppear {
-                       carEditViewModel.prepareData(car: car)
-                   }
+                }
+            }
+            .onAppear {
+                carEditViewModel.prepareData(car: car)
+            }
                    
             MCButton(title: "Save", background: .blue, action: {
                 carEditViewModel.addEditCar(context: context, car: car)

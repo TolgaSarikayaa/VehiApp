@@ -13,7 +13,7 @@ class NewCarViewModel : ObservableObject {
    var carModelController = NewCarModelController()
     
     func saveCar(context:NSManagedObjectContext,carModel: SelectCarModel) -> NewCarModel {
-        let newCar = NewCarModel(brand: carModel.selectedBrand, model: carModel.selectedModel, fuelType: carModel.selectedFuelType, mileage: Int(carModel.mileage) ?? 0, releaseDate: carModel.selectedReleaseDate, nextMaintenanceDate: carModel.selectedNextServiceDate, lastMaintenanceDate: carModel.selectedLastServiceDate, insuranceExpirationDate: carModel.selectedInsuranceExpirationDate, licensePlate: carModel.selectedLicensePlate, image: carModel.selectedImage)
+        let newCar = NewCarModel(brand: carModel.selectedBrand, model: carModel.selectedModel, fuelType: carModel.selectedFuelType, mileage: Int(carModel.mileage) ?? 0, releaseDate: carModel.selectedReleaseDate, nextMaintenanceDate: carModel.selectedNextServiceDate, lastMaintenanceDate: carModel.selectedLastServiceDate, insuranceExpirationDate: carModel.selectedInsuranceExpirationDate, licensePlate: carModel.selectedLicensePlate, carImage: carModel.selectedImage, user: carModel.selectedUser, userImage: carModel.selectedUserImage)
         
         carModelController.addCar(car: newCar, context: context)
         

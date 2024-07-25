@@ -79,7 +79,7 @@ struct FuelCostView: View {
         Spacer()
         
         HStack(spacing: 24){
-            MCButton(title: NSLocalizedString("Calculate", comment: ""), background: Color.orange) {
+            MCButton(title: NSLocalizedString("Calculate", comment: ""), background: Color.blue) {
                 if selectedSegment == 0 {
                     calculateFuelConsumption()
                 } else {

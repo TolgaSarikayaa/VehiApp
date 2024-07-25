@@ -664,6 +664,9 @@
     "Dismiss" : {
 
     },
+    "Driver: %@" : {
+
+    },
     "Easily manage and monitor your vehicles." : {
       "comment" : "Onboarding secondary text for registering vehicle",
       "localizations" : {
@@ -1969,6 +1972,9 @@
           }
         }
       }
+    },
+    "You can add Driver" : {
+
     }
   },
   "version" : "1.0"

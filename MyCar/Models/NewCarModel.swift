@@ -20,11 +20,13 @@ class NewCarModel : Identifiable {
     var lastMaintenanceDate = Date()
     var insuranceExpirationDate = Date()
     var licensePlate: String
-    var image: UIImage?
+    var carImage: UIImage?
+    var user: String
+    var userImage: UIImage?
    
 
    
-    init(id: UUID = UUID(), brand: String, model: String, fuelType: EngineType, mileage: Int, releaseDate: Date, nextMaintenanceDate: Date, lastMaintenanceDate: Date,insuranceExpirationDate: Date, licensePlate: String, image: UIImage?) {
+    init(id: UUID = UUID(), brand: String, model: String, fuelType: EngineType, mileage: Int, releaseDate: Date, nextMaintenanceDate: Date, lastMaintenanceDate: Date,insuranceExpirationDate: Date, licensePlate: String, carImage: UIImage?, user: String, userImage: UIImage?) {
        self.id = id
        self.brand = brand
        self.model = model
@@ -35,7 +37,9 @@ class NewCarModel : Identifiable {
        self.lastMaintenanceDate = lastMaintenanceDate
        self.insuranceExpirationDate = insuranceExpirationDate
        self.licensePlate = licensePlate
-       self.image = image
+       self.carImage = carImage
+       self.user = user
+       self.userImage = userImage
    }
     
  

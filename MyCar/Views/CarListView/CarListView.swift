@@ -99,21 +99,23 @@ struct CarRow: View {
     var car: NewCarModel
 
     var body: some View {
-        VStack(alignment: .leading) {
-            if let uiImage = car.image {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 300)
-                    .clipped()
-                    .cornerRadius(10)
-            } else {
-                Image("car")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 200)
-                    .cornerRadius(10)
-            }
+        VStack {
+                if let uiImage = car.carImage{
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300, height: 300)
+                        .clipped()
+                        .cornerRadius(10)
+                } else {
+                    Image("car")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300, height: 200)
+                        .cornerRadius(10)
+                }
+             
+    
             HStack {
                 VStack(alignment: .leading) {
                     Text(car.brand)
@@ -136,9 +138,9 @@ struct CarRow: View {
                         ProgressView(value: Double(clampedDaysRemaining), total: Double(totalDays))
                             .progressViewStyle(LinearProgressViewStyle())
                             .tint(progressColor(for: daysRemaining))
-                            .frame(height: 4)
-            
-            VStack(alignment: .leading) {
+                           .frame(height: 4)
+         
+            VStack(alignment: .leading,spacing: 0) {
                         Text("Next Service")
                         .font(.system(size: 14))
                 if daysRemaining < 0 {
@@ -157,12 +159,23 @@ struct CarRow: View {
                             .font(.system(size: 12))
                             .foregroundColor(.secondary)
                         Spacer()
+                        if let userImage = car.userImage {
+                            Image(uiImage: userImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 35, height: 35)
+                            .clipShape(Circle())
+                            } else {
+                                Text("\(car.user)")
+                            }
+                        }
                     }
                   }
-                }
             }
         }
+        
     }
+    
 extension View {
     func progressColor(for daysRemaining: Int) -> Color {
         switch daysRemaining {
@@ -181,7 +194,8 @@ extension View {
 extension NewCarEntity {
     func toNewCarModel() -> NewCarModel {
         let engineType = EngineType(rawValue: self.fuelType ?? "") ?? .benzin
-        let image = self.image != nil ? UIImage(data: self.image!) : nil
+        let carImage = self.carImage != nil ? UIImage(data: self.carImage!) : nil
+        let userImage = self.userImage != nil ? UIImage(data: self.userImage!) : nil
 
         return NewCarModel(
             id: self.id ?? UUID(),
@@ -193,9 +207,9 @@ extension NewCarEntity {
             nextMaintenanceDate: self.nextMaintenanceDate ?? Date(),
             lastMaintenanceDate: self.lastMaintenanceDate ?? Date(),
             insuranceExpirationDate: self.insuranceExpirationDate ?? Date(),
-            licensePlate: self.licensePlate ?? "", image: image
+            licensePlate: self.licensePlate ?? "", carImage: carImage,
+            user: self.user ?? "", userImage: userImage
         )
     }
 }
-
 
