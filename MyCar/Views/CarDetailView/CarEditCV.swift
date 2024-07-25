@@ -18,6 +18,7 @@ struct CarEditCV: View {
     @ObservedObject var newCarModel = SelectCarModel()
     @State private var fuelTyp : String = ""
     @State private var showingImagePicker = false
+    @State private var isUserPickerPresented = false
     
     init(car: NewCarModel) {
            self.car = car
@@ -62,6 +63,32 @@ struct CarEditCV: View {
                 DatePicker("Next Service", selection: $carEditViewModel.newCarModel.selectedNextServiceDate, displayedComponents: .date)
                 DatePicker("Insurance Expiration", selection: $carEditViewModel.newCarModel.selectedInsuranceExpirationDate, displayedComponents: .date)
                 }
+                Section(header: Text("Change or uninstall the vehicle's driver")) {
+                    Button {
+                        isUserPickerPresented = true
+                    } label: {
+                        HStack {
+                            Text(carEditViewModel.newCarModel.selectedUser.isEmpty ? "Add Driver" : carEditViewModel.newCarModel.selectedUser)
+                            Spacer()
+                            if let userImage = car.userImage {
+                                Image(uiImage: userImage)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 36, height: 36)
+                                    .clipShape(Circle())
+                            }
+                            
+                            if !carEditViewModel.newCarModel.selectedUser.isEmpty {
+                                Button {
+                                    clearUser()
+                                } label: {
+                                    Image(systemName: "xmark.circle.fill")
+                                    .foregroundStyle(.red)
+                                }
+                            }
+                        }
+                    }
+                }
             }
             .onAppear {
                 carEditViewModel.prepareData(car: car)
@@ -76,10 +103,18 @@ struct CarEditCV: View {
                 ImagePicker(selectedImage: $carEditViewModel.newCarModel.selectedImage)
             })
             
+            .sheet(isPresented: $isUserPickerPresented, content: {
+                AddUserView(user: $carEditViewModel.newCarModel.selectedUser, userImage: $carEditViewModel.newCarModel.selectedUserImage)
+            })
+            
             .frame(height: 80)
             .disabled(!isMileageValid)
         }
     }
+    private func clearUser() {
+        carEditViewModel.newCarModel.selectedUser = ""
+        carEditViewModel.newCarModel.selectedUserImage = nil
+       }
 }
 
    
