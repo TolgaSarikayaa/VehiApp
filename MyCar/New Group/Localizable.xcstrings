@@ -180,6 +180,22 @@
         }
       }
     },
+    "Add Driver" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrer hinzufügen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sürücü Ekle"
+          }
+        }
+      }
+    },
     "Add fuel" : {
       "localizations" : {
         "de" : {
@@ -527,7 +543,20 @@
       }
     },
     "Change or uninstall the vehicle's driver" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ändern oder löschen sie den Autofahrer"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Araç sürücüsünü değiştir veya kaldır"
+          }
+        }
+      }
     },
     "Change your car image" : {
       "localizations" : {
@@ -668,7 +697,20 @@
 
     },
     "Driver: %@" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrer: %@"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sürücü: %@"
+          }
+        }
+      }
     },
     "Easily manage and monitor your vehicles." : {
       "comment" : "Onboarding secondary text for registering vehicle",
@@ -1977,7 +2019,20 @@
       }
     },
     "You can add Driver" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie können einen Fahrer hinzufügen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sürücü ekleyebilirsiniz"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

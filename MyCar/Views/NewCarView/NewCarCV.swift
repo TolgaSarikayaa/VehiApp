@@ -154,7 +154,7 @@ struct NewCarCV: View {
                         isUserPickerPresented = true
                     } label: {
                         HStack {
-                            Text(newCarModel.selectedUser.isEmpty ? "Add Driver" : newCarModel.selectedUser)
+                            Text(newCarModel.selectedUser.isEmpty ? NSLocalizedString("Add Driver" , comment: "") : newCarModel.selectedUser)
                             Spacer()
                             if let userImage = newCarModel.selectedUserImage {
                                 Image(uiImage: userImage)

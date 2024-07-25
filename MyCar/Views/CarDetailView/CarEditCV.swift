@@ -68,9 +68,9 @@ struct CarEditCV: View {
                         isUserPickerPresented = true
                     } label: {
                         HStack {
-                            Text(carEditViewModel.newCarModel.selectedUser.isEmpty ? "Add Driver" : carEditViewModel.newCarModel.selectedUser)
+                            Text(carEditViewModel.newCarModel.selectedUser.isEmpty ? NSLocalizedString("Add Driver" , comment: "") : carEditViewModel.newCarModel.selectedUser)
                             Spacer()
-                            if let userImage = car.userImage {
+                            if let userImage = carEditViewModel.newCarModel.selectedUserImage {
                                 Image(uiImage: userImage)
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
@@ -114,7 +114,8 @@ struct CarEditCV: View {
     private func clearUser() {
         carEditViewModel.newCarModel.selectedUser = ""
         carEditViewModel.newCarModel.selectedUserImage = nil
-       }
+        carEditViewModel.objectWillChange.send()
+    }
 }
 
    
