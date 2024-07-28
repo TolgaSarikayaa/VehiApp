@@ -9,15 +9,12 @@ import SwiftUI
 import CoreData
 
 struct FuelListView: View {
-    
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest( entity: FuelEntity.entity(),
-            sortDescriptors: [NSSortDescriptor(keyPath: \FuelEntity.date, ascending: false)],
-            animation: .default)
-    
-    var fuelList: FetchedResults<FuelEntity>
-        
-    @StateObject var modelController = FuelModelController()
+    @FetchRequest(
+        entity: FuelEntity.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \FuelEntity.date, ascending: false)],
+        animation: .default
+    ) var fuelList: FetchedResults<FuelEntity>
     
     @State private var showAlert = false
     @State private var showDetay = false
@@ -28,12 +25,12 @@ struct FuelListView: View {
     var fuelTipView = fuelTip()
     
     private var groupedFuelList: [String: [FuelEntity]] {
-          Dictionary(grouping: fuelList) { fuel in
-              let dateFormatter = DateFormatter()
-              dateFormatter.dateStyle = .medium
-              return dateFormatter.string(from: fuel.date ?? Date())
-          }
-      }
+        Dictionary(grouping: fuelList) { fuel in
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            return dateFormatter.string(from: fuel.date ?? Date())
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -48,13 +45,20 @@ struct FuelListView: View {
                         ForEach(groupedFuelList.keys.sorted(), id: \.self) { date in
                             Section(header: Text(date)) {
                                 ForEach(groupedFuelList[date] ?? []) { fuel in
-                                    HStack {
-                                        Image(systemName: "fuelpump.fill")
-                                            .foregroundColor(.green)
-                                        Text("\((fuel.carBrand) ?? "")")
-                                        Text("\((fuel.carModel) ?? "")")
-                                        Spacer()
-                                        Text("\(fuel.price, specifier: "%.2f")$")
+                                    VStack(alignment: .leading) {
+                                        if let user = fuel.carUser, !user.isEmpty {
+                                            HStack {
+                                                Text("Driver: \(user)")
+                                            }
+                                        }
+                                        HStack {
+                                            Image(systemName: "fuelpump.fill")
+                                                .foregroundColor(.green)
+                                            Text("\((fuel.carBrand) ?? "")")
+                                            Text("\((fuel.carModel) ?? "")")
+                                            Spacer()
+                                            Text("\(fuel.price, specifier: "%.2f")$")
+                                        }
                                     }
                                 }
                                 .onDelete { offsets in
@@ -71,56 +75,54 @@ struct FuelListView: View {
                         MCButton(title: NSLocalizedString("Calculate fuel cost", comment: ""), background: Color.blue) {
                             showCalculate = true
                         }
-                        .frame(width: 200,height: 80)
+                        .frame(width: 200, height: 80)
                         .padding(.trailing, 2)
                         .padding(.bottom, 10)
                     }
-               }
+                }
             }
-            
             .navigationTitle("Fuels Purchased")
             .navigationBarItems(trailing: Button(action: {
                 self.showAlert = true
             }, label: {
                 Image(systemName: "plus.app")
-                .popoverTip(fuelTipView)
+                    .popoverTip(fuelTipView)
             }))
-            
             .navigationBarItems(trailing: Button(action: {
                 self.showDetay = true
             }, label: {
                 Image(systemName: "chart.pie.fill")
             }))
-            
-            
             .sheet(isPresented: $showAlert) {
-                
                 AddFuelView().environment(\.managedObjectContext, managedObjectContext)
             }
-            
             .sheet(isPresented: $showDetay) {
-             FuelDetailView()
+                FuelDetailView()
             }
-            
             .sheet(isPresented: $showCalculate, content: {
                 FuelCostView(show: $showCalculate)
-                .presentationDetents([.height(370)])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(370)))
-                .presentationCornerRadius(12)
+                    .presentationDetents([.height(370)])
+                    .presentationBackgroundInteraction(.enabled(upThrough: .height(370)))
+                    .presentationCornerRadius(12)
             })
         }
     }
+    
     func deleteFuel(at offsets: IndexSet, for date: String) {
         guard let dateGroup = groupedFuelList[date] else { return }
         offsets.forEach { index in
             let fuelEntity = dateGroup[index]
             managedObjectContext.delete(fuelEntity)
         }
-        try? managedObjectContext.save()
+        saveContext()
+    }
+    
+    func saveContext() {
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Error saving context after delete: \(error)")
+        }
     }
 }
-
-
-
-
 

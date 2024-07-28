@@ -35,7 +35,7 @@ struct FuelCostView: View {
             
             
             if selectedSegment == 0 {
-                TextField(isUsingMiles ? "Fuel price (gallons)" : "Fuel price", text: $fuelPrice)
+                TextField(isUsingMiles ? "Fuel purchased (gallons)" : "Fuel purchased (liters)", text: $fuelPrice)
                     .padding()
                     .background(Color.gray.opacity(0.3))
                     .cornerRadius(10)
@@ -94,7 +94,9 @@ struct FuelCostView: View {
         
     
     private func calculateFuelConsumption() {
-        guard let fuelPriceDouble = Double(fuelPrice) , let overedTrackDouble = Double(overedTrack), overedTrackDouble > 0 else {
+        let normalizedFuelPrice = fuelPrice.replacingOccurrences(of: ",", with: ".")
+        let normalizedOveredTrack = overedTrack.replacingOccurrences(of: ",", with: ".")
+        guard let fuelPriceDouble = Double(normalizedFuelPrice), let overedTrackDouble = Double(normalizedOveredTrack), overedTrackDouble > 0 else {
             
             fuelConsumption = nil
             return
@@ -110,7 +112,10 @@ struct FuelCostView: View {
     }
     
     private func calculateTotalCost() {
-        guard let totalDistance = Double(overedTrack2), let averagefuelConsumption = Double(averagefuelConsumption), let fuelLiterPrice = Double(fuelLiterPrice), fuelLiterPrice > 0 else {
+        let normalizedTotalDistance  = overedTrack2.replacingOccurrences(of: ",", with: ".")
+        let normalizedAverageFuelConsumption = averagefuelConsumption.replacingOccurrences(of: ",", with: ".")
+        let normalizedFuelLiterPrice = fuelLiterPrice.replacingOccurrences(of: ",", with: ".")
+        guard let totalDistance = Double(normalizedTotalDistance), let averagefuelConsumption = Double(normalizedAverageFuelConsumption), let fuelLiterPrice = Double(normalizedFuelLiterPrice), fuelLiterPrice > 0 else {
             
             totalCost = nil
             return

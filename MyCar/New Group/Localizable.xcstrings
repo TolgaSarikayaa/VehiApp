@@ -696,6 +696,9 @@
     "Dismiss" : {
 
     },
+    "Driver" : {
+
+    },
     "Driver: %@" : {
       "localizations" : {
         "de" : {
@@ -903,6 +906,7 @@
       }
     },
     "Fuel price" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -934,9 +938,6 @@
         }
       }
     },
-    "Fuel price (gallons)" : {
-
-    },
     "Fuel price per gallon" : {
       "localizations" : {
         "tr" : {
@@ -962,6 +963,12 @@
           }
         }
       }
+    },
+    "Fuel purchased (gallons)" : {
+
+    },
+    "Fuel purchased (liters)" : {
+
     },
     "Fuel type" : {
       "localizations" : {
@@ -1782,6 +1789,9 @@
         }
       }
     },
+    "Select Driver" : {
+
+    },
     "Select image" : {
       "localizations" : {
         "de" : {
@@ -1845,6 +1855,9 @@
           }
         }
       }
+    },
+    "Self" : {
+      "comment" : "Driver is self"
     },
     "Service" : {
       "localizations" : {
