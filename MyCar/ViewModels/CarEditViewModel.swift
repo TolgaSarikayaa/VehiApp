@@ -55,6 +55,7 @@ class CarEditViewModel : ObservableObject {
             carEntity.lastMaintenanceDate = newCarModel.selectedLastServiceDate
             carEntity.nextMaintenanceDate = newCarModel.selectedNextServiceDate
             carEntity.insuranceExpirationDate = newCarModel.selectedInsuranceExpirationDate
+            carEntity.user = newCarModel.selectedUser
            
             if let selectedImage = newCarModel.selectedImage {
                 carEntity.carImage = selectedImage.jpegData(compressionQuality: 1.0)
@@ -62,12 +63,11 @@ class CarEditViewModel : ObservableObject {
             
             if let selectedUserImage = newCarModel.selectedUserImage {
                 carEntity.userImage = selectedUserImage.jpegData(compressionQuality: 1.0)
+            } else {
+                carEntity.userImage = nil
             }
-            
-            carEntity.user = newCarModel.selectedUser
-
+    
             try context.save()
-            
             
             let updatedCar = NewCarModel(id: car.id,
                                         brand: newCarModel.selectedBrand,
@@ -81,7 +81,6 @@ class CarEditViewModel : ObservableObject {
                                          licensePlate: newCarModel.selectedLicensePlate, carImage: newCarModel.selectedImage, user: newCarModel.selectedUser, userImage: newCarModel.selectedUserImage)
             
             NotificationManager.shared.updateNotification(for: updatedCar)
-            
             NotificationCenter.default.post(name: NSNotification.Name("CarDataUpdated"), object: nil)
         } catch {
             print("Failed to save or find car: \(error)")

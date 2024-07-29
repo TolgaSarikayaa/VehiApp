@@ -697,7 +697,20 @@
 
     },
     "Driver" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrer"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sürücü"
+          }
+        }
+      }
     },
     "Driver: %@" : {
       "localizations" : {
@@ -968,7 +981,20 @@
 
     },
     "Fuel purchased (liters)" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoff (liter)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alınan yakıt (litre)"
+          }
+        }
+      }
     },
     "Fuel type" : {
       "localizations" : {
@@ -1286,7 +1312,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zurückgelegte Strecke"
+            "value" : "Zurückgelegte Strecke (km)"
           }
         },
         "tr" : {
@@ -1790,7 +1816,20 @@
       }
     },
     "Select Driver" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen sie Autofahrer"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sürücü seçin"
+          }
+        }
+      }
     },
     "Select image" : {
       "localizations" : {
@@ -1857,7 +1896,21 @@
       }
     },
     "Self" : {
-      "comment" : "Driver is self"
+      "comment" : "Driver is self",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selbst"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kendim"
+          }
+        }
+      }
     },
     "Service" : {
       "localizations" : {
