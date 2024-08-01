@@ -113,8 +113,6 @@ struct CarDetailCV: View {
                      .sheet(isPresented: $isNavigationActive) {
                          CarEditCV(car: car)
                      }
-        
-                     
                      .toolbar {
                          ToolbarItem(placement: .topBarTrailing) {
                              Button {
