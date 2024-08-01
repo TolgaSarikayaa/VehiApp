@@ -20,6 +20,7 @@ struct NewCarCV: View {
     @State private var showingImagePicker = false
     @State private var showingActionSheet = false
     @State private var isUserPickerPresented = false
+    @State private var isContactsAccessGranted = false
     @State private var imageSource: UIImagePickerController.SourceType = .photoLibrary
     
 
@@ -151,7 +152,7 @@ struct NewCarCV: View {
                 
                 Section(header: Text("You can add Driver")) {
                     Button {
-                        isUserPickerPresented = true
+                        checkContactsAccessAndPresentUserPicker()
                     } label: {
                         HStack {
                             Text(newCarModel.selectedUser.isEmpty ? NSLocalizedString("Add Driver" , comment: "") : newCarModel.selectedUser)
@@ -232,7 +233,19 @@ struct NewCarCV: View {
         }
     }
     
-}
+    private func checkContactsAccessAndPresentUserPicker() {
+         // Request contacts access
+         let coordinator = AddUserView(user: $newCarModel.selectedUser, userImage: $newCarModel.selectedUserImage).makeCoordinator()
+         coordinator.requestContactsAccess { granted in
+             if granted {
+                 isUserPickerPresented = true
+             } else {
+                 // Handle access denial if needed
+                 print("Contacts access denied")
+             }
+         }
+     }
+ }
 
 extension DateFormatter {
     static var date: DateFormatter {

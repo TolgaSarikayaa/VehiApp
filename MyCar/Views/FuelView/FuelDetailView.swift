@@ -15,22 +15,6 @@ struct FuelDetailView: View {
     
     @State private var colorMap: [String: Color] = [:]
     
-    private func fetchFuelStats() {
-        let request: NSFetchRequest<FuelEntity> = FuelEntity.fetchRequest()
-        do {
-            let fuels = try managedObjectContext.fetch(request)
-            let groupedFuels = Dictionary(grouping: fuels) { fuel in
-                "\(fuel.carBrand ?? "Unknown Brand") \(fuel.carModel ?? "")"
-            }
-            fuelStats = groupedFuels.map { (key, fuels) in
-                let totalFuel = fuels.reduce(0) { $0 + ($1.price) }
-                colorManager.setColor(for: key)
-                return FuelStats(brand: key, totalFuel: totalFuel)
-            }
-        } catch {
-            print("Error fetching fuels: \(error)")
-        }
-    }
     
     var body: some View {
         NavigationStack {
@@ -56,6 +40,24 @@ struct FuelDetailView: View {
             }
         }
     }
+    
+    private func fetchFuelStats() {
+        let request: NSFetchRequest<FuelEntity> = FuelEntity.fetchRequest()
+        do {
+            let fuels = try managedObjectContext.fetch(request)
+            let groupedFuels = Dictionary(grouping: fuels) { fuel in
+                "\(fuel.carBrand ?? "Unknown Brand") \(fuel.carModel ?? "")"
+            }
+            fuelStats = groupedFuels.map { (key, fuels) in
+                let totalFuel = fuels.reduce(0) { $0 + ($1.price) }
+                colorManager.setColor(for: key)
+                return FuelStats(brand: key, totalFuel: totalFuel)
+            }
+        } catch {
+            print("Error fetching fuels: \(error)")
+        }
+    }
+
 }
    extension Color {
        static var random: Color {

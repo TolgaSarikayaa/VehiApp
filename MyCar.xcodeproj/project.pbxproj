@@ -731,8 +731,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Vehi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture photos.";
-				INFOPLIST_KEY_NSContactsUsageDescription = "Permission to access Contact information is required to add a driver";
-				INFOPLIST_KEY_NSLocationUsageDescription = "this app use the location for show gas station";
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app requires access to your contacts to allow you to select drivers.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "This app use the location for show places";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to show gas station";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app uses the Photo Library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -771,8 +771,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Vehi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture photos.";
-				INFOPLIST_KEY_NSContactsUsageDescription = "Permission to access Contact information is required to add a driver";
-				INFOPLIST_KEY_NSLocationUsageDescription = "this app use the location for show gas station";
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app requires access to your contacts to allow you to select drivers.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "This app use the location for show places";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to show gas station";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app uses the Photo Library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -30,6 +30,15 @@ struct AddUserView: UIViewControllerRepresentable {
                 parent.userImage = UIImage(data: imageData)
             }
         }
+        
+        func requestContactsAccess(completion: @escaping (Bool) -> Void) {
+            let store = CNContactStore()
+            store.requestAccess(for: .contacts) { grandet, error in
+                DispatchQueue.main.async {
+                    completion(grandet)
+                }
+            }
+        }
 
         func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
             // Optional: Handle cancel event if needed

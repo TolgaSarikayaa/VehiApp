@@ -16,8 +16,6 @@ class CarViewModel : ObservableObject {
         self.service = service
     }
     
-    
-   
     func downloadCars() async {
         let resource = Constanst.Paths.baseUrl
         

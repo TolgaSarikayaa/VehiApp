@@ -23,7 +23,6 @@ struct FuelCostView: View {
         return locale.measurementSystem == .us
     }
     
-
     var body: some View {
         VStack(alignment: .trailing) {
             Picker("Select Calculation", selection: $selectedSegment) {
@@ -32,7 +31,6 @@ struct FuelCostView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding()
-            
             
             if selectedSegment == 0 {
                 TextField(isUsingMiles ? "Fuel purchased (gallons)" : "Fuel purchased (liters)", text: $fuelPrice)
@@ -78,7 +76,7 @@ struct FuelCostView: View {
         }
         Spacer()
         
-        HStack(spacing: 24){
+        HStack(spacing: 24) {
             MCButton(title: NSLocalizedString("Calculate", comment: ""), background: Color.blue) {
                 if selectedSegment == 0 {
                     calculateFuelConsumption()

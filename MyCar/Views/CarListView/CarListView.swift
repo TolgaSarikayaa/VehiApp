@@ -170,7 +170,7 @@ struct CarRow: View {
                             }
                         }
                     }
-                  }
+                }
             }
         }
         
