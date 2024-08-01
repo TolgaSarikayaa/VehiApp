@@ -410,6 +410,22 @@
         }
       }
     },
+    "Brand" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marke"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marka"
+          }
+        }
+      }
+    },
     "Calculate" : {
       "localizations" : {
         "de" : {
@@ -459,7 +475,14 @@
       }
     },
     "Cancel" : {
-
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iptal"
+          }
+        }
+      }
     },
     "Car" : {
       "localizations" : {
@@ -694,7 +717,14 @@
       }
     },
     "Dismiss" : {
-
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iptal"
+          }
+        }
+      }
     },
     "Driver" : {
       "localizations" : {
@@ -746,7 +776,14 @@
       }
     },
     "Edit" : {
-
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Düzenle"
+          }
+        }
+      }
     },
     "Electric" : {
       "comment" : "Fuel type",
@@ -997,6 +1034,22 @@
       }
     },
     "Fuel type" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treibstoffart"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakıt tipi"
+          }
+        }
+      }
+    },
+    "Fuel Type" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1476,6 +1529,22 @@
     },
     "Miles driven" : {
 
+    },
+    "Model" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modell"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Model"
+          }
+        }
+      }
     },
     "Monitor and analyze your fuel spending to optimize your driving and save money." : {
       "comment" : "Onboarding secondary text for fuel tracking",

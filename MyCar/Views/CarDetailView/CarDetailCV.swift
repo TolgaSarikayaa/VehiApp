@@ -11,6 +11,7 @@ struct CarDetailCV: View {
     
     @Environment(\.dismiss) private var dismiss
     @State private var isNavigationActive = false
+    @State private var isShareSheetShowing = false
     
     @State private var fuelTyp : String = ""
 
@@ -116,6 +117,14 @@ struct CarDetailCV: View {
                      
                      .toolbar {
                          ToolbarItem(placement: .topBarTrailing) {
+                             Button {
+                                 shareCarDetails()
+                             } label: {
+                                 Image(systemName: "square.and.arrow.up")
+                             }
+                         }
+                         
+                         ToolbarItem(placement: .topBarTrailing) {
                              Button(action: {
                                  isNavigationActive.toggle()
                              }, label: {
@@ -125,7 +134,32 @@ struct CarDetailCV: View {
                      }
                      .toolbar(.hidden, for: .tabBar)
              }
-         }
+    
+    private func shareCarDetails() {
+        let carDetails = """
+        \(NSLocalizedString("Brand", comment: "")): \(car.brand)
+        \(NSLocalizedString("Model", comment: "")): \(car.model)
+        \(NSLocalizedString("Fuel Type", comment: "")): \(car.fuelType)
+        \(NSLocalizedString("Mileage", comment: "")): \(car.mileage)
+        \(NSLocalizedString("Release date", comment: "")): \(car.releaseDate.onlyDateFormatted())
+        \(NSLocalizedString("Next Service", comment: "")): \(car.nextMaintenanceDate.onlyDateFormatted())
+        \(NSLocalizedString("Inspection date", comment: "")): \(car.insuranceExpirationDate.onlyDateFormatted())
+        """
+        
+        let activityVC = UIActivityViewController(activityItems: [carDetails], applicationActivities: nil)
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let rootViewController = windowScene.windows.first?.rootViewController {
+            rootViewController.present(activityVC, animated: true, completion: nil)
+        }
+    }
+  }
+
+  extension String {
+      var localized: String {
+          return NSLocalizedString(self, comment: "")
+      }
+  }
 extension Date {
     func onlyDateFormatted() -> String {
         let formatter = DateFormatter()
@@ -138,5 +172,6 @@ public enum Visibility {
     case hidden
     case visible
 }
+
 
 
