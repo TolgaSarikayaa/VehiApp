@@ -2052,6 +2052,52 @@
         }
       }
     },
+    "The next inspection for your %@ %@ is in two weeks." : {
+      "comment" : "Body for upcoming inspection reminder notification",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die nächste Inspektion für Ihren %1$@%2$@ ist in zwei Wochen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The next inspection for your %1$@ %2$@ is in two weeks."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@ için bir sonraki muayene iki hafta içinde."
+          }
+        }
+      }
+    },
+    "The next maintenance for your %@ %@ is in two weeks." : {
+      "comment" : "Body for upcoming maintenance reminder notification",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die nächste Wartung für Ihren %1$@ %2$@ist in zwei Wochen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The next maintenance for your %1$@ %2$@ is in two weeks."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@ için bir sonraki bakım iki hafta içinde."
+          }
+        }
+      }
+    },
     "To save the vehicle part, first enter the price, then click on the circle and press the save button to save it." : {
       "localizations" : {
         "de" : {
@@ -2115,6 +2161,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toplam alınan yakıtlar "
+          }
+        }
+      }
+    },
+    "Upcoming Inspection" : {
+      "comment" : "Title for upcoming inspection reminder notification",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anstehende Inspektion"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yaklaşan Muayene"
+          }
+        }
+      }
+    },
+    "Upcoming Maintenance" : {
+      "comment" : "Title for upcoming maintenance reminder notification",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anstehende Wartung"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yaklaşan Bakım"
           }
         }
       }

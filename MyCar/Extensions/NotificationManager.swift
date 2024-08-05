@@ -29,6 +29,8 @@ class NotificationManager {
         
         UNUserNotificationCenter.current().add(request)
         
+        scheduleAdvanceNotification(for: newCar, date: newCar.nextMaintenanceDate, identifier: "advanceMaintenance")
+        
     }
     
     func insuranceNotification(for newCar: NewCarModel) {
@@ -44,6 +46,8 @@ class NotificationManager {
         let identifier = "inspection \(newCar.id.uuidString)"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
+        
+        scheduleAdvanceNotification(for: newCar, date: newCar.insuranceExpirationDate, identifier: "advanceInspection")
     }
     
     func carWashReminderNotification(for newCar: NewCarModel) {
@@ -89,6 +93,24 @@ class NotificationManager {
         cancelNotification(for: newCar, type: .inspection)
         insuranceNotification(for: newCar)
         carWashReminderNotification(for: newCar)
+    }
+    
+    func scheduleAdvanceNotification(for newCar: NewCarModel, date: Date, identifier: String) {
+        let advanceDate = Calendar.current.date(byAdding: .day, value: -14, to: date) ?? date
+        
+        let content = UNMutableNotificationContent()
+        content.title = identifier.contains("Maintenance") ? NSLocalizedString("Upcoming Maintenance", comment: "Title for upcoming maintenance reminder notification") : NSLocalizedString("Upcoming Inspection", comment: "Title for upcoming inspection reminder notification")
+        content.body = String(format: identifier.contains("Maintenance") ?  NSLocalizedString("The next maintenance for your %@ %@ is in two weeks.", comment: "Body for upcoming maintenance reminder notification") : NSLocalizedString("The next inspection for your %@ %@ is in two weeks.", comment: "Body for upcoming inspection reminder notification"), newCar.brand, newCar.model)
+        content.sound = .default
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: advanceDate)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "\(identifier) \(newCar.id.uuidString)", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
+        
     }
 }
     
