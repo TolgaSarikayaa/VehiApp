@@ -9,20 +9,20 @@ import Foundation
 import SwiftUI
 
 class ColorManager: ObservableObject {
-    private let colors: [Color] = [.red, .green, .blue, .orange, .purple, .yellow, .brown]
-        private var colorIndex: Int = 0
-        
-        @Published var colorMap: [String: Color] = [:]
+    @Published var colorMap: [String : Color] = [:]
+    private var usedColors: Set<Color> = []
 
         func setColor(for brand: String) {
             if colorMap[brand] == nil {
-                colorMap[brand] = getNextColor()
+                var newColor = Color.random
+                
+                while usedColors.contains(newColor) {
+                    newColor = Color.random
+                }
+                
+                colorMap[brand] = newColor
+                usedColors.insert(newColor)
+                
             }
-        }
-        
-        private func getNextColor() -> Color {
-            let color = colors[colorIndex % colors.count]
-            colorIndex += 1
-            return color
         }
     }

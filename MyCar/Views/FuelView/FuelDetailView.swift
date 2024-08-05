@@ -91,8 +91,8 @@ struct FuelDetailView: View {
 
                              
                               let labelPosition = CGPoint(
-                                  x: center.x + (radius * 0.8) * CGFloat(cos(midAngle.radians)),
-                                  y: center.y + (radius * 0.8) * CGFloat(sin(midAngle.radians))
+                                  x: center.x + (radius * 1.1) * CGFloat(cos(midAngle.radians)),
+                                  y: center.y + (radius * 1.1) * CGFloat(sin(midAngle.radians))
                               )
 
                               Path { path in
@@ -101,10 +101,11 @@ struct FuelDetailView: View {
                               }
                               .fill(colorMap[stat.brand] ?? .black)
 
-                            
-                              Text("\(String(format: "%.1f", percentage))%")
-                                  .position(labelPosition)
-                                  .font(.caption)
+                              if percentage > 3 {
+                                  Text("\(String(format: "%.1f", percentage))%")
+                                      .position(labelPosition)
+                                      .font(.caption)
+                              }
                           }
                       }
                       .overlay(
