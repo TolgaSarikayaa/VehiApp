@@ -77,8 +77,8 @@ struct NewCarCV: View {
                         }
                     }
                         .pickerStyle(MenuPickerStyle())
-                        .onChange(of: newCarModel.selectedBrandIndex) {
-                            newCarModel.selectedBrand = carListViewModel.carList[newCarModel.selectedBrandIndex].brand
+                        .onChange(of: newCarModel.selectedBrandIndex) { 
+                        updateModelPicker()
                         }
                      }
                     HStack {
@@ -232,6 +232,14 @@ struct NewCarCV: View {
             }
         }
     }
+    
+    private func updateModelPicker() {
+            let selectedBrand = carListViewModel.carList[newCarModel.selectedBrandIndex]
+            newCarModel.selectedBrand = selectedBrand.brand
+            newCarModel.selectedModelIndex = 0
+            newCarModel.selectedModel = selectedBrand.models.first ?? ""
+        }
+        
     
     private func checkContactsAccessAndPresentUserPicker() {
          // Request contacts access

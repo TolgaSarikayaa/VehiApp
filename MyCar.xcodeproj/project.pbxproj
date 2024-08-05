@@ -23,6 +23,7 @@
 		142142B82B94930200D60CF7 /* MainCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142142B72B94930100D60CF7 /* MainCV.swift */; };
 		14336EB22BCD52CC00FA118B /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14336EB12BCD52CC00FA118B /* Tip.swift */; };
 		143E2DDF2C524CCF00F72CF7 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E2DDE2C524CCF00F72CF7 /* AddUserView.swift */; };
+		144F366E2C60FC26003552A9 /* paywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F366D2C60FC26003552A9 /* paywallView.swift */; };
 		145763C92B6A80B200E2D295 /* CarsListCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763C82B6A80B200E2D295 /* CarsListCV.swift */; };
 		145763CB2B6BBFC600E2D295 /* CarEditCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763CA2B6BBFC600E2D295 /* CarEditCV.swift */; };
 		145763CD2B6C14CA00E2D295 /* CarDetailCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145763CC2B6C14CA00E2D295 /* CarDetailCV.swift */; };
@@ -109,6 +110,7 @@
 		142142B72B94930100D60CF7 /* MainCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCV.swift; sourceTree = "<group>"; };
 		14336EB12BCD52CC00FA118B /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		143E2DDE2C524CCF00F72CF7 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
+		144F366D2C60FC26003552A9 /* paywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paywallView.swift; sourceTree = "<group>"; };
 		145763C82B6A80B200E2D295 /* CarsListCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListCV.swift; sourceTree = "<group>"; };
 		145763CA2B6BBFC600E2D295 /* CarEditCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEditCV.swift; sourceTree = "<group>"; };
 		145763CC2B6C14CA00E2D295 /* CarDetailCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCV.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				14EDC3092BA1FDEB0058FB98 /* OnboardingData.swift */,
 				14EDC30B2BA1FFDB0058FB98 /* OnboardingView.swift */,
 				14EDC30D2BA34CE70058FB98 /* ContentView.swift */,
+				144F366D2C60FC26003552A9 /* paywallView.swift */,
 			);
 			path = OnBoardingView;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				145763CB2B6BBFC600E2D295 /* CarEditCV.swift in Sources */,
 				1404CA472B5F061900A248D7 /* NotificationManager.swift in Sources */,
 				1404C9FA2B4A025600A248D7 /* Constanst.swift in Sources */,
+				144F366E2C60FC26003552A9 /* paywallView.swift in Sources */,
 				141E8A882B42E13E00C4C3AF /* MyCarApp.swift in Sources */,
 				142142B62B9491F100D60CF7 /* FuelListCV.swift in Sources */,
 				142142B82B94930200D60CF7 /* MainCV.swift in Sources */,
@@ -747,7 +751,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.7;
+				MARKETING_VERSION = 2.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tolga.MyCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -788,7 +792,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.7;
+				MARKETING_VERSION = 2.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tolga.MyCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
