@@ -1133,6 +1133,9 @@
         }
       }
     },
+    "Go Premium" : {
+
+    },
     "Hybrid" : {
       "comment" : "Fuel type",
       "localizations" : {
@@ -1681,6 +1684,9 @@
         }
       }
     },
+    "OK" : {
+
+    },
     "Open in Maps" : {
       "localizations" : {
         "de" : {
@@ -1762,6 +1768,9 @@
           }
         }
       }
+    },
+    "Please try again" : {
+
     },
     "Price" : {
       "localizations" : {
@@ -2052,6 +2061,15 @@
         }
       }
     },
+    "Subscribe Now" : {
+
+    },
+    "Subscribed" : {
+
+    },
+    "Subscribed Failed" : {
+
+    },
     "The next inspection for your %@ %@ is in two weeks." : {
       "comment" : "Body for upcoming inspection reminder notification",
       "localizations" : {
@@ -2165,6 +2183,12 @@
         }
       }
     },
+    "Unlimited Access" : {
+
+    },
+    "Unlock all features and enjoy better experince" : {
+
+    },
     "Upcoming Inspection" : {
       "comment" : "Title for upcoming inspection reminder notification",
       "localizations" : {
@@ -2248,6 +2272,9 @@
           }
         }
       }
+    },
+    "You have successfuly subscribed" : {
+
     }
   },
   "version" : "1.0"
