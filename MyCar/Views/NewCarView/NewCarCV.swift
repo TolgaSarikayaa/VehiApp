@@ -22,6 +22,7 @@ struct NewCarCV: View {
     @State private var isUserPickerPresented = false
     @State private var isContactsAccessGranted = false
     @State private var imageSource: UIImagePickerController.SourceType = .photoLibrary
+    @State private var showingPaywall = false
     
 
     
@@ -189,12 +190,16 @@ struct NewCarCV: View {
                     }
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                          let newCar =  viewModel.saveCar(context: managedObjectContext, carModel: newCarModel)
-                            NotificationManager.shared.maintenanceDateNotification(for: newCar)
-                            NotificationManager.shared.insuranceNotification(for: newCar)
-                            NotificationManager.shared.carWashReminderNotification(for: newCar)
-                    
-                            dismiss()
+                            if carListViewModel.carList.count >= 1 {
+                                showingPaywall = true
+                            } else {
+                                let newCar =  viewModel.saveCar(context: managedObjectContext, carModel: newCarModel)
+                                NotificationManager.shared.maintenanceDateNotification(for: newCar)
+                                NotificationManager.shared.insuranceNotification(for: newCar)
+                                NotificationManager.shared.carWashReminderNotification(for: newCar)
+                                
+                                dismiss()
+                            }
                         } label: {
                             Image(systemName: "plus.app")
                         }.disabled(!isFormValid)
@@ -207,6 +212,9 @@ struct NewCarCV: View {
                        }
                 .sheet(isPresented: $isUserPickerPresented) {
                     AddUserView(user: $newCarModel.selectedUser, userImage: $newCarModel.selectedUserImage)
+                }
+                .sheet(isPresented: $showingPaywall) {
+                    paywallView()
                 }
             
         }.onAppear {
