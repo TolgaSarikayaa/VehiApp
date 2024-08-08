@@ -58,6 +58,7 @@
 		14EDC3122BA7002D0058FB98 /* FuelStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDC3112BA7002D0058FB98 /* FuelStats.swift */; };
 		14EDC3142BA702F70058FB98 /* FuelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDC3132BA702F70058FB98 /* FuelDetailView.swift */; };
 		14EDC3162BA70D1D0058FB98 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDC3152BA70D1D0058FB98 /* ColorManager.swift */; };
+		14F764F42C65455200A2B49D /* SubscriptionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F764F32C65455200A2B49D /* SubscriptionButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		14EDC3132BA702F70058FB98 /* FuelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelDetailView.swift; sourceTree = "<group>"; };
 		14EDC3152BA70D1D0058FB98 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		14EDC31F2BA8E7270058FB98 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		14F764F32C65455200A2B49D /* SubscriptionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +377,7 @@
 				14EDC30B2BA1FFDB0058FB98 /* OnboardingView.swift */,
 				14EDC30D2BA34CE70058FB98 /* ContentView.swift */,
 				144F366D2C60FC26003552A9 /* paywallView.swift */,
+				14F764F32C65455200A2B49D /* SubscriptionButtonView.swift */,
 			);
 			path = OnBoardingView;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				14E000182B4823D400660340 /* CarViewModel.swift in Sources */,
 				14EDC30C2BA1FFDB0058FB98 /* OnboardingView.swift in Sources */,
 				14EDC3142BA702F70058FB98 /* FuelDetailView.swift in Sources */,
+				14F764F42C65455200A2B49D /* SubscriptionButtonView.swift in Sources */,
 				14D7D4872B9B602F007F2483 /* NewCarViewModel.swift in Sources */,
 				14EDC30E2BA34CE70058FB98 /* ContentView.swift in Sources */,
 				14BAB0FB2C29655E003A9648 /* BeantownButtons.swift in Sources */,

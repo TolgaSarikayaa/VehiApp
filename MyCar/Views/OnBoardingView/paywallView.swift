@@ -10,21 +10,12 @@ import SwiftUI
 struct paywallView: View {
     @State private var isSubscribed: Bool = false
     @State private var showAlert = false
-    @State private var isMonthlyButtonTapped: Bool = false
-    @State private var isAnnualButtonTapped: Bool = false
+    @State private var selectedSubscription: SubscriptionType?
     
     
     
     var body: some View {
         VStack {
-//            Image("icon")
-//                .resizable()
-//                .background(Color.white)
-//                .cornerRadius(15)
-//                .padding()
-//                .aspectRatio(contentMode: .fill)
-//                .frame(width: 250, height: 250)
-            
             VStack(spacing: 5) {
                 Text("Go Premium")
                     .font(.largeTitle)
@@ -70,35 +61,31 @@ struct paywallView: View {
              Spacer()
             
             Button {
-                isMonthlyButtonTapped.toggle()
+                selectedSubscription = .monthly
             } label: {
-                Text("Unlock now for $4.99 Monthly")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(
-                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(isMonthlyButtonTapped ? Color.green : Color.gray, lineWidth: 2)
-                    )
-                    .padding(.horizontal)
+               SubscriptionButtonView(
+                label: "",
+                planName: "Monthly" ,
+                price: "4.99$",
+                isSelected: selectedSubscription == .monthly)
             }
             
-            Button {
-                isAnnualButtonTapped.toggle()
-            } label: {
-                Text("Unlock now for $29.99 Annual")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(isAnnualButtonTapped ? Color.green : Color.gray, lineWidth: 2)
-                    )
-                    .padding(.horizontal)
-            }
+            .padding(.bottom)
             
             Button {
-                
+                selectedSubscription = .annual
+            } label: {
+              SubscriptionButtonView(
+                label: "MOST POPULAR",
+                planName: "Annual",
+                price: "29.99$",
+                isSelected: selectedSubscription == .annual)
+            }
+            
+            .padding(.bottom)
+            
+            Button {
+              subscribeUser()
             } label: {
                 Text("Go Premium")
                     .font(.headline)
@@ -122,10 +109,25 @@ struct paywallView: View {
     }
     
     private func subscribeUser() {
-        // Add subscription logic here
-       // This is just a placeholder for demonstration
+        guard let subscription = selectedSubscription else {
+          showAlert = true
+            return
+        }
+        
+        switch subscription {
+        case .monthly:
+            print("Monthly subscription selected")
+        case .annual:
+            print("Annual subscription selected")
+        }
+        
         isSubscribed = true
         showAlert = true
+    }
+    
+    enum SubscriptionType {
+            case monthly
+            case annual
     }
 }
 
